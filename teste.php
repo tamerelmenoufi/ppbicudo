@@ -366,7 +366,7 @@ class SimpleXLSX {
 
 
 
-$arq = 'arquivo_existente2.xlsx';
+$arq = 'resumo.xlsx';
 // Utilizacao:
 $xlsx = new SimpleXLSX($arq);
 $dados = $xlsx->rows();
