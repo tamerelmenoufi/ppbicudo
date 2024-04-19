@@ -1,6 +1,6 @@
 <?php
 
-    include("connect.php");
+    include("/ppbicudoinc/connect.php");
     $con = AppConnect();
 
     $query = "select * from contatos";
