@@ -1,7 +1,7 @@
 <?php
 
     include("connect.php");
-    $con = AppConnect("app");
+    $con = AppConnect();
 
     $query = "select * from contatos";
     $result = mysqli_query($con, $query);
