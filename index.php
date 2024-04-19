@@ -1,6 +1,7 @@
 <?php
 
-    $con = mysqli_connect("mysql","mysql","SenhaDoBanco", "app");
+    include("connect.php");
+    $con = AppConnect("app");
 
     $query = "select * from contatos";
     $result = mysqli_query($con, $query);
