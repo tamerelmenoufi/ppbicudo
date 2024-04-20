@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("/appinc/connect.php");
+    include("/ppbicudoinc/connect.php");
     include "confBk.php";
     include("fn.php");
     include("wappBk.php");
