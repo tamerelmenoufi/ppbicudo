@@ -1,8 +1,6 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
 
-    //Agora tudo vai começar!!!
-
     if($_SESSION['appLogin']){
         $url = "src/home/index.php";
     }else{
@@ -16,7 +14,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="img/icone.png">
-    <title>YOBOM - Painel de Controle</title>
+    <title>PPBICUDO - Painel de Controle</title>
     <?php
     include("lib/header.php");
     ?>
