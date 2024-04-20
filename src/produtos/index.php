@@ -1,5 +1,5 @@
 <?php
-    include("{$_SERVER['DOCUMENT_ROOT']}/rlvendas/panel/lib/includes.php");
+    include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
 
     if($_POST['categoria']) $_SESSION['categoria'] = $_POST['categoria'];
 
