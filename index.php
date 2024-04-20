@@ -3,12 +3,6 @@
 
     //Agora tudo vai começar!!!
 
-    if($_GET['s']){
-        $_SESSION = [];
-        header("location:./");
-        exit();
-    }
-
     if($_SESSION['appLogin']){
         $url = "src/home/index.php";
     }else{
