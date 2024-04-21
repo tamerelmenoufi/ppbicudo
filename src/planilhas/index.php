@@ -222,6 +222,7 @@
                     planilha
                 },
                 success:function(dados){
+                  console.log(dados);
                   $.alert({
                     content:dados.mensagem,
                     classColumn:'col-md-12'
