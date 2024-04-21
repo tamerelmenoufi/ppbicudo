@@ -175,12 +175,14 @@
         $(".situacao").click(function(){
 
             situacao = $(this).attr("situacao");
+            planilha = $(this).attr("planilha");
 
             $.ajax({
                 url:"src/planilhas/index.php",
                 type:"POST",
                 data:{
                     situacao,
+                    planilha
                 },
                 success:function(dados){
                   $.alert({
