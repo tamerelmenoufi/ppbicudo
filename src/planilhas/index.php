@@ -26,33 +26,15 @@
 
       $result = json_decode($result);
 
-      $i = 0;
       foreach($result as $l => $dados){
+        $query = "INSERT INTO relatorio SET ";
         $valores = [];
-        $linhas = [];
-
-        foreach($dados as $campo => $valor){
-          $campos[$campo] = $campo;
-          $valores[] = "'{$valor}'";
-
-          if($i%3 == 0){
-            if($i>0){
-              $query = implode(', ', $linhas);
-              $linhas = [];
-            }else{
-              $query = false;
-            }
-            $query = "INSERT INTO planilhas (".implode(', ',$campos).") VALUES ".$query;
-          }
-
+        foreach($dados as $i => $val){
+          $valores[] = "`{$i}` = '{$val}'";
         }
-
-        $linhas[]= "('".implode("', '", $valores)."')";
-      $i++;
+        $query .= implode(", ",$valores);
+        echo $query."<hr>";
       }
-
-      echo $query;
-
 
       exit();
     }
