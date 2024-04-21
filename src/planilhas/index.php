@@ -68,7 +68,7 @@
                   <td style="white-space: nowrap;"><?=dataBr($d->data)?></td>
                   <td style="white-space: nowrap;"><?=$d->usuario_nome?></td>
                   <td style="white-space: nowrap;">
-                    <i class="fa-solid fa-file-arrow-up text-<?=(($d->situacao == '1')?'success':'secondary')?>" <?=(($d->situacao == '1')?false:'style="cursor:pointer"')?>></i>
+                    <i class="fa-solid fa-file-arrow-up text-<?=(($d->situacao == '1')?'success':'secondary')?>" style="font-size:30px; <?=(($d->situacao == '1')?false:'cursor:pointer')?>"></i>
                   </td>
                   <td style="white-space: nowrap;">
                     <button class="btn btn-danger btn-sm" deletar="<?=$d->codigo?>" imagem="<?=$d->imagem?>">
