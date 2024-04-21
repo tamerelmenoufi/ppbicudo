@@ -22,7 +22,7 @@ echo "<table border = '1'>";
 
 for ($row = 1; $row <= $highestRow; $row++) {
     echo "<tr>";
-    for ($col = 'A'; $col <= $highestColumn; $col++) {
+    for ($col = 'B'; $col <= $highestColumn; $col++) {
         $cellValue = $worksheet->getCell($col . $row)->getValue();
         // Faça algo com o valor da célula, por exemplo, exiba-o
         // echo "Valor na célula {$col}{$row}: " . $cellValue . "<br>";
