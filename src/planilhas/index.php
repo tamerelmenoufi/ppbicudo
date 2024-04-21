@@ -121,7 +121,7 @@
               </thead>
               <tbody>
                 <?php
-                  $query = "select a.*, b.nome as usuario_nome, o.nome as origem, (select count(*) from relatorio where planilha = a.codigo) as registros from planilhas a left join usuarios b on a.usuario = b.codigo left join origens o on a.origem = o.codigo order by a.data desc";
+                  $query = "select a.*, b.nome as usuario_nome, o.nome as origem, (select count(*) from relatorio where planilha = a.codigo) as registros from planilhas a left join usuarios b on a.usuario = b.codigo left join origens o on a.origem = o.codigo order by a.data desc limit 100";
                   $result = mysqli_query($con, $query);
                   while($d = mysqli_fetch_object($result)){
                 ?>
