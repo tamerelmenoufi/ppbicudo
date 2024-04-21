@@ -65,7 +65,7 @@
                 </thead>
                 <tbody>
                   <?php
-                    $query = "select a.*, (select count(*) from relatorio where planilha = a.codigo) as quantidade from origens a where a.deletado != '1' order by a.nome asc";
+                    $query = "select a.*, (select count(*) from planilhas where origem = a.codigo) as quantidade from origens a where a.deletado != '1' order by a.nome asc";
                     $result = mysqli_query($con,$query);
                     
                     while($d = mysqli_fetch_object($result)){
