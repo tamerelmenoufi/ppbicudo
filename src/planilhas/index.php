@@ -94,7 +94,7 @@
 
         $("button[novoCadastro]").click(function(){
             $.ajax({
-                url:"site/planilhas/form.php",
+                url:"src/planilhas/form.php",
                 success:function(dados){
                     $(".LateralDireita").html(dados);
                 }
@@ -114,7 +114,7 @@
                         btnClass:'btn btn-danger',
                         action:function(){
                             $.ajax({
-                                url:"site/planilhas/lista.php",
+                                url:"src/planilhas/lista.php",
                                 type:"POST",
                                 data:{
                                     deletar,
@@ -148,7 +148,7 @@
             }
 
             $.ajax({
-                url:"site/planilhas/lista.php",
+                url:"src/planilhas/lista.php",
                 type:"POST",
                 data:{
                     situacao,

@@ -98,7 +98,7 @@
         data = $( this ).serialize();
 
         $.ajax({
-          url:"site/planilhas/form.php",
+          url:"src/planilhas/form.php",
           type:"POST",
           data,
           success:function(dados){
@@ -117,7 +117,7 @@
 
             $("div[lista]").html('');
             $.ajax({
-              url:"site/planilhas/index.php",
+              url:"src/planilhas/index.php",
               success:function(dados){
                   $("#paginaHome").html(dados);
               }
