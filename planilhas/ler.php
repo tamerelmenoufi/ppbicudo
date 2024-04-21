@@ -39,7 +39,12 @@ for ($row = 1; $row <= $highestRow; $row++) {
             }
         }else{
             if($campos[$col]){
-                $retorno[$row][$campos[$col]] = $cellValue;
+                if($col == 'A' or $col == 'B'){
+                    $retorno[$row][$campos[$col]] = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($cellValue)->format('d/m/Y H:i:s');
+                }else{
+                    $retorno[$row][$campos[$col]] = $cellValue;
+                }
+                
             }
         }
 
