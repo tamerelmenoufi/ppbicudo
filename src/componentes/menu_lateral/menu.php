@@ -12,7 +12,7 @@
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <h5>Yobom - Painel</h5>
+    <h5>P P Bicudo - Painel</h5>
   
     <div class="row mb-1">
       <div class="col">
