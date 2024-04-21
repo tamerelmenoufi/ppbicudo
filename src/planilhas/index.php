@@ -139,9 +139,15 @@
                     ></i> <?=(($d->registros)?:false)?>
                   </td>
                   <td style="white-space: nowrap;">
+                  <?php
+                  if($d->registros){
+                  ?>
                     <button class="btn btn-danger btn-sm" deletar="<?=$d->codigo?>" planilha="<?=$d->planilha?>">
                     <i class="fa-solid fa-trash-can"></i> Excluir
                     </button>
+                  <?php
+                  }
+                  ?>
                   </td>
                 </tr>
                 <?php
