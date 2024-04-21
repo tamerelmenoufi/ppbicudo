@@ -65,8 +65,19 @@
                     <input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF" value="<?=$d->cpf?>">
                     <label for="cpf">CPF*</label>
                 </div>
+
                 <div class="form-floating mb-3">
+                    <?php
+                    if($d->codigo == 1){
+                    ?>
+                    <div class="form-control"><?=$d->usuario?>"</div>
+                    <?php
+                    }else{
+                    ?>
                     <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuário" value="<?=$d->usuario?>">
+                    <?php
+                    }
+                    ?>
                     <label for="usuario">Usuário</label>
                 </div>
 
