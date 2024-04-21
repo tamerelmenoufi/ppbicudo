@@ -3,15 +3,6 @@
     require '../../planilhas/vendor/autoload.php'; // Caminho para o autoload gerado pelo Composer
     use PhpOffice\PhpSpreadsheet\IOFactory;
 
-    
-    if($_POST['deletar']){
-      if($_POST['planilha']){
-          unlink("../volume/planilhas/".$_POST['planilha']);
-      }
-      $query = "delete from planilhas where codigo = '{$_POST['deletar']}'";
-      mysqli_query($con, $query);
-    }
-
     if($_POST['situacao']){
 
       $xlsxFilePath = "../volume/planilhas/".$_POST['planilha'];
@@ -42,6 +33,13 @@
       exit();
     }
 
+    if($_POST['deletar']){
+      if($_POST['planilha']){
+          unlink("../volume/planilhas/".$_POST['planilha']);
+      }
+      $query = "delete from planilhas where codigo = '{$_POST['deletar']}'";
+      mysqli_query($con, $query);
+    }
 
 ?>
 <style>
