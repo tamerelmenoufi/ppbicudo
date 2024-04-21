@@ -220,7 +220,7 @@
                 url:"src/planilhas/index.php",
                 type:"POST",
                 typeData:"JSON",
-                mimeType: 'multipart/form-data',
+                // mimeType: 'multipart/form-data',
                 data:{
                     situacao,
                     planilha
