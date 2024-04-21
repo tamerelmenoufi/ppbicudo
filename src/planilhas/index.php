@@ -19,7 +19,7 @@
           )
       );
       $context  = stream_context_create($opts);
-      echo $result = file_get_contents("{$urlPainel}planilhas/ler.php", false, $context);
+      $result = file_get_contents("{$urlPainel}planilhas/ler.php", false, $context);
       $result = json_decode($result);
 
       $remove = [
@@ -54,7 +54,7 @@
           }
         }
         $query .= implode(", ",$valores);
-        echo $query."<hr>";
+        // echo $query."<hr>";
         $comandos[] = $query;
         if(mysqli_query($con, $query)){
           $quantidade++;
@@ -221,8 +221,8 @@
             $.ajax({
                 url:"src/planilhas/index.php",
                 type:"POST",
-                // dataType:"JSON",
-                // mimeType: 'multipart/form-data',
+                dataType:"JSON",
+                mimeType: 'multipart/form-data',
                 data:{
                     situacao,
                     planilha
@@ -233,12 +233,12 @@
                     content:dados,
                     columnClass:'col-md-12'
                   });
-                  // obj.removeClass("text-secondary");
-                  // obj.addClass("text-success");
-                  // obj.css("cursor","");
-                  // obj.attr("planilha","");
-                  // obj.attr("situacao","");
-                  // obj.parent("td").append(dados.quantidade);
+                  obj.removeClass("text-secondary");
+                  obj.addClass("text-success");
+                  obj.css("cursor","");
+                  obj.attr("planilha","");
+                  obj.attr("situacao","");
+                  obj.parent("td").append(dados.quantidade);
 
                     // $("#paginaHome").html(dados);
                 }
