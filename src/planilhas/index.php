@@ -23,7 +23,8 @@
       $retorno = [];
 
       for ($row = 1; $row <= $highestRow; $row++) {
-          for ($col = 'A'; $col <= $highestColumn; $col++) {
+          // for ($col = 'A'; $col <= $highestColumn; $col++) {
+          for ($col = 0; $col < 49; $col++) {
               $cellValue = $worksheet->getCell($col . $row)->getValue();
               // Faça algo com o valor da célula, por exemplo, exiba-o
                echo "Valor na célula {$col}{$row}: " . $cellValue . "<br>";
