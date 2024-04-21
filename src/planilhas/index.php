@@ -58,7 +58,7 @@
               </thead>
               <tbody>
                 <?php
-                  $query = "select a.*, b.nome as usuario_nome from planilhas a lefy join usuarios b on a.usuario = b.codigo order by a.data desc";
+                  $query = "select a.*, b.nome as usuario_nome from planilhas a left join usuarios b on a.usuario = b.codigo order by a.data desc";
                   $result = mysqli_query($con, $query);
                   while($d = mysqli_fetch_object($result)){
                 ?>
