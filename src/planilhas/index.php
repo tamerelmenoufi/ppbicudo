@@ -30,20 +30,25 @@
       foreach($result as $l => $dados){
         $valores = [];
         $linhas = [];
+        
         foreach($dados as $campo => $valor){
           $campos[$campo] = $campo;
           $valores[] = "'{$valor}'";
-        }
-        if($i%3 == 0){
-          if($i>0){
-            $query = implode(', ', $linhas);
-            $linhas = [];
-          }else{
-            $query;
+
+          if($i%3 == 0){
+            if($i>0){
+              $query = implode(', ', $linhas);
+              $linhas = [];
+            }else{
+              $query = false;
+            }
+            $query = "INSERT INTO planilhas (".implode(', ',$campos).") VALUES ".$query;
           }
-          $query = "INSERT INTO planilhas (".implode(', ',$campos).") VALUES ".$query;
+
         }
+
         $linhas[]= "('".implode("', '", $valores)."')";
+      
       }
 
       echo $query;
