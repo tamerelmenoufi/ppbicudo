@@ -2,8 +2,8 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
 
     if($_POST['deletar']){
-        if($_POST['imagem']){
-            unlink("../volume/planilhas/".$_POST['imagem']);
+        if($_POST['planilha']){
+            unlink("../volume/planilhas/".$_POST['planilha']);
         }
         $query = "delete from planilhas where codigo = '{$_POST['deletar']}'";
         mysqli_query($con, $query);
@@ -71,7 +71,7 @@
                     <i class="fa-solid fa-file-arrow-up text-<?=(($d->situacao == '1')?'success':'secondary')?>" style="font-size:30px; <?=(($d->situacao == '1')?false:'cursor:pointer')?>"></i>
                   </td>
                   <td style="white-space: nowrap;">
-                    <button class="btn btn-danger btn-sm" deletar="<?=$d->codigo?>" imagem="<?=$d->imagem?>">
+                    <button class="btn btn-danger btn-sm" deletar="<?=$d->codigo?>" planilha="<?=$d->planilha?>">
                     <i class="fa-solid fa-trash-can"></i> Excluir
                     </button>
                   </td>
@@ -107,7 +107,7 @@
 
         $("button[deletar]").click(function(){
             deletar = $(this).attr("deletar");
-            imagem = $(this).attr("imagem");
+            planilha = $(this).attr("planilha");
             $.confirm({
                 content:"Deseja realmente excluir o cadastro ?",
                 title:false,
@@ -118,11 +118,11 @@
                         btnClass:'btn btn-danger',
                         action:function(){
                             $.ajax({
-                                url:"src/planilhas/lista.php",
+                                url:"src/planilhas/index.php",
                                 type:"POST",
                                 data:{
                                     deletar,
-                                    imagem
+                                    planilha
                                 },
                                 success:function(dados){
                                   console.log(dados);
@@ -152,7 +152,7 @@
             }
 
             $.ajax({
-                url:"src/planilhas/lista.php",
+                url:"src/planilhas/index.php",
                 type:"POST",
                 data:{
                     situacao,
