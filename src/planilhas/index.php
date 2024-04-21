@@ -14,7 +14,7 @@
 
     if($_POST['situacao']){
 
-      $xlsxFilePath = '../../planilhas/modelo.xlsx';
+      $xlsxFilePath = "../volume/planilhas/".$_POST['planilha'];
       $spreadsheet = IOFactory::load($xlsxFilePath);
       $worksheet = $spreadsheet->getActiveSheet();
       $highestRow = $worksheet->getHighestRow();
@@ -35,7 +35,7 @@
       }
 
       echo json_encode($retorno);
-      
+
       // $query = "update planilhas set situacao = '{$_POST['opc']}' where codigo = '{$_POST['situacao']}'";
       // mysqli_query($con, $query);
       exit();
@@ -94,7 +94,12 @@
                   <td style="white-space: nowrap;"><?=dataBr($d->data)?></td>
                   <td style="white-space: nowrap;"><?=$d->usuario_nome?></td>
                   <td style="white-space: nowrap;">
-                    <i situacao="<?=$d->codigo?>" class="fa-solid fa-file-arrow-up text-<?=(($d->situacao == '1')?'success':'secondary situacao')?>" style="font-size:30px; <?=(($d->situacao == '1')?false:'cursor:pointer')?>"></i>
+                    <i 
+                      situacao="<?=$d->codigo?>" 
+                      planilha="<?=$d->planilha?>" 
+                      class="fa-solid fa-file-arrow-up text-<?=(($d->situacao == '1')?'success':'secondary situacao')?>" 
+                      style="font-size:30px; <?=(($d->situacao == '1')?false:'cursor:pointer')?>"
+                    ></i>
                   </td>
                   <td style="white-space: nowrap;">
                     <button class="btn btn-danger btn-sm" deletar="<?=$d->codigo?>" planilha="<?=$d->planilha?>">
