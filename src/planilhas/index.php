@@ -25,7 +25,7 @@
           for ($col = 'A'; $col <= $highestColumn; $col++) {
               $cellValue = $worksheet->getCell($col . $row)->getValue();
               // Faça algo com o valor da célula, por exemplo, exiba-o
-              // echo "Valor na célula {$col}{$row}: " . $cellValue . "<br>";
+               echo "Valor na célula {$col}{$row}: " . $cellValue . "<br>";
               if($row == 1){
                 $campos[$col] = $cellValue;
               }else{
