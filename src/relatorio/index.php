@@ -90,7 +90,7 @@
                     <td class="text-nowrap">R$<?=number_format($d->CustoEnvioSeller,2,',','.')?></td>
                     <td class="text-nowrap">R$<?=number_format(($d->TarifaGatwayPagamento + $d->TarifaMarketplace),2,',','.')?></td>
                     <td class="text-nowrap">R$<?=number_format(($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace),2,',','.')?></td>
-                    <td class="text-nowrap">R$<?=number_format($d->frete,2,',','.')?></td>
+                    <td class="text-nowrap"><?=$d->frete?></td>
                     <td class="text-nowrap"><?=number_format($d->Porcentagem,2,',','.')?>%</td>
                     <td class="text-nowrap"><?=$d->codigoPedido?></td>
                   </tr>
