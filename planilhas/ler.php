@@ -2,6 +2,7 @@
 
 require 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 $xlsxFilePath = $_POST['arquivo'];
 $spreadsheet = IOFactory::load($xlsxFilePath);
 $worksheet = $spreadsheet->getActiveSheet();
