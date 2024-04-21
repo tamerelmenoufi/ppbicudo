@@ -19,7 +19,7 @@
           )
       );
       $context  = stream_context_create($opts);
-      $result = file_get_contents("{$urlPainel}planilhas/ler.php", false, $context);
+      echo $result = file_get_contents("{$urlPainel}planilhas/ler.php", false, $context);
       $result = json_decode($result);
 
       $remove = [
