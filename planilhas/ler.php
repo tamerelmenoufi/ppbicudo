@@ -17,7 +17,7 @@ for ($row = 1; $row <= $highestRow; $row++) {
 
     foreach ($cols as $i => $col) {
         $cellValue = $worksheet->getCell($col . $row)->getValue();
-        $cell = $sheet->getCellByColumnAndRow($col, $row);
+        $cell = $worksheet->getCellByColumnAndRow($col, $row);
 
         if($row == 1){
             if($cellValue){
