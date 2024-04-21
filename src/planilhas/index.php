@@ -27,14 +27,14 @@
               // Faça algo com o valor da célula, por exemplo, exiba-o
                echo "Valor na célula {$col}{$row}: " . $cellValue . "<br>";
               if($row == 1){
-                $campos[$col] = $cellValue;
+                echo $campos[$col] = $cellValue;
               }else{
                 $retorno[][$campos[$col]] = $cellValue;
               }
           }
       }
 
-      echo json_encode($retorno);
+      // echo json_encode($retorno);
 
       // $query = "update planilhas set situacao = '{$_POST['opc']}' where codigo = '{$_POST['situacao']}'";
       // mysqli_query($con, $query);
