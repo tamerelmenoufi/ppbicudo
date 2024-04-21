@@ -217,7 +217,7 @@
             $.ajax({
                 url:"src/planilhas/index.php",
                 type:"POST",
-                dataType:"JSON",
+                typeData:"JSON",
                 data:{
                     situacao,
                     planilha
