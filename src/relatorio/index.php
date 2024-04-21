@@ -37,12 +37,9 @@
     cursor: pointer;
   }
   td, th{
-    white-space: nowrap;
+    font-size:12px;
   }
-  .label{
-    font-size:10px;
-    color:#a1a1a1;
-  }
+
 </style>
 <div class="col">
   <div class="m-3">
