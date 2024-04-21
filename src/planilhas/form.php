@@ -24,7 +24,7 @@
         if(!is_dir("../volume")) mkdir("../volume");
         if(!is_dir("../volume/planilhas")) mkdir("../volume/planilhas");
         if(file_put_contents("../volume/planilhas/".$nome, $img)){
-          $dados['imagem'] = $nome;
+          $dados['planilha'] = $nome;
           $dados['lote'] = md5($nome.date("YmdHis"));
           $dados['data'] = date("Y-m-d H:i:s");
           $dados['usuario'] = $_SESSION['appLogin']->codigo;
