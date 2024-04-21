@@ -70,7 +70,7 @@
     <form id="acaoMenu">
 
         <div class="form-floating mb-3">
-            <select name="origem" id="origem">
+            <select name="origem" id="origem" class="form-select">
               <?php
               $q = "select * from origens order by nome asc";
               $result = mysqli_query($con, $q);
