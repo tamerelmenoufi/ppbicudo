@@ -11,7 +11,6 @@
               'arquivo' => "../src/volume/planilhas/".$_POST['planilha']
           )
       );
-      
       $opts = array('http' =>
           array(
               'method'  => 'POST',
@@ -19,18 +18,33 @@
               'content' => $postdata
           )
       );
-      
       $context  = stream_context_create($opts);
-      
       $result = file_get_contents("{$urlPainel}planilhas/ler.php", false, $context);
-
       $result = json_decode($result);
+
+      $remove = [
+        'dataAprovacao',
+        'Status',
+        'idItem',
+        'precoUnitario',
+        'quantidade',
+        'condicao',
+        'tipoAnuncio',
+        'CarrinhoMercadoLivre',
+        'OutrasEntradas',
+        'TarifaEnvio',
+        'Sobrou',
+        'PrecoBase',
+        'TotalLiquido'
+      ];
 
       foreach($result as $l => $dados){
         $query = "INSERT INTO relatorio SET ";
         $valores = [];
         foreach($dados as $i => $val){
-          $valores[] = "`{$i}` = '{$val}'";
+          if(!in_array($i,$remove)){
+            $valores[] = "`{$i}` = '{$val}'";
+          }
         }
         $query .= implode(", ",$valores);
         echo $query."<hr>";
