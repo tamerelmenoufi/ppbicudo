@@ -70,7 +70,17 @@
     <form id="acaoMenu">
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título da Planilha" value="<?=$d->titulo?>">
+            <select name="origem" id="origem">
+              <?php
+              $q = "select * from origens order by nome asc";
+              $result = mysqli_query($con, $q);
+              while($o = mysqli_fetch_object($r)){
+              ?>
+              <option value="<?=$o->codigo?>"><?=$o->nome?></option>              
+              <?php
+              }
+              ?>
+            </select>
             <label for="titulo">Título da Planilha*</label>
         </div>
 

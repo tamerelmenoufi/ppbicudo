@@ -98,7 +98,7 @@
               <thead>
                 <tr>
                   <th scope="col">Lote</th>
-                  <th scope="col">Título</th>
+                  <th scope="col">Origem</th>
                   <th scope="col">Data</th>
                   <th scope="col">Usuário</th>
                   <th scope="col">Situação</th>
@@ -107,13 +107,13 @@
               </thead>
               <tbody>
                 <?php
-                  $query = "select a.*, b.nome as usuario_nome from planilhas a left join usuarios b on a.usuario = b.codigo order by a.data desc";
+                  $query = "select a.*, b.nome as usuario_nome, o.nome as origem from planilhas a left join usuarios b on a.usuario = b.codigo left join origens o on a.origem = o.codigo order by a.data desc";
                   $result = mysqli_query($con, $query);
                   while($d = mysqli_fetch_object($result)){
                 ?>
                 <tr>
                   <td style="white-space: nowrap;"><?=$d->lote?></td>
-                  <td style="white-space: nowrap;"><?=$d->titulo?></td>
+                  <td style="white-space: nowrap;"><?=$d->origem?></td>
                   <td style="white-space: nowrap;"><?=dataBr($d->data)?></td>
                   <td style="white-space: nowrap;"><?=$d->usuario_nome?></td>
                   <td style="white-space: nowrap;">
