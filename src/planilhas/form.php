@@ -14,7 +14,7 @@
 
       if($_POST['base64'] and $_POST['imagem_tipo'] and $_POST['imagem_nome']){
 
-        if($_POST['imagem']) unlink("../volume/planilhas/{$_POST['imagem']}");
+        if($_POST['planilha']) unlink("../volume/planilhas/{$_POST['imagem']}");
 
         $base64 = explode('base64,', $_POST['base64']);
         $img = base64_decode($base64[1]);
@@ -78,7 +78,7 @@
         <input type="hidden" id="base64" name="base64" value="" />
         <input type="hidden" id="imagem_tipo" name="imagem_tipo" value="" />
         <input type="hidden" id="imagem_nome" name="imagem_nome" value="" />
-        <input type="hidden" id="imagem" name="imagem" value="<?=$d->imagem?>" />
+        <input type="hidden" id="planilha" name="planilha" value="<?=$d->planilha?>" />
         <div class="form-text mb-3">Selecione a planilha para importação</div>
 
 
