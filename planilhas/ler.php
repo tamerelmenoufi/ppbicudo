@@ -2,7 +2,6 @@
 
 require 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\IOFactory;
-use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 $xlsxFilePath = $_POST['arquivo'];
 $spreadsheet = IOFactory::load($xlsxFilePath);
 $worksheet = $spreadsheet->getActiveSheet();
@@ -18,8 +17,6 @@ for ($row = 1; $row <= $highestRow; $row++) {
 
     foreach ($cols as $i => $col) {
         $cellValue = $worksheet->getCell($col . $row)->getValue();
-        $cell = $worksheet->getCellByColumnAndRow($col, $row);
-
         if($row == 1){
             if($cellValue){
                 $campos[$col] = $cellValue;
@@ -27,10 +24,10 @@ for ($row = 1; $row <= $highestRow; $row++) {
         }else{
             if($campos[$col]){
 
-                if ($cell->getDataType() === \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_NUMERIC && \PhpOffice\PhpSpreadsheet\Shared\Date::isDateTime($cell)) {
-                // if($col == 'A' or $col == 'B'){
-                    $retorno[$row][$campos[$col]] = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($cellValue)->format('Y-m-d H:i:s');
-                    // $retorno[$row][$campos[$col]] = $cellValue;
+                // if ($cell->getDataType() === \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_NUMERIC && \PhpOffice\PhpSpreadsheet\Shared\Date::isDateTime($cell)) {
+                if($col == 'A' or $col == 'B'){
+                    // $retorno[$row][$campos[$col]] = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($cellValue)->format('Y-m-d H:i:s');
+                    $retorno[$row][$campos[$col]] = $cell->getPlainText();
                 }else{
                     if(in_array($campos[$col],['TarifaEnvio','TarifaMarketplace'])) $cellValue = $cellValue*(-1);
                     $retorno[$row][$campos[$col]] = $cellValue;
