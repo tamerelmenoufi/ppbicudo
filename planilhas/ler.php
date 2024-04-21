@@ -32,7 +32,14 @@ for ($row = 1; $row <= $highestRow; $row++) {
     foreach ($cols as $i => $col) {
         // $cellValue = $worksheet->getCell($col . $row)->getValue();
         $cellValue = $worksheet->getCell($col . $row)->getValue();
-        $retorno[$row][$col] = $cellValue;
+
+        if($row == 1){
+            $campos[$col] = $cellValue;
+        }else{
+            $retorno[$row][$campos[$col]] = $cellValue;
+        }
+
+        // $retorno[$row][$col] = $cellValue;
         // Faça algo com o valor da célula, por exemplo, exiba-o
         // echo "Valor na célula {$col}{$row}: " . $cellValue . "<br>";
         // echo "<td>" . $cellValue . "</td>";
