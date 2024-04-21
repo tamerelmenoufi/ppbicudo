@@ -238,7 +238,7 @@
                   $.alert({
                     title:"Alerta de Importação",
                     content:dados.mensagem,
-                    columnClass:'col-md-12'
+                    // columnClass:'col-md-12'
                   });
                   obj.removeClass("text-secondary");
                   obj.addClass("text-success");
