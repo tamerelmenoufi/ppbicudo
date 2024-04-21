@@ -42,6 +42,18 @@
           <h5 class="card-header">Lista de Usuários</h5>
           <div class="card-body">
 
+            <div class="d-flex justify-content-end mb-3">
+                <button
+                    novoCadastro
+                    class="btn btn-success btn-sm"
+                    data-bs-toggle="offcanvas"
+                    href="#offcanvasDireita"
+                    role="button"
+                    aria-controls="offcanvasDireita"
+                    style="margin-left:20px;"
+                >Novo</button>
+            </div>
+
             <div class="table-responsive d-none d-md-block">
               <table class="table table-striped table-hover">
                 <thead>
