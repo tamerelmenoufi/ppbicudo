@@ -22,34 +22,33 @@
       
       $context  = stream_context_create($opts);
       
-      echo $result = file_get_contents("{$urlPainel}planilhas/ler.php", false, $context);
+      $result = file_get_contents("{$urlPainel}planilhas/ler.php", false, $context);
+
+      $result = json_decode($result);
+
+      $i = 0;
+      foreach($result as $l => $dados){
+        $valores = [];
+        $linhas = [];
+        foreach($dados as $campo => $valor){
+          $campos[$campo] = $campo;
+          $valores[] = "'{$valor}'";
+        }
+        if($i%3 == 0){
+          if($i>0){
+            $query = implode(', ', $linhas);
+            $linhas = [];
+          }else{
+            $query;
+          }
+          $query = "INSERT INTO planilhas (".implode(', ',$campos).") VALUES ".$query;
+        }
+        $linhas[]= "('".implode("', '", $valores)."')";
+      }
+
+      echo $query;
 
 
-      // $xlsxFilePath = "../volume/planilhas/".$_POST['planilha'];
-      // $spreadsheet = IOFactory::load($xlsxFilePath);
-      // $worksheet = $spreadsheet->getActiveSheet();
-      // $highestRow = $worksheet->getHighestRow();
-      // $highestColumn = $worksheet->getHighestColumn();
-      // $campos = [];
-      // $retorno = [];
-
-      // for ($row = 1; $row <= $highestRow; $row++) {
-      //      for ($col = 'A'; $col <= $highestColumn; $col++) {
-      //         $cellValue = $worksheet->getCell($col . $row)->getValue();
-      //         // Faça algo com o valor da célula, por exemplo, exiba-o
-      //          echo "Valor na célula {$col}{$row}: " . $cellValue . "<br>";
-      //         // if($row == 1){
-      //         //   echo $campos[$col] = $cellValue;
-      //         // }else{
-      //         //   $retorno[][$campos[$col]] = $cellValue;
-      //         // }
-      //     }
-      // }
-
-      // echo json_encode($retorno);
-
-      // $query = "update planilhas set situacao = '{$_POST['opc']}' where codigo = '{$_POST['situacao']}'";
-      // mysqli_query($con, $query);
       exit();
     }
 
