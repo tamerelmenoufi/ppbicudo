@@ -231,7 +231,7 @@
                   console.log(dados);
                   $.alert({
                     content:dados,
-                    classColumn:'col-md-12'
+                    columnClass:'col-md-12'
                   });
                   // obj.removeClass("text-secondary");
                   // obj.addClass("text-success");
