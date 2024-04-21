@@ -61,7 +61,7 @@
         }
       }
 
-      // mysqli_query($con, "update planilhas set situacao = '1' where codigo = '{$_POST['situacao']}'");
+      mysqli_query($con, "update planilhas set situacao = '1' where codigo = '{$_POST['situacao']}'");
 
       echo json_encode([
         'mensagem' => 'Dados importados com sucesso!',
