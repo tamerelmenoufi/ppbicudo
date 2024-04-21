@@ -22,11 +22,11 @@
 
         if($_POST['codigo']){
             $query = "update usuarios set {$attr} where codigo = '{$_POST['codigo']}'";
-            sisLog($query);
+            mysqli_query($con,$query);
             $cod = $_POST['codigo'];
         }else{
             $query = "insert into usuarios set data_cadastro = NOW(), {$attr}";
-            sisLog($query);
+            mysqli_query($con,$query);
             $cod = mysqli_insert_id($con);
         }
 
@@ -42,7 +42,7 @@
 
 
     $query = "select * from usuarios where codigo = '{$_POST['cod']}'";
-    $result = sisLog($query);
+    $result = mysqli_query($con,$query);
     $d = mysqli_fetch_object($result);
 ?>
 <style>

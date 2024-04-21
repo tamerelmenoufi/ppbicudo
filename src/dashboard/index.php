@@ -7,7 +7,7 @@
     //                                 valor = '3.44'
     //                         where categoria = 2
     // ";
-    // sisLog($query);
+    // mysqli_query($con,$query);
     
 ?>
 <style>

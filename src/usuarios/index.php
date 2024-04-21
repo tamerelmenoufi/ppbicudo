@@ -4,12 +4,12 @@
     if($_POST['delete']){
       // $query = "delete from usuarios where codigo = '{$_POST['delete']}'";
       $query = "update usuarios set deletado = '1' where codigo = '{$_POST['delete']}'";
-      sisLog($query);
+      mysqli_query($con,$query);
     }
 
     if($_POST['situacao']){
       $query = "update usuarios set status = '{$_POST['opc']}' where codigo = '{$_POST['situacao']}'";
-      sisLog($query);
+      mysqli_query($con,$query);
       exit();
     }
 
@@ -117,7 +117,7 @@
                 <tbody>
                   <?php
                     $query = "select * from usuarios where deletado != '1' {$where} order by nome asc";
-                    $result = sisLog($query);
+                    $result = mysqli_query($con,$query);
                     
                     while($d = mysqli_fetch_object($result)){
                   ?>
@@ -164,7 +164,7 @@
             <div class="d-block d-md-none d-lg-none d-xl-none d-xxl-none">
             <?php
                   $query = "select * from usuarios where deletado != '1' {$where} order by nome asc";
-                  $result = sisLog($query);
+                  $result = mysqli_query($con,$query);
                   
                   while($d = mysqli_fetch_object($result)){
                 ?>

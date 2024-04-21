@@ -4,12 +4,12 @@
     if($_POST['delete']){
       // $query = "delete from origens where codigo = '{$_POST['delete']}'";
       $query = "update origens set deletado = '1' where codigo = '{$_POST['delete']}'";
-      sisLog($query);
+      mysqli_query($con,$query);
     }
 
     if($_POST['situacao']){
       $query = "update origens set status = '{$_POST['opc']}' where codigo = '{$_POST['situacao']}'";
-      sisLog($query);
+      mysqli_query($con,$query);
       exit();
     }
 
@@ -54,7 +54,7 @@
                 <tbody>
                   <?php
                     $query = "select a.*, (select count(*) from relatorio where planilha = a.codigo) as quantidade from origens a where a.deletado != '1' order by a.nome asc";
-                    $result = sisLog($query);
+                    $result = mysqli_query($con,$query);
                     
                     while($d = mysqli_fetch_object($result)){
                   ?>
@@ -101,7 +101,7 @@
             <?php
 
                     $query = "select a.*, (select count(*) from relatorio where planilha = a.codigo) as quantidade from origens a where a.deletado != '1' order by a.nome asc";
-                    $result = sisLog($query);
+                    $result = mysqli_query($con,$query);
                   
                   while($d = mysqli_fetch_object($result)){
                 ?>
