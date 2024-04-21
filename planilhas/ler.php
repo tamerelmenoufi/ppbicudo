@@ -1,4 +1,5 @@
 <?php
+
 // Inclua o autoload.php do PhpSpreadsheet
 require 'vendor/autoload.php';
 
@@ -16,8 +17,8 @@ try {
     $highestColumn = $sheet->getHighestColumn();
     
     // Converta a letra da coluna para o número correspondente
-    echo $highestColumnIndex = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($highestColumn);
-    // exit();
+    $highestColumnIndex = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($highestColumn);
+    
     // Loop pelas células da planilha
     for ($row = 1; $row <= $highestRow; $row++) {
         for ($col = 1; $col <= $highestColumnIndex; $col++) {
