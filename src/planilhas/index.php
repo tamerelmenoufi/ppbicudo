@@ -45,7 +45,7 @@
         foreach($dados as $i => $val){
           if(!in_array($i,$remove)){
             if($i == 'Porcentagem'){
-              $valores[] = "`{$i}` = '".substr($val,-1)."'";
+              $valores[] = "`{$i}` = '".substr($val,0,-1)."'";
             }else{
               $valores[] = "`{$i}` = '{$val}'";
             }
