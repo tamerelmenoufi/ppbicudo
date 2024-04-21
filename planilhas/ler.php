@@ -24,7 +24,7 @@ for ($row = 1; $row <= $highestRow; $row++) {
         }else{
             if($campos[$col]){
 
-                if ($worksheet->getDataType() === \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_NUMERIC && \PhpOffice\PhpSpreadsheet\Shared\Date::isDateTime($cell)) {
+                if ($worksheet->getCell($col . $row)->getDataType() === \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_NUMERIC && \PhpOffice\PhpSpreadsheet\Shared\Date::isDateTime($worksheet->getCell($col . $row))) {
                 // if($col == 'A' or $col == 'B'){
                     $retorno[$row][$campos[$col]] = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($cellValue)->format('Y-m-d H:i:s');
                     // $retorno[$row][$campos[$col]] = $cell->getPlainText();
