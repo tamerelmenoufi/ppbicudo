@@ -42,7 +42,7 @@ for ($row = 1; $row <= $highestRow; $row++) {
                 if($col == 'A' or $col == 'B'){
                     $retorno[$row][$campos[$col]] = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($cellValue)->format('Y-m-d H:i:s');
                 }else{
-                    $retorno[$row][$campos[$col]] = $cellValue;
+                    $retorno[$row][$campos[$col]] = (($cellValue*1 < 0)?$cellValue*(-1):$cellValue);
                 }
                 
             }
