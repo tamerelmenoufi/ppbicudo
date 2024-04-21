@@ -138,7 +138,7 @@
                       style="font-size:30px; <?=(($d->situacao == '1' and $d->registros)?false:'cursor:pointer')?>"
                     ></i> <?=(($d->registros)?:false)?>
                   </td>
-                  <td style="white-space: nowrap;">
+                  <td acoes style="white-space: nowrap;">
                   <?php
                   if(!$d->registros){
                   ?>
@@ -247,7 +247,7 @@
                   obj.attr("situacao","");
                   obj.parent("td").append(dados.quantidade);
                   if(dados.quantidade > 0){
-                    obj.parent("td").children("button[deletar]").remove();
+                    obj.parent("td").parent("tr").children("td[acoes]").children("button[deletar]").remove();
                   }
                     // $("#paginaHome").html(dados);
                 }
