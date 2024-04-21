@@ -231,8 +231,8 @@
                     content:dados.mensagem,
                     classColumn:'col-md-12'
                   });
-                  obj.removeClass("color-secondary");
-                  obj.addClass("color-success");
+                  obj.removeClass("text-secondary");
+                  obj.addClass("text-success");
                   obj.css("cursor","");
                   obj.attr("planilha","");
                   obj.attr("situacao","");
