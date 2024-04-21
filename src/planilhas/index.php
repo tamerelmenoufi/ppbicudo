@@ -54,7 +54,7 @@
           }
         }
         $query .= implode(", ",$valores);
-        // echo $query."<hr>";
+        echo $query."<hr>";
         mysqli_query($con, $query);
       }
 
@@ -217,24 +217,24 @@
             $.ajax({
                 url:"src/planilhas/index.php",
                 type:"POST",
-                typeData:"JSON",
-                mimeType: 'multipart/form-data',
+                // typeData:"JSON",
+                // mimeType: 'multipart/form-data',
                 data:{
                     situacao,
                     planilha
                 },
                 success:function(dados){
                   console.log(dados);
-                  $.alert({
-                    content:dados.mensagem,
-                    classColumn:'col-md-12'
-                  });
-                  obj.removeClass("color-secondary");
-                  obj.addClass("color-success");
-                  obj.css("cursor","");
-                  obj.attr("planilha","");
-                  obj.attr("situacao","");
-                  obj.parent("td").append(dados.quantidade);
+                  // $.alert({
+                  //   content:dados.mensagem,
+                  //   classColumn:'col-md-12'
+                  // });
+                  // obj.removeClass("color-secondary");
+                  // obj.addClass("color-success");
+                  // obj.css("cursor","");
+                  // obj.attr("planilha","");
+                  // obj.attr("situacao","");
+                  // obj.parent("td").append(dados.quantidade);
 
                     // $("#paginaHome").html(dados);
                 }
