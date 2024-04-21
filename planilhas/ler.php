@@ -20,15 +20,13 @@ $highestColumn = $worksheet->getHighestColumn(); // Última coluna
 // Itera sobre as células
 echo "<table border = '1'>";
 
-// for ($row = 1; $row <= $highestRow; $row++) {
-foreach($worksheet as $li => $lv){
+for ($row = 1; $row <= $highestRow; $row++) {
     echo "<tr>";
-    foreach($lv as $ci => $cv){
-    // for ($col = 'A'; $col <= $highestColumn; $col++) {
+    for ($col = 'A'; $col <= $highestColumn; $col++) {
         $cellValue = $worksheet->getCell($li . $ci)->getValue();
         // Faça algo com o valor da célula, por exemplo, exiba-o
-        echo "Valor na célula {$ci}{$li}: " . $cellValue . "<br>";
-        // echo "<td>" . $cellValue . "</td>";
+        // echo "Valor na célula {$ci}{$li}: " . $cellValue . "<br>";
+        echo "<td>" . $cellValue . "</td>";
     }
     echo "</tr>";
 }
