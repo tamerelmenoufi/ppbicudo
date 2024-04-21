@@ -54,7 +54,7 @@
           }
         }
         $query .= implode(", ",$valores);
-        // echo $query."<hr>";
+        echo $query."<hr>";
         $comandos[] = $query;
         if(mysqli_query($con, $query)){
           $quantidade++;
@@ -221,8 +221,8 @@
             $.ajax({
                 url:"src/planilhas/index.php",
                 type:"POST",
-                dataType:"JSON",
-                mimeType: 'multipart/form-data',
+                // dataType:"JSON",
+                // mimeType: 'multipart/form-data',
                 data:{
                     situacao,
                     planilha
@@ -230,7 +230,7 @@
                 success:function(dados){
                   console.log(dados);
                   $.alert({
-                    content:dados.mensagem,
+                    content:dados,
                     classColumn:'col-md-12'
                   });
                   // obj.removeClass("text-secondary");
