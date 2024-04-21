@@ -6,6 +6,28 @@
 
     if($_POST['situacao']){
 
+
+
+
+      $postdata = http_build_query(
+          array(
+              'arquivo' => "../volume/planilhas/".$_POST['planilha']
+          )
+      );
+      
+      $opts = array('http' =>
+          array(
+              'method'  => 'POST',
+              'header'  => 'Content-Type: application/x-www-form-urlencoded',
+              'content' => $postdata
+          )
+      );
+      
+      $context  = stream_context_create($opts);
+      
+      $result = file_get_contents('http://example.com/submit.php', false, $context);
+
+
       $xlsxFilePath = "../volume/planilhas/".$_POST['planilha'];
       $spreadsheet = IOFactory::load($xlsxFilePath);
       $worksheet = $spreadsheet->getActiveSheet();
