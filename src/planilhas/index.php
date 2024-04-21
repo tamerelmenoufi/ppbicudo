@@ -246,7 +246,6 @@
                   obj.attr("planilha","");
                   obj.attr("situacao","");
                   obj.parent("td").append(dados.quantidade);
-                  obj.parent("td").append(dados.quantidade);
                   if(dados.quantidade > 0){
                     $("button[deletar]").remove();
                   }
