@@ -210,6 +210,7 @@
             situacao = $(this).attr("situacao");
             planilha = $(this).attr("planilha");
             if(!situacao || !planilha){
+              console.log('Entro no erro!')
               return false;
             }
             obj = $(this);
