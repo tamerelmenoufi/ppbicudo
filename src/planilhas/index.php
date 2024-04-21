@@ -126,7 +126,7 @@
                                 },
                                 success:function(dados){
                                   console.log(dados);
-                                  $("div[lista]").html(dados);
+                                  $("#paginaHome").html(dados);
                                 }
                             })
                         }
