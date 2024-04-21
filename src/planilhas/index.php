@@ -39,7 +39,7 @@
       ];
 
       $quantidade = 0;
-
+      $comandos = [];
       foreach($result as $l => $dados){
         $query = "INSERT INTO relatorio SET ";
         $valores = [];
@@ -55,6 +55,7 @@
         }
         $query .= implode(", ",$valores);
         // echo $query."<hr>";
+        $comandos[] = $query;
         if(mysqli_query($con, $query)){
           $quantidade++;
         }
@@ -64,7 +65,8 @@
 
       echo json_encode([
         'mensagem' => 'Dados importados com sucesso!',
-        'quantidade' => $quantidade
+        'quantidade' => $quantidade,
+        'comandos' => $comandos 
       ]);
 
       exit();
