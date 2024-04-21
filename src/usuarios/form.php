@@ -70,7 +70,7 @@
                     <?php
                     if($d->codigo == 1){
                     ?>
-                    <div class="form-control"><?=$d->usuario?>"</div>
+                    <div class="form-control"><?=$d->usuario?></div>
                     <?php
                     }else{
                     ?>
