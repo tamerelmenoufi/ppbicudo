@@ -26,6 +26,8 @@ $cols = [
 ];
 
 $retorno = [];
+$queryCampos = [];
+$queryDados = [];
 for ($row = 1; $row <= $highestRow; $row++) {
     // echo "<tr>";
     // for ($col = 'A'; $col <= $highestColumn; $col++) {
@@ -36,11 +38,13 @@ for ($row = 1; $row <= $highestRow; $row++) {
         if($row == 1){
             if($cellValue){
                 $campos[$col] = $cellValue;
+                $queryCampos[] = $cellValue;
             }
         }else{
             if($campos[$col]){
                 if($col == 'A' or $col == 'B'){
                     $retorno[$row][$campos[$col]] = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($cellValue)->format('Y-m-d H:i:s');
+                    
                 }else{
                     if(in_array($campos[$col],['TarifaEnvio','TarifaMarketplace'])) $cellValue = $cellValue*(-1);
                     $retorno[$row][$campos[$col]] = $cellValue;
@@ -54,10 +58,21 @@ for ($row = 1; $row <= $highestRow; $row++) {
         // echo "Valor na célula {$col}{$row}: " . $cellValue . "<br>";
         // echo "<td>" . $cellValue . "</td>";
     }
+    $queryDados[] = "'".implode("', '", $retorno[$row])."'";
     // echo "</tr>";
 }
 
-echo json_encode($retorno);
+$i = 0;
+foreach($queryDados as $i => $comando){
+
+    if($i%5 == 0){
+        echo "INSERT INTO planilhas (".implode(',', $queryCampos).") VALUES ";
+    }
+    echo "(".implode('), (', $queryDados).")";
+    $i++;
+}
+
+// echo json_encode($retorno);
 
 // echo "</table>";
 ?>
