@@ -134,8 +134,8 @@
                     <i 
                       situacao="<?=$d->codigo?>" 
                       planilha="<?=$d->planilha?>" 
-                      class="fa-solid fa-file-arrow-up text-<?=(($d->situacao == '1')?'success':'secondary situacao')?>" 
-                      style="font-size:30px; <?=(($d->situacao == '1')?false:'cursor:pointer')?>"
+                      class="fa-solid fa-file-arrow-up text-<?=(($d->situacao == '1' and $d->registros)?'success':'secondary situacao')?>" 
+                      style="font-size:30px; <?=(($d->situacao == '1' and $d->registros)?false:'cursor:pointer')?>"
                     ></i> <?=(($d->registros)?:false)?>
                   </td>
                   <td style="white-space: nowrap;">
