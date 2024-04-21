@@ -219,8 +219,8 @@
             $.ajax({
                 url:"src/planilhas/index.php",
                 type:"POST",
-                typeData:"JSON",
-                // mimeType: 'multipart/form-data',
+                dataType:"JSON",
+                mimeType: 'multipart/form-data',
                 data:{
                     situacao,
                     planilha
