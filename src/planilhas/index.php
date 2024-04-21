@@ -6,12 +6,9 @@
 
     if($_POST['situacao']){
 
-
-
-
       $postdata = http_build_query(
           array(
-              'arquivo' => "../volume/planilhas/".$_POST['planilha']
+              'arquivo' => "../src/volume/planilhas/".$_POST['planilha']
           )
       );
       
@@ -25,29 +22,29 @@
       
       $context  = stream_context_create($opts);
       
-      $result = file_get_contents('http://example.com/submit.php', false, $context);
+      echo $result = file_get_contents("{$urlPainel}planilhas/ler.php", false, $context);
 
 
-      $xlsxFilePath = "../volume/planilhas/".$_POST['planilha'];
-      $spreadsheet = IOFactory::load($xlsxFilePath);
-      $worksheet = $spreadsheet->getActiveSheet();
-      $highestRow = $worksheet->getHighestRow();
-      $highestColumn = $worksheet->getHighestColumn();
-      $campos = [];
-      $retorno = [];
+      // $xlsxFilePath = "../volume/planilhas/".$_POST['planilha'];
+      // $spreadsheet = IOFactory::load($xlsxFilePath);
+      // $worksheet = $spreadsheet->getActiveSheet();
+      // $highestRow = $worksheet->getHighestRow();
+      // $highestColumn = $worksheet->getHighestColumn();
+      // $campos = [];
+      // $retorno = [];
 
-      for ($row = 1; $row <= $highestRow; $row++) {
-           for ($col = 'A'; $col <= $highestColumn; $col++) {
-              $cellValue = $worksheet->getCell($col . $row)->getValue();
-              // Faça algo com o valor da célula, por exemplo, exiba-o
-               echo "Valor na célula {$col}{$row}: " . $cellValue . "<br>";
-              // if($row == 1){
-              //   echo $campos[$col] = $cellValue;
-              // }else{
-              //   $retorno[][$campos[$col]] = $cellValue;
-              // }
-          }
-      }
+      // for ($row = 1; $row <= $highestRow; $row++) {
+      //      for ($col = 'A'; $col <= $highestColumn; $col++) {
+      //         $cellValue = $worksheet->getCell($col . $row)->getValue();
+      //         // Faça algo com o valor da célula, por exemplo, exiba-o
+      //          echo "Valor na célula {$col}{$row}: " . $cellValue . "<br>";
+      //         // if($row == 1){
+      //         //   echo $campos[$col] = $cellValue;
+      //         // }else{
+      //         //   $retorno[][$campos[$col]] = $cellValue;
+      //         // }
+      //     }
+      // }
 
       // echo json_encode($retorno);
 

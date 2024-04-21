@@ -5,7 +5,7 @@ require 'vendor/autoload.php'; // Caminho para o autoload gerado pelo Composer
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
 // Caminho para o arquivo XLSX que você deseja ler
-$xlsxFilePath = 'modelo.xlsx';
+$xlsxFilePath = $_POST['arquivo'];
 
 // Carrega o arquivo XLSX
 $spreadsheet = IOFactory::load($xlsxFilePath);
