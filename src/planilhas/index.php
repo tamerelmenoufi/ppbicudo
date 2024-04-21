@@ -21,6 +21,7 @@
       $highestColumn = $worksheet->getHighestColumn();
       $campos = [];
       $retorno = [];
+      echo $highestColumn;
       for ($row = 1; $row <= $highestRow; $row++) {
           for ($col = 'A'; $col <= $highestColumn; $col++) {
               $cellValue = $worksheet->getCell($col . $row)->getValue();
