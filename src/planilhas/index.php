@@ -1,5 +1,6 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
+
     require '../../planilhas/vendor/autoload.php'; // Caminho para o autoload gerado pelo Composer
     use PhpOffice\PhpSpreadsheet\IOFactory;
 
