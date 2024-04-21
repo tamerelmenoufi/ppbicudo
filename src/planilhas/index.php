@@ -44,7 +44,11 @@
         $valores[] = "`planilha` = '{$_POST['situacao']}'";
         foreach($dados as $i => $val){
           if(!in_array($i,$remove)){
-            $valores[] = "`{$i}` = '{$val}'";
+            if($i == 'Porcentagem'){
+              $valores[] = "`{$i}` = '".substr($val,-1)."'";
+            }else{
+              $valores[] = "`{$i}` = '{$val}'";
+            }
           }
         }
         $query .= implode(", ",$valores);
