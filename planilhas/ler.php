@@ -26,8 +26,8 @@ for ($row = 1; $row <= $highestRow; $row++) {
 
                 // if ($cell->getDataType() === \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_NUMERIC && \PhpOffice\PhpSpreadsheet\Shared\Date::isDateTime($cell)) {
                 if($col == 'A' or $col == 'B'){
-                    // $retorno[$row][$campos[$col]] = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($cellValue)->format('Y-m-d H:i:s');
-                    $retorno[$row][$campos[$col]] = $cell->getPlainText();
+                    $retorno[$row][$campos[$col]] = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($cellValue)->format('Y-m-d H:i:s');
+                    // $retorno[$row][$campos[$col]] = $cell->getPlainText();
                 }else{
                     if(in_array($campos[$col],['TarifaEnvio','TarifaMarketplace'])) $cellValue = $cellValue*(-1);
                     $retorno[$row][$campos[$col]] = $cellValue;
