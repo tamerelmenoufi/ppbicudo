@@ -73,7 +73,7 @@
             <select name="origem" id="origem" class="form-select">
               <?php
               $q = "select * from origens order by nome asc";
-              $result = mysqli_query($con, $q);
+              $r = mysqli_query($con, $q);
               while($o = mysqli_fetch_object($r)){
               ?>
               <option value="<?=$o->codigo?>"><?=$o->nome?></option>              
