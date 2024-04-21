@@ -247,7 +247,7 @@
                   obj.attr("situacao","");
                   obj.parent("td").append(dados.quantidade);
                   if(dados.quantidade > 0){
-                    $("button[deletar]").remove();
+                    obj.parent("button[deletar]").remove();
                   }
                     // $("#paginaHome").html(dados);
                 }
