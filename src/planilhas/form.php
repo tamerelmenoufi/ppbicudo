@@ -45,9 +45,9 @@
       $acao = mysqli_affected_rows($con);
 
       if($acao){
-        echo $query."<br>Atualização realizada com sucesso!";
+        echo "Atualização realizada com sucesso!";
       }else{
-        echo $query."<br>Nenhuma alteração foi registrada!";
+        echo "Nenhuma alteração foi registrada!";
       }
 
       exit();

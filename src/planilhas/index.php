@@ -65,9 +65,11 @@
                 <tr>
                   <td style="white-space: nowrap;"><?=$d->lote?></td>
                   <td style="white-space: nowrap;"><?=$d->titulo?></td>
-                  <td style="white-space: nowrap;"><?=$d->data?></td>
-                  <td style="white-space: nowrap;"><?=$d->usuario?></td>
-                  <td style="white-space: nowrap;"><?=$d->situacao?></td>
+                  <td style="white-space: nowrap;"><?=dataBr($d->data)?></td>
+                  <td style="white-space: nowrap;"><?=$d->usuario_nome?></td>
+                  <td style="white-space: nowrap;">
+                    <i class="fa-solid fa-file-arrow-up text-<?=(($d->situacao == '1')?'success':'secondary')?>" <?=(($d->situacao == '1')?false:'style="cursor:pointer"')?>></i>
+                  </td>
                   <td style="white-space: nowrap;">
                     <button class="btn btn-danger btn-sm" deletar="<?=$d->codigo?>" imagem="<?=$d->imagem?>">
                     <i class="fa-solid fa-trash-can"></i> Excluir
