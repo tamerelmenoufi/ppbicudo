@@ -15,7 +15,7 @@
     if($_POST['situacao']){
 
       // Caminho para o arquivo XLSX que você deseja ler
-      $xlsxFilePath = 'modelo.xlsx';
+      $xlsxFilePath = '../../planilhas/modelo.xlsx';
 
       // Carrega o arquivo XLSX
       $spreadsheet = IOFactory::load($xlsxFilePath);
