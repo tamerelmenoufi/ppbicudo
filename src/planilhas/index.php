@@ -41,7 +41,7 @@
       foreach($result as $l => $dados){
         $query = "INSERT INTO relatorio SET ";
         $valores = [];
-        $valores[] = "`planilha` = '{$_POST['planilha']}'";
+        $valores[] = "`planilha` = '{$_POST['situacao']}'";
         foreach($dados as $i => $val){
           if(!in_array($i,$remove)){
             $valores[] = "`{$i}` = '{$val}'";
