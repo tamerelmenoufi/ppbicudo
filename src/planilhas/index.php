@@ -54,16 +54,6 @@
 
 <div class="col">
   <div class="m-3">
-
-<?php
-
-for ($col = 'A'; $col <= 'AY'; $col++) {
-   echo "Valor na célula {$col}<br>";
-}
-
-?>
-
-
     <div class="row">
       <div class="col">
         <div class="card">
