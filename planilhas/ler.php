@@ -25,7 +25,8 @@ for ($row = 1; $row <= $highestRow; $row++) {
         }else{
             if($campos[$col]){
                 if($col == 'A' or $col == 'B'){
-                    $retorno[$row][$campos[$col]] = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($cellValue)->format('Y-m-d H:i:s');
+                    // $retorno[$row][$campos[$col]] = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($cellValue)->format('Y-m-d H:i:s');
+                    $retorno[$row][$campos[$col]] = $cellValue;
                 }else{
                     if(in_array($campos[$col],['TarifaEnvio','TarifaMarketplace'])) $cellValue = $cellValue*(-1);
                     $retorno[$row][$campos[$col]] = $cellValue;
