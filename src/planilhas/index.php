@@ -48,9 +48,10 @@
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
-                  <th scope="col" style="width:50%">Lote</th>
-                  <th scope="col" style="width:50%">Data</th>
-                  <th scope="col" style="width:50%">Usuário</th>
+                  <th scope="col">Lote</th>
+                  <th scope="col">Título</th>
+                  <th scope="col">Data</th>
+                  <th scope="col">Usuário</th>
                   <th scope="col">Situação</th>
                   <th scope="col">Ações</th>
                 </tr>
@@ -63,6 +64,7 @@
                 ?>
                 <tr>
                   <td style="white-space: nowrap;"><?=$d->lote?></td>
+                  <td style="white-space: nowrap;"><?=$d->titulo?></td>
                   <td style="white-space: nowrap;"><?=$d->data?></td>
                   <td style="white-space: nowrap;"><?=$d->usuario?></td>
                   <td style="white-space: nowrap;"><?=$d->situacao?></td>

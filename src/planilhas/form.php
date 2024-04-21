@@ -69,6 +69,10 @@
 
     <form id="acaoMenu">
 
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título da Planilha" value="<?=$d->titulo?>">
+            <label for="titulo">Título da Planilha*</label>
+        </div>
 
         <input type="file" class="form-control" placeholder="Banner">
         <input type="hidden" id="base64" name="base64" value="" />
