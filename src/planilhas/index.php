@@ -1,19 +1,51 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
+    require '../../planilhas/vendor/autoload.php'; // Caminho para o autoload gerado pelo Composer
+    use PhpOffice\PhpSpreadsheet\IOFactory;
 
+    
     if($_POST['deletar']){
-        if($_POST['planilha']){
-            unlink("../volume/planilhas/".$_POST['planilha']);
-        }
-        $query = "delete from planilhas where codigo = '{$_POST['deletar']}'";
-        mysqli_query($con, $query);
+      if($_POST['planilha']){
+          unlink("../volume/planilhas/".$_POST['planilha']);
       }
+      $query = "delete from planilhas where codigo = '{$_POST['deletar']}'";
+      mysqli_query($con, $query);
+    }
 
-      if($_POST['situacao']){
-        $query = "update planilhas set situacao = '{$_POST['opc']}' where codigo = '{$_POST['situacao']}'";
-        mysqli_query($con, $query);
-        exit();
+    if($_POST['situacao']){
+
+      // Caminho para o arquivo XLSX que você deseja ler
+      $xlsxFilePath = 'modelo.xlsx';
+
+      // Carrega o arquivo XLSX
+      $spreadsheet = IOFactory::load($xlsxFilePath);
+
+      // Obtém a primeira planilha do arquivo
+      $worksheet = $spreadsheet->getActiveSheet();
+
+      // Obtém o número total de linhas e colunas
+      $highestRow = $worksheet->getHighestRow(); // Número total de linhas
+      $highestColumn = $worksheet->getHighestColumn(); // Última coluna
+
+      // Itera sobre as células
+      echo "<table border = '1'>";
+
+      for ($row = 1; $row <= $highestRow; $row++) {
+          echo "<tr>";
+          for ($col = 'A'; $col <= $highestColumn; $col++) {
+              $cellValue = $worksheet->getCell($col . $row)->getValue();
+              // Faça algo com o valor da célula, por exemplo, exiba-o
+              // echo "Valor na célula {$col}{$row}: " . $cellValue . "<br>";
+              echo "<td>" . $cellValue . "</td>";
+          }
+          echo "</tr>";
       }
+      echo "</table>";
+
+      // $query = "update planilhas set situacao = '{$_POST['opc']}' where codigo = '{$_POST['situacao']}'";
+      // mysqli_query($con, $query);
+      exit();
+    }
 
 
 ?>
