@@ -22,8 +22,6 @@
       $result = file_get_contents("{$urlPainel}planilhas/ler.php", false, $context);
       $result = json_decode($result);
 
-      $quantidade = count($result);
-
       $remove = [
         'dataAprovacao',
         'Status',
@@ -40,6 +38,8 @@
         'TotalLiquido'
       ];
 
+      $quantidade = 0;
+
       foreach($result as $l => $dados){
         $query = "INSERT INTO relatorio SET ";
         $valores = [];
@@ -54,8 +54,10 @@
           }
         }
         $query .= implode(", ",$valores);
-        echo $query."<hr>";
-        mysqli_query($con, $query);
+        // echo $query."<hr>";
+        if(mysqli_query($con, $query)){
+          $quantidade++;
+        }
       }
 
       mysqli_query($con, "update planilhas set situacao = '1' where codigo = '{$_POST['situacao']}'");
@@ -217,24 +219,24 @@
             $.ajax({
                 url:"src/planilhas/index.php",
                 type:"POST",
-                // typeData:"JSON",
-                // mimeType: 'multipart/form-data',
+                typeData:"JSON",
+                mimeType: 'multipart/form-data',
                 data:{
                     situacao,
                     planilha
                 },
                 success:function(dados){
                   console.log(dados);
-                  // $.alert({
-                  //   content:dados.mensagem,
-                  //   classColumn:'col-md-12'
-                  // });
-                  // obj.removeClass("color-secondary");
-                  // obj.addClass("color-success");
-                  // obj.css("cursor","");
-                  // obj.attr("planilha","");
-                  // obj.attr("situacao","");
-                  // obj.parent("td").append(dados.quantidade);
+                  $.alert({
+                    content:dados.mensagem,
+                    classColumn:'col-md-12'
+                  });
+                  obj.removeClass("color-secondary");
+                  obj.addClass("color-success");
+                  obj.css("cursor","");
+                  obj.attr("planilha","");
+                  obj.attr("situacao","");
+                  obj.parent("td").append(dados.quantidade);
 
                     // $("#paginaHome").html(dados);
                 }
