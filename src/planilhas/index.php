@@ -30,7 +30,7 @@
       foreach($result as $l => $dados){
         $valores = [];
         $linhas = [];
-        
+
         foreach($dados as $campo => $valor){
           $campos[$campo] = $campo;
           $valores[] = "'{$valor}'";
@@ -48,7 +48,7 @@
         }
 
         $linhas[]= "('".implode("', '", $valores)."')";
-      
+      $i++;
       }
 
       echo $query;
