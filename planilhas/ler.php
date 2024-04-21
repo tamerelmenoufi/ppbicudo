@@ -34,9 +34,13 @@ for ($row = 1; $row <= $highestRow; $row++) {
         $cellValue = $worksheet->getCell($col . $row)->getValue();
 
         if($row == 1){
-            $campos[$col] = $cellValue;
+            if($cellValue){
+                $campos[$col] = $cellValue;
+            }
         }else{
-            $retorno[$row][$campos[$col]] = $cellValue;
+            if($campos[$col]){
+                $retorno[$row][$campos[$col]] = $cellValue;
+            }
         }
 
         // $retorno[$row][$col] = $cellValue;
