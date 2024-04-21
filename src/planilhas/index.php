@@ -53,7 +53,7 @@
                   <th scope="col">Data</th>
                   <th scope="col">Usuário</th>
                   <th scope="col">Situação</th>
-                  <th scope="col">Ações</th>
+                  <th scope="col" width="80">Ações</th>
                 </tr>
               </thead>
               <tbody>
