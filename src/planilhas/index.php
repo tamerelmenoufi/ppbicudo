@@ -21,17 +21,17 @@
       $highestColumn = $worksheet->getHighestColumn();
       $campos = [];
       $retorno = [];
-      echo $highestColumn;
+
       for ($row = 1; $row <= $highestRow; $row++) {
           for ($col = 'A'; $col <= $highestColumn; $col++) {
               $cellValue = $worksheet->getCell($col . $row)->getValue();
               // Faça algo com o valor da célula, por exemplo, exiba-o
                echo "Valor na célula {$col}{$row}: " . $cellValue . "<br>";
-              if($row == 1){
-                echo $campos[$col] = $cellValue;
-              }else{
-                $retorno[][$campos[$col]] = $cellValue;
-              }
+              // if($row == 1){
+              //   echo $campos[$col] = $cellValue;
+              // }else{
+              //   $retorno[][$campos[$col]] = $cellValue;
+              // }
           }
       }
 
