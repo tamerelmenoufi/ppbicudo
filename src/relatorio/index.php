@@ -86,8 +86,8 @@
                     while($d = mysqli_fetch_object($result)){
                   ?>
                   <tr>
-                    <td class="text-nowrap"><?=$d->dataCriacao?></td>
-                    <td class="text-nowrap"><?=$d->tituloItem?></td>
+                    <td class="text-nowrap"><?=dataBr($d->dataCriacao)?></td>
+                    <td class=""><?=$d->tituloItem?></td>
                     <td class="text-nowrap"><?=$d->ValorPedidoXquantidade?></td>
                     <td class="text-nowrap"><?=$d->CustoEnvio?></td>
                     <td class="text-nowrap"><?=$d->PrecoCusto?></td>
