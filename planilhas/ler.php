@@ -16,8 +16,8 @@ try {
     $highestColumn = $sheet->getHighestColumn();
     
     // Converta a letra da coluna para o número correspondente
-    $highestColumnIndex = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($highestColumn);
-    
+    echo $highestColumnIndex = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($highestColumn);
+    exit();
     // Loop pelas células da planilha
     for ($row = 1; $row <= $highestRow; $row++) {
         for ($col = 1; $col <= $highestColumnIndex; $col++) {
