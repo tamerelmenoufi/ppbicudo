@@ -22,6 +22,8 @@
       $result = file_get_contents("{$urlPainel}planilhas/ler.php", false, $context);
       $result = json_decode($result);
 
+      $quantidade = count($result);
+
       $remove = [
         'dataAprovacao',
         'Status',
@@ -52,8 +54,16 @@
           }
         }
         $query .= implode(", ",$valores);
-        echo $query."<hr>";
+        // echo $query."<hr>";
+        mysqli_query($con, $query);
       }
+
+      mysqli_query($con, "update planilhas set situacao = '1' where codigo = '{$_POST['situacao']}'");
+
+      echo json_encode([
+        'mensagem' => 'Dados importados com sucesso!',
+        'quantidade' => $quantidade
+      ]);
 
       exit();
     }
@@ -107,12 +117,12 @@
               </thead>
               <tbody>
                 <?php
-                  $query = "select a.*, b.nome as usuario_nome, o.nome as origem from planilhas a left join usuarios b on a.usuario = b.codigo left join origens o on a.origem = o.codigo order by a.data desc";
+                  $query = "select a.*, b.nome as usuario_nome, o.nome as origem, (select count(*) from relatorio where planilha = a.codigo) as registros from planilhas a left join usuarios b on a.usuario = b.codigo left join origens o on a.origem = o.codigo order by a.data desc";
                   $result = mysqli_query($con, $query);
                   while($d = mysqli_fetch_object($result)){
                 ?>
                 <tr>
-                  <td style="white-space: nowrap;"><?=$d->lote?></td>
+                  <td style="white-space: nowrap;"><?=strtoupper($d->lote)?></td>
                   <td style="white-space: nowrap;"><?=$d->origem?></td>
                   <td style="white-space: nowrap;"><?=dataBr($d->data)?></td>
                   <td style="white-space: nowrap;"><?=$d->usuario_nome?></td>
@@ -122,7 +132,7 @@
                       planilha="<?=$d->planilha?>" 
                       class="fa-solid fa-file-arrow-up text-<?=(($d->situacao == '1')?'success':'secondary situacao')?>" 
                       style="font-size:30px; <?=(($d->situacao == '1')?false:'cursor:pointer')?>"
-                    ></i>
+                    ></i> <?=(($d->registros)?:false)?>
                   </td>
                   <td style="white-space: nowrap;">
                     <button class="btn btn-danger btn-sm" deletar="<?=$d->codigo?>" planilha="<?=$d->planilha?>">
@@ -199,19 +209,30 @@
 
             situacao = $(this).attr("situacao");
             planilha = $(this).attr("planilha");
-
+            if(!situacao || !planilha){
+              return false;
+            }
+            obj = $(this);
             $.ajax({
                 url:"src/planilhas/index.php",
                 type:"POST",
+                dataType:"JSON",
                 data:{
                     situacao,
                     planilha
                 },
                 success:function(dados){
                   $.alert({
-                    content:dados,
+                    content:dados.mensagem,
                     classColumn:'col-md-12'
                   });
+                  obj.removeClass("color-secondary");
+                  obj.addClass("color-success");
+                  obj.css("cursor","");
+                  obj.attr("planilha","");
+                  obj.attr("situacao","");
+                  obj.parent("td").append(dados.quantidade);
+
                     // $("#paginaHome").html(dados);
                 }
             })
