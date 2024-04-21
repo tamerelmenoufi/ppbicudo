@@ -58,7 +58,7 @@
               </thead>
               <tbody>
                 <?php
-                  $query = "select * from planilhas order by data desc";
+                  $query = "select a.*, b.nome as usuario_nome from planilhas a lefy join usuarios b on a.usuario = b.codigo order by a.data desc";
                   $result = mysqli_query($con, $query);
                   while($d = mysqli_fetch_object($result)){
                 ?>
@@ -68,7 +68,7 @@
                   <td style="white-space: nowrap;"><?=dataBr($d->data)?></td>
                   <td style="white-space: nowrap;"><?=$d->usuario_nome?></td>
                   <td style="white-space: nowrap;">
-                    <i class="fa-solid fa-file-arrow-up text-<?=(($d->situacao == '1')?'success':'secondary')?>" style="font-size:30px; <?=(($d->situacao == '1')?false:'cursor:pointer')?>"></i>
+                    <i situacao="<?=$d->codigo?>" class="fa-solid fa-file-arrow-up text-<?=(($d->situacao == '1')?'success':'secondary situacao')?>" style="font-size:30px; <?=(($d->situacao == '1')?false:'cursor:pointer')?>"></i>
                   </td>
                   <td style="white-space: nowrap;">
                     <button class="btn btn-danger btn-sm" deletar="<?=$d->codigo?>" planilha="<?=$d->planilha?>">
@@ -141,24 +141,21 @@
         })
 
 
-        $(".situacao").change(function(){
+        $(".situacao").click(function(){
 
             situacao = $(this).attr("situacao");
-            status = $(this).prop("checked");
-            if(status === 'true'){
-              opc = '1';
-            }else{
-              opc = '0';
-            }
 
             $.ajax({
                 url:"src/planilhas/index.php",
                 type:"POST",
                 data:{
                     situacao,
-                    opc
                 },
                 success:function(dados){
+                  $.alert({
+                    content:dados,
+                    classColumn:'col-md-12'
+                  });
                     // $("#paginaHome").html(dados);
                 }
             })
