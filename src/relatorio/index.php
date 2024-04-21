@@ -84,13 +84,13 @@
                   <tr>
                     <td class="text-nowrap"><?=dataBr($d->dataCriacao)?></td>
                     <td class=""><?=$d->tituloItem?></td>
-                    <td class="text-nowrap"><?=$d->ValorPedidoXquantidade?></td>
-                    <td class="text-nowrap"><?=$d->CustoEnvio?></td>
-                    <td class="text-nowrap"><?=$d->PrecoCusto?></td>
-                    <td class="text-nowrap"><?=$d->CustoEnvioSeller?></td>
-                    <td class="text-nowrap"><?=($d->TarifaGatwayPagamento + $d->TarifaMarketplace)?></td>
-                    <td class="text-nowrap"><?=($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace)?></td>
-                    <td class="text-nowrap"><?=$d->frete?></td>
+                    <td class="text-nowrap">R$<?=number_format($d->ValorPedidoXquantidade,2,',','.')?></td>
+                    <td class="text-nowrap">R$<?=number_format($d->CustoEnvio,2,',','.')?></td>
+                    <td class="text-nowrap">R$<?=number_format($d->PrecoCusto,2,',','.')?></td>
+                    <td class="text-nowrap">R$<?=number_format($d->CustoEnvioSeller,2,',','.')?></td>
+                    <td class="text-nowrap">R$<?=number_format(($d->TarifaGatwayPagamento + $d->TarifaMarketplace),2,',','.')?></td>
+                    <td class="text-nowrap">R$<?=number_format(($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace),2,',','.')?></td>
+                    <td class="text-nowrap"><?=number_format($d->frete,2,',','.')?>%</td>
                     <td class="text-nowrap"><?=$d->Porcentagem?></td>
                     <td class="text-nowrap"><?=$d->codigoPedido?></td>
                   </tr>
