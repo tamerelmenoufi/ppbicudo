@@ -61,7 +61,7 @@
         }
       }
 
-      mysqli_query($con, "update planilhas set situacao = '1' where codigo = '{$_POST['situacao']}'");
+      // mysqli_query($con, "update planilhas set situacao = '1' where codigo = '{$_POST['situacao']}'");
 
       echo json_encode([
         'mensagem' => 'Dados importados com sucesso!',
@@ -233,12 +233,12 @@
                     content:dados.mensagem,
                     classColumn:'col-md-12'
                   });
-                  obj.removeClass("text-secondary");
-                  obj.addClass("text-success");
-                  obj.css("cursor","");
-                  obj.attr("planilha","");
-                  obj.attr("situacao","");
-                  obj.parent("td").append(dados.quantidade);
+                  // obj.removeClass("text-secondary");
+                  // obj.addClass("text-success");
+                  // obj.css("cursor","");
+                  // obj.attr("planilha","");
+                  // obj.attr("situacao","");
+                  // obj.parent("td").append(dados.quantidade);
 
                     // $("#paginaHome").html(dados);
                 }
