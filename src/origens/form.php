@@ -109,7 +109,7 @@
         <div class="row">
             <div class="col">
                 <div style="display:flex; justify-content:end">
-                    <button cancelar type="button" data-bs-dismiss="offcanvas" class="btn btn-danger btn-sm"> <i class="fa fa-cancel"></i> Cancelar</button>
+                    <button cancelar type="button" data-bs-dismiss="offcanvas" class="btn btn-danger btn-sm me-3" > <i class="fa fa-cancel"></i> Cancelar</button>
                     <button type="submit" class="btn btn-success btn-sm"><i class="fa-regular fa-floppy-disk"></i> Salvar</button>
                     <input type="hidden" id="codigo" value="<?=$_POST['cod']?>" />
                 </div>
