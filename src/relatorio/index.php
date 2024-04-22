@@ -52,10 +52,25 @@
               <div class="d-flex justify-content-between mb-3">
                 <div class="input-group">
                   <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
-                  <input campoBusca type="text" class="form-control" value="<?=$_SESSION['usuarioBusca']?>" aria-label="Digite a informação para a busca">
+                  <select id="origem" class="form-select">
+                    <option value="">:: Selecione Origem ::</option>
+                    <?php
+                    $q = "select * form origens where status = '1' order by nome";
+                    $r = mysqli_query($con, $q);
+                    while($s = mysqli_fetch_object($r)){
+                    ?>
+                    <option value="<?=$s->codigo?>"><?=$s->nome?></option>
+                    <?php
+                    }
+                    ?>
+                  </select>
+                  <label class="input-group-text" for="inputGroupFile01">Período de </label>
+                  <input type="data" id="data_inicial" class="form-control" value="<?=$_SESSION['data_inicial']?>" >
+                  <label class="input-group-text" for="inputGroupFile01">até</label>
+                  <input type="data" id="data_final" class="form-control" value="<?=$_SESSION['data_inicial']?>" >
                   <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
                   <button filtro="limpar" class="btn btn-outline-danger" type="button">limpar</button>
-                  <a class="btn btn-outline-danger" type="button" href='./print.php' target="_blank"><i class="fa-solid fa-print"></i></a>
+                  <a class="btn btn-outline-success" type="button" href='./print.php' target="_blank"><i class="fa-solid fa-print"></i></a>
                 </div>
             </div>
 
