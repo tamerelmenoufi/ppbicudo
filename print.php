@@ -44,7 +44,7 @@
             <tr>
               <th colspan = "11" >
                 <center>
-                  <img src="img/logo.png?1" height="40" alt="">
+                  <img src="img/logo.png?1" height="60" alt="">
                 </center>
               </th>
             </tr>
