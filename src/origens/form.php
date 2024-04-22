@@ -258,13 +258,9 @@
 
 
                 $("button[cancelar]").click(function(){
-                    Carregando();
-                    $.ajax({
-                    url:"src/origens/index.php",
-                    success:function(dados){
-                        $("#paginaHome").html(dados);
-                    }
-                    });
+                    let myOffCanvas = document.getElementById('offcanvasDireita');
+                    let openedCanvas = bootstrap.Offcanvas.getInstance(myOffCanvas);
+                    openedCanvas.hide();
                 })
 
 
