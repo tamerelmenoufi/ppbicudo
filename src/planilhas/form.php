@@ -92,8 +92,8 @@
         <div class="form-text mb-3">Selecione a planilha para importação</div>
 
 
-      <button type="submit" data-bs-dismiss="offcanvas" class="btn btn-primary mt-3"> <i class="fa fa-save"></i> Importar Planilha</button>
-      <button cancelar type="button" data-bs-dismiss="offcanvas" class="btn btn-danger mt-3"> <i class="fa fa-cancel"></i> Cancelar</button>
+        <button cancelar type="button" data-bs-dismiss="offcanvas" class="btn btn-danger mt-3"> <i class="fa fa-cancel"></i> Cancelar</button>
+        <button type="submit" data-bs-dismiss="offcanvas" class="btn btn-primary mt-3"> <i class="fa fa-save"></i> Importar Planilha</button>
 
       <input type="hidden" id="acao" name="acao" value="salvar" >
 
