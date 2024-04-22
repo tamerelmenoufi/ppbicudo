@@ -55,7 +55,7 @@
                   <select id="origem" class="form-select">
                     <option value="">:: Selecione Origem ::</option>
                     <?php
-                    $q = "select * form origens where status = '1' order by nome";
+                    $q = "select * from origens where status = '1' order by nome";
                     $r = mysqli_query($con, $q);
                     while($s = mysqli_fetch_object($r)){
                     ?>
