@@ -55,6 +55,7 @@
                   <input campoBusca type="text" class="form-control" value="<?=$_SESSION['usuarioBusca']?>" aria-label="Digite a informação para a busca">
                   <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
                   <button filtro="limpar" class="btn btn-outline-danger" type="button">limpar</button>
+                  <a class="btn btn-outline-danger" type="button" href='./print.php' target="_blank"><i class="fa-solid fa-print"></i></a>
                 </div>
             </div>
 
