@@ -20,6 +20,7 @@
       );
       $context  = stream_context_create($opts);
       $result = file_get_contents("{$urlPainel}planilhas/ler.php", false, $context);
+      $json = $result;
       $result = json_decode($result);
 
       $remove = [
@@ -66,7 +67,8 @@
       echo json_encode([
         'mensagem' => 'Dados importados com sucesso!',
         'quantidade' => $quantidade,
-        'comandos' => $comandos 
+        'comandos' => $comandos,
+        'json' => $jason
       ]);
 
       exit();
