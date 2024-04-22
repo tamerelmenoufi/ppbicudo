@@ -223,6 +223,7 @@
               console.log('Entro no erro!')
               return false;
             }
+            console.log(situacao + planilha)
             obj = $(this);
             $.ajax({
                 url:"src/planilhas/index.php",
