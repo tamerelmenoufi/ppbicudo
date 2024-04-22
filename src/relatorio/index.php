@@ -21,8 +21,8 @@
     }
 
     if($_SESSION['usuarioBusca']){
-      $cpf = str_replace( '.', '', str_replace('-', '', $_SESSION['usuarioBusca']));
-      $where = " and nome like '%{$_SESSION['usuarioBusca']}%' or REPLACE( REPLACE( cpf, '.', '' ), '-', '' ) = '{$cpf}' ";
+      // $cpf = str_replace( '.', '', str_replace('-', '', $_SESSION['usuarioBusca']));
+      // $where = " and nome like '%{$_SESSION['usuarioBusca']}%' or REPLACE( REPLACE( cpf, '.', '' ), '-', '' ) = '{$cpf}' ";
     }
 
 
