@@ -27,7 +27,16 @@ for ($row = 1; $row <= $highestRow; $row++) {
                 if ($worksheet->getCell($col . $row)->getDataType() === \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_NUMERIC && \PhpOffice\PhpSpreadsheet\Shared\Date::isDateTime($worksheet->getCell($col . $row))) {
                     $retorno[$row][$campos[$col]] = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($cellValue)->format('Y-m-d H:i:s');
                 }else{
-                    if(in_array($campos[$col],['TarifaEnvio','TarifaMarketplace'])) $cellValue = $cellValue*(-1);
+                    $negativo = [
+                        'ValorPedidoXquantidade',
+                        'CustoEnvio',
+                        'CustoEnvioSeller',
+                        'TarifaGatwayPagamento',
+                        'TarifaMarketplace',
+                        'PrecoCusto',
+                        'Porcentagem'
+                    ];
+                    if(in_array($campos[$col],$negativo) and $cellValue*1 < 0) $cellValue = $cellValue*(-1);
                     $retorno[$row][$campos[$col]] = $cellValue;
                 }
                 
