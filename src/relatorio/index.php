@@ -24,7 +24,7 @@
 
     if($_SESSION['usuarioBusca']){
       // $cpf = str_replace( '.', '', str_replace('-', '', $_SESSION['usuarioBusca']));
-      $where = " and origem = '{$_SESSION['buscaOrigem']}' and data between '{$_SESSION['buscaDataInicial']}' and '{$_SESSION['buscaDataFinal']}' ";
+      $where = " and origem = '{$_SESSION['buscaOrigem']}' and dataCriacao between '{$_SESSION['buscaDataInicial']}' and '{$_SESSION['buscaDataFinal']}' ";
     }
 
 
