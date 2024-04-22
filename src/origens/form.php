@@ -109,7 +109,8 @@
         <div class="row">
             <div class="col">
                 <div style="display:flex; justify-content:end">
-                    <button type="submit" class="btn btn-success btn-ms">Salvar</button>
+                    <button type="submit" class="btn btn-success btn-ms"><i class="fa-regular fa-floppy-disk"></i> Salvar</button>
+                    <button cancelar type="button" data-bs-dismiss="offcanvas" class="btn btn-danger mt-3"> <i class="fa fa-cancel"></i> Cancelar</button>
                     <input type="hidden" id="codigo" value="<?=$_POST['cod']?>" />
                 </div>
             </div>
@@ -254,6 +255,17 @@
                 } else {
                 alert('Nao suporta HTML5');
                 }
+
+
+                $("button[cancelar]").click(function(){
+                    Carregando();
+                    $.ajax({
+                    url:"src/origens/index.php",
+                    success:function(dados){
+                        $("#paginaHome").html(dados);
+                    }
+                    });
+                })
 
 
         })
