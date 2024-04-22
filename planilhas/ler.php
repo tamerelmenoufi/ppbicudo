@@ -2,7 +2,7 @@
 
 require 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\IOFactory;
-$xlsxFilePath = $_POST['arquivo'];
+echo $xlsxFilePath = $_POST['arquivo'];
 $spreadsheet = IOFactory::load($xlsxFilePath);
 $worksheet = $spreadsheet->getActiveSheet();
 $highestRow = $worksheet->getHighestRow(); 
