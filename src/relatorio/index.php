@@ -40,21 +40,6 @@
     font-size:12px;
   }
 
-  thead {
-        display: table-header-group;
-    }
-    tfoot {
-        display: table-footer-group;
-    }
-    @media print {
-        thead {
-            display: table-header-group !important;
-        }
-        tfoot {
-            display: table-footer-group !important;
-        }
-    }
-
 </style>
 <div class="col">
   <div class="m-3">

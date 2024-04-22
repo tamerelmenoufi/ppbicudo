@@ -236,7 +236,7 @@
                     planilha
                 },
                 success:function(dados){
-                  console.log(dados);
+                  // console.log(dados);
                   $.alert({
                     title:"Alerta de Importação",
                     content:dados.mensagem,
