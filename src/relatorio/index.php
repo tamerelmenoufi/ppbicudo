@@ -94,7 +94,7 @@
                 </thead>
                 <tbody>
                   <?php
-                    $query = "select * from relatorio where 1 {$where} order by dataCriacao desc";
+                   echo  $query = "select * from relatorio where 1 {$where} order by dataCriacao desc";
                     $result = mysqli_query($con,$query);
                     
                     while($d = mysqli_fetch_object($result)){
