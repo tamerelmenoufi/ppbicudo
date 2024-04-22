@@ -19,7 +19,9 @@
       $_SESSION['buscaDataInicial'] = $_POST['buscaDataInicial'];
       $_SESSION['buscaDataFinal'] = $_POST['buscaDataFinal'];
     }elseif($_POST['filtro']){
-      $_SESSION['usuarioBusca'] = false;
+      $_SESSION['buscaOrigem'] = false;
+      $_SESSION['buscaDataInicial'] = false;
+      $_SESSION['buscaDataFinal'] = false;
     }
 
     if($_SESSION['buscaOrigem'] and $_SESSION['buscaDataInicial'] and $_SESSION['buscaDataFinal']){
