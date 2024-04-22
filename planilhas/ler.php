@@ -36,7 +36,7 @@ for ($row = 1; $row <= $highestRow; $row++) {
                         'PrecoCusto',
                         'Porcentagem'
                     ];
-                    if(in_array($campos[$col],$negativo) and $cellValue*1 < 0) $cellValue = $cellValue*(-1);
+                    if(in_array($campos[$col],$negativo) and (float)$cellValue*1 < 0) $cellValue = $cellValue*(-1);
                     $retorno[$row][$campos[$col]] = $cellValue;
                 }
                 
