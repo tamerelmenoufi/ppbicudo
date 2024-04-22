@@ -130,6 +130,19 @@
           })
         })
 
+        $("button[limpar]").click(function(){
+          $.ajax({
+              url:"src/relatorio/index.php",
+              type:"POST",
+              data:{
+                  filtro:'limpar',
+              },
+              success:function(dados){
+                  $("#paginaHome").html(dados);
+              }
+          })
+        })
+
 
 
     })
