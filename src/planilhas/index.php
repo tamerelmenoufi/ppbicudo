@@ -223,7 +223,6 @@
               console.log('Entro no erro!')
               return false;
             }
-            console.log(situacao + planilha)
             obj = $(this);
             $.ajax({
                 url:"src/planilhas/index.php",
@@ -251,6 +250,9 @@
                     obj.parent("td").parent("tr").children("td[acoes]").children("button[deletar]").remove();
                   }
                     // $("#paginaHome").html(dados);
+                },
+                error:function(){
+                  console.log('erro')
                 }
             })
 
