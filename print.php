@@ -42,6 +42,11 @@
     <table class="table table-striped table-hover">
         <thead>
             <tr>
+              <th colspan = "11" align="center">
+                <img src="img/logo.png?1" alt="">
+              </th>
+            </tr>
+            <tr>
             <th scope="col">Data</th>
             <th scope="col">Anúncios</th>
             <th scope="col">Pagamento Produto</th>
