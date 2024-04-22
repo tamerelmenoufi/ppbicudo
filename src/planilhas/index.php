@@ -68,7 +68,7 @@
         'mensagem' => 'Dados importados com sucesso!',
         'quantidade' => $quantidade,
         'comandos' => $comandos,
-        'json' => $jason
+        'json' => $json
       ]);
 
       exit();
