@@ -61,7 +61,7 @@
                     $r = mysqli_query($con, $q);
                     while($s = mysqli_fetch_object($r)){
                     ?>
-                    <option value="<?=$s->codigo?>" <?=(($s->codigo == $_SESSION['buscaOrigem']))?>><?=$s->nome?></option>
+                    <option value="<?=$s->codigo?>" <?=(($s->codigo == $_SESSION['buscaOrigem'])?'selected':false)?>><?=$s->nome?></option>
                     <?php
                     }
                     ?>
