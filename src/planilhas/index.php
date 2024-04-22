@@ -45,6 +45,7 @@
         $query = "INSERT INTO relatorio SET ";
         $valores = [];
         $valores[] = "`planilha` = '{$_POST['situacao']}'";
+        $valores[] = "`origem` = '{$_POST['origem']}'";
         foreach($dados as $i => $val){
           if(!in_array($i,$remove)){
             if($i == 'Porcentagem'){
@@ -123,19 +124,20 @@
               </thead>
               <tbody>
                 <?php
-                  $query = "select a.*, b.nome as usuario_nome, o.nome as origem, (select count(*) from relatorio where planilha = a.codigo) as registros from planilhas a left join usuarios b on a.usuario = b.codigo left join origens o on a.origem = o.codigo order by a.data desc limit 100";
+                  $query = "select a.*, b.nome as usuario_nome, o.nome as origem_nome, (select count(*) from relatorio where planilha = a.codigo) as registros from planilhas a left join usuarios b on a.usuario = b.codigo left join origens o on a.origem = o.codigo order by a.data desc limit 100";
                   $result = mysqli_query($con, $query);
                   while($d = mysqli_fetch_object($result)){
                 ?>
                 <tr>
                   <td style="white-space: nowrap;"><?=strtoupper($d->lote)?></td>
-                  <td style="white-space: nowrap;"><?=$d->origem?></td>
+                  <td style="white-space: nowrap;"><?=$d->origem_nome?></td>
                   <td style="white-space: nowrap;"><?=dataBr($d->data)?></td>
                   <td style="white-space: nowrap;"><?=$d->usuario_nome?></td>
                   <td style="white-space: nowrap;">
                     <i 
                       situacao="<?=$d->codigo?>" 
                       planilha="<?=$d->planilha?>" 
+                      origem="<?=$d->origem?>" 
                       class="fa-solid fa-file-arrow-up text-<?=(($d->situacao == '1' and $d->registros)?'success':'secondary situacao')?>" 
                       style="font-size:30px; <?=(($d->situacao == '1' and $d->registros)?false:'cursor:pointer')?>"
                     ></i> <?=(($d->registros)?:false)?>
@@ -221,7 +223,8 @@
 
             situacao = $(this).attr("situacao");
             planilha = $(this).attr("planilha");
-            if(!situacao || !planilha){
+            origem = $(this).attr("origem");
+            if(!situacao || !planilha || !origem){
               console.log('Entro no erro!')
               return false;
             }
@@ -233,7 +236,8 @@
                 mimeType: 'multipart/form-data',
                 data:{
                     situacao,
-                    planilha
+                    planilha,
+                    origem
                 },
                 success:function(dados){
                   // console.log(dados);
@@ -247,6 +251,7 @@
                   obj.css("cursor","");
                   obj.attr("planilha","");
                   obj.attr("situacao","");
+                  obj.attr("origem","");
                   obj.parent("td").append(dados.quantidade);
                   if(dados.quantidade > 0){
                     obj.parent("td").parent("tr").children("td[acoes]").children("button[deletar]").remove();
