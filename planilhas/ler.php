@@ -33,8 +33,7 @@ for ($row = 1; $row <= $highestRow; $row++) {
                         'CustoEnvioSeller',
                         'TarifaGatwayPagamento',
                         'TarifaMarketplace',
-                        'PrecoCusto',
-                        'Porcentagem'
+                        'PrecoCusto'
                     ];
                     if(in_array($campos[$col],$negativo) and (float)$cellValue*1 < 0) $cellValue = $cellValue*(-1);
                     $retorno[$row][$campos[$col]] = $cellValue;
