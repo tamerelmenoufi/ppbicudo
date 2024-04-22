@@ -42,8 +42,10 @@
     <table class="table table-striped table-hover">
         <thead>
             <tr>
-              <th colspan = "11" align="center">
-                <img src="img/logo.png?1" alt="">
+              <th colspan = "11" >
+                <center>
+                  <img src="img/logo.png?1" height="40" alt="">
+                </center>
               </th>
             </tr>
             <tr>
