@@ -78,6 +78,11 @@
                 </div>
             </div>
 
+            <?php
+              if($where){
+
+            ?>
+
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
@@ -96,7 +101,7 @@
                 </thead>
                 <tbody>
                   <?php
-                   echo  $query = "select * from relatorio where 1 {$where} order by dataCriacao desc";
+                    $query = "select * from relatorio where 1 {$where} order by dataCriacao desc";
                     $result = mysqli_query($con,$query);
                     
                     while($d = mysqli_fetch_object($result)){
@@ -119,6 +124,9 @@
                   ?>
                 </tbody>
               </table>
+              <?php
+              }
+              ?>
 
           </div>
         </div>
