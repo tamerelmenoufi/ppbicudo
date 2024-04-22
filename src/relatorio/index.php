@@ -15,7 +15,9 @@
 
 
     if($_POST['filtro'] == 'filtrar'){
-      $_SESSION['usuarioBusca'] = $_POST['campo'];
+      $_SESSION['buscaOrigem'] = $_POST['buscaOrigem'];
+      $_SESSION['buscaDataInicial'] = $_POST['buscaDataInicial'];
+      $_SESSION['buscaDataFinal'] = $_POST['buscaDataFinal'];
     }elseif($_POST['filtro']){
       $_SESSION['usuarioBusca'] = false;
     }
@@ -59,15 +61,15 @@
                     $r = mysqli_query($con, $q);
                     while($s = mysqli_fetch_object($r)){
                     ?>
-                    <option value="<?=$s->codigo?>"><?=$s->nome?></option>
+                    <option value="<?=$s->codigo?>" <?=(($s->codigo == $_SESSION['buscaOrigem']))?>><?=$s->nome?></option>
                     <?php
                     }
                     ?>
                   </select>
                   <label class="input-group-text" for="inputGroupFile01">Período de </label>
-                  <input type="date" id="data_inicial" class="form-control" value="<?=$_SESSION['data_inicial']?>" >
+                  <input type="date" id="data_inicial" class="form-control" value="<?=$_SESSION['buscaDataInicial']?>" >
                   <label class="input-group-text" for="inputGroupFile01">até</label>
-                  <input type="date" id="data_final" class="form-control" value="<?=$_SESSION['data_inicial']?>" >
+                  <input type="date" id="data_final" class="form-control" value="<?=$_SESSION['buscaDataFinal']?>" >
                   <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
                   <button filtro="limpar" class="btn btn-outline-danger" type="button">limpar</button>
                   <a class="btn btn-outline-success" type="button" href='./print.php' target="_blank"><i class="fa-solid fa-print"></i></a>
@@ -131,13 +133,17 @@
 
         $("button[filtro]").click(function(){
           filtro = $(this).attr("filtro");
-          campo = $("input[campoBusca]").val();
+          buscaOrigem = $("#origem").val();
+          buscaDataInicial = $("#data_inicial").val();
+          buscaDataFinal = $("#data_final").val();
           $.ajax({
               url:"src/relatorio/index.php",
               type:"POST",
               data:{
                   filtro,
-                  campo
+                  buscaOrigem,
+                  buscaDataInicial,
+                  buscaDataFinal
               },
               success:function(dados){
                   $("#paginaHome").html(dados);
