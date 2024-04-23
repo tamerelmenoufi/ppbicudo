@@ -121,7 +121,7 @@
                 <tbody>
                 <?php
                 $q = "select 
-                            a.*
+                            a.*,
                             (select sum(ValorPedidoXquantidade) from relatorio where origem = a.codigo) as pagamento_produto,   
                             (select sum(CustoEnvio) from relatorio where origem = a.codigo) as pagamento_frete,   
                             (select sum(PrecoCusto) from relatorio where origem = a.codigo) as custo_produto,   
