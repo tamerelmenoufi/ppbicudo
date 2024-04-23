@@ -72,7 +72,7 @@
                   </div>
                   <div class="col">
                     <div class="d-flex justify-content-end align-items-center">
-                      <img src="<?=$urlPainel?>src/volumes/origens/<?=$d->imagem?>" height="60" alt="">
+                      <img src="<?=$urlPainel?>src/volume/origens/<?=$d->imagem?>" height="60" alt="">
                     </div>
                   </div>
                 </div>
