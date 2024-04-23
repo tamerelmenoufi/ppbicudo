@@ -11,11 +11,9 @@
     
 ?>
 <style>
-<style>
     td, th{
     font-size:12px;
   }
-
 </style>
 </style>
 <div class="m-3">
