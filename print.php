@@ -65,8 +65,8 @@
                   <div class="col">
                     <div class="d-flex justify-content-start align-items-center">
                       <h4>
-                        <?=$_SESSION['buscaDataInicial']?><br>
-                        <?=$_SESSION['buscaDataFinal']?>
+                        <?=dataBr($_SESSION['buscaDataInicial'])?><br>
+                        <?=dataBr($_SESSION['buscaDataFinal'])?>
                       </h4>
                     </div>
                   </div>
