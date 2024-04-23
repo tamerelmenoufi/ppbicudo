@@ -14,6 +14,7 @@
 
 </style>
 <div class="m-3">
+    <h6>Resumo Geral</h6>
     <div class="row g-0">
         <div class="col-md-4 p-2">
             <div class="alert alert-secondary" role="alert">
