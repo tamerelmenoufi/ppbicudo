@@ -132,46 +132,48 @@
             </div>
         </div>
         <div class="col-md-8 p-2">
-            <table class="table table-hover">
-                <thead>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Origem</th>
+                            <th>Pagamento Produto</th>
+                            <th>Pagamento Frete</th>
+                            <th>Custo Produto</th>
+                            <th>Custo Frete</th>
+                            <th>Comissão</th>
+                            <th>Lucro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $q = "select 
+                                a.*,
+                                (select sum(ValorPedidoXquantidade) from relatorio where origem = a.codigo) as pagamento_produto,   
+                                (select sum(CustoEnvio) from relatorio where origem = a.codigo) as pagamento_frete,   
+                                (select sum(PrecoCusto) from relatorio where origem = a.codigo) as custo_produto,   
+                                (select sum(CustoEnvioSeller) from relatorio where origem = a.codigo) as custo_frete,   
+                                (select sum(TarifaGatwayPagamento + TarifaMarketplace) from relatorio where origem = a.codigo) as comissão,   
+                                (select sum(ValorPedidoXquantidade - PrecoCusto - CustoEnvioSeller - TarifaGatwayPagamento - TarifaMarketplace) from relatorio where origem = a.codigo) as lucro   
+                            from origens a order by a.nome";
+                    $r = mysqli_query($con, $q);
+                    while($s = mysqli_fetch_object($r)){
+                    ?>
                     <tr>
-                        <th>Origem</th>
-                        <th>Pagamento Produto</th>
-                        <th>Pagamento Frete</th>
-                        <th>Custo Produto</th>
-                        <th>Custo Frete</th>
-                        <th>Comissão</th>
-                        <th>Lucro</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php
-                $q = "select 
-                            a.*,
-                            (select sum(ValorPedidoXquantidade) from relatorio where origem = a.codigo) as pagamento_produto,   
-                            (select sum(CustoEnvio) from relatorio where origem = a.codigo) as pagamento_frete,   
-                            (select sum(PrecoCusto) from relatorio where origem = a.codigo) as custo_produto,   
-                            (select sum(CustoEnvioSeller) from relatorio where origem = a.codigo) as custo_frete,   
-                            (select sum(TarifaGatwayPagamento + TarifaMarketplace) from relatorio where origem = a.codigo) as comissão,   
-                            (select sum(ValorPedidoXquantidade - PrecoCusto - CustoEnvioSeller - TarifaGatwayPagamento - TarifaMarketplace) from relatorio where origem = a.codigo) as lucro   
-                        from origens a order by a.nome";
-                $r = mysqli_query($con, $q);
-                while($s = mysqli_fetch_object($r)){
-                ?>
-                <tr>
-                    <td><?=$s->nome?></td>
-                    <td>R$ <?=number_format($s->pagamento_produto,2,',','.')?></td>
-                    <td>R$ <?=number_format($s->pagamento_frete,2,',','.')?></td>
-                    <td>R$ <?=number_format($s->custo_produto,2,',','.')?></td>
-                    <td>R$ <?=number_format($s->custo_frete,2,',','.')?></td>
-                    <td>R$ <?=number_format($s->comissão,2,',','.')?></td>
-                    <td>R$ <?=number_format($s->lucro,2,',','.')?></td>
-                </tr>                
-                <?php
-                }
-                ?>
-                </tbody>
-            </table>
+                        <td><?=$s->nome?></td>
+                        <td>R$ <?=number_format($s->pagamento_produto,2,',','.')?></td>
+                        <td>R$ <?=number_format($s->pagamento_frete,2,',','.')?></td>
+                        <td>R$ <?=number_format($s->custo_produto,2,',','.')?></td>
+                        <td>R$ <?=number_format($s->custo_frete,2,',','.')?></td>
+                        <td>R$ <?=number_format($s->comissão,2,',','.')?></td>
+                        <td>R$ <?=number_format($s->lucro,2,',','.')?></td>
+                    </tr>                
+                    <?php
+                    }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
