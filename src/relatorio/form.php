@@ -55,17 +55,17 @@
     <form id="acaoMenu">
 
         <div class="form-floating mb-3">
-            <input type="text" require name="codigoPedido" id="codigoPedido" class="form-control" placeholder="Código do Produto" value="<?=$d->codigoPedido?>">
+            <input type="text" require name="codigoPedido" readonly id="codigoPedido" class="form-control" placeholder="Código do Produto" value="<?=$d->codigoPedido?>">
             <label for="codigoPedido">Código do Produto*</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" require name="dataCriacao" id="dataCriacao" class="form-control" placeholder="Data" value="<?=$d->dataCriacao?>">
+            <input type="text" require name="dataCriacao" readonly id="dataCriacao" class="form-control" placeholder="Data" value="<?=$d->dataCriacao?>">
             <label for="dataCriacao">Data*</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" require name="tituloItem" id="tituloItem" class="form-control" placeholder="Anúncios" value="<?=$d->tituloItem?>">
+            <input type="text" require name="tituloItem" readonly id="tituloItem" class="form-control" placeholder="Anúncios" value="<?=$d->tituloItem?>">
             <label for="tituloItem">Anúncios*</label>
         </div>
 
