@@ -83,6 +83,53 @@
     </div>
 
     <div class="row g-0">
+        <div class="col-md-4 p-2">
+            <h6>Importação por Origem</h6>
+        </div>
+        <div class="col-md-8 p-2">
+            <h6>Arrecadação por Origem</h6>
+        </div>
+        <div class="col-md-4 p-2">
+            <table class="table table-hover">
+                <?php
+                $q = "select * from origens ordem by nome";
+                $r = mysqli_query($con, $q);
+                while($s = mysqli_fetch_object($r)){
+                ?>
+                <tr>
+                    <td><?=$s->nome?></td>
+                    <td><?=$s->qt?></td>
+                </tr>                
+                <?php
+                }
+                ?>
+            </table>
+        </div>
+        <div class="col-md-8 p-2">
+            <table class="table table-hover">
+                <?php
+                $q = "select * from origens ordem by nome";
+                $r = mysqli_query($con, $q);
+                while($s = mysqli_fetch_object($r)){
+                ?>
+                <tr>
+                    <td><?=$s->nome?></td>
+                    <td><?=$s->qt?></td>
+                </tr>                
+                <?php
+                }
+                ?>
+            </table>
+        </div>
+    </div>
+
+
+
+    <?php
+    /*
+    ?>
+
+    <div class="row g-0">
         <div class="col-md-12 p-2">
             <h6>Arrecadação Mensal</h6>
         </div>
@@ -117,7 +164,9 @@
         }
         ?>
     </div>
-
+    <?php
+    //*/
+    ?>
 </div>
 
 
