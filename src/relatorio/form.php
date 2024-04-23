@@ -124,7 +124,7 @@
         </div>
 
         <button cancelar type="button" data-bs-dismiss="offcanvas" class="btn btn-danger mt-3"> <i class="fa fa-cancel"></i> Cancelar</button>
-        <button type="submit" data-bs-dismiss="offcanvas" class="btn btn-primary mt-3"> <i class="fa fa-save"></i> Importar Planilha</button>
+        <button type="submit" data-bs-dismiss="offcanvas" class="btn btn-primary mt-3"> <i class="fa fa-save"></i> Salvar</button>
 
         <input type="hidden" id="acao" name="acao" value="salvar" >
         <input type="hidden" id="codigo" name="codigo" value="<?=$d->codigo?>" >
@@ -144,7 +144,7 @@
         }else{
           $(".deletado").css("display","none");
         }
-        $("#deletado_justificativa").html('');
+        $("#deletado_justificativa").val('');
       })
 
       $( "form" ).on( "submit", function( event ) {
