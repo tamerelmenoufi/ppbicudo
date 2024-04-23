@@ -62,9 +62,13 @@
             <tr>
               <th colspan = "11" >
                 <div class="row">
-                  <div class="col justify-content-center"></div>
-                  <div class="col justify-content-center"><img src="img/logo.png?1" height="60" alt=""></div>
-                  <div class="col justify-content-center"></div>
+                  <div class="col"></div>
+                  <div class="col">
+                    <div class="d-flex justify-content-center align-items-center">
+                      <img src="img/logo.png?1" height="60" alt="">
+                    </div>
+                  </div>
+                  <div class="col"></div>
                 </div>
               </th>
             </tr>
