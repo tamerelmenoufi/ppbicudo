@@ -108,19 +108,39 @@
             <tr>
             <td class="text-nowrap"><?=dataBr($d->dataCriacao)?></td>
             <td class=""><?=$d->tituloItem?></td>
-            <td class="text-nowrap">R$<?=number_format($d->ValorPedidoXquantidade,2,',','.')?></td>
-            <td class="text-nowrap">R$<?=number_format($d->CustoEnvio,2,',','.')?></td>
-            <td class="text-nowrap">R$<?=number_format($d->PrecoCusto,2,',','.')?></td>
-            <td class="text-nowrap">R$<?=number_format($d->CustoEnvioSeller,2,',','.')?></td>
-            <td class="text-nowrap">R$<?=number_format(($d->TarifaGatwayPagamento + $d->TarifaMarketplace),2,',','.')?></td>
-            <td class="text-nowrap">R$<?=number_format(($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace),2,',','.')?></td>
+            <td class="text-nowrap">R$ <?=number_format($d->ValorPedidoXquantidade,2,',','.')?></td>
+            <td class="text-nowrap">R$ <?=number_format($d->CustoEnvio,2,',','.')?></td>
+            <td class="text-nowrap">R$ <?=number_format($d->PrecoCusto,2,',','.')?></td>
+            <td class="text-nowrap">R$ <?=number_format($d->CustoEnvioSeller,2,',','.')?></td>
+            <td class="text-nowrap">R$ <?=number_format(($d->TarifaGatwayPagamento + $d->TarifaMarketplace),2,',','.')?></td>
+            <td class="text-nowrap">R$ <?=number_format(($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace),2,',','.')?></td>
             <td class="text-nowrap"><?=$d->frete?></td>
             <td class="text-nowrap"><?=number_format($d->Porcentagem,2,',','.')?>%</td>
             <td class="text-nowrap"><?=$d->codigoPedido?></td>
             </tr>
             <?php
+              $totalValorPedidoXquantidade = ($totalValorPedidoXquantidade + $d->ValorPedidoXquantidade);
+              $totalCustoEnvio = ($totalCustoEnvio + $d->CustoEnvio);
+              $totalPrecoCusto = ($totalPrecoCusto + $d->PrecoCusto);
+              $totalCustoEnvioSeller = ($totalCustoEnvioSeller + $d->CustoEnvioSeller);
+              $totalComissao = ($totalComissao + ($d->TarifaGatwayPagamento + $d->TarifaMarketplace));
+              $totalLucro = ($totalLucro + ($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace));
+              $dtotalPorcentagem = ($dtotalPorcentagem + $d->Porcentagem);
             }
             ?>
+            <tr>
+            <th class="text-nowrap"></th>
+            <th class=""></th>
+            <th class="text-nowrap">R$ <?=number_format($totalValorPedidoXquantidade,2,',','.')?></th>
+            <th class="text-nowrap">R$ <?=number_format($totalCustoEnvio,2,',','.')?></th>
+            <th class="text-nowrap">R$ <?=number_format($totalPrecoCusto,2,',','.')?></th>
+            <th class="text-nowrap">R$ <?=number_format($totalCustoEnvioSeller,2,',','.')?></th>
+            <th class="text-nowrap">R$ <?=number_format(($totalComissao),2,',','.')?></th>
+            <th class="text-nowrap">R$ <?=number_format(($totalLucro),2,',','.')?></th>
+            <th class="text-nowrap"></th>
+            <th class="text-nowrap"><?=number_format($dtotalPorcentagem,2,',','.')?>%</th>
+            <th class="text-nowrap"></th>
+            </tr>            
         </tbody>
     </table>
 
