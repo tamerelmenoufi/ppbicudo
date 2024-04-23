@@ -65,8 +65,8 @@
                   <div class="col">
                     <div class="d-flex justify-content-start align-items-center">
                       <h4>
-                        <?=dataBr($_SESSION['buscaDataInicial'])?><br>
-                        <?=dataBr($_SESSION['buscaDataFinal'])?>
+                        <i class="fa-solid fa-arrow-down"></i> <?=dataBr($_SESSION['buscaDataInicial'])?><br>
+                        <i class="fa-solid fa-arrow-up"></i> <?=dataBr($_SESSION['buscaDataFinal'])?>
                       </h4>
                     </div>
                   </div>
