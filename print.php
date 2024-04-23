@@ -71,7 +71,7 @@
                     </div>
                   </div>
                   <div class="col">
-                    <div class="d-flex justify-content-center align-items-center">
+                    <div class="d-flex justify-content-end align-items-center">
                       <img src="<?=$urlPainel?>src/volumes/origens/<?=$d->imagem?>" height="60" alt="">
                     </div>
                   </div>
