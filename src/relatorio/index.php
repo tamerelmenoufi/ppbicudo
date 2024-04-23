@@ -132,7 +132,7 @@
                     </td>
                   </tr>
                   <?php
-                      if(!$d->$deletado){
+                      if(!$d->deletado){
                         $totalValorPedidoXquantidade = ($totalValorPedidoXquantidade + $d->ValorPedidoXquantidade);
                         $totalCustoEnvio = ($totalCustoEnvio + $d->CustoEnvio);
                         $totalPrecoCusto = ($totalPrecoCusto + $d->PrecoCusto);
