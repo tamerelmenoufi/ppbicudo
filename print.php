@@ -61,9 +61,11 @@
         <thead>
             <tr>
               <th colspan = "11" >
-                <center>
-                  <img src="img/logo.png?1" height="60" alt="">
-                </center>
+                <div class="row">
+                  <div class="col"></div>
+                  <div class="col"><img src="img/logo.png?1" height="60" alt=""></div>
+                  <div class="col"></div>
+                </div>
               </th>
             </tr>
             <tr>
