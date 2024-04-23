@@ -38,6 +38,52 @@
             </div>
         </div>
     </div>
+
+
+    <div class="row g-0">
+        <div class="col-md-12 p-2">
+            <h6>Resumo Financeiro</h6>
+        </div>
+        <div class="col-md-2 p-2">
+            <div class="alert alert-secondary" role="alert">
+                <span>Pagamento Produto</span>
+                <h1>136</h1>
+            </div>
+        </div>
+        <div class="col-md-2 p-2">
+            <div class="alert alert-secondary" role="alert">
+                <span>Pagamento Frete</span>
+                <h1>2693</h1>
+            </div>
+        </div>
+        <div class="col-md-2 p-2">
+            <div class="alert alert-warning" role="alert">
+                <span>Custo Produto</span>
+                <h1>R$ 126.851,97</h1>
+            </div>
+        </div>
+        <div class="col-md-2 p-2">
+            <div class="alert alert-secondary" role="alert">
+                <span>Custo Frete</span>
+                <h1>136</h1>
+            </div>
+        </div>
+        <div class="col-md-2 p-2">
+            <div class="alert alert-primary" role="alert">
+                <span>Comissão</span>
+                <h1>2693</h1>
+            </div>
+        </div>
+        <div class="col-md-2 p-2">
+            <div class="alert alert-success" role="alert">
+                <span>Lucro</span>
+                <h1>R$ 126.851,97</h1>
+            </div>
+        </div>
+    </div>
+    
+
+
 </div>
 
 
