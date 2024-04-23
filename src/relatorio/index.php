@@ -132,14 +132,14 @@
                     </td>
                   </tr>
                   <?php
-
-                      $totalValorPedidoXquantidade = ($totalValorPedidoXquantidade + $d->ValorPedidoXquantidade);
-                      $totalCustoEnvio = ($totalCustoEnvio + $d->CustoEnvio);
-                      $totalPrecoCusto = ($totalPrecoCusto + $d->PrecoCusto);
-                      $totalCustoEnvioSeller = ($totalCustoEnvioSeller + $d->CustoEnvioSeller);
-                      $totalComissao = ($totalComissao + ($d->TarifaGatwayPagamento + $d->TarifaMarketplace));
-                      $totalLucro = ($totalLucro + ($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace));
-
+                      if(!$d->$deletado){
+                        $totalValorPedidoXquantidade = ($totalValorPedidoXquantidade + $d->ValorPedidoXquantidade);
+                        $totalCustoEnvio = ($totalCustoEnvio + $d->CustoEnvio);
+                        $totalPrecoCusto = ($totalPrecoCusto + $d->PrecoCusto);
+                        $totalCustoEnvioSeller = ($totalCustoEnvioSeller + $d->CustoEnvioSeller);
+                        $totalComissao = ($totalComissao + ($d->TarifaGatwayPagamento + $d->TarifaMarketplace));
+                        $totalLucro = ($totalLucro + ($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace));
+                      }
                     }
                   ?>
                   <tr>
