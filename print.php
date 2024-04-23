@@ -125,7 +125,6 @@
               $totalCustoEnvioSeller = ($totalCustoEnvioSeller + $d->CustoEnvioSeller);
               $totalComissao = ($totalComissao + ($d->TarifaGatwayPagamento + $d->TarifaMarketplace));
               $totalLucro = ($totalLucro + ($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace));
-              $dtotalPorcentagem = ($dtotalPorcentagem + $d->Porcentagem);
             }
             ?>
             <tr>
@@ -138,7 +137,7 @@
             <th class="text-nowrap">R$ <?=number_format(($totalComissao),2,',','.')?></th>
             <th class="text-nowrap">R$ <?=number_format(($totalLucro),2,',','.')?></th>
             <th class="text-nowrap"></th>
-            <th class="text-nowrap"><?=number_format($dtotalPorcentagem,2,',','.')?>%</th>
+            <th class="text-nowrap"></th>
             <th class="text-nowrap"></th>
             </tr>            
         </tbody>
