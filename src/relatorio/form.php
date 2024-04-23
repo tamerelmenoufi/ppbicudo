@@ -55,68 +55,38 @@
     <form id="acaoMenu">
 
         <div class="form-floating mb-3">
-            <input type="text" require name="dataCriacao" id="dataCriacao" class="form-control" placeholder="dataCriacao" value="<?=$d->dataCriacao?>">
-            <label for="dataCriacao">dataCriacao*</label>
+            <input type="text" require name="codigoPedido" id="codigoPedido" class="form-control" placeholder="Código do Produto" value="<?=$d->codigoPedido?>">
+            <label for="codigoPedido">Código do Produto*</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" require name="codigoPedido" id="codigoPedido" class="form-control" placeholder="codigoPedido" value="<?=$d->codigoPedido?>">
-            <label for="codigoPedido">codigoPedido*</label>
+            <input type="text" require name="dataCriacao" id="dataCriacao" class="form-control" placeholder="Data" value="<?=$d->dataCriacao?>">
+            <label for="dataCriacao">Data*</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" require name="pedidoOrigem" id="pedidoOrigem" class="form-control" placeholder="pedidoOrigem" value="<?=$d->pedidoOrigem?>">
-            <label for="pedidoOrigem">pedidoOrigem*</label>
+            <input type="text" require name="tituloItem" id="tituloItem" class="form-control" placeholder="Anúncios" value="<?=$d->tituloItem?>">
+            <label for="tituloItem">Anúncios*</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" require name="tituloItem" id="tituloItem" class="form-control" placeholder="tituloItem" value="<?=$d->tituloItem?>">
-            <label for="tituloItem">tituloItem*</label>
+            <input type="text" require name="ValorPedidoXquantidade" id="ValorPedidoXquantidade" class="form-control" placeholder="Pagamento Produto" value="<?=$d->ValorPedidoXquantidade?>">
+            <label for="ValorPedidoXquantidade">Pagamento Produto*</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" require name="frete" id="frete" class="form-control" placeholder="frete" value="<?=$d->frete?>">
-            <label for="frete">frete*</label>
+            <input type="text" require name="CustoEnvio" id="CustoEnvio" class="form-control" placeholder="Pagamento Frete" value="<?=$d->CustoEnvio?>">
+            <label for="CustoEnvio">Pagamento Frete*</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" require name="ValorPedidoXquantidade" id="ValorPedidoXquantidade" class="form-control" placeholder="ValorPedidoXquantidade" value="<?=$d->ValorPedidoXquantidade?>">
-            <label for="ValorPedidoXquantidade">ValorPedidoXquantidade*</label>
-        </div>
-
-        <div class="form-floating mb-3">
-            <input type="text" require name="CustoEnvio" id="CustoEnvio" class="form-control" placeholder="CustoEnvio" value="<?=$d->CustoEnvio?>">
-            <label for="CustoEnvio">CustoEnvio*</label>
-        </div>
-
-        <div class="form-floating mb-3">
-            <input type="text" require name="CustoEnvioSeller" id="CustoEnvioSeller" class="form-control" placeholder="CustoEnvioSeller" value="<?=$d->CustoEnvioSeller?>">
-            <label for="CustoEnvioSeller">CustoEnvioSeller*</label>
-        </div>
-
-        <div class="form-floating mb-3">
-            <input type="text" require name="TarifaGatwayPagamento" id="TarifaGatwayPagamento" class="form-control" placeholder="TarifaGatwayPagamento" value="<?=$d->TarifaGatwayPagamento?>">
-            <label for="TarifaGatwayPagamento">TarifaGatwayPagamento*</label>
-        </div>
-
-        <div class="form-floating mb-3">
-            <input type="text" require name="TarifaMarketplace" id="TarifaMarketplace" class="form-control" placeholder="TarifaMarketplace" value="<?=$d->TarifaMarketplace?>">
-            <label for="TarifaMarketplace">TarifaMarketplace*</label>
-        </div>
-
-        <div class="form-floating mb-3">
-            <input type="text" require name="PrecoCusto" id="PrecoCusto" class="form-control" placeholder="PrecoCusto" value="<?=$d->PrecoCusto?>">
-            <label for="PrecoCusto">PrecoCusto*</label>
+            <input type="text" require name="CustoEnvioSeller" id="CustoEnvioSeller" class="form-control" placeholder="Custo Frete" value="<?=$d->CustoEnvioSeller?>">
+            <label for="CustoEnvioSeller">Custo Frete*</label>
         </div>
 
         <div class="form-floating mb-3">
             <input type="text" require name="Porcentagem" id="Porcentagem" class="form-control" placeholder="Porcentagem" value="<?=$d->Porcentagem?>">
             <label for="Porcentagem">Porcentagem*</label>
-        </div>
-
-        <div class="form-floating mb-3">
-            <input type="text" require name="Conta" id="Conta" class="form-control" placeholder="Conta" value="<?=$d->Conta?>">
-            <label for="Conta">Conta*</label>
         </div>
 
         <div class="mb-3 form-check">
