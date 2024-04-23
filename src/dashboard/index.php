@@ -13,11 +13,14 @@
 <style>
 
 </style>
-<div class="row mb-3 mt-3">
-    <div class="col-md-12">
-        DashBoard
+<div class="m-3">
+    <div class="row">
+        <div class="col-md-12">
+            DashBoard
+        </div>
     </div>
 </div>
+
 
 
 <script>
