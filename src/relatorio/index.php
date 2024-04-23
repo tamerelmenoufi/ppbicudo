@@ -120,7 +120,15 @@
                     <td class="text-nowrap"><?=number_format($d->Porcentagem,2,',','.')?>%</td>
                     <td class="text-nowrap"><?=$d->codigoPedido?></td>
                     <td class="text-nowrap">
-                      <i editar="<?=$d->codigo?>" style="cursor:pointer;" class="fa-solid fa-pen-to-square text-primary"></i>
+                      <i 
+                          editar="<?=$d->codigo?>" 
+                          style="cursor:pointer;" 
+                          class="fa-solid fa-pen-to-square text-primary"
+                          data-bs-toggle="offcanvas"
+                          href="#offcanvasDireita"
+                          role="button"
+                          aria-controls="offcanvasDireita"
+                      ></i>
                     </td>
                   </tr>
                   <?php
@@ -176,6 +184,20 @@
                   $("#paginaHome").html(dados);
               }
           })
+        })
+
+        $("i[editar]").click(function(){
+          editar = $(this).attr("editar");
+          $.ajax({
+              url:"src/relatorio/form.php",
+              type:"POST",
+              data:{
+                  editar,
+              },
+              success:function(dados){
+                $(".LateralDireita").html(dados);
+              }
+          })          
         })
 
 
