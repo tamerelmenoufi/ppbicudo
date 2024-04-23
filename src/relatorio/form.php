@@ -65,7 +65,7 @@
         </div>
 
         <div class="form-floating mb-3">
-            <div class="form-control"><?=$d->tituloItem?></div>
+            <div class="form-control" style="height:40px;"><?=$d->tituloItem?></div>
             <label for="tituloItem">Anúncios*</label>
         </div>
 
@@ -96,7 +96,7 @@
 
         <div class="deletado">
         <div class="form-floating mb-3">
-          <textarea name="deletado_justificativa" id="deletado_justificativa" class="form-control" rows="50"><?=$d->deletado_justificativa?></textarea>
+          <textarea name="deletado_justificativa" id="deletado_justificativa" class="form-control" style="height:100px;"><?=$d->deletado_justificativa?></textarea>
             <label for="Conta">Justificativa*</label>
         </div>
         </div>
