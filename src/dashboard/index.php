@@ -92,7 +92,7 @@
         <div class="col-md-1 p-2">
             <div class="alert alert-secondary" role="alert">
                 <span style="color:#a1a1a1; font-size:12px;">Mês <?=$i+1?></span>
-                <h5>R$ 154.999,64</h5>
+                <div style="font-size:14; font-weight:bold">R$ 154.999,64</div>
             </div>
         </div>
         <?php
