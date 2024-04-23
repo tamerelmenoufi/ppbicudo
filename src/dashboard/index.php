@@ -94,6 +94,13 @@
         </div>
         <div class="col-md-4 p-2">
             <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Origem</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
                 <?php
                 $q = "select a.*, (select count(*) from relatorio where origem = a.codigo ) as qt from origens a order by a.nome";
                 $r = mysqli_query($con, $q);
@@ -106,6 +113,7 @@
                 <?php
                 }
                 ?>
+                </tbody>
             </table>
         </div>
         <div class="col-md-8 p-2">
