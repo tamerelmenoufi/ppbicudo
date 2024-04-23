@@ -97,6 +97,7 @@
                     <th scope="col">Frete</th>
                     <th scope="col">Porcentagem</th>
                     <th scope="col">Código do Produto</th>
+                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -118,6 +119,9 @@
                     <td class="text-nowrap"><?=$d->frete?></td>
                     <td class="text-nowrap"><?=number_format($d->Porcentagem,2,',','.')?>%</td>
                     <td class="text-nowrap"><?=$d->codigoPedido?></td>
+                    <td class="text-nowrap">
+                      <i editar="<?=$d->codigo?>" style="cursor:pointer;" class="fa-solid fa-pen-to-square text-primary"></i>
+                    </td>
                   </tr>
                   <?php
                     }
