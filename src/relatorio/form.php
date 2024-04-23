@@ -161,7 +161,7 @@
         data = $( this ).serialize();
 
         deletado = $("#deletado").prop('checked');
-        justificativa = ($(".deletado_justificativa").val()).trim();
+        justificativa = $(".deletado_justificativa").val();
         if(deletado == true && !justificativa){
           $.alert({
             title:"Justificativa",
