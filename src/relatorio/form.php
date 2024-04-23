@@ -132,7 +132,7 @@
         </div>
 
         <button cancelar type="button" data-bs-dismiss="offcanvas" class="btn btn-danger mt-3"> <i class="fa fa-cancel"></i> Cancelar</button>
-        <button type="submit" data-bs-dismiss="offcanvas" class="btn btn-primary mt-3"> <i class="fa fa-save"></i> Salvar</button>
+        <button type="submit" class="btn btn-primary mt-3"> <i class="fa fa-save"></i> Salvar</button>
 
         <input type="hidden" id="acao" name="acao" value="salvar" >
         <input type="hidden" id="codigo" name="codigo" value="<?=$d->codigo?>" >
@@ -168,9 +168,9 @@
             content:"Informe a justificativa da exclusão do registro!",
             type:'red'
           });
-          let myOffCanvas = document.getElementById('offcanvasDireita');
-          let openedCanvas = bootstrap.Offcanvas.getInstance(myOffCanvas);
-          openedCanvas.show();
+          // let myOffCanvas = document.getElementById('offcanvasDireita');
+          // let openedCanvas = bootstrap.Offcanvas.getInstance(myOffCanvas);
+          // openedCanvas.show();
           Carregando('none');
           return false;
         }
