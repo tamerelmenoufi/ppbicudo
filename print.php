@@ -49,7 +49,7 @@
     <?php
     if(!$where){
     ?>
-    <div class="d-flex justify-content-center align-items-center" style="height:400px; color:#a1a1a1; position:fixed; left:0; right:0; top:0; bottom:0">
+    <div class="d-flex justify-content-center align-items-center" style="color:#a1a1a1; position:fixed; left:0; right:0; top:0; bottom:0">
         <h1>RELATÓRIO NÃO DEFINIDO</h1>
     </div>
     <?php
