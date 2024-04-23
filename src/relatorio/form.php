@@ -216,35 +216,5 @@
 
 
 
-
-      if (window.File && window.FileList && window.FileReader) {
-
-        $('input[type="file"]').change(function () {
-
-            if ($(this).val()) {
-                var files = $(this).prop("files");
-                for (var i = 0; i < files.length; i++) {
-                    (function (file) {
-                        var fileReader = new FileReader();
-                        fileReader.onload = function (f) {
-
-                          var Base64 = f.target.result;
-                          var type = file.type;
-                          var name = file.name;
-
-                          $("#base64").val(Base64);
-                          $("#imagem_tipo").val(type);
-                          $("#imagem_nome").val(name);
-
-                        };
-                        fileReader.readAsDataURL(file);
-                    })(files[i]);
-                }
-          }
-        });
-      } else {
-        alert('Nao suporta HTML5');
-      }
-
     })
 </script>
