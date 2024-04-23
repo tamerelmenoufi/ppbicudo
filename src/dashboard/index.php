@@ -42,7 +42,7 @@
 
     <div class="row g-0">
         <div class="col-md-12 p-2">
-            <h6>Resumo Financeiro</h6>
+            <h6>Resumo Financeiro Geral</h6>
         </div>
         <div class="col-md-2 p-2">
             <div class="alert alert-secondary" role="alert">
@@ -80,6 +80,24 @@
                 <h3>R$ 126.851,97</h3>
             </div>
         </div>
+    </div>
+
+    <div class="row g-0">
+        <div class="col-md-12 p-2">
+            <h6>Resumo Financeiro Geral</h6>
+        </div>
+        <?php
+        for($i=0;$i<12;$i++){
+        ?>
+        <div class="col-md-1 p-2">
+            <div class="alert alert-secondary" role="alert">
+                <span style="color:#a1a1a1; font-size:12px;">Mês <?=$i+1?></span>
+                <h5>R$ 154.999,64</h5>
+            </div>
+        </div>
+        <?php
+        }
+        ?>
     </div>
     
 
