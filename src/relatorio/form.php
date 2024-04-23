@@ -161,7 +161,7 @@
         data = $( this ).serialize();
 
         deletado = $("#deletado").prop('checked');
-        justificativa = ($(".deletado_justificativa").val()).trim();
+        justificativa = $(".deletado_justificativa").val();
         if(deletado == true and !justificativa){
           $.alert({
             title:"Justificativa",
@@ -176,6 +176,7 @@
           type:"POST",
           data,
           success:function(dados){
+            console.log(dados)
             Carregando('none');
             $.alert({
               content:dados,
@@ -200,8 +201,6 @@
                 }
               }
             });
-
-
 
           }
         });
