@@ -62,13 +62,19 @@
             <tr>
               <th colspan = "11" >
                 <div class="row">
-                  <div class="col"></div>
+                  <div class="col">
+
+                  </div>
                   <div class="col">
                     <div class="d-flex justify-content-center align-items-center">
                       <img src="img/logo.png?1" height="60" alt="">
                     </div>
                   </div>
-                  <div class="col"></div>
+                  <div class="col">
+                    <div class="d-flex justify-content-center align-items-center">
+                      <img src="<?=$urlPainel?>src/volumes/origens/<?=$d->imagem?>" height="60" alt="">
+                    </div>
+                  </div>
                 </div>
               </th>
             </tr>
