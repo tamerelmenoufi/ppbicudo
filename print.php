@@ -64,7 +64,7 @@
                 <div class="row g-0">
                   <div class="col">
                     <div class="d-flex justify-content-start align-items-center">
-                      <i class="fa-solid fa-calendar-days" style="font-size:40px; margin-right:10px;"></i>
+                      <i class="fa-solid fa-calendar-days" style="font-size:50px; margin-right:10px;"></i>
                       <h5>
                         <i class="fa-solid fa-arrow-down"></i> <?=dataBr($_SESSION['buscaDataInicial'])?><br>
                         <i class="fa-solid fa-arrow-up"></i> <?=dataBr($_SESSION['buscaDataFinal'])?>
