@@ -106,28 +106,30 @@
             <h6>Arrecadação por Origem</h6>
         </div>
         <div class="col-md-4 p-2">
-            <table class="table table-hover">
-                <thead>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Origem</th>
+                            <th class="text-center">Quantidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $q = "select a.*, (select count(*) from relatorio where origem = a.codigo ) as qt from origens a order by a.nome";
+                    $r = mysqli_query($con, $q);
+                    while($s = mysqli_fetch_object($r)){
+                    ?>
                     <tr>
-                        <th>Origem</th>
-                        <th class="text-center">Quantidade</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php
-                $q = "select a.*, (select count(*) from relatorio where origem = a.codigo ) as qt from origens a order by a.nome";
-                $r = mysqli_query($con, $q);
-                while($s = mysqli_fetch_object($r)){
-                ?>
-                <tr>
-                    <td><?=$s->nome?></td>
-                    <td class="text-center"><?=$s->qt?></td>
-                </tr>                
-                <?php
-                }
-                ?>
-                </tbody>
-            </table>
+                        <td><?=$s->nome?></td>
+                        <td class="text-center"><?=$s->qt?></td>
+                    </tr>                
+                    <?php
+                    }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="col-md-8 p-2">
             <table class="table table-hover">
