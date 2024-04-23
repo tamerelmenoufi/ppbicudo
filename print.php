@@ -61,7 +61,7 @@
         <thead>
             <tr>
               <th colspan = "11" >
-                <div class="row g0">
+                <!-- <div class="row g0">
                   <div class="col">
 
                   </div>
@@ -75,7 +75,7 @@
                       <img src="<?=$urlPainel?>src/volume/origens/<?=$d->imagem?>" height="60" alt="">
                     </div>
                   </div>
-                </div>
+                </div> -->
               </th>
             </tr>
             <tr>
