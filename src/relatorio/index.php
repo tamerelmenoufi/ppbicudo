@@ -154,6 +154,7 @@
                     <th class="text-nowrap"></th>
                     <th class="text-nowrap"></th>
                     <th class="text-nowrap"></th>
+                    <th class="text-nowrap"></th>
                   </tr>  
                 </tbody>
               </table>
