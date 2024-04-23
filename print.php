@@ -61,7 +61,7 @@
         <thead>
             <tr>
               <th colspan = "11" >
-                <div class="row">
+                <div class="row g0">
                   <div class="col">
 
                   </div>
