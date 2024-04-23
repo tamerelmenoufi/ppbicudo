@@ -64,10 +64,10 @@
                 <div class="row g-0">
                   <div class="col">
                     <div class="d-flex justify-content-start align-items-center">
-                      <i class="fa-solid fa-calendar-days" style="font-size:50px; margin-right:10px;"></i>
+                      <i class="fa-solid fa-calendar-days text-secondary-emphasis" style="font-size:50px; margin-right:10px;"></i>
                       <h5>
-                        <i class="fa-solid fa-arrow-down"></i> <?=dataBr($_SESSION['buscaDataInicial'])?><br>
-                        <i class="fa-solid fa-arrow-up"></i> <?=dataBr($_SESSION['buscaDataFinal'])?>
+                        <i class="fa-solid fa-arrow-down text-secondary-emphasis"></i> <?=dataBr($_SESSION['buscaDataInicial'])?><br>
+                        <i class="fa-solid fa-arrow-up text-secondary-emphasis"></i> <?=dataBr($_SESSION['buscaDataFinal'])?>
                       </h5>
                     </div>
                   </div>
