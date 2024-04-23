@@ -90,7 +90,7 @@
         for($i=0;$i<12;$i++){
         ?>
         <div class="col-md-1 p-2">
-            <div class="alert alert-light" role="alert">
+            <div class="alert alert-light" style="border:solid 1px #eee" role="alert">
                 <span style="color:#a1a1a1; font-size:12px;">Mês <?=$i+1?></span>
                 <div style="font-size:13; font-weight:bold">R$ 154.999,64</div>
             </div>
