@@ -92,7 +92,7 @@
         <div class="col-md-4 p-2">
             <table class="table table-hover">
                 <?php
-                $q = "select * from origens ordem by nome";
+                $q = "select * from origens order by nome";
                 $r = mysqli_query($con, $q);
                 while($s = mysqli_fetch_object($r)){
                 ?>
@@ -108,7 +108,7 @@
         <div class="col-md-8 p-2">
             <table class="table table-hover">
                 <?php
-                $q = "select * from origens ordem by nome";
+                $q = "select * from origens order by nome";
                 $r = mysqli_query($con, $q);
                 while($s = mysqli_fetch_object($r)){
                 ?>
