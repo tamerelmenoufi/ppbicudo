@@ -24,8 +24,9 @@
 
 <style>
     td, th{
-    font-size:12px;
-  }
+      font-size:12px;
+      white-space: nowrap;
+    }
 
   thead {
         display: table-header-group;

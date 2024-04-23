@@ -27,6 +27,7 @@
 <style>
     td, th{
     font-size:12px;
+    white-space: nowrap;
   }
 </style>
 </style>
