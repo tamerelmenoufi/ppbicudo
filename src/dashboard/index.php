@@ -61,37 +61,37 @@
         <div class="col-md-2 p-2">
             <div class="alert alert-secondary" role="alert">
                 <span>Pagamento Produto</span>
-                <h3>R$ <?=number_format($s->pagamento_produto,2,',','.')?></h3>
+                <h3>R$ <?=number_format($v->pagamento_produto,2,',','.')?></h3>
             </div>
         </div>
         <div class="col-md-2 p-2">
             <div class="alert alert-secondary" role="alert">
                 <span>Pagamento Frete</span>
-                <h3>R$ <?=number_format($s->pagamento_frete,2,',','.')?></h3>
+                <h3>R$ <?=number_format($v->pagamento_frete,2,',','.')?></h3>
             </div>
         </div>
         <div class="col-md-2 p-2">
             <div class="alert alert-warning" role="alert">
                 <span>Custo Produto</span>
-                <h3>R$ <?=number_format($s->custo_produto,2,',','.')?></h3>
+                <h3>R$ <?=number_format($v->custo_produto,2,',','.')?></h3>
             </div>
         </div>
         <div class="col-md-2 p-2">
             <div class="alert alert-secondary" role="alert">
                 <span>Custo Frete</span>
-                <h3>R$ <?=number_format($s->custo_frete,2,',','.')?></h3>
+                <h3>R$ <?=number_format($v->custo_frete,2,',','.')?></h3>
             </div>
         </div>
         <div class="col-md-2 p-2">
             <div class="alert alert-primary" role="alert">
                 <span>Comissão</span>
-                <h3>R$ <?=number_format($s->comissão,2,',','.')?></h3>
+                <h3>R$ <?=number_format($v->comissão,2,',','.')?></h3>
             </div>
         </div>
         <div class="col-md-2 p-2">
             <div class="alert alert-success" role="alert">
                 <span>Lucro</span>
-                <h3>R$ <?=number_format($s->lucro,2,',','.')?></h3>
+                <h3>R$ <?=number_format($v->lucro,2,',','.')?></h3>
             </div>
         </div>
     </div>
