@@ -46,7 +46,15 @@
   </head>
   <body translate="no">
 
-
+    <?php
+    if(!$where){
+    ?>
+    <div class="d-flex justify-content-center align-items-center" style="height:400px; color:#a1a1a1">
+        <h1>RELATÓRIO NÃO DEFINIDO</h1>
+    </div>
+    <?php
+    }
+    ?>
 
     <table class="table table-striped table-hover">
         <thead>
