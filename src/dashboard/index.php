@@ -110,7 +110,7 @@
                 <thead>
                     <tr>
                         <th>Origem</th>
-                        <th>Quantidade</th>
+                        <th class="text-center">Quantidade</th>
                     </tr>
                 </thead>
                 <tbody>
