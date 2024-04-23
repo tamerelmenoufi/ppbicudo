@@ -108,7 +108,7 @@
                 ?>
                 <tr>
                     <td><?=$s->nome?></td>
-                    <td><?=$s->qt?></td>
+                    <td class="text-center"><?=$s->qt?></td>
                 </tr>                
                 <?php
                 }
@@ -145,12 +145,12 @@
                 ?>
                 <tr>
                     <td><?=$s->nome?></td>
-                    <td><?=$s->pagamento_produto?></td>
-                    <td><?=$s->pagamento_frete?></td>
-                    <td><?=$s->custo_produto?></td>
-                    <td><?=$s->custo_frete?></td>
-                    <td><?=$s->comissão?></td>
-                    <td><?=$s->lucro?></td>
+                    <td>R$ <?=number_format($s->pagamento_produto,2,',','.')?></td>
+                    <td>R$ <?=number_format($s->pagamento_frete,2,',','.')?></td>
+                    <td>R$ <?=number_format($s->custo_produto,2,',','.')?></td>
+                    <td>R$ <?=number_format($s->custo_frete,2,',','.')?></td>
+                    <td>R$ <?=number_format($s->comissão,2,',','.')?></td>
+                    <td>R$ <?=number_format($s->lucro,2,',','.')?></td>
                 </tr>                
                 <?php
                 }
