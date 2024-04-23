@@ -168,6 +168,9 @@
             content:"Informe a justificativa da exclusão do registro!",
             type:'red'
           });
+          let myOffCanvas = document.getElementById('offcanvasDireita');
+          let openedCanvas = bootstrap.Offcanvas.getInstance(myOffCanvas);
+          openedCanvas.hide();
           Carregando('none');
           return false;
         }
