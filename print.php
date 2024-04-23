@@ -63,7 +63,12 @@
               <th colspan = "11" >
                 <div class="row g-0">
                   <div class="col">
-
+                    <div class="d-flex justify-content-start align-items-center">
+                      <h4>
+                        <?=$_SESSION['buscaDataInicial']?><br>
+                        <?=$_SESSION['buscaDataFinal']?>
+                      </h4>
+                    </div>
                   </div>
                   <div class="col">
                     <div class="d-flex justify-content-center align-items-center">
