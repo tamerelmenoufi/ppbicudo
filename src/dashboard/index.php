@@ -8,6 +8,18 @@
     //                         where categoria = 2
     // ";
     // mysqli_query($con,$query);
+
+
+    $q = "select 
+                (select sum(ValorPedidoXquantidade) from relatorio ) as pagamento_produto,   
+                (select sum(CustoEnvio) from relatorio ) as pagamento_frete,   
+                (select sum(PrecoCusto) from relatorio ) as custo_produto,   
+                (select sum(CustoEnvioSeller) from relatorio ) as custo_frete,   
+                (select sum(TarifaGatwayPagamento + TarifaMarketplace) from relatorio ) as comissão,   
+                (select sum(ValorPedidoXquantidade - PrecoCusto - CustoEnvioSeller - TarifaGatwayPagamento - TarifaMarketplace) from relatorio) as lucro   
+        ";
+    $r = mysqli_query($con, $q);
+    $v = mysqli_fetch_object($r);
     
 ?>
 <style>
@@ -42,7 +54,6 @@
         </div>
     </div>
 
-
     <div class="row g-0">
         <div class="col-md-12 p-2">
             <h6>Resumo Financeiro Geral</h6>
@@ -50,37 +61,37 @@
         <div class="col-md-2 p-2">
             <div class="alert alert-secondary" role="alert">
                 <span>Pagamento Produto</span>
-                <h3>136</h3>
+                <h3>R$ <?=number_format($s->pagamento_produto,2,',','.')?></h3>
             </div>
         </div>
         <div class="col-md-2 p-2">
             <div class="alert alert-secondary" role="alert">
                 <span>Pagamento Frete</span>
-                <h3>2693</h3>
+                <h3>R$ <?=number_format($s->pagamento_frete,2,',','.')?></h3>
             </div>
         </div>
         <div class="col-md-2 p-2">
             <div class="alert alert-warning" role="alert">
                 <span>Custo Produto</span>
-                <h3>R$ 126.851,97</h3>
+                <h3>R$ <?=number_format($s->custo_produto,2,',','.')?></h3>
             </div>
         </div>
         <div class="col-md-2 p-2">
             <div class="alert alert-secondary" role="alert">
                 <span>Custo Frete</span>
-                <h3>136</h3>
+                <h3>R$ <?=number_format($s->custo_frete,2,',','.')?></h3>
             </div>
         </div>
         <div class="col-md-2 p-2">
             <div class="alert alert-primary" role="alert">
                 <span>Comissão</span>
-                <h3>2693</h3>
+                <h3>R$ <?=number_format($s->comissão,2,',','.')?></h3>
             </div>
         </div>
         <div class="col-md-2 p-2">
             <div class="alert alert-success" role="alert">
                 <span>Lucro</span>
-                <h3>R$ 126.851,97</h3>
+                <h3>R$ <?=number_format($s->lucro,2,',','.')?></h3>
             </div>
         </div>
     </div>
