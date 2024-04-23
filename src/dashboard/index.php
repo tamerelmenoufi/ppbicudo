@@ -84,7 +84,7 @@
 
     <div class="row g-0">
         <div class="col-md-12 p-2">
-            <h6>Resumo Financeiro Geral</h6>
+            <h6>Arrecadação Mensal</h6>
         </div>
         <?php
         for($i=0;$i<12;$i++){
@@ -100,7 +100,23 @@
         ?>
     </div>
     
-
+    <div class="row g-0">
+        <div class="col-md-12 p-2">
+            <h6>Lucro Mensal</h6>
+        </div>
+        <?php
+        for($i=0;$i<12;$i++){
+        ?>
+        <div class="col-md-1 p-2">
+            <div class="alert alert-success" role="alert">
+                <span style="color:#a1a1a1; font-size:12px;">Mês <?=$i+1?></span>
+                <div style="font-size:13; font-weight:bold">R$ 154.999,64</div>
+            </div>
+        </div>
+        <?php
+        }
+        ?>
+    </div>
 
 </div>
 
