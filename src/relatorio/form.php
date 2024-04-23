@@ -12,6 +12,14 @@
         $campos[] = "{$i} = '{$v}'";
       }
 
+      if(trim($_POST['deletado_justificativa'])){
+        $campos[] = "deletado = '1'";
+        $campos[] = "deletado_usuario = '{$_SESSION['appLogin']->codigo}'";
+      }else{
+        $campos[] = "deletado = '0'";
+        $campos[] = "deletado_usuario = '0'";
+      }
+
       $query = "UPDATE relatorio SET ".implode(", ",$campos)."";
       mysqli_query($con, $query);
       $acao = mysqli_affected_rows($con);
@@ -151,6 +159,18 @@
         Carregando();
         event.preventDefault();
         data = $( this ).serialize();
+
+        deletado = $("#deletado").prop('checked');
+        justificativa = ($(".deletado_justificativa").val()).trim();
+        if(deletado == true and !justificativa){
+          $.alert({
+            title:"Justificativa",
+            content:"Informe a justificativa da exclusão do registro!",
+            type:'red'
+          });
+          return false;
+        }
+
         $.ajax({
           url:"src/relatorio/form.php",
           type:"POST",
