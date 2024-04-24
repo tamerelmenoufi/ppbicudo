@@ -1,6 +1,13 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
 
+    
+    if($_GET['s']){
+        $_SESSION = [];
+        header("location:./");
+        exit();
+    }
+
     if($_SESSION['appLogin']){
         $url = "src/home/index.php";
     }else{
