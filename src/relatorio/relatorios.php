@@ -21,7 +21,16 @@
     i[excluir]{
         cursor:pointer;
     }
+
+    .Titulo<?=$md5?>{
+        position:absolute;
+        left:60px;
+        top:8px;
+        z-index:0;
+    }
 </style>
+<h4 class="Titulo<?=$md5?>">Modelos de Relatórios</h4>
+
 <ul class="list-group">
 <?php
     $query = "select * from relatorio_modelos order by data desc";
@@ -41,6 +50,7 @@
 
 <script>
     $(function(){
+        Carregando('none');
         $("span[edit]").click(function(){
             modelo = $(this).attr("edit");
             $.ajax({
