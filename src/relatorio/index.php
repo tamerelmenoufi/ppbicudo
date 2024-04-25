@@ -69,9 +69,9 @@
                       }
                       ?>
                     </select>
-                    <label class="input-group-text" for="inputGroupFile01">Período de </label>
+                    <label class="input-group-text" for="inputGroupFile01"> De </label>
                     <input type="date" id="data_inicial" class="form-control" value="<?=$_SESSION['buscaDataInicial']?>" >
-                    <label class="input-group-text" for="inputGroupFile01">até</label>
+                    <label class="input-group-text" for="inputGroupFile01"> A </label>
                     <input type="date" id="data_final" class="form-control" value="<?=$_SESSION['buscaDataFinal']?>" >
                     <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
                     <button filtro="limpar" class="btn btn-outline-danger" type="button">limpar</button>
