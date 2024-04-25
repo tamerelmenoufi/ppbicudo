@@ -206,6 +206,22 @@
     $(function(){
         Carregando('none');
 
+        $(".marcar_todos").click(fucntion(){
+          if($("input.marcar_todos").prop("checked") == true){
+            $("input.marcar_todos").prop("checked", false);
+          }else{
+            $("input.marcar_todos").prop("checked", true);
+          }
+        })
+
+        $("input.marcar_todos").change(function(){
+          if($(this).prop("checked", true)){
+            $(".opcoes").prop("checked", true);
+          }else{
+            $(".opcoes").prop("checked", false);
+          }
+        })
+
         $("button[filtro]").click(function(){
           filtro = $(this).attr("filtro");
           buscaOrigem = $("#origem").val();
