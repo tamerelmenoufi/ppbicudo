@@ -70,9 +70,6 @@
                           <i class="fa-solid fa-arrow-down"></i> <?=dataBr($_SESSION['buscaDataInicial'])?><br>
                           <i class="fa-solid fa-arrow-up"></i> <?=dataBr($_SESSION['buscaDataFinal'])?>
                         </h5>
-                        <h5 class="text-secondary">
-                        <?=$d->nome?>
-                        </h5>
                     </div>
                   </div>
                   <div class="col">
@@ -82,6 +79,9 @@
                   </div>
                   <div class="col">
                     <div class="d-flex justify-content-end align-items-center">
+                        <h5 class="text-secondary me-3">
+                          <?=$d->nome?>
+                        </h5>
                       <img src="<?=$urlPainel?>src/volume/origens/<?=$d->imagem?>" height="60" alt="">
                     </div>
                   </div>
