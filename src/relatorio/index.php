@@ -31,6 +31,8 @@
 
 
 
+    $opcoes = [];
+
 ?>
 <style>
   .btn-perfil{
