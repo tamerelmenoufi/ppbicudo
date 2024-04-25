@@ -103,7 +103,7 @@
                 <thead>
                   <tr>
                     <th scope="col" colspan="14"><i 
-                                                    class="fa-solid fa-turn-down ms-2"
+                                                    class="fa-solid fa-turn-down me-2"
                                                     style = "-moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); margin-top:10px;"
                                                 ></i> Marcar Todos</th>
                   </tr>
