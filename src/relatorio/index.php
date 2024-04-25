@@ -76,6 +76,17 @@
                   <button filtro="limpar" class="btn btn-outline-danger" type="button">limpar</button>
                   <a class="btn btn-outline-success" type="button" href='./print.php' target="_blank"><i class="fa-solid fa-print"></i></a>
                 </div>
+
+
+
+                <div class="input-group">
+                  <label class="input-group-text" for="inputGroupFile01">Relatório</label>
+                  <input type="text" id="nome_relatorio" class="form-control" value="<?=$rel->nome?>" >
+                  <button id="salvar_relatorio" class="btn btn-outline-success" type="button"><i class="fa-regular fa-floppy-disk"></i></button>
+                  <button id="abrir_relatorio" class="btn btn-outline-primary" type="button"><i class="fa-solid fa-folder-tree"></i></button>
+                </div>
+
+
             </div>
 
             <?php
