@@ -289,7 +289,7 @@
             })
             return false;
           }
-          if(!lista){
+          if(lista.length == 0){
             $.alert({
               title:'Registro Selecionados',
               content:'Para gerar um relatório é necessário ter pelo menos um registro selecionado!',
