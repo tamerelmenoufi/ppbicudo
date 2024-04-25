@@ -40,7 +40,7 @@
       $rel = mysqli_fetch_object(mysqli_query($con, "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'"));
       $registros = json_decode($del->registros);
       $registros = implode(", ", $registros);
-      $where = " and codigo in ({$registros})";
+      echo $where2 = " and codigo in ({$registros})";
     }
 
     if($_POST['filtro'] == 'filtrar'){
@@ -172,7 +172,7 @@
                 </thead>
                 <tbody>
                   <?php
-                    echo $query = "select * from relatorio where 1 {$where} order by dataCriacao asc";
+                    $query = "select * from relatorio where 1 {$where} order by dataCriacao asc";
                     $result = mysqli_query($con,$query);
                     
                     while($d = mysqli_fetch_object($result)){
