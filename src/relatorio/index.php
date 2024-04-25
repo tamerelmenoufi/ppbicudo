@@ -108,7 +108,7 @@
                                                 ></i></th>
                   </tr>
                   <tr>
-                    <th scope="col"><input type="checkbox" id="opcoes"></th>
+                    <th scope="col"><input type="checkbox" id="opcoes"> Marcar Todos</th>
                     <th scope="col">Data</th>
                     <th scope="col">Anúncios</th>
                     <th scope="col">Pagamento Produto</th>
