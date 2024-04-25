@@ -102,7 +102,10 @@
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
-                    <th scope="col" colspan="14"><i class="fa-solid fa-turn-down"></i></th>
+                    <th scope="col" colspan="14"><i 
+                                                    class="fa-solid fa-turn-down"
+                                                    style = "-moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1);"
+                                                ></i></th>
                   </tr>
                   <tr>
                     <th scope="col"><input type="checkbox" id="opcoes"></th>
