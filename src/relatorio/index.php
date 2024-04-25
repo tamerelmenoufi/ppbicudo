@@ -282,6 +282,16 @@
           })
         })
 
+        $("#abrir_relatorio").click(function(){
+          Carregando();
+          $.ajax({
+              url:"src/relatorio/relatorios.php",
+              success:function(dados){
+                $(".LateralDireita").html(dados);
+              }
+          })  
+        })
+
         $("button[filtro]").click(function(){
           filtro = $(this).attr("filtro");
           buscaOrigem = $("#origem").val();
