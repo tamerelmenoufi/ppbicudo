@@ -108,8 +108,9 @@
                     while($d = mysqli_fetch_object($result)){
                   ?>
                   <tr 
-                    <?=(($d->deletado)?'style="text-decoration: line-through; color:red"':false)?>
-                    <?=(($d->observacoes)?'style="background-color:yellow;"':false)?>
+                    <?=(($d->deletado and !$d->observacoes)?'style="text-decoration: line-through; color:red"':false)?>
+                    <?=(($d->observacoes and !$d->deletado)?'style="background-color:yellow;"':false)?>
+                    <?=(($d->observacoes and $d->deletado)?'style="background-color:yellow; text-decoration: line-through; color:red"':false)?>
                   >
                     <td class="text-nowrap"><?=dataBr($d->dataCriacao)?></td>
                     <td class=""><?=$d->tituloItem?></td>
