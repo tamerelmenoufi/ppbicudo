@@ -99,7 +99,16 @@
                     <label class="input-group-text" for="inputGroupFile01">Relatório</label>
                     <input type="text" id="nome_relatorio" class="form-control" value="<?=$rel->nome?>" >
                     <button id="salvar_relatorio" class="btn btn-outline-success" type="button"><i class="fa-regular fa-floppy-disk"></i></button>
-                    <button id="abrir_relatorio" class="btn btn-outline-primary" type="button"><i class="fa-solid fa-folder-tree"></i></button>
+                    <button 
+                          id="abrir_relatorio" 
+                          class="btn btn-outline-primary" 
+                          type="button"
+                          data-bs-toggle="offcanvas"
+                          href="#offcanvasDireita"
+                          role="button"
+                          aria-controls="offcanvasDireita"      
+                    ><i class="fa-solid fa-folder-tree"></i></button>
+                    <input type="hidden" id="codigo_relatorio" value="<?=$rel->codigo?>">
                   </div>
                 </div>
 
@@ -234,17 +243,36 @@
 
         $("#salvar_relatorio").click(function(){
           nome_relatorio = $("#nome_relatorio").val();
+          codigo_relatorio = $("#codigo_relatorio").val();
           lista = [];
           $(".opcoes").each(function(){
             if($(this).prop("checked") == true){
               lista.push($(this).val());
             }
           })
+          if(!nome_relatorio){
+            $.alert({
+              title:'Nome do Relatório',
+              content:'Digite um nome para o relatório!',
+              type:'red'
+            })
+            return false;
+          }
+          if(!lista){
+            $.alert({
+              title:'Registro Selecionados',
+              content:'Para gerar um relatório é necessário ter pelo menos um registro selecionado!',
+              type:'red'
+            })
+            return false;
+          }          
+
           $.ajax({
             url:"src/relatorio/index.php",
             type:"POST",
             data:{
               nome_relatorio,
+              codigo_relatorio,
               lista,
               acao:'relatorio'
             },
