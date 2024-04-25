@@ -3,9 +3,11 @@
 
     if($_POST['acao'] == 'relatorio'){
 
-
-      print_r($_POST);
-
+      //data	nome	registros
+      $registros = json_encode($lista);	
+      $query = "INSERT INTO relatorio_modelos set nome = '{$_POST['nome_relatorio']}', data = NOW(), registros = '{$registros}'";
+      mysqli_query($con, $query);
+      $_SESSION['modelo_relatorio'] = mysqli_insert_id($con);
       exit();
 
     }
@@ -36,6 +38,9 @@
     if($_SESSION['modelo_relatorio']){
       $busca_disabled = 'disabled';
       $rel = mysqli_fetch_object(mysqli_query($con, "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'"));
+      $registros = json_decode($del->registros);
+      $registros = implode(", ", $registros);
+      $where = " and codigo in ({$registros})";
     }
 
     if($_POST['filtro'] == 'filtrar'){
@@ -288,7 +293,7 @@
             })
             return false;
           }          
-
+          Carregando();
           $.ajax({
             url:"src/relatorio/index.php",
             type:"POST",
@@ -299,7 +304,8 @@
               acao:'relatorio'
             },
             success:function(dados){
-              console.log(dados)
+              $("#paginaHome").html(dados);
+              $.alert('Dados salvos com sucesso!')
             }
           })
         })
