@@ -105,10 +105,10 @@
                     <th scope="col" colspan="14"><i 
                                                     class="fa-solid fa-turn-down"
                                                     style = "-moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1);"
-                                                ></i></th>
+                                                ></i> Marcar Todos</th>
                   </tr>
                   <tr>
-                    <th scope="col"><input type="checkbox" id="opcoes"> Marcar Todos</th>
+                    <th scope="col"><input type="checkbox" id="opcoes"></th>
                     <th scope="col">Data</th>
                     <th scope="col">Anúncios</th>
                     <th scope="col">Pagamento Produto</th>
