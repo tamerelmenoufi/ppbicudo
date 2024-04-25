@@ -104,6 +104,11 @@
             <label for="Porcentagem">Porcentagem*</label>
         </div>
 
+        <div class="form-floating mb-3">
+            <textarea name="observacoes" id="observacoes" class="form-control" style="height:200px;"><?=$d->observacoes?></textarea>
+            <label for="observacoes">Observações*</label>
+        </div>        
+
         <div class="mb-3 form-check">
           <input type="checkbox" class="form-check-input" id="deletado" <?=(($d->deletado)?'checked':false)?>>
           <label class="form-check-label" for="deletado">Remover Registro da planilha</label>
