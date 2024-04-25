@@ -1,6 +1,15 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
 
+    if($_POST['acao'] == 'relatorio'){
+
+
+      print_r($_POST);
+
+      exit();
+
+    }
+
     if($_POST['delete']){
       // $query = "delete from relatorio where codigo = '{$_POST['delete']}'";
       $query = "update relatorio set deletado = '1' where codigo = '{$_POST['delete']}'";
@@ -99,7 +108,6 @@
 
             <?php
               if($where){
-
             ?>
 
               <table class="table table-striped table-hover">
@@ -222,6 +230,28 @@
           }else{
             $(".opcoes").prop("checked", false);
           }
+        })
+
+        $("#salvar_relatorio").click(function(){
+          nome_relatorio = $("#nome_relatorio").va();
+          lista = [];
+          $(".opcoes").each(function(){
+            if($(this).prop("checked") == true){
+              lista.push($(this).val());
+            }
+          })
+          $.ajax({
+            url:"src/relatorio/index.php",
+            type:"POST",
+            data:{
+              nome_relatorio,
+              lista,
+              acao:'relatorio'
+            },
+            success:function(dados){
+              console.log(dados)
+            }
+          })
         })
 
         $("button[filtro]").click(function(){
