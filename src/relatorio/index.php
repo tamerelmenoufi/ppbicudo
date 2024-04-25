@@ -53,37 +53,40 @@
         <div class="card">
           <h5 class="card-header">Tela de Consultas</h5>
           <div class="card-body">
-              <div class="d-flex justify-content-between mb-3">
-                <div class="input-group">
-                  <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
-                  <select id="origem" class="form-select">
-                    <option value="">:: Selecione Origem ::</option>
-                    <?php
-                    $q = "select * from origens where status = '1' order by nome";
-                    $r = mysqli_query($con, $q);
-                    while($s = mysqli_fetch_object($r)){
-                    ?>
-                    <option value="<?=$s->codigo?>" <?=(($s->codigo == $_SESSION['buscaOrigem'])?'selected':false)?>><?=$s->nome?></option>
-                    <?php
-                    }
-                    ?>
-                  </select>
-                  <label class="input-group-text" for="inputGroupFile01">Período de </label>
-                  <input type="date" id="data_inicial" class="form-control" value="<?=$_SESSION['buscaDataInicial']?>" >
-                  <label class="input-group-text" for="inputGroupFile01">até</label>
-                  <input type="date" id="data_final" class="form-control" value="<?=$_SESSION['buscaDataFinal']?>" >
-                  <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
-                  <button filtro="limpar" class="btn btn-outline-danger" type="button">limpar</button>
-                  <a class="btn btn-outline-success" type="button" href='./print.php' target="_blank"><i class="fa-solid fa-print"></i></a>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="input-group">
+                    <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
+                    <select id="origem" class="form-select">
+                      <option value="">:: Selecione Origem ::</option>
+                      <?php
+                      $q = "select * from origens where status = '1' order by nome";
+                      $r = mysqli_query($con, $q);
+                      while($s = mysqli_fetch_object($r)){
+                      ?>
+                      <option value="<?=$s->codigo?>" <?=(($s->codigo == $_SESSION['buscaOrigem'])?'selected':false)?>><?=$s->nome?></option>
+                      <?php
+                      }
+                      ?>
+                    </select>
+                    <label class="input-group-text" for="inputGroupFile01">Período de </label>
+                    <input type="date" id="data_inicial" class="form-control" value="<?=$_SESSION['buscaDataInicial']?>" >
+                    <label class="input-group-text" for="inputGroupFile01">até</label>
+                    <input type="date" id="data_final" class="form-control" value="<?=$_SESSION['buscaDataFinal']?>" >
+                    <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
+                    <button filtro="limpar" class="btn btn-outline-danger" type="button">limpar</button>
+                    <a class="btn btn-outline-success" type="button" href='./print.php' target="_blank"><i class="fa-solid fa-print"></i></a>
+                  </div>
                 </div>
 
 
-
-                <div class="input-group">
-                  <label class="input-group-text" for="inputGroupFile01">Relatório</label>
-                  <input type="text" id="nome_relatorio" class="form-control" value="<?=$rel->nome?>" >
-                  <button id="salvar_relatorio" class="btn btn-outline-success" type="button"><i class="fa-regular fa-floppy-disk"></i></button>
-                  <button id="abrir_relatorio" class="btn btn-outline-primary" type="button"><i class="fa-solid fa-folder-tree"></i></button>
+                <div class="col-md-6">
+                  <div class="input-group">
+                    <label class="input-group-text" for="inputGroupFile01">Relatório</label>
+                    <input type="text" id="nome_relatorio" class="form-control" value="<?=$rel->nome?>" >
+                    <button id="salvar_relatorio" class="btn btn-outline-success" type="button"><i class="fa-regular fa-floppy-disk"></i></button>
+                    <button id="abrir_relatorio" class="btn btn-outline-primary" type="button"><i class="fa-solid fa-folder-tree"></i></button>
+                  </div>
                 </div>
 
 
