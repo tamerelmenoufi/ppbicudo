@@ -233,7 +233,7 @@
         })
 
         $("#salvar_relatorio").click(function(){
-          nome_relatorio = $("#nome_relatorio").va();
+          nome_relatorio = $("#nome_relatorio").val();
           lista = [];
           $(".opcoes").each(function(){
             if($(this).prop("checked") == true){
