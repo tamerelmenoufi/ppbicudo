@@ -38,9 +38,12 @@
     if($_SESSION['modelo_relatorio']){
       $busca_disabled = 'disabled';
       $del = mysqli_fetch_object(mysqli_query($con, "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'"));
-      $registros = json_decode($del->registros);
-      $registros = implode(", ", $registros);
-      $where = " and codigo in ({$registros})";
+      if($del->registros){
+        $registros = json_decode($del->registros);
+        $registros = implode(", ", $registros); 
+        $where = " and codigo in ({$registros})";
+      }
+      
     }
 
     if($_POST['filtro'] == 'filtrar'){
