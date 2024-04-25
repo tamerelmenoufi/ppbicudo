@@ -45,6 +45,9 @@
   td, th{
     font-size:12px;
   }
+  .marcar_todos{
+    cursor:pointer;
+  }
 
 </style>
 <div class="col">
@@ -105,10 +108,10 @@
                     <th scope="col" colspan="14"><i 
                                                     class="fa-solid fa-turn-down me-2"
                                                     style = "-moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1);"
-                                                ></i> Marcar Todos</th>
+                                                ></i> <span class="marcar_todos">Marcar Todos</span></th>
                   </tr>
                   <tr>
-                    <th scope="col"><input type="checkbox" id="opcoes"></th>
+                    <th scope="col"><input type="checkbox" class="marcar_todos"></th>
                     <th scope="col">Data</th>
                     <th scope="col">Anúncios</th>
                     <th scope="col">Pagamento Produto</th>
