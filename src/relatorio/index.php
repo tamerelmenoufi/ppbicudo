@@ -102,6 +102,7 @@
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
+                    <th scope="col" colspan="14"><i class="fa-solid fa-turn-down"></i></th>
                     <th scope="col"><input type="checkbox" id="opcoes"></th>
                     <th scope="col">Data</th>
                     <th scope="col">Anúncios</th>
