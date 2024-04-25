@@ -69,7 +69,7 @@
         })
 
         $("i[excluir]").click(function(){
-            obj = $(this);
+            obj = $(this).parent("div").parent("li");
             excluir = $(this).attr("excluir");
             $.confirm({
                 title:"Excluir Relatório",
@@ -88,6 +88,7 @@
                                     excluir
                                 },
                                 success:function(dados){
+                                    console.log(dados)
                                     if(dados == 'atualiza'){
                                         $.ajax({
                                             url:"src/relatorio/index.php",
