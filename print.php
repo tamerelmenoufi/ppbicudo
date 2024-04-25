@@ -79,7 +79,7 @@
                   </div>
                   <div class="col">
                     <div class="d-flex justify-content-end align-items-center">
-                        <h5 class="text-secondary me-3">
+                        <h5 class="text-secondary me-1">
                           <?=$d->nome?>
                         </h5>
                       <img src="<?=$urlPainel?>src/volume/origens/<?=$d->imagem?>" height="60" alt="">
