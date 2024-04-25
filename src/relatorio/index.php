@@ -107,7 +107,10 @@
                     
                     while($d = mysqli_fetch_object($result)){
                   ?>
-                  <tr <?=(($d->deletado)?'style="text-decoration: line-through; color:red"':false)?>>
+                  <tr 
+                    <?=(($d->deletado)?'style="text-decoration: line-through; color:red"':false)?>
+                    <?=(($d->observacoes)?'style="background-color:yellow;"':false)?>
+                  >
                     <td class="text-nowrap"><?=dataBr($d->dataCriacao)?></td>
                     <td class=""><?=$d->tituloItem?></td>
                     <td class="text-nowrap">R$<?=number_format($d->ValorPedidoXquantidade,2,',','.')?></td>
