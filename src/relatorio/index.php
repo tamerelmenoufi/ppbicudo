@@ -53,7 +53,7 @@
         <div class="card">
           <h5 class="card-header">Tela de Consultas</h5>
           <div class="card-body">
-              <div class="row">
+              <div class="row mb-3">
                 <div class="col-md-6">
                   <div class="input-group">
                     <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
