@@ -22,6 +22,21 @@
       exit();
     }
 
+    if($_POST['sair_relatorio']){
+      $_SESSION['modelo_relatorio'] = false;
+    }
+
+    if($_POST['modelo']){
+      $_SESSION['modelo_relatorio'] = $_POST['modelo'];
+      $_SESSION['buscaOrigem'] = false;
+      $_SESSION['buscaDataInicial'] = false;
+      $_SESSION['buscaDataFinal'] = false;
+    }
+
+    if($_SESSION['modelo_relatorio']){
+      $busca_disabled = 'disabled';
+      $rel = mysqli_fetch_object(mysqli_query($con, "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'"));
+    }
 
     if($_POST['filtro'] == 'filtrar'){
       $_SESSION['buscaOrigem'] = $_POST['buscaOrigem'];
@@ -71,7 +86,7 @@
                 <div class="col-md-6">
                   <div class="input-group">
                     <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
-                    <select id="origem" class="form-select">
+                    <select id="origem" class="form-select" <?=$busca_disabled?>>
                       <option value="">:: Selecione Origem ::</option>
                       <?php
                       $q = "select * from origens where status = '1' order by nome";
@@ -84,11 +99,11 @@
                       ?>
                     </select>
                     <label class="input-group-text" for="inputGroupFile01"> De </label>
-                    <input type="date" id="data_inicial" class="form-control" value="<?=$_SESSION['buscaDataInicial']?>" >
+                    <input type="date" id="data_inicial" class="form-control" <?=$busca_disabled?> value="<?=$_SESSION['buscaDataInicial']?>" >
                     <label class="input-group-text" for="inputGroupFile01"> A </label>
-                    <input type="date" id="data_final" class="form-control" value="<?=$_SESSION['buscaDataFinal']?>" >
-                    <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
-                    <button filtro="limpar" class="btn btn-outline-danger" type="button">limpar</button>
+                    <input type="date" id="data_final" class="form-control" <?=$busca_disabled?> value="<?=$_SESSION['buscaDataFinal']?>" >
+                    <button filtro="filtrar" class="btn btn-outline-secondary" <?=$busca_disabled?> type="button">Buscar</button>
+                    <button filtro="limpar" class="btn btn-outline-danger" <?=$busca_disabled?> type="button">limpar</button>
                     <a class="btn btn-outline-success" type="button" href='./print.php' target="_blank"><i class="fa-solid fa-print"></i></a>
                   </div>
                 </div>
@@ -108,6 +123,13 @@
                           role="button"
                           aria-controls="offcanvasDireita"      
                     ><i class="fa-solid fa-folder-tree"></i></button>
+                    <?php
+                    if($_SESSION['modelo_relatorio']){
+                    ?>
+                    <button id="sair_relatorio" class="btn btn-outline-warning" type="button"><i class="fa-solid fa-xmark"></i></button>
+                    <?php
+                    }
+                    ?>
                     <input type="hidden" id="codigo_relatorio" value="<?=$rel->codigo?>">
                   </div>
                 </div>
@@ -286,6 +308,20 @@
           Carregando();
           $.ajax({
               url:"src/relatorio/relatorios.php",
+              success:function(dados){
+                $(".LateralDireita").html(dados);
+              }
+          })  
+        })
+
+        $("#sair_relatorio").click(function(){
+          Carregando();
+          $.ajax({
+              url:"src/relatorio/index.php",
+              type:"POST",
+              data:{
+                  sair_relatorio:'sair'
+              },
               success:function(dados){
                 $(".LateralDireita").html(dados);
               }
