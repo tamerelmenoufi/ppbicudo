@@ -37,8 +37,8 @@
 
     if($_SESSION['modelo_relatorio']){
       $busca_disabled = 'disabled';
-     echo  $q = "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'";
-      // $rel = mysqli_fetch_object(mysqli_query($con, "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'"));
+      $q = "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'";
+      $rel = mysqli_fetch_object(mysqli_query($con, "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'"));
       // if($rel->registros){
       //   $registros = json_decode($rel->registros);
       //   $registros = implode(", ", $registros); 
