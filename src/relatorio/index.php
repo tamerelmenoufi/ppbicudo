@@ -215,7 +215,7 @@
         })
 
         $("input.marcar_todos").change(function(){
-          if($(this).prop("checked", true)){
+          if($(this).prop("checked") == true){
             $(".opcoes").prop("checked", true);
           }else{
             $(".opcoes").prop("checked", false);
