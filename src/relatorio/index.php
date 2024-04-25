@@ -100,6 +100,7 @@
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
+                    <th scope="col"><input type="checkbox" id="opcoes"></th>
                     <th scope="col">Data</th>
                     <th scope="col">Anúncios</th>
                     <th scope="col">Pagamento Produto</th>
@@ -126,6 +127,7 @@
                     <?=(($d->observacoes and !$d->deletado)?'style="background-color:yellow;"':false)?>
                     <?=(($d->observacoes and $d->deletado)?'style="background-color:yellow; text-decoration: line-through; color:red"':false)?>
                   >
+                    <td><input type="checkbox" class="opcoes" <?=((in_array($d->codigo, $opcoes))?'checked':false)?> value="<?=$d->codigo?>"></td>
                     <td class="text-nowrap"><?=dataBr($d->dataCriacao)?></td>
                     <td class=""><?=$d->tituloItem?></td>
                     <td class="text-nowrap">R$<?=number_format($d->ValorPedidoXquantidade,2,',','.')?></td>
