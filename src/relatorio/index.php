@@ -209,12 +209,14 @@
         $(".marcar_todos").click(function(){
           if($("input.marcar_todos").prop("checked") == true){
             $("input.marcar_todos").prop("checked", false);
+            $(".opcoes").prop("checked", false);
           }else{
             $("input.marcar_todos").prop("checked", true);
+            $(".opcoes").prop("checked", true);
           }
         })
 
-        $("input.marcar_todos").change(function(){
+        $("input.marcar_todos").click(function(){
           if($(this).prop("checked") == true){
             $(".opcoes").prop("checked", true);
           }else{
