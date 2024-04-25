@@ -206,7 +206,7 @@
     $(function(){
         Carregando('none');
 
-        $(".marcar_todos").click(fucntion(){
+        $(".marcar_todos").click(function(){
           if($("input.marcar_todos").prop("checked") == true){
             $("input.marcar_todos").prop("checked", false);
           }else{
