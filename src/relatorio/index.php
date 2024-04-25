@@ -39,11 +39,12 @@
       $busca_disabled = 'disabled';
       $q = "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'";
       $rel = mysqli_fetch_object(mysqli_query($con, "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'"));
-      if($rel->registros != null){
-        $registros = json_decode($rel->registros);
-        $registros = implode(", ", $registros); 
-        $where = " and codigo in ({$registros})";
-      }
+      echo $rel->registros; 
+      // if($rel->registros){
+      //   $registros = json_decode($rel->registros);
+      //   $registros = implode(", ", $registros); 
+      //   $where = " and codigo in ({$registros})";
+      // }
       
     }
 
