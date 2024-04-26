@@ -37,13 +37,13 @@
       $_SESSION['buscaOrigem'] = false;
       $_SESSION['buscaDataInicial'] = false;
       $_SESSION['buscaDataFinal'] = false;
-      
+
       $q = "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'";
       $rel = mysqli_fetch_object(mysqli_query($con, "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'"));
 
       $registros = json_decode($rel->registros);
       $registros = implode(", ", $registros); 
-      echo $where2 = " and codigo in ({$registros})";
+      echo $where = " and codigo in ({$registros})";
 
       // if($rel->registros){
       //   $registros = json_decode($rel->registros);
