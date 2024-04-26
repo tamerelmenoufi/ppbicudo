@@ -16,7 +16,6 @@
         mysqli_query($con, $query);
         $_SESSION['modelo_relatorio'] = mysqli_insert_id($con);
       }
-      exit();
 
     }
 
