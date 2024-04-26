@@ -1,6 +1,8 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
 
+    $opcoes = [];
+
     if($_POST['acao'] == 'relatorio'){
 
       //data	nome	registros
@@ -48,6 +50,7 @@
       $rel = mysqli_fetch_object(mysqli_query($con, "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'"));
 
       $registros = json_decode($rel->registros);
+      $opcoes = $registros;
       $registros = implode(", ", $registros); 
       echo $where = " and codigo in ({$registros})";
 
@@ -73,10 +76,6 @@
       // $cpf = str_replace( '.', '', str_replace('-', '', $_SESSION['usuarioBusca']));
       $where = " and origem = '{$_SESSION['buscaOrigem']}' and dataCriacao between '{$_SESSION['buscaDataInicial']} 00:00:00' and '{$_SESSION['buscaDataFinal']} 23:59:59' ";
     }
-
-
-
-    $opcoes = [];
 
 ?>
 <style>
