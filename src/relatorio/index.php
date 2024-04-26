@@ -343,7 +343,7 @@
                   sair_relatorio:'sair'
               },
               success:function(dados){
-                $("#paginaHome").html(dados);
+                $(".LateralDireita").html(dados);
               }
           })  
         })
