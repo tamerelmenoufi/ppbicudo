@@ -18,6 +18,10 @@
       $registros = implode(", ", $registros); 
       $where = " and codigo in ({$registros})";
 
+      $query = "select * from origens where codigo = '{$rel->origem}'";
+      $result = mysqli_query($con, $query);
+      $d = mysqli_fetch_object($result);      
+
     }
 
 
