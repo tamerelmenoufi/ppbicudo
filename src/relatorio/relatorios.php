@@ -88,7 +88,6 @@
                                     excluir
                                 },
                                 success:function(dados){
-                                    console.log(dados)
                                     if(dados == 'atualiza'){
                                         $.ajax({
                                             url:"src/relatorio/index.php",
@@ -96,6 +95,8 @@
                                                 $("#paginaHome").html(dados);
                                             }
                                         })
+                                    }else{
+                                        Carregando('none');
                                     }
                                 }
                             })
