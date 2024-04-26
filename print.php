@@ -94,7 +94,7 @@
                         <?php
                         }else{
                         ?>
-                        <h5 class="text-secondary">
+                        <h5 class="text-secondary mt-3">
                           <i class="fa-solid fa-caret-right"></i> <?=$rel->nome?>
                         </h5>                        
                         <?php
