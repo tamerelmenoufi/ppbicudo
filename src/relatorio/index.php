@@ -12,7 +12,7 @@
         mysqli_query($con, $query);
         $_SESSION['modelo_relatorio'] = $_POST['codigo_relatorio'];
       }else{
-        $query = "INSERT INTO relatorio_modelos set nome = '{$_POST['nome_relatorio']}', data = NOW(), registros = '{$registros}'";
+        $query = "INSERT INTO relatorio_modelos set nome = '{$_POST['nome_relatorio']}', data = NOW(), registros = '{$registros}', origem = '{$_POST['origem']}'";
         mysqli_query($con, $query);
         $_SESSION['modelo_relatorio'] = mysqli_insert_id($con);
       }
@@ -315,6 +315,7 @@
               nome_relatorio,
               codigo_relatorio,
               lista,
+              origem:'<?=$_SESSION['buscaOrigem']?>',
               acao:'relatorio'
             },
             success:function(dados){
