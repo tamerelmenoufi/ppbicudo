@@ -4,10 +4,16 @@
     if($_POST['acao'] == 'relatorio'){
 
       //data	nome	registros
-      $registros = json_encode($_POST['lista']);	
-      $query = "INSERT INTO relatorio_modelos set nome = '{$_POST['nome_relatorio']}', data = NOW(), registros = '{$registros}'";
-      mysqli_query($con, $query);
-      $_SESSION['modelo_relatorio'] = mysqli_insert_id($con);
+      $registros = json_encode($_POST['lista']);
+      if($_POST['codigo_relatorio']){
+        $query = "UPDATE relatorio_modelos set nome = '{$_POST['nome_relatorio']}', data = NOW(), registros = '{$registros}' where codigo = '{$_POST['codigo_relatorio']}'";
+        mysqli_query($con, $query);
+        $_SESSION['modelo_relatorio'] = $_POST['codigo_relatorio'];
+      }else{
+        $query = "INSERT INTO relatorio_modelos set nome = '{$_POST['nome_relatorio']}', data = NOW(), registros = '{$registros}'";
+        mysqli_query($con, $query);
+        $_SESSION['modelo_relatorio'] = mysqli_insert_id($con);
+      }
       exit();
 
     }
