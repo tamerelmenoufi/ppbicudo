@@ -83,11 +83,24 @@
                 <div class="row g-0">
                   <div class="col">
                     <div class="d-flex justify-content-start align-items-center">
+                        <?php
+                        if($_SESSION['buscaOrigem']){
+                        ?>
                         <i class="fa-solid fa-calendar-days text-secondary" style="font-size:50px; margin-right:10px;"></i>
                         <h5 class="text-secondary">
                           <i class="fa-solid fa-arrow-down"></i> <?=dataBr($_SESSION['buscaDataInicial'])?><br>
                           <i class="fa-solid fa-arrow-up"></i> <?=dataBr($_SESSION['buscaDataFinal'])?>
                         </h5>
+                        <?php
+                        }else{
+                        ?>
+                        <h5 class="text-secondary">
+                          <i class="fa-solid fa-caret-right"></i> <?=$rel->nome?>
+                        </h5>                        
+                        <?php
+                        }
+                        ?>
+
                     </div>
                   </div>
                   <div class="col">
