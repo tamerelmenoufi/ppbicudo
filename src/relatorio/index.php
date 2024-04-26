@@ -145,7 +145,7 @@
                     <?php
                     if($_SESSION['modelo_relatorio']){
                     ?>
-                    <button id="sair_relatorio" class="btn btn-outline-warning" type="button"><i class="fa-solid fa-xmark"></i></button>
+                    <button id="sair_relatorio" class="btn btn-outline-danger" type="button"><i class="fa-solid fa-xmark"></i></button>
                     <?php
                     }
                     ?>
@@ -343,7 +343,7 @@
                   sair_relatorio:'sair'
               },
               success:function(dados){
-                $(".LateralDireita").html(dados);
+                $("#paginaHome").html(dados);
               }
           })  
         })
