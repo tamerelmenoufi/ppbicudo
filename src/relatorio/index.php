@@ -30,13 +30,14 @@
 
     if($_POST['modelo']){
       $_SESSION['modelo_relatorio'] = $_POST['modelo'];
-      $_SESSION['buscaOrigem'] = false;
-      $_SESSION['buscaDataInicial'] = false;
-      $_SESSION['buscaDataFinal'] = false;
     }
 
     if($_SESSION['modelo_relatorio']){
       $busca_disabled = 'disabled';
+      $_SESSION['buscaOrigem'] = false;
+      $_SESSION['buscaDataInicial'] = false;
+      $_SESSION['buscaDataFinal'] = false;
+      
       $q = "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'";
       $rel = mysqli_fetch_object(mysqli_query($con, "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'"));
 
