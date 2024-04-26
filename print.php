@@ -1,15 +1,29 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
 
-    $query = "select * from origens where codigo = '{$_SESSION['buscaOrigem']}'";
-    $result = mysqli_query($con, $query);
-    $d = mysqli_fetch_object($result);
-
-
     if($_SESSION['buscaOrigem'] and $_SESSION['buscaDataInicial'] and $_SESSION['buscaDataFinal']){
+
+      $query = "select * from origens where codigo = '{$_SESSION['buscaOrigem']}'";
+      $result = mysqli_query($con, $query);
+      $d = mysqli_fetch_object($result);
       // $cpf = str_replace( '.', '', str_replace('-', '', $_SESSION['usuarioBusca']));
       $where = " and origem = '{$_SESSION['buscaOrigem']}' and dataCriacao between '{$_SESSION['buscaDataInicial']} 00:00:00' and '{$_SESSION['buscaDataFinal']} 23:59:59' ";
+    }else if($_SESSION['modelo_relatorio']){
+
+      $q = "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'";
+      $rel = mysqli_fetch_object(mysqli_query($con, $q));
+
+      $registros = json_decode($rel->registros);
+      $opcoes = $registros;
+      $registros = implode(", ", $registros); 
+      $where = " and codigo in ({$registros})";
+
     }
+
+
+
+
+
 ?>
 <!doctype html>
 <html lang="en">

@@ -46,12 +46,12 @@
       $_SESSION['buscaDataFinal'] = false;
 
       $q = "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'";
-      $rel = mysqli_fetch_object(mysqli_query($con, "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'"));
+      $rel = mysqli_fetch_object(mysqli_query($con, $q));
 
       $registros = json_decode($rel->registros);
       $opcoes = $registros;
       $registros = implode(", ", $registros); 
-      echo $where = " and codigo in ({$registros})";
+      $where = " and codigo in ({$registros})";
 
       // if($rel->registros){
       //   $registros = json_decode($rel->registros);
@@ -186,7 +186,7 @@
                 </thead>
                 <tbody>
                   <?php
-                    echo $query = "select * from relatorio where 1 {$where} order by dataCriacao asc";
+                    $query = "select * from relatorio where 1 {$where} order by dataCriacao asc";
                     $result = mysqli_query($con,$query);
                     
                     while($d = mysqli_fetch_object($result)){
