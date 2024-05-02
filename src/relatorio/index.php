@@ -91,6 +91,9 @@
   .marcar_todos{
     cursor:pointer;
   }
+  i[info]{
+    cursor:pointer;
+  }
 
 </style>
 <div class="col">
@@ -204,7 +207,7 @@
                       <?php
                       }else{
                       ?>
-                      <i class="fa-solid fa-circle-info text-warning"></i>
+                      <i info="<?=$d->codigo?>" class="fa-solid fa-circle-info text-warning"></i>
                       <?php
                       }
                       ?>
