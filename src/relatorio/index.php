@@ -202,6 +202,10 @@
                       ?>
                       <input type="checkbox" class="opcoes" <?=((in_array($d->codigo, $opcoes))?'checked':false)?> value="<?=$d->codigo?>">
                       <?php
+                      }else{
+                      ?>
+                      <i class="fa-solid fa-circle-info text-warning"></i>
+                      <?php
                       }
                       ?>
                     </td>
