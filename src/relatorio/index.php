@@ -204,7 +204,7 @@
                   >
                     <td>
                       <?php
-                      if(!$d->vinculado){
+                      if(!$d->vinculado || $_SESSION['modelo_relatorio']){
                       ?>
                       <input type="checkbox" class="opcoes" <?=((in_array($d->codigo, $opcoes))?'checked':false)?> value="<?=$d->codigo?>">
                       <?php
