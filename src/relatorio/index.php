@@ -174,7 +174,7 @@
                                                     style = "-moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1);"
                                                 ></i> <span class="marcar_todos">Marcar Todos</span>                 
                     </th>
-                    <th scope="col" colspan="13">
+                    <th scope="col" colspan="2">
                         <div class="input-group">
                           <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
                             <option selected>Choose...</option>
@@ -185,6 +185,7 @@
                           <button class="btn btn-outline-secondary" type="button">Button</button>
                         </div>
                     </th>
+                    <th scope="col" colspan="11"></th>
                   </tr>
                   <tr>
                     <th scope="col"><input type="checkbox" class="marcar_todos"></th>
