@@ -192,7 +192,8 @@
                 </thead>
                 <tbody>
                   <?php
-                    $query = "select a.*, (SELECT count(*) FROM relatorio_modelos WHERE JSON_SEARCH(registros, 'one', a.codigo) IS NOT NULL) as vinculado from relatorio a where 1 {$where} order by a.dataCriacao asc";
+                    // $query = "select a.*, (SELECT count(*) FROM relatorio_modelos WHERE JSON_SEARCH(registros, 'one', a.codigo) IS NOT NULL) as vinculado from relatorio a where 1 {$where} order by a.dataCriacao asc";
+                    $query = "select a.* from relatorio a where 1 {$where} order by a.dataCriacao asc";
                     $result = mysqli_query($con,$query);
                     
                     while($d = mysqli_fetch_object($result)){
@@ -204,7 +205,7 @@
                   >
                     <td>
                       <?php
-                      if(!$d->vinculado || $_SESSION['modelo_relatorio']){
+                      if(!$d->relatorio || $_SESSION['modelo_relatorio']){
                       ?>
                       <input type="checkbox" class="opcoes" <?=((in_array($d->codigo, $opcoes))?'checked':false)?> value="<?=$d->codigo?>">
                       <?php
