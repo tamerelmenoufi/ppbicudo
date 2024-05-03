@@ -178,10 +178,16 @@
                         <div class="input-group">
                           <label class="input-group-text" for="inputGroupFile01">Anexar em </label>
                           <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-                            <option selected>Choose...</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option value="">:: Selecione ::</option>
+                            <?php
+                                $q = "select * from relatorio_modelos order by data desc";
+                                $r = mysqli_query($con, $q);
+                                while($s = mysqli_fetch_object($r)){
+                            ?>
+                            <option value="<?=$s->codigo?>"><?=$s->nome?></option>
+                            <?php
+                                }
+                            ?>
                           </select>
                           <button class="btn btn-outline-secondary" type="button">Button</button>
                         </div>
