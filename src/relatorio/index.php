@@ -176,6 +176,7 @@
                     </th>
                     <th scope="col" colspan="2">
                         <div class="input-group">
+                          <label class="input-group-text" for="inputGroupFile01">Anexar em </label>
                           <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
                             <option selected>Choose...</option>
                             <option value="1">One</option>
