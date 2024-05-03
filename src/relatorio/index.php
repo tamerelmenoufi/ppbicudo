@@ -17,9 +17,9 @@
         $_SESSION['modelo_relatorio'] = mysqli_insert_id($con);
       }
 
-      echo "UPDATE relatorio set relatorio = '' where relatorio = '{$_SESSION['modelo_relatorio']}'";
+      echo "UPDATE relatorio set relatorio = '0' where relatorio = '{$_SESSION['modelo_relatorio']}'";
 
-      mysqli_query($con, "UPDATE relatorio set relatorio = '' where relatorio = '{$_SESSION['modelo_relatorio']}'");
+      mysqli_query($con, "UPDATE relatorio set relatorio = '0' where relatorio = '{$_SESSION['modelo_relatorio']}'");
       mysqli_query($con, "UPDATE relatorio set relatorio = '{$_SESSION['modelo_relatorio']}' where codigo in (".implode(", ", $_POST['lista']).")");
 
     }
