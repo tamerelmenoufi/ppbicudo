@@ -253,6 +253,7 @@
                   <tr>
                     <th class="text-nowrap"></th>
                     <th class=""></th>
+                    <th class=""></th>
                     <th class="text-nowrap">R$ <?=number_format($totalValorPedidoXquantidade,2,',','.')?></th>
                     <th class="text-nowrap">R$ <?=number_format($totalCustoEnvio,2,',','.')?></th>
                     <th class="text-nowrap">R$ <?=number_format($totalPrecoCusto,2,',','.')?></th>
