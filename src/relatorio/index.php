@@ -169,22 +169,21 @@
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
-                    <th scope="col" colspan="14"><i 
+                    <th scope="col"><i 
                                                     class="fa-solid fa-turn-down me-2"
                                                     style = "-moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1);"
-                                                ></i> <span class="marcar_todos">Marcar Todos</span>
-                                              
-                                                <div class="input-group">
-                                                  <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-                                                    <option selected>Choose...</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                  </select>
-                                                  <button class="btn btn-outline-secondary" type="button">Button</button>
-                                                </div>
-                        
-                                              
+                                                ></i> <span class="marcar_todos">Marcar Todos</span>                 
+                    </th>
+                    <th scope="col" colspan="13">
+                        <div class="input-group">
+                          <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                            <option selected>Choose...</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                          <button class="btn btn-outline-secondary" type="button">Button</button>
+                        </div>
                     </th>
                   </tr>
                   <tr>
