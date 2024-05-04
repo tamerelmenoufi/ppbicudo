@@ -22,6 +22,28 @@
 
     }
 
+
+    if($_POST['acao'] == 'anexar_relatorio'){
+
+      // codigo_relatorio,
+      // lista,
+      // acao:'anexar_relatorio'
+
+      $lista1 = mysqli_fetch_object(mysqli_query($con, "select registros from relatorio_modelo where codigo = '{$_POST['codigo_relatorio']}'"));
+      $lista_completa = array_merge(json_decode($lista1), $_POST['lista']);
+
+      $registros = json_encode($lista_completa);
+
+      $query = "UPDATE relatorio_modelos set registros = '{$registros}' where codigo = '{$_POST['codigo_relatorio']}'";
+      mysqli_query($con, $query);
+      $_SESSION['modelo_relatorio'] = $_POST['codigo_relatorio'];
+
+
+      mysqli_query($con, "UPDATE relatorio set relatorio = '0' where relatorio = '{$_SESSION['modelo_relatorio']}'");
+      mysqli_query($con, "UPDATE relatorio set relatorio = '{$_SESSION['modelo_relatorio']}' where codigo in (".implode(", ", $lista_completa).")");
+
+    }    
+
     if($_POST['delete']){
       // $query = "delete from relatorio where codigo = '{$_POST['delete']}'";
       $query = "update relatorio set deletado = '1' where codigo = '{$_POST['delete']}'";
@@ -170,14 +192,14 @@
                 <thead>
                   <tr>
                     <th scope="col"><i 
-                                                    class="fa-solid fa-turn-down me-2"
-                                                    style = "-moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1);"
-                                                ></i> <span class="marcar_todos">Marcar Todos</span>                 
+                                        class="fa-solid fa-turn-down me-2"
+                                        style = "-moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1);"
+                                    ></i> <span class="marcar_todos">Marcar Todos</span>                 
                     </th>
                     <th scope="col" colspan="2">
                         <div class="input-group">
                           <label class="input-group-text" for="inputGroupFile01">Anexar em </label>
-                          <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                          <select class="form-select" id="relatorio_anexar">
                             <option value="">:: Selecione ::</option>
                             <?php
                                 $q = "select * from relatorio_modelos order by data desc";
@@ -189,7 +211,7 @@
                                 }
                             ?>
                           </select>
-                          <button class="btn btn-outline-primary" type="button"><i class="fa-solid fa-paperclip"></i></button>
+                          <button id="anexar_relatorio" class="btn btn-outline-primary" type="button"><i class="fa-solid fa-paperclip"></i></button>
                         </div>
                     </th>
                     <th scope="col" colspan="11"></th>
@@ -364,6 +386,48 @@
             }
           })
         })
+
+
+        $("#anexar_relatorio").click(function(){
+          codigo_relatorio = $("#relatorio_anexar").val();
+          lista = [];
+          $(".opcoes").each(function(){
+            if($(this).prop("checked") == true){
+              lista.push($(this).val());
+            }
+          })
+          if(!codigo_relatorio){
+            $.alert({
+              title:'Identificação do Relatório',
+              content:'Selecione o relatório que deseja anexar!',
+              type:'red'
+            })
+            return false;
+          }
+          if(lista.length == 0){
+            $.alert({
+              title:'Registro Selecionados',
+              content:'Para gerar um relatório é necessário ter pelo menos um registro selecionado!',
+              type:'red'
+            })
+            return false;
+          }          
+          Carregando();
+          $.ajax({
+            url:"src/relatorio/index.php",
+            type:"POST",
+            data:{
+              codigo_relatorio,
+              lista,
+              acao:'anexar_relatorio'
+            },
+            success:function(dados){
+              $("#paginaHome").html(dados);
+              $.alert('Dados salvos com sucesso!')
+            }
+          })
+        })
+
 
         $("#abrir_relatorio").click(function(){
           Carregando();
