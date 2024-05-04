@@ -7,7 +7,8 @@
       $result = mysqli_query($con, $query);
       $d = mysqli_fetch_object($result);
       // $cpf = str_replace( '.', '', str_replace('-', '', $_SESSION['usuarioBusca']));
-      $where = " and origem = '{$_SESSION['buscaOrigem']}' and dataCriacao between '{$_SESSION['buscaDataInicial']} 00:00:00' and '{$_SESSION['buscaDataFinal']} 23:59:59' ";
+      $where = " and relatorio = '0' and origem = '{$_SESSION['buscaOrigem']}' and dataCriacao between '{$_SESSION['buscaDataInicial']} 00:00:00' and '{$_SESSION['buscaDataFinal']} 23:59:59' ";
+
     }else if($_SESSION['modelo_relatorio']){
 
       $q = "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'";
