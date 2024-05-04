@@ -174,7 +174,7 @@
                           aria-controls="offcanvasDireita"      
                     ><i class="fa-solid fa-folder-tree"></i></button>
                     <?php
-                    if($_SESSION['modelo_relatorio']){
+                    if(!$_SESSION['modelo_relatorio']){
                     ?>
                     <button id="sair_relatorio" class="btn btn-outline-danger" type="button"><i class="fa-solid fa-right-from-bracket"></i></button>
                     <?php
