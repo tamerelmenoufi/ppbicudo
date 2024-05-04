@@ -157,6 +157,9 @@
 
 
                 <div class="col-md-6">
+                  <?php
+                  if(!$_SESSION['buscaOrigem']){
+                  ?>
                   <div class="input-group">
                     <label class="input-group-text" for="inputGroupFile01">Relatório</label>
                     <input type="text" id="nome_relatorio" class="form-control" value="<?=$rel->nome?>" >
@@ -179,6 +182,9 @@
                     ?>
                     <input type="hidden" id="codigo_relatorio" value="<?=$rel->codigo?>">
                   </div>
+                  <?php
+                  }
+                  ?>
                 </div>
 
 
