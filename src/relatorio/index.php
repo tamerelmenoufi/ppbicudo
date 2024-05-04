@@ -30,7 +30,7 @@
       // acao:'anexar_relatorio'
 
       $lista1 = mysqli_fetch_object(mysqli_query($con, "select registros from relatorio_modelo where codigo = '{$_POST['codigo_relatorio']}'"));
-      $lista_completa = array_merge(json_decode($lista1), $_POST['lista']);
+      $lista_completa = array_merge(json_decode($lista1->registros), $_POST['lista']);
 
       $registros = json_encode($lista_completa);
 
