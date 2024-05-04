@@ -11,12 +11,12 @@
 
 
     $q = "select 
-                (select sum(ValorPedidoXquantidade) from relatorio ) as pagamento_produto,   
-                (select sum(CustoEnvio) from relatorio ) as pagamento_frete,   
-                (select sum(PrecoCusto) from relatorio ) as custo_produto,   
-                (select sum(CustoEnvioSeller) from relatorio ) as custo_frete,   
-                (select sum(TarifaGatwayPagamento + TarifaMarketplace) from relatorio ) as comissão,   
-                (select sum(ValorPedidoXquantidade - PrecoCusto - CustoEnvioSeller - TarifaGatwayPagamento - TarifaMarketplace) from relatorio) as lucro,
+                (select sum(ValorPedidoXquantidade) from relatorio where deletado != '1' ) as pagamento_produto,   
+                (select sum(CustoEnvio) from relatorio where deletado != '1' ) as pagamento_frete,   
+                (select sum(PrecoCusto) from relatorio where deletado != '1' ) as custo_produto,   
+                (select sum(CustoEnvioSeller) from relatorio where deletado != '1' ) as custo_frete,   
+                (select sum(TarifaGatwayPagamento + TarifaMarketplace) from relatorio where deletado != '1' ) as comissão,   
+                (select sum(ValorPedidoXquantidade - PrecoCusto - CustoEnvioSeller - TarifaGatwayPagamento - TarifaMarketplace) from relatorio where deletado != '1' ) as lucro,
                 (select count(*) from planilhas) as planilhas,
                 (select count(*) from relatorio) as vendas
         ";
@@ -150,12 +150,12 @@
                     <?php
                     $q = "select 
                                 a.*,
-                                (select sum(ValorPedidoXquantidade) from relatorio where origem = a.codigo) as pagamento_produto,   
-                                (select sum(CustoEnvio) from relatorio where origem = a.codigo) as pagamento_frete,   
-                                (select sum(PrecoCusto) from relatorio where origem = a.codigo) as custo_produto,   
-                                (select sum(CustoEnvioSeller) from relatorio where origem = a.codigo) as custo_frete,   
-                                (select sum(TarifaGatwayPagamento + TarifaMarketplace) from relatorio where origem = a.codigo) as comissão,   
-                                (select sum(ValorPedidoXquantidade - PrecoCusto - CustoEnvioSeller - TarifaGatwayPagamento - TarifaMarketplace) from relatorio where origem = a.codigo) as lucro   
+                                (select sum(ValorPedidoXquantidade) from relatorio where origem = a.codigo and a.deletado != '1' ) as pagamento_produto,   
+                                (select sum(CustoEnvio) from relatorio where origem = a.codigo and a.deletado != '1') as pagamento_frete,   
+                                (select sum(PrecoCusto) from relatorio where origem = a.codigo and a.deletado != '1') as custo_produto,   
+                                (select sum(CustoEnvioSeller) from relatorio where origem = a.codigo and a.deletado != '1') as custo_frete,   
+                                (select sum(TarifaGatwayPagamento + TarifaMarketplace) from relatorio where origem = a.codigo and a.deletado != '1') as comissão,   
+                                (select sum(ValorPedidoXquantidade - PrecoCusto - CustoEnvioSeller - TarifaGatwayPagamento - TarifaMarketplace) from relatorio where origem = a.codigo and a.deletado != '1') as lucro   
                             from origens a order by a.nome";
                     $r = mysqli_query($con, $q);
                     while($s = mysqli_fetch_object($r)){
