@@ -189,7 +189,7 @@
                                 }
                             ?>
                           </select>
-                          <button class="btn btn-outline-secondary" type="button">Button</button>
+                          <button class="btn btn-outline-primary" type="button"><i class="fa-solid fa-paperclip"></i></button>
                         </div>
                     </th>
                     <th scope="col" colspan="11"></th>
