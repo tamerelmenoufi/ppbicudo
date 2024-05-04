@@ -151,7 +151,7 @@
                     <input type="date" id="data_final" class="form-control" <?=$busca_disabled?> value="<?=$_SESSION['buscaDataFinal']?>" >
                     <button filtro="filtrar" class="btn btn-outline-secondary" <?=$busca_disabled?> type="button">Buscar</button>
                     <button filtro="limpar" class="btn btn-outline-danger" <?=$busca_disabled?> type="button">limpar</button>
-                    <a class="btn btn-outline-warning" type="button" href='./print.php' target="_blank"><i class="fa-solid fa-print"></i></a>
+                    <a class="btn btn-warning" type="button" href='./print.php' target="_blank"><i class="fa-solid fa-print"></i></a>
                   </div>
                 </div>
 
