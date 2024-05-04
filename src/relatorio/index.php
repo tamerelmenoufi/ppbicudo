@@ -157,9 +157,7 @@
 
 
                 <div class="col-md-6">
-                  <?php
-                  if(!$_SESSION['buscaOrigem']){
-                  ?>
+                  
                   <div class="input-group">
                     <label class="input-group-text" for="inputGroupFile01">Relatório</label>
                     <input type="text" id="nome_relatorio" class="form-control" value="<?=$rel->nome?>" >
@@ -174,7 +172,7 @@
                           aria-controls="offcanvasDireita"      
                     ><i class="fa-solid fa-folder-tree"></i></button>
                     <?php
-                    if(!$_SESSION['modelo_relatorio']){
+                    if($_SESSION['modelo_relatorio']){
                     ?>
                     <button id="sair_relatorio" class="btn btn-outline-danger" type="button"><i class="fa-solid fa-right-from-bracket"></i></button>
                     <?php
@@ -182,9 +180,6 @@
                     ?>
                     <input type="hidden" id="codigo_relatorio" value="<?=$rel->codigo?>">
                   </div>
-                  <?php
-                  }
-                  ?>
                 </div>
 
 
@@ -203,6 +198,9 @@
                                     ></i> <span class="marcar_todos">Marcar Todos</span>                 
                     </th>
                     <th scope="col" colspan="2">
+                        <?php
+                        if(!$_SESSION['modelo_relatorio']){
+                        ?>
                         <div class="input-group">
                           <label class="input-group-text" for="inputGroupFile01">Anexar em </label>
                           <select class="form-select" id="relatorio_anexar">
@@ -219,6 +217,9 @@
                           </select>
                           <button id="anexar_relatorio" class="btn btn-outline-primary" type="button"><i class="fa-solid fa-paperclip"></i></button>
                         </div>
+                        <?php
+                        }
+                        ?>
                     </th>
                     <th scope="col" colspan="11"></th>
                   </tr>
