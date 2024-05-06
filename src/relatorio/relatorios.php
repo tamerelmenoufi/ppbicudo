@@ -4,6 +4,7 @@
     if($_POST['excluir']){
 
         mysqli_query($con, "delete from relatorio_modelos where codigo = '{$_POST['excluir']}'");
+        mysqli_query($con, "UPDATE relatorio set relatorio = '0' where relatorio = '{$_POST['excluir']}'");
 
         if($_POST['excluir'] == $_SESSION['modelo_relatorio']){
             $_SESSION['modelo_relatorio'] = false;
