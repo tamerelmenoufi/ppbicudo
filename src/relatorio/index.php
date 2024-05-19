@@ -1,6 +1,17 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
 
+
+    function editarValores($d){
+?>
+    <div class="d-flex justify-content-start">
+      R$ <span><?=number_format($d['valor'],2,',',false)?></span>
+      <input type="text" class="moeda" campo="<?=$d['campo']?>" valor="<?=$d['valor']?>" inputmode="numeric" >
+    </div>
+<?php
+    }
+
+
     $opcoes = [];
 
     if($_POST['acao'] == 'relatorio'){
@@ -118,6 +129,14 @@
   }
   i[info]{
     cursor:pointer;
+  }
+
+  .moeda{
+    width:100%;
+    border:0;
+    margin:0;
+    padding:0;
+    background:#eee;
   }
 
 </style>
