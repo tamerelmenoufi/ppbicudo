@@ -373,8 +373,13 @@
           codigo = $(this).attr("codigo");
           campo = $(this).attr("campo");
           valor = $(this).attr("valor");
-          
-          $(`.desfazer[codigo="${codigo}"]`).css("opacity","1");
+
+          valorA = $(`.desfazer[codigo="${codigo}"]`).val();
+
+          if(valor != valorA){
+            $(`.desfazer[codigo="${codigo}"]`).css("opacity","1");
+          }
+
         })
 
         $("span.marcar_todos").click(function(){
