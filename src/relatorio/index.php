@@ -137,6 +137,7 @@
     margin:0;
     padding:0;
     margin-left:5px;
+    background-color:transparent;
   }
 
 </style>
