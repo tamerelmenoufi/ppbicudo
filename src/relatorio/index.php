@@ -286,7 +286,7 @@
                     </td>
                     <td class="text-nowrap"><?=dataBr($d->dataCriacao)?></td>
                     <td class=""><?=$d->tituloItem?></td>
-                    <td class="text-nowrap">R$<?=number_format($d->ValorPedidoXquantidade,2,',','.')?></td>
+                    <td class="text-nowrap"><?=editarValores(['valor'=>$d->ValorPedidoXquantidade, 'campo'=>'ValorPedidoXquantidade', 'registro'=>$d->codigo])?></td>
                     <td class="text-nowrap">R$<?=number_format($d->CustoEnvio,2,',','.')?></td>
                     <td class="text-nowrap">R$<?=number_format($d->PrecoCusto,2,',','.')?></td>
                     <td class="text-nowrap">R$<?=number_format($d->CustoEnvioSeller,2,',','.')?></td>
