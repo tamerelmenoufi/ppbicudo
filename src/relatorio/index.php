@@ -6,7 +6,7 @@
 ?>
     <div class="d-flex justify-content-start">
       R$ <span opc="<?=$d['codigo']?>"><?=number_format($d['valor'],2,',',false)?></span>
-      <input type="text" class="moeda" campo="<?=$d['campo']?>" valor="<?=$d['valor']?>" codigo="<?=$d['codigo']?>" inputmode="numeric" >
+      <input type="text" class="moeda" campo="<?=$d['campo']?>" valor="<?=$d['valor']?>" codigo="<?=$d['codigo']?>" value="<?=number_format($d['valor'],2,',',false)?>" inputmode="numeric" >
     </div>
 <?php
     }
