@@ -133,10 +133,9 @@
 
   .moeda{
     width:100%;
-    margin:0;
+    border:0;
+    margin:5px;
     padding:0;
-    background:#eee;
-    border:solid 1px #fff;
   }
 
 </style>
