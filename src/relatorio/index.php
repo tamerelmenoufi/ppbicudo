@@ -8,6 +8,7 @@
       R$ 
       <!-- <span opc="<?=$d['codigo']?>"><?=number_format($d['valor'],2,',',false)?></span> -->
       <input type="text" class="moeda" campo="<?=$d['campo']?>" valor="<?=$d['valor']?>" codigo="<?=$d['codigo']?>" value="<?=number_format($d['valor'],2,',',false)?>" inputmode="numeric" >
+      <i class="fa-solid fa-arrow-rotate-left"></i>
     </div>
 <?php
     }
