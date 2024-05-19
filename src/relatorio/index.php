@@ -365,6 +365,16 @@
           campo = $(this).attr("campo");
           valor = $(this).attr("valor");
           $(`.moeda[codigo="${codigo}"]`).val(valor);
+
+          $(this).css("opacity",0);
+        })
+
+        $(".moeda").onblur(function(){
+          codigo = $(this).attr("codigo");
+          campo = $(this).attr("campo");
+          valor = $(this).attr("valor");
+          
+          $(`.desfazer[codigo="${codigo}"]`).css("opacity",1);
         })
 
         $("span.marcar_todos").click(function(){
