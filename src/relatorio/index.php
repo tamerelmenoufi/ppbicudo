@@ -8,7 +8,7 @@
       R$ 
       <!-- <span opc="<?=$d['codigo']?>"><?=number_format($d['valor'],2,',',false)?></span> -->
       <input type="text" class="moeda" campo="<?=$d['campo']?>" valor="<?=$d['valor']?>" codigo="<?=$d['codigo']?>" value="<?=number_format($d['valor'],2,',',false)?>" inputmode="numeric" >
-      <i class="fa-solid fa-arrow-rotate-left"></i>
+      <i class="fa-solid fa-arrow-rotate-left desfazer" campo="<?=$d['campo']?>" valor="<?=$d['valor']?>" codigo="<?=$d['codigo']?>"></i>
     </div>
 <?php
     }
@@ -141,6 +141,10 @@
     margin-left:5px;
     margin-right:5px;
     background-color:transparent;
+  }
+  .desfazer{
+    cursor:pointer;
+    opacity:0;
   }
 
 </style>
