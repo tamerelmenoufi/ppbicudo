@@ -5,8 +5,8 @@
     function editarValores($d){
 ?>
     <div class="d-flex justify-content-start">
-      R$ <span><?=number_format($d['valor'],2,',',false)?></span>
-      <input type="text" class="moeda" campo="<?=$d['campo']?>" valor="<?=$d['valor']?>" inputmode="numeric" >
+      R$ <span opc="<?=$d['codigo']?>"><?=number_format($d['valor'],2,',',false)?></span>
+      <input type="text" class="moeda" campo="<?=$d['campo']?>" valor="<?=$d['valor']?>" codigo="<?=$d['codigo']?>" inputmode="numeric" >
     </div>
 <?php
     }
@@ -133,10 +133,10 @@
 
   .moeda{
     width:100%;
-    border:0;
     margin:0;
     padding:0;
     background:#eee;
+    border:solid 1px #fff;
   }
 
 </style>
@@ -286,7 +286,7 @@
                     </td>
                     <td class="text-nowrap"><?=dataBr($d->dataCriacao)?></td>
                     <td class=""><?=$d->tituloItem?></td>
-                    <td class="text-nowrap"><?=editarValores(['valor'=>$d->ValorPedidoXquantidade, 'campo'=>'ValorPedidoXquantidade', 'registro'=>$d->codigo])?></td>
+                    <td class="text-nowrap"><?=editarValores(['valor'=>$d->ValorPedidoXquantidade, 'campo'=>'ValorPedidoXquantidade', 'codigo'=>$d->codigo])?></td>
                     <td class="text-nowrap">R$<?=number_format($d->CustoEnvio,2,',','.')?></td>
                     <td class="text-nowrap">R$<?=number_format($d->PrecoCusto,2,',','.')?></td>
                     <td class="text-nowrap">R$<?=number_format($d->CustoEnvioSeller,2,',','.')?></td>
