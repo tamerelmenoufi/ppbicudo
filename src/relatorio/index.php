@@ -373,13 +373,14 @@
           codigo = $(this).attr("codigo");
           campo = $(this).attr("campo");
           valor = $(this).attr("valor");
+          valorN = $(this).val();
 
           valorA = $(`.desfazer[codigo="${codigo}"]`).attr("valor");
 
-          console.log(valor)
+          console.log(valorN)
           console.log(valorA)
 
-          if(valor != valorA){
+          if(valorN != valorA){
             $(`.desfazer[codigo="${codigo}"]`).css("opacity","1");
           }
 
