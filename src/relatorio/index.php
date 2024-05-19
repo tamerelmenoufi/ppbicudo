@@ -139,6 +139,7 @@
     margin:0;
     padding:0;
     margin-left:5px;
+    margin-right:5px;
     background-color:transparent;
   }
 
