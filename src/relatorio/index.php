@@ -360,6 +360,13 @@
     $(function(){
         Carregando('none');
 
+        $(".desfazer").click(function(){
+          codigo = $(this).attr("codigo");
+          campo = $(this).attr("campo");
+          valor = $(this).attr("valor");
+          $(`.moeda[codigo="${codigo}"]`).val(valor);
+        })
+
         $("span.marcar_todos").click(function(){
           if($("input.marcar_todos").prop("checked") == true){
             $("input.marcar_todos").prop("checked", false);
