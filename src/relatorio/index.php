@@ -135,7 +135,8 @@
     width:100%;
     border:0;
     margin:0;
-    padding:5px;
+    padding:0;
+    margin-left:5px;
   }
 
 </style>
