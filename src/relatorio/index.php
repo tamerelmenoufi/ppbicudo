@@ -376,6 +376,9 @@
 
           valorA = $(`.desfazer[codigo="${codigo}"]`).val();
 
+          console.log(valor)
+          console.log(valorA)
+
           if(valor != valorA){
             $(`.desfazer[codigo="${codigo}"]`).css("opacity","1");
           }
