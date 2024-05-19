@@ -374,7 +374,7 @@
           campo = $(this).attr("campo");
           valor = $(this).attr("valor");
 
-          valorA = $(`.desfazer[codigo="${codigo}"]`).val();
+          valorA = $(`.desfazer[codigo="${codigo}"]`).attr("valor");
 
           console.log(valor)
           console.log(valorA)
