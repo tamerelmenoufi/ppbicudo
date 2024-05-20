@@ -86,32 +86,32 @@
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" require name="ValorPedidoXquantidade" id="ValorPedidoXquantidade" class="form-control" placeholder="Pagamento Produto" value="<?=$d->ValorPedidoXquantidade?>">
+            <input type="text" require name="ValorPedidoXquantidade" id="ValorPedidoXquantidade" class="form-control" placeholder="Pagamento Produto" value="<?=number_format($d->ValorPedidoXquantidade,2,','false)?>">
             <label for="ValorPedidoXquantidade">Pagamento Produto*</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" require name="CustoEnvio" id="CustoEnvio" class="form-control" placeholder="Pagamento Frete" value="<?=$d->CustoEnvio?>">
+            <input type="text" require name="CustoEnvio" id="CustoEnvio" class="form-control" placeholder="Pagamento Frete" value="<?=number_format($d->CustoEnvio,2,','false)?>">
             <label for="CustoEnvio">Pagamento Frete*</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" require name="PrecoCusto" id="PrecoCusto" class="form-control" placeholder="Custo Produto" value="<?=$d->PrecoCusto?>">
+            <input type="text" require name="PrecoCusto" id="PrecoCusto" class="form-control" placeholder="Custo Produto" value="<?=number_format($d->PrecoCusto,2,','false)?>">
             <label for="PrecoCusto">Custo Produto*</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" require name="CustoEnvioSeller" id="CustoEnvioSeller" class="form-control" placeholder="Custo Frete" value="<?=$d->CustoEnvioSeller?>">
+            <input type="text" require name="CustoEnvioSeller" id="CustoEnvioSeller" class="form-control" placeholder="Custo Frete" value="<?=number_format($d->CustoEnvioSeller,2,','false)?>">
             <label for="CustoEnvioSeller">Custo Frete*</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" require name="TarifaGatwayPagamento" id="TarifaGatwayPagamento" class="form-control" placeholder="Taxa Entrega" value="<?=$d->TarifaGatwayPagamento?>">
+            <input type="text" require name="TarifaGatwayPagamento" id="TarifaGatwayPagamento" class="form-control" placeholder="Taxa Entrega" value="<?=number_format($d->TarifaGatwayPagamento,2,','false)?>">
             <label for="TarifaGatwayPagamento">Taxa Entrega*</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" require name="TarifaMarketplace" id="TarifaMarketplace" class="form-control" placeholder="Taxa Marketplace" value="<?=$d->TarifaMarketplace?>">
+            <input type="text" require name="TarifaMarketplace" id="TarifaMarketplace" class="form-control" placeholder="Taxa Marketplace" value="<?=number_format($d->TarifaMarketplace,2,','false)?>">
             <label for="TarifaMarketplace">Taxa Marketplace*</label>
         </div>
 
