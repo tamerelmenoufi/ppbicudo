@@ -442,7 +442,6 @@
           console.log(campo)
           valor = $(this).attr("valor");
           valorN = $(this).val();
-          console.log(total)
           valorA = $(`.desfazer[opc-${campo}-${codigo}]`).attr("valor");
 
           if(valorN.replace(",", '.') != valorA){
