@@ -380,10 +380,11 @@
         $(".moeda").blur(function(){
           codigo = $(this).attr("codigo");
           campo = $(this).attr("campo");
+          console.log(campo)
           valor = $(this).attr("valor");
           valorN = $(this).val();
           total = $(`th[campo="${campo}"]`).attr("valor");
-
+          console.log(total)
           valorA = $(`.desfazer[codigo="${codigo}"]`).attr("valor");
 
           if(valorN.replace(",", '.') != valorA){
