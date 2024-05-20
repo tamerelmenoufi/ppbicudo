@@ -32,7 +32,7 @@
 </style>
 <h4 class="Titulo<?=$md5?>">Modelos de Relatórios</h4>
 
-<input type="month" class="form-control">
+<input id="filtro" type="month" class="form-control" style="margin-bottom:20px;">
 
 <ul class="list-group">
 <?php
@@ -69,6 +69,10 @@
                 openedCanvas.hide();
               }
           })
+        })
+
+        $("#filtro").change(function(){
+            console.log($(this).val())
         })
 
         $("i[excluir]").click(function(){
