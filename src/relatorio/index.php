@@ -2,6 +2,16 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
 
 
+    if($_POST['acao'] == 'atualizaCampo'){
+
+      $query = "UPDATE relatorio set {$_POST['campo']} = '{$_POST['valor']}' where codigo = '{$_POST['codigo']}'";
+      // mysqli_query($con, $query);
+      echo $query;
+
+      exit();
+    }
+
+
     function editarValores($d){
       //*
 ?>
@@ -405,17 +415,23 @@
           valor = $(this).attr("valor");
           
           valorN = $(`.moeda[opc-${campo}-${codigo}]`).val().replace(",", '.');
-
-
-          // total = $(`th[campo="${campo}"]`).attr("valor");
-          // total = (total*1 - valorN*1 + valor*1);
-          // totalF = total.toLocaleString('pt-br', {minimumFractionDigits: 2})
-          // $(`th[campo="${campo}"]`).attr("valor", total);
-          // $(`th[campo="${campo}"]`).html(`R$ ${totalF}`);
-
-
           $(`.moeda[opc-${campo}-${codigo}]`).val(valor.replace(".", ','));
           $(this).css("opacity","0");
+
+          $.ajax({
+              url:"src/relatorio/index.php",
+              type:"POST",
+              data:{
+                  codigo,
+                  campo,
+                  valor:valorN,
+                  acao:'atualizaCampo'
+              },
+              success:function(dados){
+                  //$("#paginaHome").html(dados);
+                  console.log(dados)
+              }
+          })
 
           calculaTotal(campo)
 
@@ -427,19 +443,13 @@
           console.log(campo)
           valor = $(this).attr("valor");
           valorN = $(this).val();
-          // total = $(`th[campo="${campo}"]`).attr("valor");
           console.log(total)
           valorA = $(`.desfazer[opc-${campo}-${codigo}]`).attr("valor");
 
           if(valorN.replace(",", '.') != valorA){
 
             $(`.desfazer[opc-${campo}-${codigo}]`).css("opacity","1");
-            // console.log(total);
-            // total = (total*1 - valor*1 + (valorN.replace(",", '.'))*1);
-            // console.log(total);
-            // totalF = total.toLocaleString('pt-br', {minimumFractionDigits: 2})
-            // $(`th[campo="${campo}"]`).attr("valor", total);
-            // $(`th[campo="${campo}"]`).html(`R$ ${totalF}`);
+
 
           }
 
