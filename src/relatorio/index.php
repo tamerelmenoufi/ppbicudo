@@ -365,14 +365,14 @@
           campo = $(this).attr("campo");
           valor = $(this).attr("valor");
           total = $(`th[campo="${campo}"]`).attr("valor");
-          valorN = $(`.moeda[codigo="${codigo}"]`).val().replace(",", '.');
+          valorN = $(`.moeda[campo="${campo}"]`).val().replace(",", '.');
 
           total = (total*1 - valorN*1 + valor*1);
           totalF = total.toLocaleString('pt-br', {minimumFractionDigits: 2})
           $(`th[campo="${campo}"]`).attr("valor", total);
           $(`th[campo="${campo}"]`).html(`R$ ${totalF}`);
 
-          $(`.moeda[codigo="${codigo}"]`).val(valor.replace(".", ','));
+          $(`.moeda[campo="${campo}"]`).val(valor.replace(".", ','));
           $(this).css("opacity","0");
 
         })
@@ -385,10 +385,10 @@
           valorN = $(this).val();
           total = $(`th[campo="${campo}"]`).attr("valor");
           console.log(total)
-          valorA = $(`.desfazer[codigo="${codigo}"]`).attr("valor");
+          valorA = $(`.desfazer[campo="${campo}"]`).attr("valor");
 
           if(valorN.replace(",", '.') != valorA){
-            $(`.desfazer[codigo="${codigo}"]`).css("opacity","1");
+            $(`.desfazer[campo="${campo}"]`).css("opacity","1");
             console.log(total);
             total = (total*1 - valor*1 + (valorN.replace(",", '.'))*1);
             console.log(total);
