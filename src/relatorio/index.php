@@ -330,12 +330,12 @@
                     <th class="text-nowrap"></th>
                     <th class=""></th>
                     <th class=""></th>
-                    <th class="text-nowrap" valor="<?=$d->totalValorPedidoXquantidade?>" campo="totalValorPedidoXquantidade">R$ <?=number_format($totalValorPedidoXquantidade,2,',','.')?></th>
-                    <th class="text-nowrap" valor="<?=$d->totalCustoEnvio?>" campo="totalCustoEnvio">R$ <?=number_format($totalCustoEnvio,2,',','.')?></th>
-                    <th class="text-nowrap" valor="<?=$d->totalPrecoCusto?>" campo="totalPrecoCusto">R$ <?=number_format($totalPrecoCusto,2,',','.')?></th>
-                    <th class="text-nowrap" valor="<?=$d->totalCustoEnvioSeller?>" campo="totalCustoEnvioSeller">R$ <?=number_format($totalCustoEnvioSeller,2,',','.')?></th>
-                    <th class="text-nowrap" valor="<?=$d->totalComissao?>" campo="totalComissao">R$ <?=number_format(($totalComissao),2,',','.')?></th>
-                    <th class="text-nowrap" valor="<?=$d->totalLucro?>" campo="totalLucro">R$ <?=number_format(($totalLucro),2,',','.')?></th>
+                    <th class="text-nowrap" valor="<?=$totalValorPedidoXquantidade?>" campo="totalValorPedidoXquantidade">R$ <?=number_format($totalValorPedidoXquantidade,2,',','.')?></th>
+                    <th class="text-nowrap" valor="<?=$totalCustoEnvio?>" campo="totalCustoEnvio">R$ <?=number_format($totalCustoEnvio,2,',','.')?></th>
+                    <th class="text-nowrap" valor="<?=$totalPrecoCusto?>" campo="totalPrecoCusto">R$ <?=number_format($totalPrecoCusto,2,',','.')?></th>
+                    <th class="text-nowrap" valor="<?=$totalCustoEnvioSeller?>" campo="totalCustoEnvioSeller">R$ <?=number_format($totalCustoEnvioSeller,2,',','.')?></th>
+                    <th class="text-nowrap" valor="<?=$totalComissao?>" campo="totalComissao">R$ <?=number_format(($totalComissao),2,',','.')?></th>
+                    <th class="text-nowrap" valor="<?=$totalLucro?>" campo="totalLucro">R$ <?=number_format(($totalLucro),2,',','.')?></th>
                     <th class="text-nowrap"></th>
                     <th class="text-nowrap"></th>
                     <th class="text-nowrap"></th>
