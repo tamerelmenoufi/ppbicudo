@@ -82,7 +82,7 @@
         $("#filtro").change(function(){
             filtro = $(this).val()
             $.ajax({
-              url:"src/relatorio/index.php",
+              url:"src/relatorio/relatorios.php",
               type:"POST",
               data:{
                 filtro
