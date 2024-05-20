@@ -32,6 +32,8 @@
 </style>
 <h4 class="Titulo<?=$md5?>">Modelos de Relatórios</h4>
 
+<input type="month" class="form-control">
+
 <ul class="list-group">
 <?php
     $query = "select * from relatorio_modelos order by data desc";
