@@ -80,7 +80,17 @@
         })
 
         $("#filtro").change(function(){
-            console.log($(this).val())
+            filtro = $(this).val()
+            $.ajax({
+              url:"src/relatorio/index.php",
+              type:"POST",
+              data:{
+                filtro
+              },
+              success:function(dados){
+                $(".LateralDireita").html(dados);
+              }
+          })
         })
 
         $("i[excluir]").click(function(){
