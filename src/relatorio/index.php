@@ -608,6 +608,7 @@
         })
 
         $(".atualizacao").click(function(){
+          Carregando();
           $.ajax({
               url:"src/relatorio/index.php",
               success:function(dados){
