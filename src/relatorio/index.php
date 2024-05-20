@@ -3,6 +3,7 @@
 
 
     function editarValores($d){
+      //*
 ?>
     <div class="d-flex justify-content-start">
       R$ 
@@ -10,6 +11,10 @@
       <input opc-<?=$d['campo']?>-<?=$d['codigo']?> type="text" class="moeda" campo="<?=$d['campo']?>" valor="<?=$d['valor']?>" codigo="<?=$d['codigo']?>" value="<?=number_format($d['valor'],2,',',false)?>" inputmode="numeric" >
       <i opc-<?=$d['campo']?>-<?=$d['codigo']?> class="fa-solid fa-arrow-rotate-left desfazer" campo="<?=$d['campo']?>" valor="<?=$d['valor']?>" codigo="<?=$d['codigo']?>"></i>
     </div>
+<?php
+  //*/
+?>
+R$ <?=number_format($d['valor'],2,',',false)?>
 <?php
     }
 
