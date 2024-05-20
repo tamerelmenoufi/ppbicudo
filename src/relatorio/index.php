@@ -442,9 +442,9 @@
           console.log(campo)
           valor = $(this).attr("valor");
           valorN = $(this).val();
-          valorA = $(`.desfazer[opc-${campo}-${codigo}]`).attr("valor");
+          // valorA = $(`.desfazer[opc-${campo}-${codigo}]`).attr("valor");
 
-          if(valorN.replace(",", '.') != valorA){
+          if(valorN.replace(",", '.') != valor){
 
             //$(`.desfazer[opc-${campo}-${codigo}]`).css("opacity","1");
 
