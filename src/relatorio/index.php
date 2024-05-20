@@ -254,7 +254,7 @@
                         }
                         ?>
                     </th>
-                    <th scope="col" colspan="8"></th>
+                    <th scope="col" colspan="9"></th>
                   </tr>
                   <tr>
                     <th scope="col"><input type="checkbox" class="marcar_todos"></th>
