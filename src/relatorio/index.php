@@ -19,7 +19,7 @@
       R$ 
       <!-- <span opc="<?=$d['codigo']?>"><?=number_format($d['valor'],2,',',false)?></span> -->
       <input opc-<?=$d['campo']?>-<?=$d['codigo']?> type="text" class="moeda" campo="<?=$d['campo']?>" valor="<?=$d['valor']?>" codigo="<?=$d['codigo']?>" value="<?=number_format($d['valor'],2,',',false)?>" inputmode="numeric" >
-      <i opc-<?=$d['campo']?>-<?=$d['codigo']?> class="fa-solid fa-arrow-rotate-left desfazer" campo="<?=$d['campo']?>" valor="<?=$d['valor']?>" codigo="<?=$d['codigo']?>"></i>
+      <!--<i opc-<?=$d['campo']?>-<?=$d['codigo']?> class="fa-solid fa-arrow-rotate-left desfazer" campo="<?=$d['campo']?>" valor="<?=$d['valor']?>" codigo="<?=$d['codigo']?>"></i>-->
     </div>
 <?php
   //*/
@@ -446,7 +446,7 @@
 
           if(valorN.replace(",", '.') != valorA){
 
-            $(`.desfazer[opc-${campo}-${codigo}]`).css("opacity","1");
+            //$(`.desfazer[opc-${campo}-${codigo}]`).css("opacity","1");
 
             $.ajax({
               url:"src/relatorio/index.php",
@@ -458,12 +458,12 @@
                   acao:'atualizaCampo'
               },
               success:function(dados){
-                  //$("#paginaHome").html(dados);
-                  console.log(dados)
+                  $("#paginaHome").html(dados);
+                  //console.log(dados)
               }
             })
 
-            calculaTotal(campo)
+            //calculaTotal(campo)
 
           }
 
