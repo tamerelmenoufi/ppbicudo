@@ -330,12 +330,12 @@
                     <th class="text-nowrap"></th>
                     <th class=""></th>
                     <th class=""></th>
-                    <th class="text-nowrap">R$ <?=number_format($totalValorPedidoXquantidade,2,',','.')?></th>
-                    <th class="text-nowrap">R$ <?=number_format($totalCustoEnvio,2,',','.')?></th>
-                    <th class="text-nowrap">R$ <?=number_format($totalPrecoCusto,2,',','.')?></th>
-                    <th class="text-nowrap">R$ <?=number_format($totalCustoEnvioSeller,2,',','.')?></th>
-                    <th class="text-nowrap">R$ <?=number_format(($totalComissao),2,',','.')?></th>
-                    <th class="text-nowrap">R$ <?=number_format(($totalLucro),2,',','.')?></th>
+                    <th class="text-nowrap" total="<?=$d->totalValorPedidoXquantidade?>" campo="totalValorPedidoXquantidade">R$ <?=number_format($totalValorPedidoXquantidade,2,',','.')?></th>
+                    <th class="text-nowrap" total="<?=$d->totalCustoEnvio?>" campo="totalCustoEnvio">R$ <?=number_format($totalCustoEnvio,2,',','.')?></th>
+                    <th class="text-nowrap" total="<?=$d->totalPrecoCusto?>" campo="totalPrecoCusto">R$ <?=number_format($totalPrecoCusto,2,',','.')?></th>
+                    <th class="text-nowrap" total="<?=$d->totalCustoEnvioSeller?>" campo="totalCustoEnvioSeller">R$ <?=number_format($totalCustoEnvioSeller,2,',','.')?></th>
+                    <th class="text-nowrap" total="<?=$d->totalComissao?>" campo="totalComissao">R$ <?=number_format(($totalComissao),2,',','.')?></th>
+                    <th class="text-nowrap" total="<?=$d->totalLucro?>" campo="totalLucro">R$ <?=number_format(($totalLucro),2,',','.')?></th>
                     <th class="text-nowrap"></th>
                     <th class="text-nowrap"></th>
                     <th class="text-nowrap"></th>
@@ -364,9 +364,16 @@
           codigo = $(this).attr("codigo");
           campo = $(this).attr("campo");
           valor = $(this).attr("valor");
-          $(`.moeda[codigo="${codigo}"]`).val(valor.replace(".", ','));
+          total = $(`th[campo="${campo}"]`).attr("valor");
+          valorN = $(`.moeda[codigo="${codigo}"]`).val().replace(",", '.');
 
+          total = (total*1 - valorN*1 + valor*1);
+          $(`th[campo="${campo}"]`).attr("valor", total);
+          $(`th[campo="${campo}"]`).html(`R$ ${total.replace(".",".")}`);
+
+          $(`.moeda[codigo="${codigo}"]`).val(valor.replace(".", ','));
           $(this).css("opacity","0");
+
         })
 
         $(".moeda").blur(function(){
@@ -374,14 +381,17 @@
           campo = $(this).attr("campo");
           valor = $(this).attr("valor");
           valorN = $(this).val();
+          total = $(`th[campo="${campo}"]`).attr("valor");
 
           valorA = $(`.desfazer[codigo="${codigo}"]`).attr("valor");
 
-          console.log(valorN)
-          console.log(valorA)
-
           if(valorN.replace(",", '.') != valorA){
             $(`.desfazer[codigo="${codigo}"]`).css("opacity","1");
+
+            total = (total*1 - valor*1 + (valorN.replace(",", '.'))*1);
+            $(`th[campo="${campo}"]`).attr("valor", total);
+            $(`th[campo="${campo}"]`).html(`R$ ${total.replace(".",".")}`);
+
           }
 
         })
