@@ -7,9 +7,25 @@
       unset($dados['acao']);
       unset($dados['codigo']);
 
+
+      $numeros = [
+        'ValorPedidoXquantidade',
+        'CustoEnvio',
+        'PrecoCusto',
+        'CustoEnvioSeller',
+        'TarifaGatwayPagamento',
+        'TarifaMarketplace'
+      ];
+
       $campos = [];
       foreach($dados as $i => $v){
-        $campos[] = "{$i} = '{$v}'";
+        if(in_array($i, $numeros)){
+          $v = str_replace($v,",",".");
+          $campos[] = "{$i} = '{$v}'";
+        }else{
+          $campos[] = "{$i} = '{$v}'";
+        }
+        
       }
 
       if(trim($_POST['deletado_justificativa'])){
@@ -99,10 +115,10 @@
             <label for="TarifaMarketplace">Taxa Marketplace*</label>
         </div>
 
-        <div class="form-floating mb-3">
+        <!-- <div class="form-floating mb-3">
             <input type="text" require name="Porcentagem" id="Porcentagem" class="form-control" placeholder="Porcentagem" value="<?=$d->Porcentagem?>">
             <label for="Porcentagem">Porcentagem*</label>
-        </div>
+        </div> -->
 
         <div class="form-floating mb-3">
             <textarea name="observacoes" id="observacoes" class="form-control" style="height:200px;"><?=$d->observacoes?></textarea>
