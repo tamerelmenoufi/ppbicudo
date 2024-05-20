@@ -368,8 +368,9 @@
           valorN = $(`.moeda[codigo="${codigo}"]`).val().replace(",", '.');
 
           total = (total*1 - valorN*1 + valor*1);
+          totalF = total.replace(".",".");
           $(`th[campo="${campo}"]`).attr("valor", total);
-          $(`th[campo="${campo}"]`).html(`R$ ${total.replace(".",".")}`);
+          $(`th[campo="${campo}"]`).html(`R$ ${totalF}`);
 
           $(`.moeda[codigo="${codigo}"]`).val(valor.replace(".", ','));
           $(this).css("opacity","0");
@@ -389,8 +390,9 @@
             $(`.desfazer[codigo="${codigo}"]`).css("opacity","1");
 
             total = (total*1 - valor*1 + (valorN.replace(",", '.'))*1);
+            totalF = total.replace(".",".");
             $(`th[campo="${campo}"]`).attr("valor", total);
-            $(`th[campo="${campo}"]`).html(`R$ ${total.replace(".",".")}`);
+            $(`th[campo="${campo}"]`).html(`R$ ${totalF}`);
 
           }
 
