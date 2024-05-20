@@ -462,11 +462,12 @@
                   console.log(dados)
               }
             })
-
+            
+            calculaTotal(campo)
 
           }
 
-          calculaTotal(campo)
+          
 
         })
 
