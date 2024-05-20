@@ -3,7 +3,7 @@
 
 
     function editarValores($d){
-      /*
+      //*
 ?>
     <div class="d-flex justify-content-start">
       R$ 
@@ -14,7 +14,7 @@
 <?php
   //*/
 ?>
-R$ <?=number_format($d['valor'],2,',',false)?>
+<!-- R$ <?=number_format($d['valor'],2,',',false)?> -->
 <?php
     }
 
