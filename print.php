@@ -180,8 +180,6 @@
     </table>
 
 
-
-
     <?php
     include("lib/footer.php");
     ?>

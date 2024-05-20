@@ -130,6 +130,7 @@
   }
   td, th{
     font-size:12px;
+    white-space: nowrap;
   }
   .marcar_todos{
     cursor:pointer;
