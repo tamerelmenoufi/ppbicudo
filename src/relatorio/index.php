@@ -5,8 +5,8 @@
     if($_POST['acao'] == 'atualizaCampo'){
 
       $query = "UPDATE relatorio set {$_POST['campo']} = '{$_POST['valor']}' where codigo = '{$_POST['codigo']}'";
-      // mysqli_query($con, $query);
-      echo $query;
+      mysqli_query($con, $query);
+      // echo $query;
 
       exit();
     }
@@ -428,7 +428,7 @@
               },
               success:function(dados){
                   //$("#paginaHome").html(dados);
-                  console.log(dados)
+                  // console.log(dados)
               }
           })
 
