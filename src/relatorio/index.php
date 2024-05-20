@@ -441,11 +441,11 @@
           campo = $(this).attr("campo");
           console.log(campo)
           valor = $(this).attr("valor");
-          valorN = $(this).val().replace(",", '.');
+          valorN = $(this).val();
           console.log(total)
           valorA = $(`.desfazer[opc-${campo}-${codigo}]`).attr("valor");
 
-          if(valorN != valorA){
+          if(valorN.replace(",", '.') != valorA){
 
             $(`.desfazer[opc-${campo}-${codigo}]`).css("opacity","1");
 
@@ -455,7 +455,7 @@
               data:{
                   codigo,
                   campo,
-                  valor:valorN,
+                  valor:valorN.replace(",", '.'),
                   acao:'atualizaCampo'
               },
               success:function(dados){
