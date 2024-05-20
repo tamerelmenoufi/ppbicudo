@@ -368,7 +368,7 @@
           valorN = $(`.moeda[codigo="${codigo}"]`).val().replace(",", '.');
 
           total = (total*1 - valorN*1 + valor*1);
-          totalF = total.replace(".",".");
+          totalF = total.toLocaleString('pt-br', {minimumFractionDigits: 2})
           $(`th[campo="${campo}"]`).attr("valor", total);
           $(`th[campo="${campo}"]`).html(`R$ ${totalF}`);
 
