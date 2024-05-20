@@ -152,6 +152,9 @@
     cursor:pointer;
     opacity:0;
   }
+  .atualizacao{
+    opacity: 0;
+  }
 
 </style>
 <div class="col">
@@ -254,7 +257,11 @@
                         }
                         ?>
                     </th>
-                    <th scope="col" colspan="9"></th>
+                    <th scope="col" colspan="9">
+                      <div class="d-flex justify-content-end">
+                        <button class="btn btn-success btn-sm atualizacao">Atualizar Dados</button>
+                      </div>
+                    </th>
                   </tr>
                   <tr>
                     <th scope="col"><input type="checkbox" class="marcar_todos"></th>
@@ -375,6 +382,20 @@
           })
           totalF = total.toLocaleString('pt-br', {minimumFractionDigits: 2})
           $(`th[campo="${campo}"]`).html(`R$ ${totalF}`);
+
+          des = false;
+          $(".desfazer").each(function(){
+            if($(this).css("opacity") == "1"){
+              des = true;
+            }
+          })
+
+          if(des == true){
+            $(".atualizacao").css("opacity","1");
+          }else{
+            $(".atualizacao").css("opacity","0");
+          }
+
         }
 
 
