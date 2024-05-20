@@ -385,7 +385,7 @@
 
         const calculaTotal = (campo)=>{
           total = 0;
-          $(".moeda").each(function(){
+          $(`.moeda[campo="${campo}"]`).each(function(){
             valor = $(this).val();
             valor = valor.replace(",",".");
             total = (valor*1 + total*1);
@@ -462,7 +462,7 @@
                   console.log(dados)
               }
             })
-            
+
             calculaTotal(campo)
 
           }
