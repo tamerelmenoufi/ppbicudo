@@ -390,6 +390,7 @@
             $(`.desfazer[codigo="${codigo}"]`).css("opacity","1");
 
             total = (total*1 - valor*1 + (valorN.replace(",", '.'))*1);
+            console.log(total);
             totalF = total.replace(".",".");
             $(`th[campo="${campo}"]`).attr("valor", total);
             $(`th[campo="${campo}"]`).html(`R$ ${totalF}`);
