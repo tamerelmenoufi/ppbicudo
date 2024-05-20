@@ -1,6 +1,14 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
 
+    if($_POST['filtro']){
+        $_SESSION['pastaData'] = $_POST['filtro'];
+    }
+
+    if(!$_SESSION['pastaData']){
+        $_SESSION['pastaData'] = date("Y-m");
+    }
+
     if($_POST['excluir']){
 
         mysqli_query($con, "delete from relatorio_modelos where codigo = '{$_POST['excluir']}'");
@@ -32,11 +40,11 @@
 </style>
 <h4 class="Titulo<?=$md5?>">Modelos de Relatórios</h4>
 
-<input id="filtro" type="month" class="form-control" style="margin-bottom:20px;">
+<input id="filtro" type="month" class="form-control" style="margin-bottom:20px;" value="<?=$_SESSION['pastaData']?>">
 
 <ul class="list-group">
 <?php
-    $query = "select * from relatorio_modelos order by data desc";
+    $query = "select * from relatorio_modelos where dataCriacao like '{$_SESSION['pastaData']}%' order by data desc";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 ?>
