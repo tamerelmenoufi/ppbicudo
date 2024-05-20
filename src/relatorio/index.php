@@ -364,15 +364,15 @@
           codigo = $(this).attr("codigo");
           campo = $(this).attr("campo");
           valor = $(this).attr("valor");
-          total = $(`th[campo="${campo}"][valor="${valor}"]`).attr("valor");
-          valorN = $(`.moeda[campo="${campo}"][valor="${valor}"]`).val().replace(",", '.');
+          total = $(`th[campo="${campo}"]`).attr("valor");
+          valorN = $(`.moeda[campo="${campo}"]`).val().replace(",", '.');
 
           total = (total*1 - valorN*1 + valor*1);
           totalF = total.toLocaleString('pt-br', {minimumFractionDigits: 2})
-          $(`th[campo="${campo}"][valor="${valor}"]`).attr("valor", total);
-          $(`th[campo="${campo}"][valor="${valor}"]`).html(`R$ ${totalF}`);
+          $(`th[campo="${campo}"]`).attr("valor", total);
+          $(`th[campo="${campo}"]`).html(`R$ ${totalF}`);
 
-          $(`.moeda[campo="${campo}"][valor="${valor}"]`).val(valor.replace(".", ','));
+          $(`.moeda[campo="${campo}"]`).val(valor.replace(".", ','));
           $(this).css("opacity","0");
 
         })
@@ -383,18 +383,18 @@
           console.log(campo)
           valor = $(this).attr("valor");
           valorN = $(this).val();
-          total = $(`th[campo="${campo}"][valor="${valor}"]`).attr("valor");
+          total = $(`th[campo="${campo}"]`).attr("valor");
           console.log(total)
-          valorA = $(`.desfazer[campo="${campo}"][valor="${valor}"]`).attr("valor");
+          valorA = $(`.desfazer[campo="${campo}"]`).attr("valor");
 
           if(valorN.replace(",", '.') != valorA){
-            $(`.desfazer[campo="${campo}"][valor="${valor}"]`).css("opacity","1");
+            $(`.desfazer[campo="${campo}"]`).css("opacity","1");
             console.log(total);
             total = (total*1 - valor*1 + (valorN.replace(",", '.'))*1);
             console.log(total);
             totalF = total.toLocaleString('pt-br', {minimumFractionDigits: 2})
-            $(`th[campo="${campo}"][valor="${valor}"]`).attr("valor", total);
-            $(`th[campo="${campo}"][valor="${valor}"]`).html(`R$ ${totalF}`);
+            $(`th[campo="${campo}"]`).attr("valor", total);
+            $(`th[campo="${campo}"]`).html(`R$ ${totalF}`);
 
           }
 
