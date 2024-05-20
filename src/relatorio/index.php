@@ -8,7 +8,7 @@
       R$ 
       <!-- <span opc="<?=$d['codigo']?>"><?=number_format($d['valor'],2,',',false)?></span> -->
       <input opc-<?=$d['campo']?>-<?=$d['codigo']?> type="text" class="moeda" campo="<?=$d['campo']?>" valor="<?=$d['valor']?>" codigo="<?=$d['codigo']?>" value="<?=number_format($d['valor'],2,',',false)?>" inputmode="numeric" >
-      <i class="fa-solid fa-arrow-rotate-left desfazer" campo="<?=$d['campo']?>" valor="<?=$d['valor']?>" codigo="<?=$d['codigo']?>"></i>
+      <i opc-<?=$d['campo']?>-<?=$d['codigo']?> class="fa-solid fa-arrow-rotate-left desfazer" campo="<?=$d['campo']?>" valor="<?=$d['valor']?>" codigo="<?=$d['codigo']?>"></i>
     </div>
 <?php
     }
@@ -385,10 +385,10 @@
           valorN = $(this).val();
           total = $(`th[campo="${campo}"]`).attr("valor");
           console.log(total)
-          valorA = $(`.desfazer[campo="${campo}"]`).attr("valor");
+          valorA = $(`.desfazer[opc-${campo}-${codigo}]`).attr("valor");
 
           if(valorN.replace(",", '.') != valorA){
-            $(`.desfazer[campo="${campo}"]`).css("opacity","1");
+            $(`.desfazer[opc-${campo}-${codigo}]`).css("opacity","1");
             console.log(total);
             total = (total*1 - valor*1 + (valorN.replace(",", '.'))*1);
             console.log(total);
