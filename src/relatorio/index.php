@@ -306,7 +306,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     <td class="text-nowrap">R$<?=number_format(($d->TarifaGatwayPagamento + $d->TarifaMarketplace),2,',','.')?></td>
                     <td class="text-nowrap">R$<?=number_format(($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace),2,',','.')?></td>
                     <td class="text-nowrap"><?=$d->frete?></td>
-                    <td class="text-nowrap"><?=number_format($d->Porcentagem,2,',','.')?>%</td>
+                    <td class="text-nowrap"><?=number_format(($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace)/($d->PrecoCusto + $d->CustoEnvioSeller + ($d->TarifaGatwayPagamento + $d->TarifaMarketplace)),2,',','.')?>%</td>
                     <td class="text-nowrap"><?=$d->codigoPedido?></td>
                     <td class="text-nowrap">
                       <i 
@@ -365,20 +365,37 @@ R$ <?=number_format($d['valor'],2,',',false)?>
     $(function(){
         Carregando('none');
 
+        const calculaTotal = (campo)=>{
+          total = 0;
+          $(".moeda").each(function(){
+            valor = $(this).val();
+            valor = valor.replace(",",".");
+            total = (valor*1 + total*1);
+          })
+          totalF = total.toLocaleString('pt-br', {minimumFractionDigits: 2})
+          $(`th[campo="${campo}"]`).html(`R$ ${totalF}`);
+        }
+
+
         $(".desfazer").click(function(){
           codigo = $(this).attr("codigo");
           campo = $(this).attr("campo");
           valor = $(this).attr("valor");
-          total = $(`th[campo="${campo}"]`).attr("valor");
+          
           valorN = $(`.moeda[opc-${campo}-${codigo}]`).val().replace(",", '.');
 
-          total = (total*1 - valorN*1 + valor*1);
-          totalF = total.toLocaleString('pt-br', {minimumFractionDigits: 2})
-          $(`th[campo="${campo}"]`).attr("valor", total);
-          $(`th[campo="${campo}"]`).html(`R$ ${totalF}`);
+
+          // total = $(`th[campo="${campo}"]`).attr("valor");
+          // total = (total*1 - valorN*1 + valor*1);
+          // totalF = total.toLocaleString('pt-br', {minimumFractionDigits: 2})
+          // $(`th[campo="${campo}"]`).attr("valor", total);
+          // $(`th[campo="${campo}"]`).html(`R$ ${totalF}`);
+
 
           $(`.moeda[opc-${campo}-${codigo}]`).val(valor.replace(".", ','));
           $(this).css("opacity","0");
+
+          calculaTotal(campo)
 
         })
 
@@ -388,20 +405,23 @@ R$ <?=number_format($d['valor'],2,',',false)?>
           console.log(campo)
           valor = $(this).attr("valor");
           valorN = $(this).val();
-          total = $(`th[campo="${campo}"]`).attr("valor");
+          // total = $(`th[campo="${campo}"]`).attr("valor");
           console.log(total)
           valorA = $(`.desfazer[opc-${campo}-${codigo}]`).attr("valor");
 
-          if(valorN.replace(",", '.') != valorA && $(`.desfazer[opc-${campo}-${codigo}]`).css("opacity") != "1"){
+          if(valorN.replace(",", '.') != valorA){
+
             $(`.desfazer[opc-${campo}-${codigo}]`).css("opacity","1");
-            console.log(total);
-            total = (total*1 - valor*1 + (valorN.replace(",", '.'))*1);
-            console.log(total);
-            totalF = total.toLocaleString('pt-br', {minimumFractionDigits: 2})
-            $(`th[campo="${campo}"]`).attr("valor", total);
-            $(`th[campo="${campo}"]`).html(`R$ ${totalF}`);
+            // console.log(total);
+            // total = (total*1 - valor*1 + (valorN.replace(",", '.'))*1);
+            // console.log(total);
+            // totalF = total.toLocaleString('pt-br', {minimumFractionDigits: 2})
+            // $(`th[campo="${campo}"]`).attr("valor", total);
+            // $(`th[campo="${campo}"]`).html(`R$ ${totalF}`);
 
           }
+
+          calculaTotal(campo)
 
         })
 
