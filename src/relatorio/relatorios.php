@@ -44,7 +44,7 @@
 
 <ul class="list-group">
 <?php
-    echo $query = "select * from relatorio_modelos where dataCriacao like '{$_SESSION['pastaData']}%' order by data desc";
+    $query = "select * from relatorio_modelos where data like '{$_SESSION['pastaData']}%' order by data desc";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 ?>
