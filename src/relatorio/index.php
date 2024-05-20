@@ -387,7 +387,7 @@
           console.log(total)
           valorA = $(`.desfazer[opc-${campo}-${codigo}]`).attr("valor");
 
-          if(valorN.replace(",", '.') != valorA){
+          if(valorN.replace(",", '.') != valorA && $(`.desfazer[opc-${campo}-${codigo}]`).css("opacity") != "1"){
             $(`.desfazer[opc-${campo}-${codigo}]`).css("opacity","1");
             console.log(total);
             total = (total*1 - valor*1 + (valorN.replace(",", '.'))*1);
