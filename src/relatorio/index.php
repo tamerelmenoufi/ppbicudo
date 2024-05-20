@@ -3,7 +3,7 @@
 
 
     function editarValores($d){
-      //*
+      /*
 ?>
     <div class="d-flex justify-content-start">
       R$ 
