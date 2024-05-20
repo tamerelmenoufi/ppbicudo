@@ -388,7 +388,7 @@
 
           if(valorN.replace(",", '.') != valorA){
             $(`.desfazer[codigo="${codigo}"]`).css("opacity","1");
-
+            console.log(total);
             total = (total*1 - valor*1 + (valorN.replace(",", '.'))*1);
             console.log(total);
             totalF = total.replace(".",".");
