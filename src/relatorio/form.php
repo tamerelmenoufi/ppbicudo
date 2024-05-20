@@ -36,7 +36,7 @@
         $campos[] = "deletado_usuario = '0'";
       }
 
-      $query = "UPDATE relatorio SET ".implode(", ",$campos)." where codigo = '{$_POST['codigo']}'";
+      echo $query = "UPDATE relatorio SET ".implode(", ",$campos)." where codigo = '{$_POST['codigo']}'";
       mysqli_query($con, $query);
       $acao = mysqli_affected_rows($con);
 
