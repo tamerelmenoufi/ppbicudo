@@ -414,7 +414,6 @@
           campo = $(this).attr("campo");
           valor = $(this).attr("valor");
           
-          valorN = $(`.moeda[opc-${campo}-${codigo}]`).val().replace(",", '.');
           $(`.moeda[opc-${campo}-${codigo}]`).val(valor.replace(".", ','));
           $(this).css("opacity","0");
 
@@ -424,7 +423,7 @@
               data:{
                   codigo,
                   campo,
-                  valor:valorN,
+                  valor,
                   acao:'atualizaCampo'
               },
               success:function(dados){
@@ -442,13 +441,28 @@
           campo = $(this).attr("campo");
           console.log(campo)
           valor = $(this).attr("valor");
-          valorN = $(this).val();
+          valorN = $(this).val().replace(",", '.');
           console.log(total)
           valorA = $(`.desfazer[opc-${campo}-${codigo}]`).attr("valor");
 
-          if(valorN.replace(",", '.') != valorA){
+          if(valorN != valorA){
 
             $(`.desfazer[opc-${campo}-${codigo}]`).css("opacity","1");
+
+            $.ajax({
+              url:"src/relatorio/index.php",
+              type:"POST",
+              data:{
+                  codigo,
+                  campo,
+                  valor:valorN,
+                  acao:'atualizaCampo'
+              },
+              success:function(dados){
+                  //$("#paginaHome").html(dados);
+                  console.log(dados)
+              }
+            })
 
 
           }
