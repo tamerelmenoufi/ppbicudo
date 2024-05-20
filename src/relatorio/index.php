@@ -607,6 +607,15 @@
           })
         })
 
+        $(".atualizacao").click(function(){
+          $.ajax({
+              url:"src/relatorio/index.php",
+              success:function(dados){
+                  $("#paginaHome").html(dados);
+              }
+          })
+        })
+
         $("i[editar]").click(function(){
           editar = $(this).attr("editar");
           $.ajax({
