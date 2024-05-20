@@ -20,7 +20,7 @@
       $campos = [];
       foreach($dados as $i => $v){
         if(in_array($i, $numeros)){
-          $v = str_replace($v,",",".");
+          $v = str_replace(",",".",$v);
           $campos[] = "{$i} = '{$v}'";
         }else{
           $campos[] = "{$i} = '{$v}'";
