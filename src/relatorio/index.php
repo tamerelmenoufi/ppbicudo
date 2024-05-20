@@ -225,7 +225,7 @@
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
-                    <th scope="col"><i 
+                    <th scope="col" colspan="2"><i 
                                         class="fa-solid fa-turn-down me-2"
                                         style = "-moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1);"
                                     ></i> <span class="marcar_todos">Marcar Todos</span>                 
@@ -254,7 +254,7 @@
                         }
                         ?>
                     </th>
-                    <th scope="col" colspan="11"></th>
+                    <th scope="col" colspan="8"></th>
                   </tr>
                   <tr>
                     <th scope="col"><input type="checkbox" class="marcar_todos"></th>
