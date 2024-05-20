@@ -380,7 +380,7 @@
           console.log(valorN)
           console.log(valorA)
 
-          if(valorN != valorA){
+          if(valor != valorA){
             $(`.desfazer[codigo="${codigo}"]`).css("opacity","1");
           }
 
