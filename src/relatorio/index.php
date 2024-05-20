@@ -7,7 +7,7 @@
     <div class="d-flex justify-content-start">
       R$ 
       <!-- <span opc="<?=$d['codigo']?>"><?=number_format($d['valor'],2,',',false)?></span> -->
-      <input type="text" class="moeda" campo="<?=$d['campo']?>" valor="<?=$d['valor']?>" codigo="<?=$d['codigo']?>" value="<?=number_format($d['valor'],2,',',false)?>" inputmode="numeric" >
+      <input opc-<?=$d['campo']?>-<?=$d['codigo']?> type="text" class="moeda" campo="<?=$d['campo']?>" valor="<?=$d['valor']?>" codigo="<?=$d['codigo']?>" value="<?=number_format($d['valor'],2,',',false)?>" inputmode="numeric" >
       <i class="fa-solid fa-arrow-rotate-left desfazer" campo="<?=$d['campo']?>" valor="<?=$d['valor']?>" codigo="<?=$d['codigo']?>"></i>
     </div>
 <?php
@@ -365,14 +365,14 @@
           campo = $(this).attr("campo");
           valor = $(this).attr("valor");
           total = $(`th[campo="${campo}"]`).attr("valor");
-          valorN = $(`.moeda[campo="${campo}"]`).val().replace(",", '.');
+          valorN = $(`.moeda[opc-${campo}-${codigo}]`).val().replace(",", '.');
 
           total = (total*1 - valorN*1 + valor*1);
           totalF = total.toLocaleString('pt-br', {minimumFractionDigits: 2})
           $(`th[campo="${campo}"]`).attr("valor", total);
           $(`th[campo="${campo}"]`).html(`R$ ${totalF}`);
 
-          $(`.moeda[campo="${campo}"]`).val(valor.replace(".", ','));
+          $(`.moeda[opc-${campo}-${codigo}]`).val(valor.replace(".", ','));
           $(this).css("opacity","0");
 
         })
