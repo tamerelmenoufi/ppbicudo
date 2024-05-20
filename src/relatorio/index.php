@@ -392,7 +392,7 @@
             console.log(total);
             total = (total*1 - valor*1 + (valorN.replace(",", '.'))*1);
             console.log(total);
-            totalF = total.replace(".",".");
+            totalF = total.toLocaleString('pt-br', {minimumFractionDigits: 2})
             $(`th[campo="${campo}"]`).attr("valor", total);
             $(`th[campo="${campo}"]`).html(`R$ ${totalF}`);
 
