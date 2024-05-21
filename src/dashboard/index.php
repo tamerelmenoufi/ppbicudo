@@ -33,7 +33,7 @@
 </style>
 <div class="m-3">
     <?php
-    if($_SESSION['appLogin']->login == 'tamer'){
+    if($_SESSION['appLogin']->usuario == 'tamer'){
     ?>
     <div class="row g-0 mb-3 mt-3">
         <div class="col-md-6"></div>
