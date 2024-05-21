@@ -3,6 +3,19 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
 
 
+    if($_POST['filtro'] == 'filtrar'){
+        $_SESSION['dashboardDataInicial'] = $_POST['dashboardDataInicial'];
+        $_SESSION['dashboardDataFinal'] = $_POST['dashboardDataFinal'];
+      }elseif($_POST['filtro']){
+        $_SESSION['dashboardDataInicial'] = false;
+        $_SESSION['dashboardDataFinal'] = false;
+      }
+  
+      if($_SESSION['buscaDataInicial'] and $_SESSION['buscaDataFinal']){
+        $where = " and a.relatorio = '0' and a.origem = '{$_SESSION['buscaOrigem']}' and a.dataCriacao between '{$_SESSION['buscaDataInicial']} 00:00:00' and '{$_SESSION['buscaDataFinal']} 23:59:59' ";
+      }
+
+
     // echo $query = "update produtos set 
     //                                 valor = '3.44'
     //                         where categoria = 2
@@ -249,6 +262,39 @@
 <script>
     $(function(){
         Carregando('none')
+
+        $("button[filtro]").click(function(){
+          filtro = $(this).attr("filtro");
+          dashboardDataInicial = $("#data_inicial").val();
+          dashboardDataFinal = $("#data_final").val();
+          Carregando()
+          $.ajax({
+              url:"src/dashboard/index.php",
+              type:"POST",
+              data:{
+                  filtro,
+                  dashboardDataInicial,
+                  dashboardDataFinal
+              },
+              success:function(dados){
+                  $("#paginaHome").html(dados);
+              }
+          })
+        })
+
+        $("button[limpar]").click(function(){
+          Carregando()
+          $.ajax({
+              url:"src/dashboard/index.php",
+              type:"POST",
+              data:{
+                  filtro:'limpar',
+              },
+              success:function(dados){
+                  $("#paginaHome").html(dados);
+              }
+          })
+        })
         
     })
 </script>
