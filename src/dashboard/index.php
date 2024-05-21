@@ -70,7 +70,7 @@
     
     <div class="row g-0">
         <div class="col-md-12 p-2">
-            <h6>Resumo Geral</h6>
+            <h6>Resumo <?=(($_SESSION['dashboardDataInicial'] and $_SESSION['dashboardDataFinal'])? "de ".dataBr($_SESSION['dashboardDataInicial'])." a ".dataBr($_SESSION['dashboardDataFinal']):'Geral')?></h6>
         </div>
         <div class="col-md-4 p-2">
             <div class="alert alert-secondary" role="alert">
@@ -94,7 +94,7 @@
 
     <div class="row g-0">
         <div class="col-md-12 p-2">
-            <h6>Resumo Financeiro Geral</h6>
+            <h6>Resumo Financeiro <?=(($_SESSION['dashboardDataInicial'] and $_SESSION['dashboardDataFinal'])? "de ".dataBr($_SESSION['dashboardDataInicial'])." a ".dataBr($_SESSION['dashboardDataFinal']):'Geral')?></h6>
         </div>
         <div class="col-md-2 p-2">
             <div class="alert alert-secondary" role="alert">
