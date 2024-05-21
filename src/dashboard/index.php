@@ -46,9 +46,7 @@
 </style>
 </style>
 <div class="m-3">
-    <?php
-    if($_SESSION['appLogin']->usuario == 'tamer'){
-    ?>
+
     <div class="row g-0 mb-3 mt-3">
         <div class="col-md-6"></div>
         <div class="col-md-6">
@@ -64,9 +62,6 @@
             </div>
         </div>
     </div>
-    <?php
-    }
-    ?>
     
     <div class="row g-0">
         <div class="col-md-12 p-2">
