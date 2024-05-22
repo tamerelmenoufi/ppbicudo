@@ -77,7 +77,9 @@
           unlink("../volume/planilhas/".$_POST['planilha']);
       }
       $query = "delete from planilhas where codigo = '{$_POST['deletar']}'";
-      mysqli_query($con, $query);
+      if(mysqli_query($con, $query)){
+        mysqli_query($con, "DELTE FROM `relatorio` where planilha = '{$_POST['deletar']}'");
+      }
     }
 
 ?>
@@ -141,13 +143,13 @@
                   </td>
                   <td acoes style="white-space: nowrap;">
                   <?php
-                  if(!$d->registros){
+                  // if(!$d->registros){
                   ?>
-                    <button class="btn btn-danger btn-sm" deletar="<?=$d->codigo?>" planilha="<?=$d->planilha?>">
+                    <button class="btn btn-danger btn-sm" deletar="<?=$d->codigo?>" planilha="<?=$d->planilha?>" registros="<?=$d->registros?>">
                     <i class="fa-solid fa-trash-can"></i> Excluir
                     </button>
                   <?php
-                  }
+                  // }
                   ?>
                   </td>
                 </tr>
@@ -183,8 +185,14 @@
         $("button[deletar]").click(function(){
             deletar = $(this).attr("deletar");
             planilha = $(this).attr("planilha");
+            registros = $(this).attr("registros");
+            if(registros*1 > 0){
+              msg = `Esta operação irá excluir ${registros} registros do banco de dados<br>Deseja realmente excluir o cadastro ?`; 
+            }else{
+              msg = `Deseja realmente excluir o cadastro ?`; 
+            }
             $.confirm({
-                content:"Deseja realmente excluir o cadastro ?",
+                content:msg,
                 title:false,
                 type:'red',
                 buttons:{
