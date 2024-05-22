@@ -336,6 +336,11 @@
                           role="button"
                           aria-controls="offcanvasDireita"
                       ></i>
+                      <i 
+                          deletar="<?=$d->codigo?>" 
+                          style="cursor:pointer;" 
+                          class="fa-solid fa-trash text-danger"
+                      ></i>
                     </td>
                   </tr>
                   <?php
@@ -653,6 +658,39 @@
                 $(".LateralDireita").html(dados);
               }
           })          
+        })
+
+        $("button[deletar]").click(function(){
+            deletar = $(this).attr("deletar");
+            $.confirm({
+                content:`Deseja realmente excluir o cadastro ?`,
+                title:false,
+                type:'red',
+                buttons:{
+                    'SIM':{
+                        text:'<i class="fa-solid fa-trash-can"></i> Sim',
+                        btnClass:'btn btn-danger',
+                        action:function(){
+                            $.ajax({
+                                url:"src/relatorio/index.php",
+                                type:"POST",
+                                data:{
+                                    deletar
+                                },
+                                success:function(dados){
+                                  console.log(dados);
+                                  $("#paginaHome").html(dados);
+                                }
+                            })
+                        }
+                    },
+                    'NÃO':{
+                        text:'<i class="fa-solid fa-ban"></i> Não',
+                        btnClass:'btn btn-success'
+                    }
+                }
+            });
+
         })
 
 
