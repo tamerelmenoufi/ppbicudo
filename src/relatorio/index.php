@@ -23,6 +23,7 @@
 
     function editarValores($d){
       //*
+      if(!$d['deletado']){
 ?>
     <div class="d-flex justify-content-start">
       R$ 
@@ -32,9 +33,11 @@
     </div>
 <?php
   //*/
+      }else{
 ?>
-<!-- R$ <?=number_format($d['valor'],2,',',false)?> -->
+R$ <?=number_format($d['valor'],2,',',false)?>
 <?php
+      }
     }
 
 
@@ -326,10 +329,10 @@
                     </td>
                     <td class="text-nowrap"><?=dataBr($d->dataCriacao)?></td>
                     <td class=""><?=$d->tituloItem?></td>
-                    <td class="text-nowrap"><?=editarValores(['valor'=>$d->ValorPedidoXquantidade, 'campo'=>'ValorPedidoXquantidade', 'codigo'=>$d->codigo])?></td>
-                    <td class="text-nowrap"><?=editarValores(['valor'=>$d->CustoEnvio, 'campo'=>'CustoEnvio', 'codigo'=>$d->codigo])?></td>
-                    <td class="text-nowrap"><?=editarValores(['valor'=>$d->PrecoCusto, 'campo'=>'PrecoCusto', 'codigo'=>$d->codigo])?></td>
-                    <td class="text-nowrap"><?=editarValores(['valor'=>$d->CustoEnvioSeller, 'campo'=>'CustoEnvioSeller', 'codigo'=>$d->codigo])?></td>
+                    <td class="text-nowrap"><?=editarValores(['valor'=>$d->ValorPedidoXquantidade, 'campo'=>'ValorPedidoXquantidade', 'codigo'=>$d->codigo, 'deletado' => $d->deletado])?></td>
+                    <td class="text-nowrap"><?=editarValores(['valor'=>$d->CustoEnvio, 'campo'=>'CustoEnvio', 'codigo'=>$d->codigo, 'deletado' => $d->deletado])?></td>
+                    <td class="text-nowrap"><?=editarValores(['valor'=>$d->PrecoCusto, 'campo'=>'PrecoCusto', 'codigo'=>$d->codigo, 'deletado' => $d->deletado])?></td>
+                    <td class="text-nowrap"><?=editarValores(['valor'=>$d->CustoEnvioSeller, 'campo'=>'CustoEnvioSeller', 'codigo'=>$d->codigo, 'deletado' => $d->deletado])?></td>
                     <td class="text-nowrap">R$<?=number_format(($d->TarifaGatwayPagamento + $d->TarifaMarketplace),2,',','.')?></td>
                     <td class="text-nowrap">R$<?=number_format(($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace),2,',','.')?></td>
                     <td class="text-nowrap"><?=$d->frete?></td>
