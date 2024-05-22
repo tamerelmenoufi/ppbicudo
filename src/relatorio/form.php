@@ -23,7 +23,7 @@
           $v = str_replace(",",".",$v);
           $campos[] = "{$i} = '{$v}'";
         }else{
-          $campos[] = "{$i} = '{$v}'";
+          $campos[] = "{$i} = '".addslashes($v)."'";
         }
         
       }
