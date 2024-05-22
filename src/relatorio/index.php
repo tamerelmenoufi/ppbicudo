@@ -339,7 +339,7 @@
                       <i 
                           deletar="<?=$d->codigo?>" 
                           style="cursor:pointer;" 
-                          class="fa-solid fa-trash text-danger"
+                          class="fa-solid fa-trash text-danger ml-3"
                       ></i>
                     </td>
                   </tr>
@@ -660,7 +660,7 @@
           })          
         })
 
-        $("button[deletar]").click(function(){
+        $("i[deletar]").click(function(){
             deletar = $(this).attr("deletar");
             $.confirm({
                 content:`Deseja realmente excluir o cadastro ?`,
