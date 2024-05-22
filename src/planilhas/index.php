@@ -259,7 +259,7 @@
                   obj.attr("origem","");
                   obj.parent("td").append(dados.quantidade);
                   if(dados.quantidade > 0){
-                    obj.parent("td").parent("tr").children("td[acoes]").children("button[deletar]").remove();
+                    //obj.parent("td").parent("tr").children("td[acoes]").children("button[deletar]").remove();
                   }
                     // $("#paginaHome").html(dados);
                 },
