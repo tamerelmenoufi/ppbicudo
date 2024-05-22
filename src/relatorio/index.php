@@ -339,7 +339,7 @@
                       <i 
                           deletar="<?=$d->codigo?>" 
                           style="cursor:pointer;" 
-                          class="fa-solid fa-trash text-danger ml-3"
+                          class="fa-solid fa-trash text-danger ms-3"
                       ></i>
                     </td>
                   </tr>
