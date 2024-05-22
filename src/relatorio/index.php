@@ -281,7 +281,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     </th>
                     <th scope="col" colspan="9">
                       <div class="d-flex justify-content-end">
-                        <button class="btn btn-success btn-sm atualizacao">Atualizar Dados</button>
+                        <!-- <button class="btn btn-success btn-sm atualizacao">Atualizar Dados</button> -->
                       </div>
                     </th>
                   </tr>
