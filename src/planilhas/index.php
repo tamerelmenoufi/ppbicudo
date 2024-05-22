@@ -48,7 +48,7 @@
             if($i == 'Porcentagem'){
               $valores[] = "`{$i}` = '".substr($val,0,-1)."'";
             }else{
-              $valores[] = "`{$i}` = '{$val}'";
+              $valores[] = "`{$i}` = '".addslashes($val)."'";
             }
           }
         }
