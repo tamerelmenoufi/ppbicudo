@@ -11,6 +11,15 @@
       //exit();
     }
 
+    if($_POST['deletar']){
+
+      $query = "DELETE FROM relatorio where codigo = '{$_POST['deletar']}'";
+      mysqli_query($con, $query);
+      // echo $query;
+
+      //exit();
+    }
+
 
     function editarValores($d){
       //*
