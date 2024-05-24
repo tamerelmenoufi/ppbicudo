@@ -252,9 +252,9 @@
                         }
                 }
                 });
-                } else {
+            } else {
                 alert('Nao suporta HTML5');
-                }
+            }
 
 
                 $("button[cancelar]").click(function(){
