@@ -3,6 +3,7 @@
 
     if($_POST['delete']){
       // $query = "delete from origens where codigo = '{$_POST['delete']}'";
+      if($_POST['imagem']) unlink("../volume/origens/{$_POST['imagem']}");
       $query = "update origens set deletado = '1' where codigo = '{$_POST['delete']}'";
       mysqli_query($con,$query);
     }
@@ -93,7 +94,7 @@
                       <?php
                       if(!$d->quantidade){
                       ?>
-                      <button class="btn btn-danger" delete="<?=$d->codigo?>">
+                      <button class="btn btn-danger" delete="<?=$d->codigo?>" imagem='<?=$d->imagem?>'>
                         Excluir
                       </button>
                       <?php
@@ -151,7 +152,7 @@
                       if(!$d->quantidade){
                       ?>
                       <div class="col-6 p-2">
-                        <button class="btn btn-danger w-100" delete="<?=$d->codigo?>">
+                        <button class="btn btn-danger w-100" delete="<?=$d->codigo?>" imagem='<?=$d->imagem?>'>
                           Excluir
                         </button>
                       </div>
@@ -207,6 +208,7 @@
 
         $("button[delete]").click(function(){
             deletar = $(this).attr("delete");
+            imagem = $(this).attr("imagem");
             $.confirm({
                 content:"Deseja realmente excluir o cadastro ?",
                 title:false,
@@ -216,7 +218,8 @@
                             url:"src/origens/index.php",
                             type:"POST",
                             data:{
-                                delete:deletar
+                                delete:deletar,
+                                imagem
                             },
                             success:function(dados){
                                 $("#paginaHome").html(dados);

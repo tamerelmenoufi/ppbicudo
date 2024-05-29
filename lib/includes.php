@@ -7,4 +7,4 @@
     $conEstoque = AppConnect('app');
     $md5 = md5(date("YmdHis"));
 
-    $urlPainel = 'http://ppbicudo.mohatron.com/';
+    $urlPainel = 'https://ppbicudo.mohatron.com/';
