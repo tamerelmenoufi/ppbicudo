@@ -408,7 +408,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 </div>
 
 
-<div style="display: flex; justify-content: flex-end; position:fixed; bottom:0; left:0; right:0; height:90px; border:solid 1px red; padding-left:30px; padding-right:30px; background-color:#fff;">
+<div style="display: flex; justify-content: flex-end; position:fixed; bottom:0; left:0; right:0; height:50px; border:solid 1px red; padding-bottom:10px; padding-left:30px; padding-right:30px; background-color:#fff;">
 
 <table>
 <thead>
@@ -424,10 +424,8 @@ R$ <?=number_format($d['valor'],2,',',false)?>
   </tr>
 </thead>
 <tbody>
-  
 </tbody>
   <tr class="calculaTitulos">
-    <td class="col-3">Pagamento Produto</td>
     <td class="col-1">Pagamento Produto</td>
     <td class="col-1">Pagamento Frete</td>
     <td class="col-1">Custo Produto</td>
