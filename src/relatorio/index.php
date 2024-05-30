@@ -477,7 +477,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
             }
           })
 
-          campos.each(function(){
+          campos.map(function(){
             eval(`$(".rodape${campo}").html("R$" + rodape${campo})`)
           })     
 
