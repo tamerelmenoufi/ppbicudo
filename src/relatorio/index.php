@@ -21,7 +21,7 @@
     }
 
 
-    function editarValores($d){
+    function ($d){
       //*
       if(!$d['deletado']){
 ?>
@@ -39,6 +39,19 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 <?php
       }
     }
+
+    function listarValores($d){
+      //*
+      if(!$d['deletado']){
+?>
+      <input opc-<?=$d['campo']?>-<?=$d['codigo']?> type="hidden" value="<?=$d['valor']?>" >
+<?php
+  //*/
+      }
+?>
+R$ <?=number_format($d['valor'],2,',',false)?>
+<?php
+    }    
 
 
     $opcoes = [];
@@ -352,8 +365,8 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     <td class="text-nowrap"><?=editarValores(['valor'=>$d->CustoEnvio, 'campo'=>'CustoEnvio', 'codigo'=>$d->codigo, 'deletado' => $d->deletado])?></td>
                     <td class="text-nowrap"><?=editarValores(['valor'=>$d->PrecoCusto, 'campo'=>'PrecoCusto', 'codigo'=>$d->codigo, 'deletado' => $d->deletado])?></td>
                     <td class="text-nowrap"><?=editarValores(['valor'=>$d->CustoEnvioSeller, 'campo'=>'CustoEnvioSeller', 'codigo'=>$d->codigo, 'deletado' => $d->deletado])?></td>
-                    <td class="text-nowrap">R$<?=number_format(($d->TarifaGatwayPagamento + $d->TarifaMarketplace),2,',','.')?></td>
-                    <td class="text-nowrap">R$<?=number_format(($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace),2,',','.')?></td>
+                    <td class="text-nowrap"><?=listarValores(['valor'=>($d->TarifaGatwayPagamento + $d->TarifaMarketplace), 'campo'=>'Comissao', 'codigo'=>$d->codigo, 'deletado' => $d->deletado])?></td>
+                    <td class="text-nowrap"><?=listarValores(['valor'=>($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace), 'campo'=>'Lucro', 'codigo'=>$d->codigo, 'deletado' => $d->deletado])?></td>
                     <td class="text-nowrap"><?=$d->frete?></td>
                     <td class="text-nowrap"><?=number_format((($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace)/(($d->PrecoCusto + $d->CustoEnvioSeller + ($d->TarifaGatwayPagamento + $d->TarifaMarketplace))?:1))*100,2,',','.')?>%</td>
                     <td class="text-nowrap"><?=$d->codigoPedido?></td>
