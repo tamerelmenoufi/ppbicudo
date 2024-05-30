@@ -21,7 +21,7 @@
     }
 
 
-    function ($d){
+    function editarValores($d){
       //*
       if(!$d['deletado']){
 ?>
