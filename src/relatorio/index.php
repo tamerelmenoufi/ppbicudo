@@ -434,12 +434,12 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 </tbody>
   <tr class="calculaTitulos">
     <td class="col-1"></td>
-    <td class="col-1">Pagamento Produto</td>
-    <td class="col-1">Pagamento Frete</td>
-    <td class="col-1">Custo Produto</td>
-    <td class="col-1">Custo Frete</td>
-    <td class="col-1">Comissão</td> 
-    <td class="col-1">Lucro</td>
+    <td class="col-1"><span class="rodapeValorPedidoXquantidade"></span></td>
+    <td class="col-1"><span class="rodapeCustoEnvio"></span></td>
+    <td class="col-1"><span class="rodapePrecoCusto"></span></td>
+    <td class="col-1"><span class="rodapeCustoEnvioSeller"></span></td>
+    <td class="col-1"><span class="rodapeComissao"></td> 
+    <td class="col-1"><span class="rodapeLucro"></td>
     <td class="col-3"></td>
   </tr>
 </table>
@@ -449,6 +449,41 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 <script>
     $(function(){
         Carregando('none');
+
+
+        const calculadoraRodape = () => {
+
+          rodapeValorPedidoXquantidade = 0;
+          rodapeCustoEnvio = 0;
+          rodapePrecoCusto = 0;
+          rodapeCustoEnvioSeller = 0;
+          rodapeComissao = 0;
+          rodapeLucro = 0;
+          campos = [
+            'ValorPedidoXquantidade',
+            'CustoEnvio',
+            'PrecoCusto',
+            'CustoEnvioSeller'
+            // 'Comissao',
+            // 'Lucro',                  
+          ];
+          $(".opcoes").each(function(){
+            if($(this).prop("checked") == true){
+                opc = $(this);
+                codigo = $(this).val();
+                campos.each(function(){
+                  eval(`rodape${campo} = rodape${campo}*1 + $("input[opc-${campo}-${codigo}]")`)
+                })
+            }
+          })
+
+          campos.each(function(){
+            eval(`$(".rodape${campo}").html("R$ ${rodape${campo}}")`)
+          })     
+
+        }
+
+        calculadoraRodape();
 
         const calculaTotal = (campo)=>{
           total = 0;
