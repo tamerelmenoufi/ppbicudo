@@ -477,8 +477,8 @@ R$ <?=number_format($d['valor'],2,',',false)?>
             'CustoEnvio',
             'PrecoCusto',
             'CustoEnvioSeller'
-            // 'Comissao',
-            // 'Lucro',                  
+            'Comissao',
+            'Lucro',                  
           ];
           console.log(campos)
           $(".opcoes").each(function(){
