@@ -192,7 +192,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
   .calculaTitulos td{
     color:#333333;
-    font-size:10px;
+    font-size:12px;
     padding:5px;
     margin:0;
   }
