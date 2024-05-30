@@ -398,7 +398,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
 <div style="position:fixed; bottom:0; left:0; right:0; height:90px; border:solid 1px red; padding-left:30px; padding-right:30px; background-color:#fff;">
 
-<table class="table">
+<table>
 <thead>
   <tr>
     <th class="col-3">Cálculo dos Totais (itens selecionados)</th>
