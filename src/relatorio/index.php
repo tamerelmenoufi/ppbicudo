@@ -401,6 +401,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 <table class="table">
 <thead>
   <tr>
+    <th scope="col">Cálculo dos Totais (itens selecionados)</th>
     <th scope="col">Pagamento Produto</th>
     <th scope="col">Pagamento Frete</th>
     <th scope="col">Custo Produto</th>
@@ -413,6 +414,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
   
 </tbody>
   <tr>
+    <th scope="col">Pagamento Produto</th>
     <th scope="col">Pagamento Produto</th>
     <th scope="col">Pagamento Frete</th>
     <th scope="col">Custo Produto</th>
