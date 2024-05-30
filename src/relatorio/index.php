@@ -178,10 +178,10 @@ R$ <?=number_format($d['valor'],2,',',false)?>
     opacity: 0;
   }
 
-  .calculaTitulos{
+  .calculaTitulos th{
     color:#a1a1a1;
     font-size:10px;
-    padding:15px;
+    padding:5px;
   }
 
 </style>
