@@ -430,7 +430,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
 <div style="display: flex; justify-content: flex-end; position:fixed; bottom:0; left:0; right:0; height:65px; border:solid 0px red; padding-top:10px; padding-bottom:10px; padding-left:30px; padding-right:100px; background-color:#fff;">
 
-<table style="opacity:0">
+<table>
 <thead>
   <tr class="calculaTitulos">
     <th class="col-3" style="color:#333333">Cálculo dos Totais (itens selecionados)</th>
