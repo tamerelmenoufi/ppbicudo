@@ -408,21 +408,21 @@ R$ <?=number_format($d['valor'],2,',',false)?>
     <th scope="col-1">Custo Frete</th>
     <th scope="col-1">Comissão</th> 
     <th scope="col-1">Lucro</th>
-    <th scope="col-3"></th>
+    <th scope="col-3"><span>.</span></th>
   </tr>
 </thead>
 <tbody>
   
 </tbody>
   <tr>
-    <th scope="col-3">Pagamento Produto</th>
-    <th scope="col-1">Pagamento Produto</th>
-    <th scope="col-1">Pagamento Frete</th>
-    <th scope="col-1">Custo Produto</th>
-    <th scope="col-1">Custo Frete</th>
-    <th scope="col-1">Comissão</th> 
-    <th scope="col-1">Lucro</th>
-    <th scope="col-3"></th>
+    <td scope="col-3">Pagamento Produto</td>
+    <td scope="col-1">Pagamento Produto</td>
+    <td scope="col-1">Pagamento Frete</td>
+    <td scope="col-1">Custo Produto</td>
+    <td scope="col-1">Custo Frete</td>
+    <td scope="col-1">Comissão</td> 
+    <td scope="col-1">Lucro</td>
+    <td scope="col-3"><span>.</span></td>
   </tr>
 </table>
 
