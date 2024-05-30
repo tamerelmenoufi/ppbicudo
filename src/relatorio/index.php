@@ -396,7 +396,33 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 </div>
 
 
-<div style="position:fixed; bottom:0; left:0; right:0; height:90px; border:solid 1px red;"></div>
+<div style="position:fixed; bottom:0; left:0; right:0; height:90px; border:solid 1px red;">
+
+<table class="table">
+<thead>
+  <tr>
+    <th scope="col">Pagamento Produto</th>
+    <th scope="col">Pagamento Frete</th>
+    <th scope="col">Custo Produto</th>
+    <th scope="col">Custo Frete</th>
+    <th scope="col">Comissão</th> 
+    <th scope="col">Lucro</th>
+  </tr>
+</thead>
+<tbody>
+  
+</tbody>
+  <tr>
+    <th scope="col">Pagamento Produto</th>
+    <th scope="col">Pagamento Frete</th>
+    <th scope="col">Custo Produto</th>
+    <th scope="col">Custo Frete</th>
+    <th scope="col">Comissão</th> 
+    <th scope="col">Lucro</th>
+  </tr>
+</table>
+
+</div>
 
 <script>
     $(function(){
