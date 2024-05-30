@@ -203,7 +203,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
     <div class="row">
       <div class="col">
-        <div class="card" style="padding-bottom:50px;">
+        <div class="card" style="padding-bottom:100px;">
           <h5 class="card-header">Tela de Consultas</h5>
           <div class="card-body">
               <div class="row mb-3">
