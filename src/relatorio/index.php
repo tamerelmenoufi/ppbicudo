@@ -396,7 +396,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 </div>
 
 
-<div style="position:fixed; bottom:0; left:0; right:0; height:30px; border:solid 1px red; padding:30px;">
+<div style="position:fixed; bottom:0; left:0; right:0; height:90px; border:solid 1px red; padding-left:30px; padding-right:30px; background-color:#fff;">
 
 <table class="table">
 <thead>
