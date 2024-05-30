@@ -184,6 +184,12 @@ R$ <?=number_format($d['valor'],2,',',false)?>
     padding:5px;
   }
 
+  .calculaTitulos td{
+    color:#a1a1a1;
+    font-size:10px;
+    padding:5px;
+  }
+
 </style>
 <div class="col">
   <div class="m-3">
@@ -420,7 +426,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 <tbody>
   
 </tbody>
-  <tr>
+  <tr class="calculaTitulos">
     <td class="col-3">Pagamento Produto</td>
     <td class="col-1">Pagamento Produto</td>
     <td class="col-1">Pagamento Frete</td>
