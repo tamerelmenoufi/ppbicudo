@@ -476,7 +476,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
             'ValorPedidoXquantidade',
             'CustoEnvio',
             'PrecoCusto',
-            'CustoEnvioSeller'
+            'CustoEnvioSeller',
             'Comissao',
             'Lucro',                  
           ];
