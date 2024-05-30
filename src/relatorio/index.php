@@ -467,6 +467,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
             // 'Comissao',
             // 'Lucro',                  
           ];
+          console.log(campos)
           $(".opcoes").each(function(){
             if($(this).prop("checked") == true){
                 codigo = $(this).val();
