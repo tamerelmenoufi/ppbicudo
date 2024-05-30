@@ -181,7 +181,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
   .calculaTitulos{
     color:#a1a1a1;
     font-size:10px;
-    padding:5px;
+    padding:15px;
   }
 
 </style>
