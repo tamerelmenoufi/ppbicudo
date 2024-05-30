@@ -178,6 +178,12 @@ R$ <?=number_format($d['valor'],2,',',false)?>
     opacity: 0;
   }
 
+  .calculaTitulos{
+    color:#a1a1a1;
+    font-size:10px;
+    padding:5px;
+  }
+
 </style>
 <div class="col">
   <div class="m-3">
@@ -400,7 +406,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
 <table>
 <thead>
-  <tr>
+  <tr class="calculaTitulos">
     <th class="col-3">Cálculo dos Totais (itens selecionados)</th>
     <th class="col-1">Pagamento Produto</th>
     <th class="col-1">Pagamento Frete</th>
