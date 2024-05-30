@@ -584,6 +584,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
             $("input.marcar_todos").prop("checked", true);
             $(".opcoes").prop("checked", true);
           }
+          calculadoraRodape();
         })
 
         $("input.marcar_todos").click(function(){
@@ -592,7 +593,12 @@ R$ <?=number_format($d['valor'],2,',',false)?>
           }else{
             $(".opcoes").prop("checked", false);
           }
+          calculadoraRodape();
         })
+
+        $("input.opcoes").click(function(){
+          calculadoraRodape();
+        })        
 
         $("#salvar_relatorio").click(function(){
           nome_relatorio = $("#nome_relatorio").val();
