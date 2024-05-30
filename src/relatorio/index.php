@@ -420,7 +420,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 <table>
 <thead>
   <tr class="calculaTitulos">
-    <th class="col-3">Cálculo dos Totais (itens selecionados)</th>
+    <th class="col-3" style="color:#333333">Cálculo dos Totais (itens selecionados)</th>
     <th class="col-1">Pagamento Produto</th>
     <th class="col-1">Pagamento Frete</th>
     <th class="col-1">Custo Produto</th>
