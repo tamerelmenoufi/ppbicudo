@@ -185,7 +185,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
   }
 
   .calculaTitulos td{
-    color:#a1a1a1;
+    color:#333333;
     font-size:10px;
     padding:5px;
   }
