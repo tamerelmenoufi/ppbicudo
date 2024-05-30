@@ -401,26 +401,28 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 <table class="table">
 <thead>
   <tr>
-    <th scope="col">Cálculo dos Totais (itens selecionados)</th>
-    <th scope="col">Pagamento Produto</th>
-    <th scope="col">Pagamento Frete</th>
-    <th scope="col">Custo Produto</th>
-    <th scope="col">Custo Frete</th>
-    <th scope="col">Comissão</th> 
-    <th scope="col">Lucro</th>
+    <th scope="col-3">Cálculo dos Totais (itens selecionados)</th>
+    <th scope="col-1">Pagamento Produto</th>
+    <th scope="col-1">Pagamento Frete</th>
+    <th scope="col-1">Custo Produto</th>
+    <th scope="col-1">Custo Frete</th>
+    <th scope="col-1">Comissão</th> 
+    <th scope="col-1">Lucro</th>
+    <th scope="col-3"></th>
   </tr>
 </thead>
 <tbody>
   
 </tbody>
   <tr>
-    <th scope="col">Pagamento Produto</th>
-    <th scope="col">Pagamento Produto</th>
-    <th scope="col">Pagamento Frete</th>
-    <th scope="col">Custo Produto</th>
-    <th scope="col">Custo Frete</th>
-    <th scope="col">Comissão</th> 
-    <th scope="col">Lucro</th>
+    <th scope="col-3">Pagamento Produto</th>
+    <th scope="col-1">Pagamento Produto</th>
+    <th scope="col-1">Pagamento Frete</th>
+    <th scope="col-1">Custo Produto</th>
+    <th scope="col-1">Custo Frete</th>
+    <th scope="col-1">Comissão</th> 
+    <th scope="col-1">Lucro</th>
+    <th scope="col-3"></th>
   </tr>
 </table>
 
