@@ -478,7 +478,10 @@ R$ <?=number_format($d['valor'],2,',',false)?>
           })
 
           campos.map(function(campo){
-            eval(`$(".rodape${campo}").html("R$" + rodape${campo})`)
+            eval(`$(".rodape${campo}").html(rodape${campo}.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            }))`)
           })     
 
         }
