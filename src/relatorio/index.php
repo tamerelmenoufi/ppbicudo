@@ -44,7 +44,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
       //*
       if(!$d['deletado']){
 ?>
-      <input opc-<?=$d['campo']?>-<?=$d['codigo']?> type="hidden" value="<?=$d['valor']?>" >
+      <input opc-<?=$d['campo']?>-<?=$d['codigo']?> type="hidden" valor="<?=$d['valor']?>" >
 <?php
   //*/
       }
