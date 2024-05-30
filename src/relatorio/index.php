@@ -396,6 +396,8 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 </div>
 
 
+<div style="position:fixed; bottom:0; left:0; right:0; height:50px; border:solid 1px red;"></div>
+
 <script>
     $(function(){
         Carregando('none');
