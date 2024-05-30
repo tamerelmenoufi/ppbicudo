@@ -469,7 +469,6 @@ R$ <?=number_format($d['valor'],2,',',false)?>
           ];
           $(".opcoes").each(function(){
             if($(this).prop("checked") == true){
-                opc = $(this);
                 codigo = $(this).val();
                 campos.each(function(){
                   eval(`rodape${campo} = rodape${campo}*1 + $("input[opc-${campo}-${codigo}]")`)
@@ -478,7 +477,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
           })
 
           campos.each(function(){
-            eval(`$(".rodape${campo}").html("R$ ${rodape${campo}}")`)
+            eval(`$(".rodape${campo}").html("R$" + rodape${campo})`)
           })     
 
         }
