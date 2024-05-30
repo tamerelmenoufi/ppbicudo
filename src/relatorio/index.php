@@ -433,6 +433,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 <tbody>
 </tbody>
   <tr class="calculaTitulos">
+    <td class="col-1"></td>
     <td class="col-1">Pagamento Produto</td>
     <td class="col-1">Pagamento Frete</td>
     <td class="col-1">Custo Produto</td>
