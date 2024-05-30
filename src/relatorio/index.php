@@ -472,7 +472,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
             if($(this).prop("checked") == true){
                 codigo = $(this).val();
                 campos.map(function(campo){
-                  eval(`rodape${campo} = rodape${campo}*1 + $("input[opc-${campo}-${codigo}]")`)
+                  eval(`rodape${campo} = rodape${campo}*1 + $("input[opc-${campo}-${codigo}]").val()`)
                 })
             }
           })
