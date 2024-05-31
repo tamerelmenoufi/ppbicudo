@@ -60,7 +60,6 @@
         </div>
 
         <div class="form-floating mb-3">
-            <div class="form-control"><?=dataBr($d->dataCriacao)?></div>
             <input type="datetime-local" require name="dataCriacao" id="dataCriacao" class="form-control" placeholder="Pagamento Produto" value="<?=$d->dataCriacao?>">
 
             <label for="dataCriacao">Data*</label>
