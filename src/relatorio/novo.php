@@ -114,7 +114,7 @@
         <input type="hidden" id="acao" name="acao" value="salvar" >
         <input type="hidden" id="relatorio" name="relatorio" value="<?=$_POST['relatorio']?>" >
         <input type="hidden" id="conta" name="conta" value="<?=$_POST['conta']?>" >
-        <input type="hidden" id="origem" name="origem" value="<?=$_POST['origem']?>" >
+        <input type="hidden" id="origem" name="origem" value="<?=(($_POST['origem'])?:'0')?>" >
         <input type="hidden" id="planilha" name="planilha" value="<?=$_POST['planilha']?>" >
 
     </form>
