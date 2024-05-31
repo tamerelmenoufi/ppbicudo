@@ -156,7 +156,7 @@
         // }
 
         $.ajax({
-          url:"src/relatorio/form.php",
+          url:"src/relatorio/novo.php",
           type:"POST",
           data,
           success:function(dados){
