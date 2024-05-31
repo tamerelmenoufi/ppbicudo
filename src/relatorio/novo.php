@@ -82,6 +82,14 @@
         </div>
 
         <div class="form-floating mb-3">
+            <select name="frete" id="frete" class="form-select" require>
+              <option value="Frete grátis">Frete grátis</option>
+              <option value="Pago comprador">Pago comprador</option>
+            </select>
+            <label for="frete">Frete*</label>
+        </div>        
+
+        <div class="form-floating mb-3">
             <input type="text" require name="PrecoCusto" id="PrecoCusto" class="form-control" placeholder="Custo Produto" value="<?=number_format($d->PrecoCusto,2,',',false)?>">
             <label for="PrecoCusto">Custo Produto*</label>
         </div>
