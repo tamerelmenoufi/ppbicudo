@@ -26,8 +26,7 @@
         
       }
 
-      echo $query = "INSERT INTO relatorio SET ".implode(", ",$campos);
-      echo "<br>";
+      $query = "INSERT INTO relatorio SET ".implode(", ",$campos);
       mysqli_query($con, $query);
       $acao = mysqli_affected_rows($con);
 
@@ -125,6 +124,7 @@
         <input type="hidden" id="pedidoOrigem" name="pedidoOrigem" value="<?=$_POST['pedidoOrigem']?>" >
         <input type="hidden" id="origem" name="origem" value="<?=(($_POST['origem'])?:'0')?>" >
         <input type="hidden" id="planilha" name="planilha" value="<?=(($_POST['planilha'])?:'0')?>" >
+        <input type="hidden" id="porcentagem" name="porcentagem" value="<?=(($_POST['porcentagem'])?:'0')?>" >
 
     </form>
 
