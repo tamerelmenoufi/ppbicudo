@@ -26,7 +26,8 @@
         
       }
 
-      $query = "INSERT INTO relatorio SET ".implode(", ",$campos);
+      echo $query = "INSERT INTO relatorio SET ".implode(", ",$campos);
+      echo "<br>";
       mysqli_query($con, $query);
       $acao = mysqli_affected_rows($con);
 
