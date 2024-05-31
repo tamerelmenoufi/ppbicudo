@@ -330,7 +330,20 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     <th scope="col">Frete</th>
                     <th scope="col">Porcentagem</th>
                     <th scope="col">Código do Produto</th>
-                    <th scope="col"></th>
+                    <th scope="col">
+
+                        <button 
+                          class="btn btn-success btn-sm novo" 
+                          type="button"
+                          data-bs-toggle="offcanvas"
+                          href="#offcanvasDireita"
+                          role="button"
+                          aria-controls="offcanvasDireita"
+                        >
+                          <i class="fa-solid fa-plus"></i> Novo
+                        </button>
+
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -466,7 +479,6 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 <script>
     $(function(){
         Carregando('none');
-
 
         const calculadoraRodape = () => {
 
@@ -776,6 +788,22 @@ R$ <?=number_format($d['valor'],2,',',false)?>
               type:"POST",
               data:{
                   editar,
+              },
+              success:function(dados){
+                $(".LateralDireita").html(dados);
+              }
+          })          
+        })
+
+        $(".novo").click(function(){
+          $.ajax({
+              url:"src/relatorio/novo.php",
+              type:"POST",
+              data:{
+                  relatorio:'<?=$_SESSION['modelo_relatorio']?>',
+                  conta:'<?=$conta?>',
+                  origem:'<?=$_SESSION['buscaOrigem']?>',
+                  planilha:'<?=$planilha?>',
               },
               success:function(dados){
                 $(".LateralDireita").html(dados);
