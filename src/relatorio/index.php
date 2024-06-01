@@ -15,6 +15,11 @@
 
       $query = "DELETE FROM relatorio where codigo = '{$_POST['deletar']}'";
       mysqli_query($con, $query);
+
+      if($_SESSION['modelo_relatorio']){
+        $q = "UPDATE relatorio_modelos set registros = JSON_REMOVE(registros, JSON_UNQUOTE(JSON_SEARCH(registros, 'one', '{$_POST['deletar']}'))) where codigo = '{$_SESSION['modelo_relatorio']}'";
+        mysqli_query($con, $q);
+      }
       // echo $query;
 
       //exit();
