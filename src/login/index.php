@@ -165,7 +165,7 @@
                     <input type="checkbox" value="remember-me"> Manter-me sempre conectado
                 </label>
             </div>
-            <button id="Acessar" class="btn btn-lg btn-bk btn-block btn-signinXX" type="submit" style="background-color:##fbed1f; border-color:##fbed1f">Entrar</button>
+            <button id="Acessar" class="btn btn-lg btn-bk btn-block btn-signinXX" type="submit" style="background-color:#fbed1f; border-color:#fbed1f">Entrar</button>
 
             <a href="#" class="forgot-password">
                 Esqueceu a senha?
