@@ -149,9 +149,7 @@
         <div class="card card-container">
             <div>
                 <h3 class="FonteBk_2 w-100" style="text-align:center"><span style="color:#fbed1f">PAINEL DE</span><br><span style="color:#096eb7">CONTROLE</span></h3>
-                <img id="profile-img" class="profile-img-card" src="img/logo.png?1" />
-                                
-                <!-- <h1 class="FonteBk_2 w-100" style="text-align:center">BURGER KING</h1>                 -->
+                <img id="profile-img" class="profile-img-card" src="img/logo.png?1" />                                
             </div>
             <div class="form-floating mb-2">
                 <input type="text" class="form-control" id="login" placeholder="Digite seu login" required autofocus>
