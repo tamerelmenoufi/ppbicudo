@@ -31,7 +31,7 @@
       $novo = mysqli_insert_id($con);
       $acao = mysqli_affected_rows($con);
 
-      if($_POST['relatorio']){
+      if($_POST['relatorio'] and $novo){
         $q = "UPDATE relatorio_modelos set registros = JSON_ARRAY_APPEND(registros, '$', '{$novo}') where codigo = '{$_POST['relatorio']}'";
         mysqli_query($con, $q);
       }
