@@ -148,7 +148,7 @@
     <div class="container">
         <div class="card card-container">
             <div>
-                <h3 class="FonteBk_2 w-100" style="text-align:center"><span style="color:#fbed1f">PAINEL DE</span><br><span style="color:#096eb7">CONTROLE</span></h3>
+                <h3 class="FonteBk_2 w-100" style="text-align:center"><span style="color:#096eb7">PAINEL DE</span><br><span style="color:#096eb7">CONTROLE</span></h3>
                 <img id="profile-img" class="profile-img-card" src="img/logo.png?1" />                                
             </div>
             <div class="form-floating mb-2">
@@ -165,7 +165,7 @@
                     <input type="checkbox" value="remember-me"> Manter-me sempre conectado
                 </label>
             </div>
-            <button id="Acessar" class="btn btn-lg btn-bk btn-block btn-signinXX" type="submit">Entrar</button>
+            <button id="Acessar" class="btn btn-lg btn-bk btn-block btn-signinXX" type="submit" style="background-color:##fbed1f; border-color:##fbed1f">Entrar</button>
 
             <!-- <div class="form-signin">
                 <span id="reauth-email" class="reauth-email"></span>
