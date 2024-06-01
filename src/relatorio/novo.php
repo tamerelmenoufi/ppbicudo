@@ -126,7 +126,7 @@
         <button type="submit" class="btn btn-primary mt-3"> <i class="fa fa-save"></i> Salvar</button>
 
         <input type="hidden" id="acao" name="acao" value="salvar" >
-        <input type="hidden" id="relatorio" name="relatorio" value="<?=$_POST['relatorio']?>" >
+        <input type="hidden" id="relatorio" name="relatorio" value="<?=(($_POST['relatorio'])?:'0')?>" >
         <input type="hidden" id="conta" name="conta" value="<?=$_POST['conta']?>" >
         <input type="hidden" id="pedidoOrigem" name="pedidoOrigem" value="<?=$_POST['pedidoOrigem']?>" >
         <input type="hidden" id="origem" name="origem" value="<?=(($_POST['origem'])?:'0')?>" >
