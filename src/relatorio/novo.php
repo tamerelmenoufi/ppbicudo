@@ -28,7 +28,14 @@
 
       $query = "INSERT INTO relatorio SET ".implode(", ",$campos);
       mysqli_query($con, $query);
+      $novo = mysql_insert_id($con);
       $acao = mysqli_affected_rows($con);
+
+      if($_POST['relatorio']){
+        $q = "UPDATE relatorio_modelos set registros = concate(registros,',','{$novo}') where codigo = '{$_POST['relatorio']}'";
+        mysqli_query($con, $q);
+      }
+      
 
       if($acao){
         echo "Atualização realizada com sucesso!";
