@@ -27,8 +27,8 @@
       }
 
       $query = "INSERT INTO relatorio SET ".implode(", ",$campos);
-      mysqli_query($con, $query);
-      $novo = mysql_insert_id($con);
+      $result = mysqli_query($con, $query);
+      $novo = mysql_insert_id($result);
       $acao = mysqli_affected_rows($con);
 
       if($_POST['relatorio']){
