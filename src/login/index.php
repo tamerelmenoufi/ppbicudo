@@ -167,7 +167,7 @@
             </div>
             <button id="Acessar" class="btn btn-lg btn-bk btn-block btn-signinXX" type="submit" style="background-color:#fbed1f; border-color:#fbed1f">Entrar</button>
 
-            <a href="#" class="forgot-password">
+            <a href="#" class="forgot-password" style="color:#096eb7" >
                 Esqueceu a senha?
             </a>
         </div><!-- /card-container -->
