@@ -66,7 +66,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
       //data	nome	registros
       $registros = json_encode($_POST['lista']);
       if($_POST['codigo_relatorio']){
-        $query = "UPDATE relatorio_modelos set nome = '{$_POST['nome_relatorio']}', data = NOW(), registros = '{$registros}' where codigo = '{$_POST['codigo_relatorio']}'";
+        $query = "UPDATE relatorio_modelos set nome = '{$_POST['nome_relatorio']}', registros = '{$registros}' where codigo = '{$_POST['codigo_relatorio']}'";
         mysqli_query($con, $query);
         $_SESSION['modelo_relatorio'] = $_POST['codigo_relatorio'];
       }else{
