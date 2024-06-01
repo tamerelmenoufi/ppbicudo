@@ -167,17 +167,6 @@
             </div>
             <button id="Acessar" class="btn btn-lg btn-bk btn-block btn-signinXX" type="submit" style="background-color:##fbed1f; border-color:##fbed1f">Entrar</button>
 
-            <!-- <div class="form-signin">
-                <span id="reauth-email" class="reauth-email"></span>
-                <input type="text" id="login" class="form-control" placeholder="Login">
-                <input type="password" id="senha" class="form-control" placeholder="Senha" required>
-                <div id="remember" class="checkbox mb-1 mt-1">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Manter-me sempre conectado
-                    </label>
-                </div>
-
-            </div> -->
             <a href="#" class="forgot-password">
                 Esqueceu a senha?
             </a>
