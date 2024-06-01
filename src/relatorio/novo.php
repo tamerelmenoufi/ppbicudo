@@ -32,7 +32,7 @@
       $acao = mysqli_affected_rows($con);
 
       if($_POST['relatorio']){
-        $q = "UPDATE relatorio_modelos set registros = concate(registros,',','{$novo}') where codigo = '{$_POST['relatorio']}'";
+        $q = "UPDATE relatorio_modelos set registros = concat(registros,',','{$novo}') where codigo = '{$_POST['relatorio']}'";
         mysqli_query($con, $q);
       }
       
