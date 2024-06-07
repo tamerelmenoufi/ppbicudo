@@ -526,24 +526,24 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                   </tr>
                   <?php
                       if(!$d->deletado){
-                        $totalValorPedidoXquantidade = ($totalValorPedidoXquantidade + $d->ValorPedidoXquantidade);
-                        $totalCustoEnvio = ($totalCustoEnvio + $d->CustoEnvio);
-                        $totalPrecoCusto = ($totalPrecoCusto + $d->PrecoCusto);
-                        $totalCustoEnvioSeller = ($totalCustoEnvioSeller + $d->CustoEnvioSeller);
-                        $totalComissao = ($totalComissao + ($d->TarifaGatwayPagamento + $d->TarifaMarketplace));
-                        $totalLucro = ($totalLucro + ($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace));
+                        $devolucaoValorPedidoXquantidade = ($devolucaoValorPedidoXquantidade + $d->ValorPedidoXquantidade);
+                        $devolucaoCustoEnvio = ($devolucaoCustoEnvio + $d->CustoEnvio);
+                        $devolucaoPrecoCusto = ($devolucaoPrecoCusto + $d->PrecoCusto);
+                        $devolucaoCustoEnvioSeller = ($devolucaoCustoEnvioSeller + $d->CustoEnvioSeller);
+                        $devolucaoComissao = ($devolucaoComissao + ($d->TarifaGatwayPagamento + $d->TarifaMarketplace));
+                        $devolucaoLucro = ($devolucaoLucro + ($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace));
                       }
                     }
                   ?>
                   <tr>
                     <th class=""></th>
                     <th class=""></th>
-                    <th class="text-nowrap" valor="<?=$totalValorPedidoXquantidade?>" campo="ValorPedidoXquantidade">R$ <?=number_format($totalValorPedidoXquantidade,2,',','.')?></th>
-                    <th class="text-nowrap" valor="<?=$totalCustoEnvio?>" campo="CustoEnvio">R$ <?=number_format($totalCustoEnvio,2,',','.')?></th>
-                    <th class="text-nowrap" valor="<?=$totalPrecoCusto?>" campo="PrecoCusto">R$ <?=number_format($totalPrecoCusto,2,',','.')?></th>
-                    <th class="text-nowrap" valor="<?=$totalCustoEnvioSeller?>" campo="CustoEnvioSeller">R$ <?=number_format($totalCustoEnvioSeller,2,',','.')?></th>
-                    <th class="text-nowrap" valor="<?=$totalComissao?>" campo="Comissao">R$ <?=number_format(($totalComissao),2,',','.')?></th>
-                    <th class="text-nowrap" valor="<?=$totalLucro?>" campo="Lucro">R$ <?=number_format(($totalLucro),2,',','.')?></th>
+                    <th class="text-nowrap" valor="<?=$devolucaoValorPedidoXquantidade?>" campo="ValorPedidoXquantidade">R$ <?=number_format($devolucaoValorPedidoXquantidade,2,',','.')?></th>
+                    <th class="text-nowrap" valor="<?=$devolucaoCustoEnvio?>" campo="CustoEnvio">R$ <?=number_format($devolucaoCustoEnvio,2,',','.')?></th>
+                    <th class="text-nowrap" valor="<?=$devolucaoPrecoCusto?>" campo="PrecoCusto">R$ <?=number_format($devolucaoPrecoCusto,2,',','.')?></th>
+                    <th class="text-nowrap" valor="<?=$devolucaoCustoEnvioSeller?>" campo="CustoEnvioSeller">R$ <?=number_format($devolucaoCustoEnvioSeller,2,',','.')?></th>
+                    <th class="text-nowrap" valor="<?=$devolucaoComissao?>" campo="Comissao">R$ <?=number_format(($devolucaoComissao),2,',','.')?></th>
+                    <th class="text-nowrap" valor="<?=$devolucaoLucro?>" campo="Lucro">R$ <?=number_format(($devolucaoLucro),2,',','.')?></th>
                     <th class="text-nowrap"></th>
                     <th class="text-nowrap"></th>
                     <th class="text-nowrap"></th>
