@@ -82,6 +82,7 @@
             },
             success:function(dados){
                 $("#paginaHome").html(dados);
+                devolucao_data.close();
             }
         })
 
