@@ -434,13 +434,12 @@ R$ <?=number_format($d['valor'],2,',',false)?>
               }
               ?>
 
-
               <?php
               if($_SESSION['appLogin']->usuario == 'tamer'){
               ?>
               <div class="d-flex justify-content-end">
                 <div class="input-group">
-                  <span class="input-group-text">Código da Venda</span>
+                  <span class="input-group-text">Para devolução digite o código da Venda</span>
                   <input 
                         type="text" 
                         inputmode="numeric"
@@ -448,10 +447,12 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                         id="codigo_devolucao"
                   >
                 </div>
+                <button class="btn btn-danger" id="incluir_devolucao">Incluir</button>
               </div>
               <?php
               }
               ?>
+              
           </div>
         </div>
       </div>
