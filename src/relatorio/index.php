@@ -18,7 +18,7 @@
     }
 
     if($_POST['acao'] == 'devolucaoDesfazer'){
-      $query = "update relatorio set 
+      echo $query = "update relatorio set 
                                     devolucao = '0',
                                     devolucao_data = 0,
                                     devolucao_relatorio = 0
