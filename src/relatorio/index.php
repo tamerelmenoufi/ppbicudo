@@ -556,7 +556,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
               <div class="row">
                 <div class="col">
                   <div class="card">
-                    <table class="table">
+                    <table class="table table-hover">
                       <tr>
                         <th>Bruto:</th><td>R$ <?=(number_format($totalValorPedidoXquantidade, 2,',',false))?></td>
                       </tr>
@@ -573,7 +573,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
                 <div class="col">
                   <div class="card">
-                    <table class="table">
+                    <table class="table table-hover">
                       <tr>
                         <th>Custo:</th><td>R$ <?=(number_format($totalPrecoCusto, 2,',',false))?></td>
                       </tr>
@@ -590,7 +590,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
                 <div class="col">
                   <div class="card">
-                    <table class="table">
+                    <table class="table table-hover">
                       <tr>
                         <th>Lucro:</th><td>R$ <?=(number_format($totalLucro, 2,',',false))?></td>
                       </tr>
