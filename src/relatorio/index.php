@@ -1,6 +1,21 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
 
+    // devolucao,
+    // devolucao_data,
+    // devolucao_relatorio,
+    // codigo_pedido,
+    // acao:'devolucao'
+
+    if($_POST['acao'] == 'devolucao'){
+      $query = "update relatorio set 
+                                    devolucao = '1',
+                                    devolucao_data = '{$_POST['devolucao_data']}',
+                                    devolucao_relatorio = '{$_POST['devolucao_relatorio']}'
+                where codigoPedido = '{$_POST['codigo_pedido']}'";
+      mysqli_query($con, $query);
+
+    }
 
     if($_POST['acao'] == 'atualizaCampo'){
 
@@ -440,7 +455,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
               <div class="d-flex justify-content-end">
                 <div class="col-md-6">
                   <div class="input-group">
-                    <span class="input-group-text">Para devolução digite o código da Venda</span>
+                    <span class="input-group-text">Para devolução digite o código do produto</span>
                     <input 
                           type="text" 
                           inputmode="numeric"
@@ -867,6 +882,48 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     }
                 }
             });
+
+        })
+
+
+        $("#incluir_devolucao").click(function(){
+          codigo_devolucao = $("#codigo_devolucao").val();
+          if(!codigo_devolucao){
+            $.alert({
+              title:"Erro",
+              content:"Para realizar a devolução é necessário o preenchimento do código do produto!",
+              type:"red"
+            })
+            return false;
+          }
+
+          if(codigo_devolucao.length() != 16){
+            $.alert({
+              title:"Erro",
+              content:"O código do produto está incorreto ou incompleto!",
+              type:"red"
+            })
+            return false;
+          }
+          Carregando();
+          $.ajax({
+            url:"src/relatorio/devolucao.php",
+            type:"POST",
+            data:{
+              acao:"devolucao",
+              codigo_devolucao,
+              relatorio:'<?=$_SESSION['modelo_relatorio']?>'
+            },
+            success:function(dados){
+              janelaDevolucao = $.dialog({
+                title:"Dados da Devolução",
+                content:dados,
+                columnClass:"col-md-6",
+                type:"orange"
+              })
+            }
+          })
+
 
         })
 
