@@ -8,7 +8,7 @@
         $d = mysqli_fetch_object($result);
 
         if(!$d->codigo){
-            echo "O código do produto informado <b>{$_POST['codigo_devolucao']}</b> não foi localizado nos registros do banco de dados.<br>Favor verifique o código e tente novamente!";
+            echo 'erro';
             exit();
         }
     }
@@ -81,6 +81,11 @@
                 acao:'devolucao'
             },
             success:function(dados){
+                if(dados == 'erro'){
+                    Carregando('none');
+                    $.alert(`O código do produto informado <b>${codigo_pedido}</b> não foi localizado nos registros do banco de dados.<br>Favor verifique o código e tente novamente!`)
+                    return false;
+                }
                 $("#paginaHome").html(dados);
             }
         })
