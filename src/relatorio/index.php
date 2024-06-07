@@ -915,6 +915,14 @@ R$ <?=number_format($d['valor'],2,',',false)?>
               relatorio:'<?=$_SESSION['modelo_relatorio']?>'
             },
             success:function(dados){
+
+
+              if(dados == 'erro'){
+                    Carregando('none');
+                    $.alert(`O código do produto informado <b>${codigo_devolucao}</b> não foi localizado nos registros do banco de dados.<br>Favor verifique o código e tente novamente!`)
+                    return false;
+                }
+
               janelaDevolucao = $.dialog({
                 title:"Dados da Devolução",
                 content:dados,

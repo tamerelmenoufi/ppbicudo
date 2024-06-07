@@ -81,14 +81,7 @@
                 acao:'devolucao'
             },
             success:function(dados){
-                console.log(dados);
-                if(dados == 'erro'){
-                    Carregando('none');
-                    $.alert(`O código do produto informado <b>${codigo_pedido}</b> não foi localizado nos registros do banco de dados.<br>Favor verifique o código e tente novamente!`)
-                    return false;
-                }
                 $("#paginaHome").html(dados);
-                Carregando('none');
             }
         })
 
