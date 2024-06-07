@@ -29,7 +29,7 @@
         </div>
 
         <div class="form-floating mb-3">
-            <div class="form-control"><?=$d->dataCriacao?></div>
+            <div class="form-control"><?=dataBr($d->dataCriacao)?></div>
             <label for="dataCriacao">Data*</label>
         </div>
 
