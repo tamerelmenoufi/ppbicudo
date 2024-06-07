@@ -318,7 +318,16 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     </th>
                     <th scope="col" colspan="9">
                       <div class="d-flex justify-content-end">
-                        <!-- <button class="btn btn-success btn-sm atualizacao">Atualizar Dados</button> -->
+                        <button 
+                          class="btn btn-success btn-sm novo" 
+                          type="button"
+                          data-bs-toggle="offcanvas"
+                          href="#offcanvasDireita"
+                          role="button"
+                          aria-controls="offcanvasDireita"
+                        >
+                          <i class="fa-solid fa-plus"></i> Novo
+                        </button>
                       </div>
                     </th>
                   </tr>
@@ -337,16 +346,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     <th scope="col">Código do Produto</th>
                     <th scope="col">
 
-                        <button 
-                          class="btn btn-success btn-sm novo" 
-                          type="button"
-                          data-bs-toggle="offcanvas"
-                          href="#offcanvasDireita"
-                          role="button"
-                          aria-controls="offcanvasDireita"
-                        >
-                          <i class="fa-solid fa-plus"></i> Novo
-                        </button>
+                        Ações
 
                     </th>
                   </tr>
