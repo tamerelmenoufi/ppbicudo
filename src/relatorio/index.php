@@ -555,47 +555,53 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
               <div class="row">
                 <div class="col">
-                  <table class="table">
-                    <tr>
-                      <th>Bruto:</th><td><?=(number_format($totalValorPedidoXquantidade, 2,',',false))?></td>
-                    </tr>
-                    <tr>
-                      <th>Deconto Devolução:</th><td><?=(number_format($devolucaoValorPedidoXquantidade, 2,',',false))?></td>
-                    </tr>
-                    <tr>
-                      <th>Valor Final:</th><td><?=(number_format($totalValorPedidoXquantidade-$devolucaoValorPedidoXquantidade, 2,',',false))?></td>
-                    </tr>
-                  </table>
+                  <div class="card">
+                    <table class="table">
+                      <tr>
+                        <th>Bruto:</th><td><?=(number_format($totalValorPedidoXquantidade, 2,',',false))?></td>
+                      </tr>
+                      <tr>
+                        <th>Deconto Devolução:</th><td><?=(number_format($devolucaoValorPedidoXquantidade, 2,',',false))?></td>
+                      </tr>
+                      <tr>
+                        <th>Valor Final:</th><td><?=(number_format($totalValorPedidoXquantidade-$devolucaoValorPedidoXquantidade, 2,',',false))?></td>
+                      </tr>
+                    </table>
+                  </div>
                 </div>
 
 
                 <div class="col">
-                  <table class="table">
-                    <tr>
-                      <th>Custo:</th><td><?=(number_format($totalPrecoCusto, 2,',',false))?></td>
-                    </tr>
-                    <tr>
-                      <th>Deconto:</th><td><?=(number_format($devolucaoPrecoCusto, 2,',',false))?></td>
-                    </tr>
-                    <tr>
-                      <th>Valor Final:</th><td><?=(number_format($totalPrecoCusto-$devolucaoPrecoCusto, 2,',',false))?></td>
-                    </tr>
-                  </table>
+                  <div class="card">
+                    <table class="table">
+                      <tr>
+                        <th>Custo:</th><td><?=(number_format($totalPrecoCusto, 2,',',false))?></td>
+                      </tr>
+                      <tr>
+                        <th>Deconto:</th><td><?=(number_format($devolucaoPrecoCusto, 2,',',false))?></td>
+                      </tr>
+                      <tr>
+                        <th>Valor Final:</th><td><?=(number_format($totalPrecoCusto-$devolucaoPrecoCusto, 2,',',false))?></td>
+                      </tr>
+                    </table>
+                  </div>
                 </div>
 
 
                 <div class="col">
-                  <table class="table">
-                    <tr>
-                      <th>Lucro:</th><td><?=(number_format($totalLucro, 2,',',false))?></td>
-                    </tr>
-                    <tr>
-                      <th>Deconto:</th><td><?=(number_format($devolucaoLucro, 2,',',false))?></td>
-                    </tr>
-                    <tr>
-                      <th>Valor Final:</th><td><?=(number_format($totalLucro-$devolucaoLucro, 2,',',false))?></td>
-                    </tr>
-                  </table>
+                  <div class="card">
+                    <table class="table">
+                      <tr>
+                        <th>Lucro:</th><td><?=(number_format($totalLucro, 2,',',false))?></td>
+                      </tr>
+                      <tr>
+                        <th>Deconto:</th><td><?=(number_format($devolucaoLucro, 2,',',false))?></td>
+                      </tr>
+                      <tr>
+                        <th>Valor Final:</th><td><?=(number_format($totalLucro-$devolucaoLucro, 2,',',false))?></td>
+                      </tr>
+                    </table>
+                  </div>
                 </div>
 
               </div>
