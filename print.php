@@ -181,7 +181,7 @@
 
 
     <?php
-              if($_SESSION['appLogin']->usuario == 'tamer' and $_SESSION['modelo_relatorio']){
+              if($_SESSION['modelo_relatorio']){
 
                 $query = "select * from relatorio where devolucao = '1' and devolucao_relatorio = '{$_SESSION['modelo_relatorio']}'";
                 $result = mysqli_query($con,$query);

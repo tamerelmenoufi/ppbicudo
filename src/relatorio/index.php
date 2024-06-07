@@ -460,7 +460,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
               ?>
 
               <?php
-              if($_SESSION['appLogin']->usuario == 'tamer' and $_SESSION['modelo_relatorio']){
+              if($_SESSION['modelo_relatorio']){
               ?>
               <div class="d-flex justify-content-end">
                 <div class="col-md-6">
