@@ -509,7 +509,8 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     <td class="text-nowrap"><?=$d->codigoPedido?></td>
                     <td class="text-nowrap">
                       <i 
-                          class="fa-solid fa-rotate-left text-danger ms-3 devolucaoDesfazer"
+                          class="fa-solid fa-rotate-left text-danger ms-3"
+                          devolucaoDesfazer="<?=$d->codigo?>"
                           style="cursor:pointer;" 
                       ></i>
                     </td>
@@ -1063,6 +1064,25 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
 
         })
+
+
+
+      $("i[devolucaoDesfazer]").click(function(){
+        Carregando();
+        devolucaoDesfazer = $(this).attr("devolucaoDesfazer");
+        $.ajax({
+            url:"src/relatorio/index.php",
+            type:"POST",
+            data:{
+                devolucaoDesfazer,
+                acao:'devolucaoDesfazer'
+            },
+            success:function(dados){
+                $("#paginaHome").html(dados);
+            }
+        })
+
+      })
 
 
 
