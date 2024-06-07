@@ -88,6 +88,7 @@
                     return false;
                 }
                 $("#paginaHome").html(dados);
+                Carregando('none');
             }
         })
 
