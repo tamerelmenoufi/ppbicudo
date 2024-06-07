@@ -18,9 +18,9 @@
     }
 
     if($_POST['acao'] == 'devolucaoDesfazer'){
-      echo $query = "update relatorio set 
+      $query = "update relatorio set 
                                     devolucao = '0',
-                                    devolucao_data = 0,
+                                    devolucao_data = NULL,
                                     devolucao_relatorio = 0
                 where codigo = '{$_POST['devolucaoDesfazer']}'";
       mysqli_query($con, $query);
