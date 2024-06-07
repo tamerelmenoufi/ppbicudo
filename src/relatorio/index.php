@@ -470,7 +470,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
 
 
-
+              <h5>Devoluções</h5>
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
