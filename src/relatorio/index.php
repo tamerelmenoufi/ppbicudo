@@ -509,18 +509,8 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     <td class="text-nowrap"><?=$d->codigoPedido?></td>
                     <td class="text-nowrap">
                       <i 
-                          editar="<?=$d->codigo?>" 
+                          class="fa-solid fa-rotate-left text-danger ms-3 desfazer"
                           style="cursor:pointer;" 
-                          class="fa-solid fa-pen-to-square text-primary"
-                          data-bs-toggle="offcanvas"
-                          href="#offcanvasDireita"
-                          role="button"
-                          aria-controls="offcanvasDireita"
-                      ></i>
-                      <i 
-                          deletar="<?=$d->codigo?>" 
-                          style="cursor:pointer;" 
-                          class="fa-solid fa-trash text-danger ms-3"
                       ></i>
                     </td>
                   </tr>
