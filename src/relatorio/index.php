@@ -502,7 +502,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     <td class="text-nowrap">R$ <?=number_format($d->CustoEnvio,2,',','.')?></td>
                     <td class="text-nowrap">R$ <?=number_format($d->PrecoCusto,2,',','.')?></td>
                     <td class="text-nowrap">R$ <?=number_format($d->CustoEnvioSeller,2,',','.')?></td>
-                    <td class="text-nowrap">R$ <?=number_format(($d->TarifaGatwayPagamento + $d->TarifaMarketplace))?></td>
+                    <td class="text-nowrap">R$ <?=number_format(($d->TarifaGatwayPagamento + $d->TarifaMarketplace),2,',','.')?></td>
                     <td class="text-nowrap">R$ <?=number_format(($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace),2,',','.')?></td>
                     <td class="text-nowrap"><?=$d->frete?></td>
                     <td class="text-nowrap"><?=number_format((($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace)/(($d->PrecoCusto + $d->CustoEnvioSeller + ($d->TarifaGatwayPagamento + $d->TarifaMarketplace))?:1))*100,2,',','.')?>%</td>
