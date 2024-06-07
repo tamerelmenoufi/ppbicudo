@@ -445,6 +445,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                         inputmode="numeric"
                         class="form-control"
                         id="codigo_devolucao"
+                        autocomplete="off"
                   >
                   <button class="btn btn-danger" id="incluir_devolucao">Devolver</button>
                 </div>
