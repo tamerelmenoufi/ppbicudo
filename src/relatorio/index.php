@@ -443,13 +443,9 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                   <span class="input-group-text">Código da Venda</span>
                   <input 
                         type="number" 
-                        inputmode="numeric" 
-                        maxlength="16"
-                        min="1"
-                        max="9999999999999999" 
+                        inputmode="numeric"
                         class="form-control"
-                        pattern="[0-9]*"
-                        oninput="limitInput(this)"
+                        id="codigo_devolucao"
                   >
                 </div>
               </div>
@@ -504,11 +500,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
     $(function(){
         Carregando('none');
 
-        function limitInput(input) {
-            if (input.value.length > 16) {
-                input.value = input.value.slice(0, 16);
-            }
-        }
+        $("#codigo_devolucao").mask("9999999999999999");
 
         const calculadoraRodape = () => {
 
