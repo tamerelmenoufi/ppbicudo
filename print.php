@@ -182,24 +182,7 @@
 
     <?php
               if($_SESSION['appLogin']->usuario == 'tamer' and $_SESSION['modelo_relatorio']){
-              ?>
-              <div class="d-flex justify-content-end">
-                <div class="col-md-6">
-                  <div class="input-group">
-                    <span class="input-group-text">Para devolução digite o código do produto</span>
-                    <input 
-                          type="text" 
-                          inputmode="numeric"
-                          class="form-control"
-                          id="codigo_devolucao"
-                          autocomplete="off"
-                    >
-                    <button class="btn btn-danger" id="incluir_devolucao">Devolver</button>
-                  </div>
-                </div>
-              </div>
 
-              <?php
                 $query = "select * from relatorio where devolucao = '1' and devolucao_relatorio = '{$_SESSION['modelo_relatorio']}'";
                 $result = mysqli_query($con,$query);
                 if(mysqli_num_rows($result)){
@@ -220,7 +203,6 @@
                     <th scope="col">Frete</th>
                     <th scope="col">Porcentagem</th>
                     <th scope="col">Código do Produto</th>
-                    <th scope="col">Ações</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -240,13 +222,6 @@
                     <td class="text-nowrap"><?=$d->frete?></td>
                     <td class="text-nowrap"><?=number_format((($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace)/(($d->PrecoCusto + $d->CustoEnvioSeller + ($d->TarifaGatwayPagamento + $d->TarifaMarketplace))?:1))*100,2,',','.')?>%</td>
                     <td class="text-nowrap"><?=$d->codigoPedido?></td>
-                    <td class="text-nowrap">
-                      <i 
-                          class="fa-solid fa-rotate-left text-danger ms-3"
-                          devolucaoDesfazer="<?=$d->codigo?>"
-                          style="cursor:pointer;" 
-                      ></i>
-                    </td>
                   </tr>
                   <?php
                       if(!$d->deletado){
@@ -271,13 +246,12 @@
                     <th class="text-nowrap"></th>
                     <th class="text-nowrap"></th>
                     <th class="text-nowrap"></th>
-                    <th class="text-nowrap"></th>
                   </tr>  
                 </tbody>
               </table>
 
 
-              <div class="row">
+              <div class="row g-0">
                 <div class="col">
                   <div class="card">
                     <table class="table table-hover">
