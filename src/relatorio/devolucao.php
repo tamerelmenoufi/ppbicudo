@@ -81,7 +81,8 @@
                 acao:'devolucao'
             },
             success:function(dados){
-                if(dados.trim() == 'erro'){
+                console.log(dados);
+                if(dados == 'erro'){
                     Carregando('none');
                     $.alert(`O código do produto informado <b>${codigo_pedido}</b> não foi localizado nos registros do banco de dados.<br>Favor verifique o código e tente novamente!`)
                     return false;
