@@ -509,7 +509,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     <td class="text-nowrap"><?=$d->codigoPedido?></td>
                     <td class="text-nowrap">
                       <i 
-                          class="fa-solid fa-arrow-rotate-left text-danger ms-3 desfazer"
+                          class="fa-solid fa-arrow-rotate-left text-danger desfazer"
                           style="cursor:pointer;" 
                       ></i>
                     </td>
