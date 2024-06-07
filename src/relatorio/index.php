@@ -897,7 +897,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
             return false;
           }
 
-          if(codigo_devolucao.length() != 16){
+          if(codigo_devolucao.length != 16){
             $.alert({
               title:"Erro",
               content:"O código do produto está incorreto ou incompleto!",
