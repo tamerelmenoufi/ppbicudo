@@ -17,6 +17,16 @@
 
     }
 
+    if($_POST['acao'] == 'devolucaoDesfazer'){
+      $query = "update relatorio set 
+                                    devolucao = '0',
+                                    devolucao_data = 0,
+                                    devolucao_relatorio = 0
+                where codigoPedido = '{$_POST['devolucaoDesfazer']}'";
+      mysqli_query($con, $query);
+
+    }
+
     if($_POST['acao'] == 'atualizaCampo'){
 
       $query = "UPDATE relatorio set {$_POST['campo']} = '{$_POST['valor']}' where codigo = '{$_POST['codigo']}'";
