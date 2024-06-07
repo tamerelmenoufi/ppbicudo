@@ -450,7 +450,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
               ?>
 
               <?php
-              if($_SESSION['appLogin']->usuario == 'tamer'){
+              if($_SESSION['appLogin']->usuario == 'tamer' and $_SESSION['modelo_relatorio']){
               ?>
               <div class="d-flex justify-content-end">
                 <div class="col-md-6">
@@ -467,8 +467,93 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                   </div>
                 </div>
               </div>
+
+
+
+
+              <table class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Data</th>
+                    <th scope="col">Anúncios</th>
+                    <th scope="col">Pagamento Produto</th>
+                    <th scope="col">Pagamento Frete</th>
+                    <th scope="col">Custo Produto</th>
+                    <th scope="col">Custo Frete</th>
+                    <th scope="col">Comissão</th> 
+                    <th scope="col">Lucro</th>
+                    <th scope="col">Frete</th>
+                    <th scope="col">Porcentagem</th>
+                    <th scope="col">Código do Produto</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                    $query = "select * from relatorio where devolucao = '1' and devolucao_relatorio = '{$_SESSION['modelo_relatorio']}'";
+                    $result = mysqli_query($con,$query);
+                    
+                    while($d = mysqli_fetch_object($result)){
+                  ?>
+                  <tr>
+                    <td class="text-nowrap"><?=dataBr($d->dataCriacao)?></td>
+                    <td class=""><?=$d->tituloItem?></td>
+                    <td class="text-nowrap"><?=editarValores(['valor'=>$d->ValorPedidoXquantidade, 'campo'=>'ValorPedidoXquantidade', 'codigo'=>$d->codigo, 'deletado' => $d->deletado])?></td>
+                    <td class="text-nowrap"><?=editarValores(['valor'=>$d->CustoEnvio, 'campo'=>'CustoEnvio', 'codigo'=>$d->codigo, 'deletado' => $d->deletado])?></td>
+                    <td class="text-nowrap"><?=editarValores(['valor'=>$d->PrecoCusto, 'campo'=>'PrecoCusto', 'codigo'=>$d->codigo, 'deletado' => $d->deletado])?></td>
+                    <td class="text-nowrap"><?=editarValores(['valor'=>$d->CustoEnvioSeller, 'campo'=>'CustoEnvioSeller', 'codigo'=>$d->codigo, 'deletado' => $d->deletado])?></td>
+                    <td class="text-nowrap"><?=listarValores(['valor'=>($d->TarifaGatwayPagamento + $d->TarifaMarketplace), 'campo'=>'Comissao', 'codigo'=>$d->codigo, 'deletado' => $d->deletado])?></td>
+                    <td class="text-nowrap"><?=listarValores(['valor'=>($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace), 'campo'=>'Lucro', 'codigo'=>$d->codigo, 'deletado' => $d->deletado])?></td>
+                    <td class="text-nowrap"><?=$d->frete?></td>
+                    <td class="text-nowrap"><?=number_format((($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace)/(($d->PrecoCusto + $d->CustoEnvioSeller + ($d->TarifaGatwayPagamento + $d->TarifaMarketplace))?:1))*100,2,',','.')?>%</td>
+                    <td class="text-nowrap"><?=$d->codigoPedido?></td>
+                    <td class="text-nowrap">
+                      <i 
+                          editar="<?=$d->codigo?>" 
+                          style="cursor:pointer;" 
+                          class="fa-solid fa-pen-to-square text-primary"
+                          data-bs-toggle="offcanvas"
+                          href="#offcanvasDireita"
+                          role="button"
+                          aria-controls="offcanvasDireita"
+                      ></i>
+                      <i 
+                          deletar="<?=$d->codigo?>" 
+                          style="cursor:pointer;" 
+                          class="fa-solid fa-trash text-danger ms-3"
+                      ></i>
+                    </td>
+                  </tr>
+                  <?php
+                      if(!$d->deletado){
+                        $totalValorPedidoXquantidade = ($totalValorPedidoXquantidade + $d->ValorPedidoXquantidade);
+                        $totalCustoEnvio = ($totalCustoEnvio + $d->CustoEnvio);
+                        $totalPrecoCusto = ($totalPrecoCusto + $d->PrecoCusto);
+                        $totalCustoEnvioSeller = ($totalCustoEnvioSeller + $d->CustoEnvioSeller);
+                        $totalComissao = ($totalComissao + ($d->TarifaGatwayPagamento + $d->TarifaMarketplace));
+                        $totalLucro = ($totalLucro + ($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace));
+                      }
+                    }
+                  ?>
+                  <tr>
+                    <th class=""></th>
+                    <th class=""></th>
+                    <th class="text-nowrap" valor="<?=$totalValorPedidoXquantidade?>" campo="ValorPedidoXquantidade">R$ <?=number_format($totalValorPedidoXquantidade,2,',','.')?></th>
+                    <th class="text-nowrap" valor="<?=$totalCustoEnvio?>" campo="CustoEnvio">R$ <?=number_format($totalCustoEnvio,2,',','.')?></th>
+                    <th class="text-nowrap" valor="<?=$totalPrecoCusto?>" campo="PrecoCusto">R$ <?=number_format($totalPrecoCusto,2,',','.')?></th>
+                    <th class="text-nowrap" valor="<?=$totalCustoEnvioSeller?>" campo="CustoEnvioSeller">R$ <?=number_format($totalCustoEnvioSeller,2,',','.')?></th>
+                    <th class="text-nowrap" valor="<?=$totalComissao?>" campo="Comissao">R$ <?=number_format(($totalComissao),2,',','.')?></th>
+                    <th class="text-nowrap" valor="<?=$totalLucro?>" campo="Lucro">R$ <?=number_format(($totalLucro),2,',','.')?></th>
+                    <th class="text-nowrap"></th>
+                    <th class="text-nowrap"></th>
+                    <th class="text-nowrap"></th>
+                    <th class="text-nowrap"></th>
+                  </tr>  
+                </tbody>
+              </table>
+
               <?php
-              }
+              } // final da condição de exibir apenas em homologação
               ?>
 
           </div>
