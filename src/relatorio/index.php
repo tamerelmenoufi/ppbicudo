@@ -446,13 +446,13 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                         class="form-control"
                         id="codigo_devolucao"
                   >
+                  <button class="btn btn-danger" id="incluir_devolucao">Incluir</button>
                 </div>
-                <button class="btn btn-danger" id="incluir_devolucao">Incluir</button>
               </div>
               <?php
               }
               ?>
-              
+
           </div>
         </div>
       </div>
