@@ -318,6 +318,18 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     </th>
                     <th scope="col" colspan="9">
                       <div class="d-flex justify-content-end">
+
+                        <button 
+                          class="btn btn-success btn-sm devolucao" 
+                          type="button"
+                          data-bs-toggle="offcanvas"
+                          href="#offcanvasDireita"
+                          role="button"
+                          aria-controls="offcanvasDireita"
+                        >
+                          <i class="fa-solid fa-plus"></i> Devolução
+                        </button>
+                      
                         <button 
                           class="btn btn-success btn-sm novo" 
                           type="button"
@@ -344,11 +356,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     <th scope="col">Frete</th>
                     <th scope="col">Porcentagem</th>
                     <th scope="col">Código do Produto</th>
-                    <th scope="col">
-
-                        Ações
-
-                    </th>
+                    <th scope="col">Ações</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -437,6 +445,27 @@ R$ <?=number_format($d['valor'],2,',',false)?>
               }
               ?>
 
+
+              <?php
+              if($_SESSION['appLogin']->login == 'tamer'){
+              ?>
+              <div class="d-flex justify-content-end">
+                <div class="input-group">
+                  <span class="input-group-text">Código da Venda</span>
+                  <input 
+                        type="number" 
+                        inputmode="numberic" 
+                        maxlength="16"
+                        min="1"
+                        max="9999999999999999" 
+                        class="form-control"
+                        pattern="[0-9]*"
+                  >
+                </div>
+              </div>
+              <?php
+              }
+              ?>
           </div>
         </div>
       </div>
