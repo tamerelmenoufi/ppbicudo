@@ -24,18 +24,17 @@
 </style>
 
         <div class="form-floating mb-3">
-            <input type="text" require name="codigoPedido" id="codigoPedido" class="form-control" placeholder="Pagamento Produto" value="<?=$d->codigoPedido?>">
+            <div class="form-control"><?=$d->codigoPedido?></div>
             <label for="codigoPedido">Código do Produto*</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="datetime-local" require name="dataCriacao" id="dataCriacao" class="form-control" placeholder="Pagamento Produto" value="<?=$d->dataCriacao?>">
-
+            <div class="form-control"><?=$d->dataCriacao?></div>
             <label for="dataCriacao">Data*</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" require name="tituloItem" id="tituloItem" class="form-control" placeholder="Pagamento Produto" value="<?=$d->tituloItem?>">
+            <div class="form-control"><?=$d->tituloItem?></div>
             <label for="tituloItem">Anúncios*</label>
         </div>
 
