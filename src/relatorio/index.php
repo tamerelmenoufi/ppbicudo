@@ -438,16 +438,18 @@ R$ <?=number_format($d['valor'],2,',',false)?>
               if($_SESSION['appLogin']->usuario == 'tamer'){
               ?>
               <div class="d-flex justify-content-end">
-                <div class="input-group">
-                  <span class="input-group-text">Para devolução digite o código da Venda</span>
-                  <input 
-                        type="text" 
-                        inputmode="numeric"
-                        class="form-control"
-                        id="codigo_devolucao"
-                        autocomplete="off"
-                  >
-                  <button class="btn btn-danger" id="incluir_devolucao">Devolver</button>
+                <div class="col-md-6">
+                  <div class="input-group">
+                    <span class="input-group-text">Para devolução digite o código da Venda</span>
+                    <input 
+                          type="text" 
+                          inputmode="numeric"
+                          class="form-control"
+                          id="codigo_devolucao"
+                          autocomplete="off"
+                    >
+                    <button class="btn btn-danger" id="incluir_devolucao">Devolver</button>
+                  </div>
                 </div>
               </div>
               <?php
