@@ -253,7 +253,7 @@
 
               <div class="row g-0">
                 <div class="col">
-                  <div class="card">
+                  <div class="card m-2">
                     <table class="table table-hover">
                       <tr>
                         <th>Bruto:</th><td>R$ <?=(number_format($totalValorPedidoXquantidade, 2,',','.'))?></td>
@@ -270,7 +270,7 @@
 
 
                 <div class="col">
-                  <div class="card">
+                  <div class="card m-2">
                     <table class="table table-hover">
                       <tr>
                         <th>Custo:</th><td>R$ <?=(number_format($totalPrecoCusto, 2,',','.'))?></td>
@@ -287,7 +287,7 @@
 
 
                 <div class="col">
-                  <div class="card">
+                  <div class="card m-2">
                     <table class="table table-hover">
                       <tr>
                         <th>Lucro:</th><td>R$ <?=(number_format($totalLucro, 2,',','.'))?></td>
