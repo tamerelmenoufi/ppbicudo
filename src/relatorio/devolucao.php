@@ -81,14 +81,14 @@
             },
             success:function(dados){
                 $("#paginaHome").html(dados);
-                devolucao_data.close();
+                janelaDevolucao.close();
             }
         })
 
       })
 
       $("button[cancelar]").click(function(){
-        devolucao_data.close();
+        janelaDevolucao.close();
       })
 
 
