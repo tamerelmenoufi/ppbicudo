@@ -442,7 +442,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                 <div class="input-group">
                   <span class="input-group-text">Código da Venda</span>
                   <input 
-                        type="number" 
+                        type="text" 
                         inputmode="numeric"
                         class="form-control"
                         id="codigo_devolucao"
