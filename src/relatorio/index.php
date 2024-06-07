@@ -318,17 +318,6 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     </th>
                     <th scope="col" colspan="9">
                       <div class="d-flex justify-content-end">
-
-                        <button 
-                          class="btn btn-success btn-sm devolucao" 
-                          type="button"
-                          data-bs-toggle="offcanvas"
-                          href="#offcanvasDireita"
-                          role="button"
-                          aria-controls="offcanvasDireita"
-                        >
-                          <i class="fa-solid fa-plus"></i> Devolução
-                        </button>
                       
                         <button 
                           class="btn btn-success btn-sm novo" 
