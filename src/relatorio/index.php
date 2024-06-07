@@ -436,8 +436,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
 
               <?php
-              echo $_SESSION['appLogin']->login;
-              if($_SESSION['appLogin']->login == 'tamer'){
+              if($_SESSION['appLogin']->usuario == 'tamer'){
               ?>
               <div class="d-flex justify-content-end">
                 <div class="input-group">
