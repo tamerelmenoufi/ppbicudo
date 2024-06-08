@@ -89,7 +89,7 @@
             </div>
         </div>
 
-        <div class="col-md-2 p-2">
+        <div class="col-md-3 p-2">
             <div class="alert alert-danger" role="alert">
                 <span>Total Devolução</span>
                 <h1>R$ <?=number_format($v->pagamento_devolucao,2,',','.')?></h1>
@@ -97,7 +97,7 @@
         </div>
 
 
-        <div class="col-md-4 p-2">
+        <div class="col-md-3 p-2">
             <div class="alert alert-success" role="alert">
                 <span>Total Vendas</span>
                 <h1>R$ <?=number_format($v->pagamento_produto,2,',','.')?></h1>
