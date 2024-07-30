@@ -727,7 +727,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
         }
 
 
-        $(".desfazer").click(function(){
+        $(".desfazer").off().click(function(){
           codigo = $(this).attr("codigo");
           campo = $(this).attr("campo");
           valor = $(this).attr("valor");
@@ -789,7 +789,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
         })
 
-        $("span.marcar_todos").click(function(){
+        $("span.marcar_todos").off().click(function(){
           if($("input.marcar_todos").prop("checked") == true){
             $("input.marcar_todos").prop("checked", false);
             $(".opcoes").prop("checked", false);
@@ -800,7 +800,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
           calculadoraRodape();
         })
 
-        $("input.marcar_todos").click(function(){
+        $("input.marcar_todos").off().click(function(){
           if($(this).prop("checked") == true){
             $(".opcoes").prop("checked", true);
           }else{
@@ -809,11 +809,11 @@ R$ <?=number_format($d['valor'],2,',',false)?>
           calculadoraRodape();
         })
 
-        $("input.opcoes").click(function(){
+        $("input.opcoes").off().click(function(){
           calculadoraRodape();
         })        
 
-        $("#salvar_relatorio").click(function(){
+        $("#salvar_relatorio").off().click(function(){
           nome_relatorio = $("#nome_relatorio").val();
           codigo_relatorio = $("#codigo_relatorio").val();
           lista = [];
@@ -857,7 +857,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
         })
 
 
-        $("#anexar_relatorio").click(function(){
+        $("#anexar_relatorio").off().click(function(){
           codigo_relatorio = $("#relatorio_anexar").val();
           lista = [];
           $(".opcoes").each(function(){
@@ -898,7 +898,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
         })
 
 
-        $("#abrir_relatorio").click(function(){
+        $("#abrir_relatorio").off().click(function(){
           Carregando();
           $.ajax({
               url:"src/relatorio/relatorios.php",
@@ -908,7 +908,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
           })  
         })
 
-        $("#sair_relatorio").click(function(){
+        $("#sair_relatorio").off().click(function(){
           Carregando();
           $.ajax({
               url:"src/relatorio/index.php",
@@ -922,7 +922,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
           })  
         })
 
-        $("button[filtro]").click(function(){
+        $("button[filtro]").off().click(function(){
           filtro = $(this).attr("filtro");
           buscaOrigem = $("#origem").val();
           buscaDataInicial = $("#data_inicial").val();
@@ -942,7 +942,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
           })
         })
 
-        $("button[limpar]").click(function(){
+        $("button[limpar]").off().click(function(){
           $.ajax({
               url:"src/relatorio/index.php",
               type:"POST",
@@ -955,7 +955,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
           })
         })
 
-        $(".atualizacao").click(function(){
+        $(".atualizacao").off().click(function(){
           Carregando();
           $.ajax({
               url:"src/relatorio/index.php",
@@ -965,7 +965,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
           })
         })
 
-        $("i[editar]").click(function(){
+        $("i[editar]").off().click(function(){
           editar = $(this).attr("editar");
           $.ajax({
               url:"src/relatorio/form.php",
@@ -979,7 +979,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
           })          
         })
 
-        $(".novo").click(function(){
+        $(".novo").off().click(function(){
           $.ajax({
               url:"src/relatorio/novo.php",
               type:"POST",
@@ -995,7 +995,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
           })          
         })
 
-        $("i[deletar]").click(function(){
+        $("i[deletar]").off().click(function(){
             deletar = $(this).attr("deletar");
             $.confirm({
                 content:`Deseja realmente excluir o cadastro ?`,
@@ -1013,7 +1013,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                                     deletar
                                 },
                                 success:function(dados){
-                                  console.log(dados);
+                                  //console.log(dados);
                                   $("#paginaHome").html(dados);
                                 }
                             })
