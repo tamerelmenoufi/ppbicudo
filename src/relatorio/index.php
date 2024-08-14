@@ -726,7 +726,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
         }
 
-
+        /*
         $(".desfazer").off().click(function(){
           codigo = $(this).attr("codigo");
           campo = $(this).attr("campo");
@@ -753,8 +753,9 @@ R$ <?=number_format($d['valor'],2,',',false)?>
           calculaTotal(campo)
 
         })
+        //*/
 
-        $(".moeda").blur(function(){
+        $(".moeda").off().blur(function(){
           codigo = $(this).attr("codigo");
           campo = $(this).attr("campo");
           console.log(campo)
@@ -784,8 +785,6 @@ R$ <?=number_format($d['valor'],2,',',false)?>
             //calculaTotal(campo)
 
           }
-
-          
 
         })
 
@@ -954,7 +953,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
               }
           })
         })
-
+        /*
         $(".atualizacao").off().click(function(){
           Carregando();
           $.ajax({
@@ -964,7 +963,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
               }
           })
         })
-
+        //*/
         $("i[editar]").off().click(function(){
           editar = $(this).attr("editar");
           $.ajax({
@@ -1079,7 +1078,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
         })
 
 
-
+      /*
       $("i[devolucaoDesfazer]").click(function(){
         Carregando();
         devolucaoDesfazer = $(this).attr("devolucaoDesfazer");
@@ -1096,6 +1095,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
         })
 
       })
+      //*/
 
 
 
