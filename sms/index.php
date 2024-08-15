@@ -32,7 +32,7 @@ function formatarTelefoneCelular($telefone, $dddPadrao = '92') {
     }
 
     // Formata no padrão (XX) 9XXXX-XXXX
-    return "($ddd) " . substr($numero, 0, 5) . '-' . substr($numero, 5);
+    return $ddd. substr($numero, 0, 5) . substr($numero, 5);
 }
 
 
@@ -42,7 +42,9 @@ function formatarTelefoneCelular($telefone, $dddPadrao = '92') {
 
     foreach($linhas as $i => $colunas){
 
-        echo formatarTelefoneCelular($colunas)."<br>";
+        $n = formatarTelefoneCelular($colunas);
+
+        if($n) echo $n."<br>";
 
 
     }
