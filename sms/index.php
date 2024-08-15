@@ -6,7 +6,7 @@
 
     foreach($linhas as $i => $colunas){
 
-        echo $colunas[0]."<br>";
+        echo $colunas."<br>";
 
 
     }
