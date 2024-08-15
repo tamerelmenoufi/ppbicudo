@@ -40,12 +40,12 @@ function formatarTelefoneCelular($telefone, $dddPadrao = '92') {
 
     $linhas = explode("\n", $dados);
 
-    $i = 1;
+    $x = 1;
     foreach($linhas as $i => $colunas){
 
         $n = formatarTelefoneCelular($colunas);
 
-        if($n) { echo $i.' - '.$n."<br>"; $i++;}
+        if($n) { echo $x.' - '.$n."<br>"; $x++; }
 
 
     }
