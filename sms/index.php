@@ -45,7 +45,7 @@ function formatarTelefoneCelular($telefone, $dddPadrao = '92') {
 
         $n = formatarTelefoneCelular($colunas);
 
-        if($n) { echo $x.' - '.$n."<br>"; $x++; }
+        if($n) { echo $n."<br>"; $x++; }
 
 
     }
