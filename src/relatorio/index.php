@@ -195,6 +195,8 @@ R$ <?=number_format($d['valor'],2,',',false)?>
   }
   td, th{
     font-size:12px;
+  }
+  .text-nowrap{
     white-space: nowrap;
   }
   .marcar_todos{
