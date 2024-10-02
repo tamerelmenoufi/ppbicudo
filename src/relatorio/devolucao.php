@@ -3,7 +3,7 @@
 
     if($_POST['acao'] == 'devolucao'){
 
-        $query = "select * from relatorio where codigoPedido = '{$_POST['codigo_devolucao']}'";
+        $query = "select * from relatorio where codigoPedido = '".trim($_POST['codigo_devolucao'])."'";
         $result = mysqli_query($con, $query);
         $d = mysqli_fetch_object($result);
 
