@@ -632,27 +632,27 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 <table>
 <thead>
   <tr class="calculaTitulos">
-    <th class="col-3" style="color:#333333">Cálculo dos Totais (itens selecionados)</th>
-    <th class="col-1">Pagamento Produto</th>
-    <th class="col-1">Pagamento Frete</th>
-    <th class="col-1">Custo Produto</th>
-    <th class="col-1">Custo Frete</th>
-    <th class="col-1">Comissão</th> 
-    <th class="col-1">Lucro</th>
-    <th class="col-3"></th>
+    <th class="col-3 text-nowrap" style="color:#333333">Cálculo dos Totais (itens selecionados)</th>
+    <th class="col-1 text-nowrap">Pagamento Produto</th>
+    <th class="col-1 text-nowrap">Pagamento Frete</th>
+    <th class="col-1 text-nowrap">Custo Produto</th>
+    <th class="col-1 text-nowrap">Custo Frete</th>
+    <th class="col-1 text-nowrap">Comissão</th> 
+    <th class="col-1 text-nowrap">Lucro</th>
+    <th class="col-3 text-nowrap"></th>
   </tr>
 </thead>
 <tbody>
 </tbody>
   <tr class="calculaTitulos">
-    <td class="col-1"></td>
-    <td class="col-1"><span class="rodapeValorPedidoXquantidade"></span></td>
-    <td class="col-1"><span class="rodapeCustoEnvio"></span></td>
-    <td class="col-1"><span class="rodapePrecoCusto"></span></td>
-    <td class="col-1"><span class="rodapeCustoEnvioSeller"></span></td>
-    <td class="col-1"><span class="rodapeComissao"></td> 
-    <td class="col-1"><span class="rodapeLucro"></td>
-    <td class="col-3"></td>
+    <td class="col-1 text-nowrap"></td>
+    <td class="col-1 text-nowrap"><span class="rodapeValorPedidoXquantidade"></span></td>
+    <td class="col-1 text-nowrap"><span class="rodapeCustoEnvio"></span></td>
+    <td class="col-1 text-nowrap"><span class="rodapePrecoCusto"></span></td>
+    <td class="col-1 text-nowrap"><span class="rodapeCustoEnvioSeller"></span></td>
+    <td class="col-1 text-nowrap"><span class="rodapeComissao"></td> 
+    <td class="col-1 text-nowrap"><span class="rodapeLucro"></td>
+    <td class="col-3 text-nowrap"></td>
   </tr>
 </table>
 
