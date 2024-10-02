@@ -44,6 +44,8 @@
 <style>
     td, th{
       font-size:12px;
+    }
+    .text-nowrap{
       white-space: nowrap;
     }
 
@@ -121,17 +123,17 @@
               </th>
             </tr>
             <tr>
-            <th scope="col">Data</th>
+            <th scope="col text-nowrap">Data</th>
             <th scope="col">Anúncios</th>
-            <th scope="col">Pagamento Produto</th>
-            <th scope="col">Pagamento Frete</th>
-            <th scope="col">Custo Produto</th>
-            <th scope="col">Custo Frete</th>
-            <th scope="col">Comissão</th> 
-            <th scope="col">Lucro</th>
-            <th scope="col">Frete</th>
-            <th scope="col">Porcentagem</th>
-            <th scope="col">Código do Produto</th>
+            <th scope="col text-nowrap">Pagamento Produto</th>
+            <th scope="col text-nowrap">Pagamento Frete</th>
+            <th scope="col text-nowrap">Custo Produto</th>
+            <th scope="col text-nowrap">Custo Frete</th>
+            <th scope="col text-nowrap">Comissão</th> 
+            <th scope="col text-nowrap">Lucro</th>
+            <th scope="col text-nowrap">Frete</th>
+            <th scope="col text-nowrap">Porcentagem</th>
+            <th scope="col text-nowrap">Código do Produto</th>
             </tr>
         </thead>
         <tbody>
@@ -192,17 +194,17 @@
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
-                    <th scope="col">Data</th>
+                    <th scope="col text-nowrap">Data</th>
                     <th scope="col">Anúncios</th>
-                    <th scope="col">Pagamento Produto</th>
-                    <th scope="col">Pagamento Frete</th>
-                    <th scope="col">Custo Produto</th>
-                    <th scope="col">Custo Frete</th>
-                    <th scope="col">Comissão</th> 
-                    <th scope="col">Lucro</th>
-                    <th scope="col">Frete</th>
-                    <th scope="col">Porcentagem</th>
-                    <th scope="col">Código do Produto</th>
+                    <th scope="col text-nowrap">Pagamento Produto</th>
+                    <th scope="col text-nowrap">Pagamento Frete</th>
+                    <th scope="col text-nowrap">Custo Produto</th>
+                    <th scope="col text-nowrap">Custo Frete</th>
+                    <th scope="col text-nowrap">Comissão</th> 
+                    <th scope="col text-nowrap">Lucro</th>
+                    <th scope="col text-nowrap">Frete</th>
+                    <th scope="col text-nowrap">Porcentagem</th>
+                    <th scope="col text-nowrap">Código do Produto</th>
                   </tr>
                 </thead>
                 <tbody>
