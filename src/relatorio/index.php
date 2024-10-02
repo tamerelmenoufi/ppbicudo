@@ -468,7 +468,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     <span class="input-group-text">Para devolução digite o código do produto</span>
                     <input 
                           type="text" 
-                          inputmode="numeric"
+                          XXXinputmode="numeric"
                           class="form-control"
                           id="codigo_devolucao"
                           autocomplete="off"
@@ -662,7 +662,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
     $(function(){
         Carregando('none');
 
-        $("#codigo_devolucao").mask("9999999999999999");
+        //$("#codigo_devolucao").mask("9999999999999999");
 
         const calculadoraRodape = () => {
 
@@ -1038,7 +1038,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
             })
             return false;
           }
-
+          /*
           if(codigo_devolucao.length != 16){
             $.alert({
               title:"Erro",
@@ -1047,6 +1047,8 @@ R$ <?=number_format($d['valor'],2,',',false)?>
             })
             return false;
           }
+          //*/
+
           Carregando();
           $.ajax({
             url:"src/relatorio/devolucao.php",
