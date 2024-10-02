@@ -51,7 +51,10 @@
   <li class="list-group-item">
     <div class="d-flex justify-content-between">
         <span edit="<?=$d->codigo?>"><i class="fa-regular fa-pen-to-square"></i> <?=$d->nome?></span>
-        <i excluir="<?=$d->codigo?>" class="fa-regular fa-trash-can"></i>
+        <div class="d-flex justify-content-end">
+            <i calendario="<?=$d->codigo?>" class="fa-regular fa-calendar"></i>
+            <i excluir="<?=$d->codigo?>" class="fa-regular fa-trash-can"></i>
+        </div>
     </div>
   </li>
 <?php
