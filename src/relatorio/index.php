@@ -284,7 +284,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     <label class="input-group-text" for="nome_relatorio">Relatório</label>
                     <input type="text" id="nome_relatorio" class="form-control" value="<?=$rel->nome?>" >
                     <label class="input-group-text" for="data_relatorio">Data</label>
-                    <input type="date" id="data_relatorio" class="form-control" value="<?=$rel->data?>" >
+                    <input type="date" id="data_relatorio" class="form-control" value="<?=(($rel->data)?:date("Y-m-d"))?>" >
                     <button id="salvar_relatorio" class="btn btn-outline-success" type="button"><i class="fa-regular fa-floppy-disk"></i></button>
                     <button 
                           id="abrir_relatorio" 
