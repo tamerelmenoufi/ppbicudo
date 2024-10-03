@@ -91,11 +91,11 @@ R$ <?=number_format($d['valor'],2,',',false)?>
       //data	nome	registros
       $registros = json_encode($_POST['lista']);
       if($_POST['codigo_relatorio']){
-        $query = "UPDATE relatorio_modelos set nome = '{$_POST['nome_relatorio']}', registros = '{$registros}' where codigo = '{$_POST['codigo_relatorio']}'";
+        $query = "UPDATE relatorio_modelos set nome = '{$_POST['nome_relatorio']}', data = '{$_POST['data_relatorio']}', registros = '{$registros}' where codigo = '{$_POST['codigo_relatorio']}'";
         mysqli_query($con, $query);
         $_SESSION['modelo_relatorio'] = $_POST['codigo_relatorio'];
       }else{
-        $query = "INSERT INTO relatorio_modelos set nome = '{$_POST['nome_relatorio']}', data = NOW(), registros = '{$registros}', origem = '{$_POST['origem']}'";
+        $query = "INSERT INTO relatorio_modelos set nome = '{$_POST['nome_relatorio']}', data = '{$_POST['data_relatorio']}', registros = '{$registros}', origem = '{$_POST['origem']}'";
         mysqli_query($con, $query);
         $_SESSION['modelo_relatorio'] = mysqli_insert_id($con);
       }
@@ -281,8 +281,10 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                 <div class="col-md-6">
                   
                   <div class="input-group">
-                    <label class="input-group-text" for="inputGroupFile01">Relatório</label>
+                    <label class="input-group-text" for="nome_relatorio">Relatório</label>
                     <input type="text" id="nome_relatorio" class="form-control" value="<?=$rel->nome?>" >
+                    <label class="input-group-text" for="data_relatorio">Data</label>
+                    <input type="date" id="data_relatorio" class="form-control" value="<?=$rel->data?>" >
                     <button id="salvar_relatorio" class="btn btn-outline-success" type="button"><i class="fa-regular fa-floppy-disk"></i></button>
                     <button 
                           id="abrir_relatorio" 
@@ -817,6 +819,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
         $("#salvar_relatorio").off().click(function(){
           nome_relatorio = $("#nome_relatorio").val();
           codigo_relatorio = $("#codigo_relatorio").val();
+          data_relatorio = $("#data_relatorio").val();
           lista = [];
           $(".opcoes").each(function(){
             if($(this).prop("checked") == true){
@@ -846,6 +849,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
             data:{
               nome_relatorio,
               codigo_relatorio,
+              data_relatorio,
               lista,
               origem:'<?=$_SESSION['buscaOrigem']?>',
               acao:'relatorio'
