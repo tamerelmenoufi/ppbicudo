@@ -12,7 +12,7 @@
         unset($data['senha']);
 
         foreach ($data as $name => $value) {
-            $attr[] = "{$name} = '" . mysqli_real_escape_string($con, $value) . "'";
+            $attr[] = "{$name} = '" . addslashes($value) . "'";
         }
         if($_POST['senha']){
             $attr[] = "senha = '" . md5($_POST['senha']) . "'";
