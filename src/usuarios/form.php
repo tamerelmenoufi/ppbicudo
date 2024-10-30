@@ -149,7 +149,7 @@
                     mimeType: 'multipart/form-data',
                     data: campos,
                     success:function(dados){
-                    console.log(dados)
+                    // console.log(dados)
                         // if(dados.status){
                             $.ajax({
                                 url:"src/usuarios/index.php",
