@@ -81,7 +81,8 @@
         </div>
 
         <div class="form-floating mb-3">
-            <div class="form-control" style="height:90px;"><?=$d->tituloItem?></div>
+            <!--<div class="form-control" style="height:90px;"><?=$d->tituloItem?></div>-->
+            <textarea require name="tituloItem" id="tituloItem" class="form-control" style="height:90px;"><?=$d->tituloItem?></textarea>
             <label for="tituloItem">Anúncios*</label>
         </div>
 
