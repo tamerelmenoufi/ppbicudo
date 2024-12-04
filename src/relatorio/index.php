@@ -394,7 +394,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                       <?php
                       if(!$d->relatorio || $_SESSION['modelo_relatorio']){
                       ?>
-                      <input type="checkbox" class="opcoes" <?=((in_array($d->codigo, $opcoes))?'checked':false)?> value="<?=$d->codigo?>">
+                      <input type="checkbox" class="opcoes globalde" <?=((in_array($d->codigo, $opcoes))?'checked':false)?> value="<?=$d->codigo?>">
                       <?php
                       }else{
                       ?>
@@ -676,9 +676,9 @@ R$ <?=number_format($d['valor'],2,',',false)?>
         let lastChecked = null; // Último checkbox selecionado
 
         // Evento ao clicar em qualquer checkbox
-        $(".opcoes").on("click", function (e) {
+        $(".globalde").on("click", function (e) {
           alert('opc')
-            const $checkboxes = $(".opcoes");
+            const $checkboxes = $(".globalde");
             const currentIndex = $checkboxes.index(this);
 
             console.log(currentIndex)
