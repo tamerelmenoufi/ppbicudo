@@ -677,6 +677,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
         // Evento ao clicar em qualquer checkbox
         $(".opcoes").on("click", function (e) {
+          alert('opc')
             const $checkboxes = $(".opcoes");
             const currentIndex = $checkboxes.index(this);
 
