@@ -670,43 +670,6 @@ R$ <?=number_format($d['valor'],2,',',false)?>
     $(function(){
         Carregando('none');
 
-
-
-
-        let lastChecked = null; // Último checkbox selecionado
-
-        // Evento ao clicar em qualquer checkbox
-        $(".globalde").click(function(e) {
-          alert('opc')
-            const $checkboxes = $(".globalde");
-            const currentIndex = $checkboxes.index(this);
-
-            console.log(currentIndex)
-
-            // Verificar se a tecla Shift está pressionada
-            if (e.shiftKey && lastChecked !== null) {
-                const lastIndex = $checkboxes.index(lastChecked);
-                const [start, end] = [lastIndex, currentIndex].sort((a, b) => a - b);
-
-                // Selecionar todas as linhas no intervalo
-                $checkboxes.slice(start, end + 1).prop("checked", lastChecked.checked);
-                $checkboxes.slice(start, end + 1)
-                    .closest("tr")
-                    .toggleClass("selected", lastChecked.checked);
-            }
-
-            // Alternar a classe de seleção da linha atual
-            $(this).closest("tr").toggleClass("selected", this.checked);
-
-            // Atualizar o último checkbox selecionado
-            lastChecked = this;
-        });
-
-
-
-
-
-
         //$("#codigo_devolucao").mask("9999999999999999");
 
         const calculadoraRodape = () => {
