@@ -680,6 +680,8 @@ R$ <?=number_format($d['valor'],2,',',false)?>
             const $checkboxes = $(".opcoes");
             const currentIndex = $checkboxes.index(this);
 
+            console.log(currentIndex)
+
             // Verificar se a tecla Shift está pressionada
             if (e.shiftKey && lastChecked !== null) {
                 const lastIndex = $checkboxes.index(lastChecked);
@@ -701,7 +703,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
 
 
-        
+
 
 
         //$("#codigo_devolucao").mask("9999999999999999");
