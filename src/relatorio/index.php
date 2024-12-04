@@ -676,7 +676,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
         let lastChecked = null; // Último checkbox selecionado
 
         // Evento ao clicar em qualquer checkbox
-        $(".globalde").on("click", function (e) {
+        $(".globalde").click(function(e) {
           alert('opc')
             const $checkboxes = $(".globalde");
             const currentIndex = $checkboxes.index(this);
