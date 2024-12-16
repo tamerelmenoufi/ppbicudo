@@ -163,7 +163,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
       $registros = json_decode($rel->registros);
       $opcoes = $registros;
       $registros = implode(", ", $registros); 
-      $where = " and codigo in ({$registros})";
+      if($registros) $where = " and codigo in ({$registros})";
 
       // if($rel->registros){
       //   $registros = json_decode($rel->registros);
