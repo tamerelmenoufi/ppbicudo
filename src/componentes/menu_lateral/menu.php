@@ -66,6 +66,7 @@
       $.ajax({
         url,
         success:function(dados){
+          Carregando('none')
           $("#paginaHome").html(dados);
         }
       });
