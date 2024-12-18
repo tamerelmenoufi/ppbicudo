@@ -394,7 +394,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                       <?php
                       if(!$d->relatorio || $_SESSION['modelo_relatorio']){
                       ?>
-                      <input type="checkbox" class="opcoes" <?=((in_array($d->codigo, $opcoes))?'checked':false)?> value="<?=$d->codigo?>">
+                      <input type="checkbox" del="<?=(($d->deletado)?'s':false)?>" class="opcoes" <?=((in_array($d->codigo, $opcoes))?'checked':false)?> value="<?=$d->codigo?>">
                       <?php
                       }else{
                       ?>
@@ -693,9 +693,12 @@ R$ <?=number_format($d['valor'],2,',',false)?>
           $(".opcoes").each(function(){
             if($(this).prop("checked") == true){
                 codigo = $(this).val();
-                campos.map(function(campo){
-                  eval(`rodape${campo} = ((rodape${campo})*1 + ($("input[opc-${campo}-${codigo}]").attr("valor"))*1)`)
-                })
+                deletado = $(this).attr("deletado");
+                if(!deletado){
+                  campos.map(function(campo){
+                    eval(`rodape${campo} = ((rodape${campo})*1 + ($("input[opc-${campo}-${codigo}]").attr("valor"))*1)`)
+                  })
+                }
             }
           })
 
