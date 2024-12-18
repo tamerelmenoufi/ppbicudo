@@ -708,7 +708,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
         }
 
-        //calculadoraRodape();
+        calculadoraRodape();
 
         const calculaTotal = (campo)=>{
           total = 0;
