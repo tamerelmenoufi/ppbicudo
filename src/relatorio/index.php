@@ -1094,7 +1094,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
         })
 
 
-      /*
+      //*
       $("i[devolucaoDesfazer]").click(function(){
         Carregando();
         devolucaoDesfazer = $(this).attr("devolucaoDesfazer");
