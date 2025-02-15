@@ -16,6 +16,10 @@
       $_SESSION['modelo_campo'] = $_POST['campo'];
     }
 
+    print_r($_SESSION);
+
+    exit();
+
 
     if($_POST['acao'] == 'devolucao'){
       $query = "update relatorio set 
