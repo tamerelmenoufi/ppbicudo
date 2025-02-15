@@ -1,4 +1,5 @@
 <?php
+
     error_reporting(0);
     session_start();
     include("/ppbicudoinc/connect.php");
@@ -9,3 +10,4 @@
 
     $urlPainel = 'https://ppbicudo.mohatron.com/';
     // $urlPainel = 'http://206.81.10.165:8088/';
+
