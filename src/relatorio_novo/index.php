@@ -164,7 +164,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
       $_SESSION['buscaDataInicial'] = false;
       $_SESSION['buscaDataFinal'] = false;
 
-      $q = "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'";
+      echo $q = "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'";
       $rel = mysqli_fetch_object(mysqli_query($con, $q));
 
       if($_SESSION['modelo_campo']){
