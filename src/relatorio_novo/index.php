@@ -152,9 +152,6 @@ R$ <?=number_format($d['valor'],2,',',false)?>
       exit();
     }
 
-
-    print_r($_SESSION);
-
     // exit();
 
 
