@@ -17,6 +17,11 @@
     }
     $modelo_campo = $_SESSION['modelo_campo'];
 
+    $legenda = [
+      'registros' => 'Registros',
+      'devolucoes' => 'Devoluções'
+    ];
+
 
 
     if($_POST['acao'] == 'devolucao'){
@@ -259,7 +264,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
     <div class="row">
       <div class="col">
         <div class="card" style="margin-bottom:50px;">
-          <h5 class="card-header">Tela de Consultas</h5>
+          <h5 class="card-header">Tela de Consultas <?=$legenda[$modelo_campo]?></h5>
           <div class="card-body">
               <div class="row mb-3">
                 <div class="col-md-6">
