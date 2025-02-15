@@ -27,6 +27,10 @@
     span[edit]{
         cursor:pointer;
     }
+    span[devolucao]{
+        cursor:pointer;
+        color:red;
+    }
     i[excluir]{
         cursor:pointer;
     }
