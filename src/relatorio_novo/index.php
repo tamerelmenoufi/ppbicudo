@@ -167,7 +167,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
       echo $q = "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'";
       $rel = mysqli_fetch_object(mysqli_query($con, $q));
 
-      echo $rel->$_SESSION['modelo_campo'];
+      echo $rel->registros;
 
       if($_SESSION['modelo_campo']){
         $registros = json_decode($rel->$_SESSION['modelo_campo']);
