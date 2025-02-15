@@ -129,13 +129,14 @@ R$ <?=number_format($d['valor'],2,',',false)?>
       // codigo_relatorio,
       // lista,
       // acao:'anexar_relatorio'
+      $modelo_campo1 = $_POST['campo'];
 
-      $lista1 = mysqli_fetch_object(mysqli_query($con, "select {$modelo_campo} from relatorio_modelos where codigo = '{$_POST['codigo_relatorio']}'"));
-      $lista_completa = array_merge(json_decode($lista1->$modelo_campo), $_POST['lista']);
+      $lista1 = mysqli_fetch_object(mysqli_query($con, "select {$modelo_campo1} from relatorio_modelos where codigo = '{$_POST['codigo_relatorio']}'"));
+      $lista_completa = array_merge(json_decode($lista1->$modelo_campo1), $_POST['lista']);
 
       $registros = json_encode($lista_completa);
 
-      $query = "UPDATE relatorio_modelos set {$modelo_campo} = '{$registros}' where codigo = '{$_POST['codigo_relatorio']}'";
+      $query = "UPDATE relatorio_modelos set {$modelo_campo1} = '{$registros}' where codigo = '{$_POST['codigo_relatorio']}'";
       mysqli_query($con, $query);
       $_SESSION['modelo_relatorio'] = $_POST['codigo_relatorio'];
 
@@ -887,7 +888,10 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
 
         $("#anexar_relatorio").off().click(function(){
-          codigo_relatorio = $("#relatorio_anexar").val();
+          dados = $("#relatorio_anexar").val();
+          dados = dados.split("-");
+          codigo_relatorio = dados[0];
+          campo = dados[1];
           lista = [];
           $(".opcoes").each(function(){
             if($(this).prop("checked") == true){
@@ -916,6 +920,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
             type:"POST",
             data:{
               codigo_relatorio,
+              campo,
               lista,
               acao:'anexar_relatorio'
             },
