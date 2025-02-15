@@ -349,7 +349,8 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                                 $r = mysqli_query($con, $q);
                                 while($s = mysqli_fetch_object($r)){
                             ?>
-                            <option value="<?=$s->codigo?>"><?=$s->nome?></option>
+                            <option value="<?=$s->codigo?>"><?="{$s->nome} - {$s->mes}/{$s->ano}"?></option>
+                            <option value="<?=$s->codigo?>" style="color:red"><?="{$s->nome} - {$s->mes}/{$s->ano} Devoluções"?></option>
                             <?php
                                 }
                             ?>
