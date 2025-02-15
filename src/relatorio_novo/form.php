@@ -183,7 +183,7 @@
         }
 
         $.ajax({
-          url:"src/relatorio/form.php",
+          url:"src/relatorio_novo/form.php",
           type:"POST",
           data,
           success:function(dados){
@@ -200,7 +200,7 @@
                   action:function(){
                     Carregando();
                     $.ajax({
-                      url:"src/relatorio/index.php",
+                      url:"src/relatorio_novo/index.php",
                       success:function(dados){
                           $("#paginaHome").html(dados);
                           let myOffCanvas = document.getElementById('offcanvasDireita');

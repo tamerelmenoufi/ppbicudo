@@ -70,7 +70,7 @@
             modelo = $(this).attr("edit");
             campo = 'registros';
             $.ajax({
-              url:"src/relatorio/index.php",
+              url:"src/relatorio_novo/index.php",
               type:"POST",
               data:{
                 modelo,
@@ -89,7 +89,7 @@
             modelo = $(this).attr("devolucao");
             campo = 'devolucoes';
             $.ajax({
-              url:"src/relatorio/index.php",
+              url:"src/relatorio_novo/index.php",
               type:"POST",
               data:{
                 modelo,
@@ -107,7 +107,7 @@
         $("#filtro").change(function(){
             filtro = $(this).val()
             $.ajax({
-              url:"src/relatorio/relatorios.php",
+              url:"src/relatorio_novo/relatorios.php",
               type:"POST",
               data:{
                 filtro
@@ -132,7 +132,7 @@
                             Carregando()
                             obj.remove();
                             $.ajax({
-                                url:"src/relatorio/relatorios.php",
+                                url:"src/relatorio_novo/relatorios.php",
                                 type:"POST",
                                 data:{
                                     excluir
@@ -140,7 +140,7 @@
                                 success:function(dados){
                                     if(dados == 'atualiza'){
                                         $.ajax({
-                                            url:"src/relatorio/index.php",
+                                            url:"src/relatorio_novo/index.php",
                                             success:function(dados){
                                                 $("#paginaHome").html(dados);
                                             }

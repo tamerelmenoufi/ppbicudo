@@ -750,7 +750,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
           $(this).css("opacity","0");
 
           $.ajax({
-              url:"src/relatorio/index.php",
+              url:"src/relatorio_novo/index.php",
               type:"POST",
               data:{
                   codigo,
@@ -782,7 +782,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
             //$(`.desfazer[opc-${campo}-${codigo}]`).css("opacity","1");
 
             $.ajax({
-              url:"src/relatorio/index.php",
+              url:"src/relatorio_novo/index.php",
               type:"POST",
               data:{
                   codigo,
@@ -854,7 +854,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
           }          
           Carregando();
           $.ajax({
-            url:"src/relatorio/index.php",
+            url:"src/relatorio_novo/index.php",
             type:"POST",
             data:{
               nome_relatorio,
@@ -898,7 +898,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
           }          
           Carregando();
           $.ajax({
-            url:"src/relatorio/index.php",
+            url:"src/relatorio_novo/index.php",
             type:"POST",
             data:{
               codigo_relatorio,
@@ -916,7 +916,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
         $("#abrir_relatorio").off().click(function(){
           Carregando();
           $.ajax({
-              url:"src/relatorio/relatorios.php",
+              url:"src/relatorio_novo/relatorios.php",
               success:function(dados){
                 $(".LateralDireita").html(dados);
               }
@@ -926,7 +926,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
         $("#sair_relatorio").off().click(function(){
           Carregando();
           $.ajax({
-              url:"src/relatorio/index.php",
+              url:"src/relatorio_novo/index.php",
               type:"POST",
               data:{
                   sair_relatorio:'sair'
@@ -943,7 +943,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
           buscaDataInicial = $("#data_inicial").val();
           buscaDataFinal = $("#data_final").val();
           $.ajax({
-              url:"src/relatorio/index.php",
+              url:"src/relatorio_novo/index.php",
               type:"POST",
               data:{
                   filtro,
@@ -959,7 +959,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
         $("button[limpar]").off().click(function(){
           $.ajax({
-              url:"src/relatorio/index.php",
+              url:"src/relatorio_novo/index.php",
               type:"POST",
               data:{
                   filtro:'limpar',
@@ -973,7 +973,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
         $(".atualizacao").off().click(function(){
           Carregando();
           $.ajax({
-              url:"src/relatorio/index.php",
+              url:"src/relatorio_novo/index.php",
               success:function(dados){
                   $("#paginaHome").html(dados);
               }
@@ -983,7 +983,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
         $("i[editar]").off().click(function(){
           editar = $(this).attr("editar");
           $.ajax({
-              url:"src/relatorio/form.php",
+              url:"src/relatorio_novo/form.php",
               type:"POST",
               data:{
                   editar,
@@ -996,7 +996,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
         $(".novo").off().click(function(){
           $.ajax({
-              url:"src/relatorio/novo.php",
+              url:"src/relatorio_novo/novo.php",
               type:"POST",
               data:{
                   relatorio:'<?=$_SESSION['modelo_relatorio']?>',
@@ -1022,7 +1022,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                         btnClass:'btn btn-danger',
                         action:function(){
                             $.ajax({
-                                url:"src/relatorio/index.php",
+                                url:"src/relatorio_novo/index.php",
                                 type:"POST",
                                 data:{
                                     deletar
@@ -1067,7 +1067,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
           Carregando();
           $.ajax({
-            url:"src/relatorio/devolucao.php",
+            url:"src/relatorio_novo/devolucao.php",
             type:"POST",
             data:{
               acao:"devolucao",
@@ -1101,7 +1101,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
         Carregando();
         devolucaoDesfazer = $(this).attr("devolucaoDesfazer");
         $.ajax({
-            url:"src/relatorio/index.php",
+            url:"src/relatorio_novo/index.php",
             type:"POST",
             data:{
                 devolucaoDesfazer,

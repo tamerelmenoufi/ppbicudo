@@ -70,7 +70,7 @@
         }
 
         $.ajax({
-            url:"src/relatorio/index.php",
+            url:"src/relatorio_novo/index.php",
             type:"POST",
             data:{
                 devolucao,
