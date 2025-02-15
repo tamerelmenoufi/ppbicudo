@@ -44,16 +44,13 @@
 
 <ul class="list-group">
 <?php
-    $query = "select *, year(data) as ano, month(data) as mes from relatorio_modelos where data like '{$_SESSION['pastaData']}%' order by data desc";
+    $query = "select * from relatorio_modelos where data like '{$_SESSION['pastaData']}%' order by data desc";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 ?>
   <li class="list-group-item">
     <div class="d-flex justify-content-between">
-        <div class="d-flex flex-column bd-highlight">
-            <span edit="<?=$d->codigo?>"><i class="fa-regular fa-pen-to-square"></i> <?="{$d->mes}/{$ano} - {$d->nome}"?></span>
-            <span devolucao="<?=$d->codigo?>"><i class="fa-solid fa-rotate-left"></i> <?="{$d->mes}/{$ano} - {$d->nome}"?> (Devoluções)</span>
-        </div>
+        <span edit="<?=$d->codigo?>"><i class="fa-regular fa-pen-to-square"></i> <?=$d->nome?></span>
         <i excluir="<?=$d->codigo?>" class="fa-regular fa-trash-can"></i>
     </div>
   </li>
@@ -65,35 +62,13 @@
 <script>
     $(function(){
         Carregando('none');
-
         $("span[edit]").click(function(){
             modelo = $(this).attr("edit");
-            campo = 'registros';
             $.ajax({
               url:"src/relatorio/index.php",
               type:"POST",
               data:{
-                modelo,
-                campo
-              },
-              success:function(dados){
-                $("#paginaHome").html(dados);
-                let myOffCanvas = document.getElementById('offcanvasDireita');
-                let openedCanvas = bootstrap.Offcanvas.getInstance(myOffCanvas);
-                openedCanvas.hide();
-              }
-          })
-        })
-
-        $("span[devolucao]").click(function(){
-            modelo = $(this).attr("devolucao");
-            campo = 'devolucoes';
-            $.ajax({
-              url:"src/relatorio/index.php",
-              type:"POST",
-              data:{
-                modelo,
-                campo
+                modelo
               },
               success:function(dados){
                 $("#paginaHome").html(dados);

@@ -42,8 +42,7 @@
       mysqli_query($con, $query);
 
       if($_SESSION['modelo_relatorio']){
-        $q = "UPDATE relatorio_modelos set 
-                                          {$_SESSION['modelo_campo']} = JSON_REMOVE({$_SESSION['modelo_campo']}, JSON_UNQUOTE(JSON_SEARCH({$_SESSION['modelo_campo']}, 'one', '{$_POST['deletar']}')))              where codigo = '{$_SESSION['modelo_relatorio']}'";
+        $q = "UPDATE relatorio_modelos set registros = JSON_REMOVE(registros, JSON_UNQUOTE(JSON_SEARCH(registros, 'one', '{$_POST['deletar']}'))) where codigo = '{$_SESSION['modelo_relatorio']}'";
         mysqli_query($con, $q);
       }
       // echo $query;
@@ -92,11 +91,11 @@ R$ <?=number_format($d['valor'],2,',',false)?>
       //data	nome	registros
       $registros = json_encode($_POST['lista']);
       if($_POST['codigo_relatorio']){
-        $query = "UPDATE relatorio_modelos set nome = '{$_POST['nome_relatorio']}', data = '{$_POST['data_relatorio']}', {$_SESSION['modelo_campo']} = '{$registros}' where codigo = '{$_POST['codigo_relatorio']}'";
+        $query = "UPDATE relatorio_modelos set nome = '{$_POST['nome_relatorio']}', data = '{$_POST['data_relatorio']}', registros = '{$registros}' where codigo = '{$_POST['codigo_relatorio']}'";
         mysqli_query($con, $query);
         $_SESSION['modelo_relatorio'] = $_POST['codigo_relatorio'];
       }else{
-        $query = "INSERT INTO relatorio_modelos set nome = '{$_POST['nome_relatorio']}', data = '{$_POST['data_relatorio']}', {$_SESSION['modelo_campo']} = '{$registros}', origem = '{$_POST['origem']}'";
+        $query = "INSERT INTO relatorio_modelos set nome = '{$_POST['nome_relatorio']}', data = '{$_POST['data_relatorio']}', registros = '{$registros}', origem = '{$_POST['origem']}'";
         mysqli_query($con, $query);
         $_SESSION['modelo_relatorio'] = mysqli_insert_id($con);
       }
@@ -113,12 +112,12 @@ R$ <?=number_format($d['valor'],2,',',false)?>
       // lista,
       // acao:'anexar_relatorio'
 
-      $lista1 = mysqli_fetch_object(mysqli_query($con, "select {$_SESSION['modelo_campo']} from relatorio_modelos where codigo = '{$_POST['codigo_relatorio']}'"));
-      $lista_completa = array_merge(json_decode($lista1->$_SESSION['modelo_campo']), $_POST['lista']);
+      $lista1 = mysqli_fetch_object(mysqli_query($con, "select registros from relatorio_modelos where codigo = '{$_POST['codigo_relatorio']}'"));
+      $lista_completa = array_merge(json_decode($lista1->registros), $_POST['lista']);
 
       $registros = json_encode($lista_completa);
 
-      $query = "UPDATE relatorio_modelos set {$_SESSION['modelo_campo']} = '{$registros}' where codigo = '{$_POST['codigo_relatorio']}'";
+      $query = "UPDATE relatorio_modelos set registros = '{$registros}' where codigo = '{$_POST['codigo_relatorio']}'";
       mysqli_query($con, $query);
       $_SESSION['modelo_relatorio'] = $_POST['codigo_relatorio'];
 
@@ -146,7 +145,6 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
     if($_POST['modelo']){
       $_SESSION['modelo_relatorio'] = $_POST['modelo'];
-      $_SESSION['modelo_campo'] = $_POST['campo'];
     }
 
     if($_SESSION['modelo_relatorio']){
@@ -158,7 +156,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
       $q = "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'";
       $rel = mysqli_fetch_object(mysqli_query($con, $q));
 
-      $registros = json_decode($rel->$_SESSION['modelo_campo']);
+      $registros = json_decode($rel->registros);
       $opcoes = $registros;
       $registros = implode(", ", $registros); 
       if($registros) $where = " and codigo in ({$registros})";
