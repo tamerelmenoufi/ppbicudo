@@ -345,7 +345,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                           <select class="form-select" id="relatorio_anexar">
                             <option value="">:: Selecione ::</option>
                             <?php
-                                $q = "select * from relatorio_modelos where data like '%".date("Y-m")."%' order by data desc";
+                                $q = "select *, year(data) as ano, month(data) as mes from relatorio_modelos where data like '%".date("Y-m")."%' order by data desc";
                                 $r = mysqli_query($con, $q);
                                 while($s = mysqli_fetch_object($r)){
                             ?>
