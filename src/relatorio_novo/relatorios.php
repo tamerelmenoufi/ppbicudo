@@ -32,6 +32,7 @@
         cursor:pointer;
         color:red;
         font-size:12px;
+        padding-top:15px;
     }
     i[excluir]{
         cursor:pointer;
