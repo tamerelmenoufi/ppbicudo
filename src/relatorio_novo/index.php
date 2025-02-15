@@ -155,7 +155,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
     print_r($_SESSION);
 
-    exit();
+    // exit();
 
 
     if($_SESSION['modelo_relatorio']){
@@ -167,9 +167,11 @@ R$ <?=number_format($d['valor'],2,',',false)?>
       $q = "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'";
       $rel = mysqli_fetch_object(mysqli_query($con, $q));
 
-      $registros = json_decode($rel->$_SESSION['modelo_campo']);
-      $opcoes = $registros;
-      $registros = implode(", ", $registros); 
+      if($_SESSION['modelo_campo']){
+        $registros = json_decode($rel->$_SESSION['modelo_campo']);
+        $opcoes = $registros;
+        $registros = implode(", ", $registros); 
+      }
       if($registros) $where = " and codigo in ({$registros})";
 
       // if($rel->registros){
