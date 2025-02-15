@@ -7,6 +7,16 @@
     // codigo_pedido,
     // acao:'devolucao'
 
+    if($_POST['sair_relatorio']){
+      $_SESSION['modelo_relatorio'] = false;
+    }
+
+    if($_POST['modelo']){
+      $_SESSION['modelo_relatorio'] = $_POST['modelo'];
+      $_SESSION['modelo_campo'] = $_POST['campo'];
+    }
+
+
     if($_POST['acao'] == 'devolucao'){
       $query = "update relatorio set 
                                     devolucao = '1',
@@ -140,14 +150,6 @@ R$ <?=number_format($d['valor'],2,',',false)?>
       exit();
     }
 
-    if($_POST['sair_relatorio']){
-      $_SESSION['modelo_relatorio'] = false;
-    }
-
-    if($_POST['modelo']){
-      $_SESSION['modelo_relatorio'] = $_POST['modelo'];
-      $_SESSION['modelo_campo'] = $_POST['campo'];
-    }
 
     if($_SESSION['modelo_relatorio']){
       $busca_disabled = 'disabled';
