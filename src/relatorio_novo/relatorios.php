@@ -26,10 +26,12 @@
 <style>
     span[edit]{
         cursor:pointer;
+        font-size:12px;
     }
     span[devolucao]{
         cursor:pointer;
         color:red;
+        font-size:12px;
     }
     i[excluir]{
         cursor:pointer;
