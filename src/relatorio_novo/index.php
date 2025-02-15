@@ -16,9 +16,7 @@
       $_SESSION['modelo_campo'] = $_POST['campo'];
     }
 
-    print_r($_SESSION);
 
-    exit();
 
 
     if($_POST['acao'] == 'devolucao'){
@@ -153,6 +151,11 @@ R$ <?=number_format($d['valor'],2,',',false)?>
       mysqli_query($con,$query);
       exit();
     }
+
+
+    print_r($_SESSION);
+
+    exit();
 
 
     if($_SESSION['modelo_relatorio']){
