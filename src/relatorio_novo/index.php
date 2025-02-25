@@ -31,7 +31,6 @@
                                     devolucao_relatorio = '{$_POST['devolucao_relatorio']}'
                 where codigoPedido = '{$_POST['codigo_pedido']}'";
       mysqli_query($con, $query);
-
     }
 
     if($_POST['acao'] == 'devolucaoDesfazer'){
