@@ -457,7 +457,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                           class="fa-solid fa-trash text-danger ms-3"
                       ></i>
                       <?php
-                      if($modelo_campo == 'registros'){
+                      if($modelo_campo == 'devolucoes'){
                       ?>
                       <i 
                           class="fa-solid fa-rotate-left text-danger ms-3"
