@@ -500,7 +500,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
               ?>
 
               <?php
-              if($_SESSION['modelo_relatorio'] and $where){
+              if($_SESSION['modelo_relatorio'] and $where and $modelo_campo == 'registros'){
               ?>
               <div class="d-flex justify-content-end">
                 <div class="col-md-6">
