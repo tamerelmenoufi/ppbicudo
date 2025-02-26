@@ -363,7 +363,9 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     </th>
                     <th scope="col" colspan="9">
                       <div class="d-flex justify-content-end">
-                      
+                        <?php
+                        if($modelo_campo == 'registros'){
+                        ?>
                         <button 
                           class="btn btn-success btn-sm novo" 
                           type="button"
@@ -374,6 +376,9 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                         >
                           <i class="fa-solid fa-plus"></i> Novo
                         </button>
+                        <?php
+                        }
+                        ?>
                       </div>
                     </th>
                   </tr>
