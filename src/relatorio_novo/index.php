@@ -499,6 +499,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
               </div>
 
               <?php
+                /*
                 $query = "select * from relatorio where devolucao = '1' and devolucao_relatorio = '{$_SESSION['modelo_relatorio']}'";
                 $result = mysqli_query($con,$query);
                 if(mysqli_num_rows($result)){
@@ -631,6 +632,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 
               <?php
                 }
+                //*/
               } // final da condição de exibir apenas em homologação
               ?>
 
