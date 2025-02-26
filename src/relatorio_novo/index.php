@@ -199,6 +199,12 @@ R$ <?=number_format($d['valor'],2,',',false)?>
       $where = " and a.relatorio = '0' and a.origem = '{$_SESSION['buscaOrigem']}' and a.dataCriacao between '{$_SESSION['buscaDataInicial']} 00:00:00' and '{$_SESSION['buscaDataFinal']} 23:59:59' ";
     }
 
+    if($modelo_campo == 'registros'){
+      $where .= " and a.devolucao != '1' ";
+    }else{ 
+      $where .= " and a.devolucao = '1' ";
+    }
+
 ?>
 <style>
   .btn-perfil{
@@ -401,7 +407,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                 <tbody>
                   <?php
                     // $query = "select a.*, (SELECT count(*) FROM relatorio_modelos WHERE JSON_SEARCH(registros, 'one', a.codigo) IS NOT NULL) as vinculado from relatorio a where 1 {$where} order by a.dataCriacao asc";
-                    $query = "select a.* from relatorio a where a.devolucao != '1' {$where} order by a.dataCriacao asc";
+                    $query = "select a.* from relatorio a where 1 {$where} order by a.dataCriacao asc";
                     $result = mysqli_query($con,$query);
                     
                     while($d = mysqli_fetch_object($result)){
