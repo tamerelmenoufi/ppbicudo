@@ -405,7 +405,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                 <tbody>
                   <?php
                     // $query = "select a.*, (SELECT count(*) FROM relatorio_modelos WHERE JSON_SEARCH(registros, 'one', a.codigo) IS NOT NULL) as vinculado from relatorio a where 1 {$where} order by a.dataCriacao asc";
-                    echo $query = "select a.* from relatorio a where 1 {$where} order by a.dataCriacao asc";
+                    $query = "select a.* from relatorio a where 1 {$where} order by a.dataCriacao asc";
                     $result = mysqli_query($con,$query);
                     
                     while($d = mysqli_fetch_object($result)){
