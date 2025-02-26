@@ -200,7 +200,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
     }
 
     if($modelo_campo == 'devolucoes'){
-      $where .= " and a.devolucao = '1' and a.origem = '{$rel->origem}' and a.devolucao_data like '%".substr($rel->data, -3)."'";
+      $where .= " and a.devolucao = '1' and a.origem = '{$rel->origem}' and a.devolucao_data like '%".substr($rel->data,0, -3)."'";
     }
 
 ?>
