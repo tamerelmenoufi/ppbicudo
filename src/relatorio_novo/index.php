@@ -169,8 +169,8 @@ R$ <?=number_format($d['valor'],2,',',false)?>
       $q = "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'";
       $rel = mysqli_fetch_object(mysqli_query($con, $q));
 
-      if($modelo_campo and $rel->registros){
-        $registros = json_decode($rel->registros);
+      if($modelo_campo and $rel->$modelo_campo){
+        $registros = json_decode($rel->$modelo_campo);
         $opcoes = $registros;
         $registros = implode(", ", $registros); 
       }
@@ -199,10 +199,8 @@ R$ <?=number_format($d['valor'],2,',',false)?>
       $where = " and a.relatorio = '0' and a.origem = '{$_SESSION['buscaOrigem']}' and a.dataCriacao between '{$_SESSION['buscaDataInicial']} 00:00:00' and '{$_SESSION['buscaDataFinal']} 23:59:59' ";
     }
 
-    if($modelo_campo == 'registros'){
-      $where .= " and a.devolucao != '1' ";
-    }else{ 
-      $where .= " and a.devolucao = '1' ";
+    if($modelo_campo == 'devolucoes'){
+      $where .= " and a.devolucao = '1' and a.origem = '{$_SESSION['buscaOrigem']}}' and a.devolucao_data between '{$_SESSION['buscaDataInicial']} 00:00:00' and '{$_SESSION['buscaDataFinal']} 23:59:59' ";
     }
 
 ?>
