@@ -200,7 +200,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
     }
 
     if($modelo_campo == 'devolucoes'){
-      $where .= " and a.devolucao = '1' and a.origem = '{$_SESSION['buscaOrigem']}}' and a.devolucao_data between '{$_SESSION['buscaDataInicial']} 00:00:00' and '{$_SESSION['buscaDataFinal']} 23:59:59' ";
+      $where .= " and a.devolucao = '1' and a.origem = '{$_SESSION['buscaOrigem']}}' and a.devolucao_data like '%".substr($rel->data, -3)."'";
     }
 
 ?>
