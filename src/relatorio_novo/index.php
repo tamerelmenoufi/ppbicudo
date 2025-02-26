@@ -679,6 +679,9 @@ R$ <?=number_format($d['valor'],2,',',false)?>
     <th class="col-1 text-nowrap">Custo Frete</th>
     <th class="col-1 text-nowrap">Comissão</th> 
     <th class="col-1 text-nowrap">Lucro</th>
+    <th class="col-1 text-nowrap">Lucro (%)</th>
+    <th class="col-1 text-nowrap">Devoluções</th>
+    <th class="col-1 text-nowrap">Devoluções (%)</th>
     <th class="col-3 text-nowrap"></th>
   </tr>
 </thead>
@@ -692,6 +695,9 @@ R$ <?=number_format($d['valor'],2,',',false)?>
     <td class="col-1 text-nowrap"><span class="rodapeCustoEnvioSeller"></span></td>
     <td class="col-1 text-nowrap"><span class="rodapeComissao"></td> 
     <td class="col-1 text-nowrap"><span class="rodapeLucro"></td>
+    <td class="col-1 text-nowrap"><span class="rodapeLucroPct"></td>
+    <td class="col-1 text-nowrap"><span class="rodapeDevolucoes"></td>
+    <td class="col-1 text-nowrap"><span class="rodapeDevolucoesPct"></td>
     <td class="col-3 text-nowrap"></td>
   </tr>
 </table>
