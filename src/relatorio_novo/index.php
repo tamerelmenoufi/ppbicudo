@@ -268,7 +268,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
     margin:0;
   }
   .vermelho{
-    color:red;
+    color:#333;
   }
 </style>
 <div class="col">
