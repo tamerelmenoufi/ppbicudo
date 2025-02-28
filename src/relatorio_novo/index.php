@@ -723,18 +723,27 @@ R$ <?=number_format($d['valor'],2,',',false)?>
   <tr class="calculaTitulos">
 
     <td class="col-1 text-nowrap"></td>
-    <td class="col-1 text-nowrap"><span class="rodapeValorPedidoXquantidade"></span><br><span class="vermelho"><?=$t->totalValorPedidoXquantidade?></span></td>
-    <td class="col-1 text-nowrap"><span class="rodapeCustoEnvio"></span><br><span class="vermelho"><?=$t->totalCustoEnvio?></span></td>
-    <td class="col-1 text-nowrap"><span class="rodapePrecoCusto"></span><br><span class="vermelho"><?=$t->totalPrecoCusto?></span></td>
-    <td class="col-1 text-nowrap"><span class="rodapeCustoEnvioSeller"></span><br><span class="vermelho"><?=$t->totalCustoEnvioSeller?></span></td>
-    <td class="col-1 text-nowrap"><span class="rodapeComissao"></span><br><span class="vermelho"><?=$t->totalComissao?></span></td> 
-    <td class="col-1 text-nowrap"><span class="rodapeLucro"></span><br><span class="vermelho"><?=$t->totalLucro?></span></td>
     <?php
     if($modelo_campo == 'devolucoes'){
     ?>
-    <td class="col-1 text-nowrap"><span class="rodapeLucroPct"></span><br><span class="vermelho"><?=$t->totalLucroPct?></span></td>
-    <td class="col-1 text-nowrap"><span class="rodapeDevolucoes"></span><br><span class="vermelho"><?=$t->totalDevolucoes?></span></td>
-    <td class="col-1 text-nowrap"><span class="rodapeDevolucoesPct"></span><br><span class="vermelho"><?=$t->totalDevolucoesPct?></span></td>
+    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=$t->totalValorPedidoXquantidade?></span></td>
+    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=$t->totalCustoEnvio?></span></td>
+    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=$t->totalPrecoCusto?></span></td>
+    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=$t->totalCustoEnvioSeller?></span></td>
+    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=$t->totalComissao?></span></td> 
+    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=$t->totalLucro?></span></td>
+    <td class="col-1 text-nowrap"><span class="vermelho"><?=$t->totalLucroPct?>%</span></td>
+    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=$t->totalDevolucoes?></span></td>
+    <td class="col-1 text-nowrap"><span class="vermelho"><?=$t->totalDevolucoesPct?>%</span></td>
+    <?php
+    }else{
+    ?>
+    <td class="col-1 text-nowrap"><span class="rodapeValorPedidoXquantidade"></span></td>
+    <td class="col-1 text-nowrap"><span class="rodapeCustoEnvio"></span></td>
+    <td class="col-1 text-nowrap"><span class="rodapePrecoCusto"></span></td>
+    <td class="col-1 text-nowrap"><span class="rodapeCustoEnvioSeller"></span></td>
+    <td class="col-1 text-nowrap"><span class="rodapeComissao"></span></td> 
+    <td class="col-1 text-nowrap"><span class="rodapeLucro"></span></td>    
     <?php
     }
     ?>
