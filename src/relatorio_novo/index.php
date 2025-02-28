@@ -419,7 +419,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                       <?php
                       if(!$d->relatorio || $_SESSION['modelo_relatorio']){
                       ?>
-                      <input type="checkbox" del="<?=(($d->deletado)?'s':false)?>" class="opcoes" <?=((in_array($d->codigo, $opcoes))?'checked':'checked')?> value="<?=$d->codigo?>">
+                      <input <?=(($modelo_campo == 'devolucoes')?'disabled':false)?> type="checkbox" del="<?=(($d->deletado)?'s':false)?>" class="opcoes" <?=((in_array($d->codigo, $opcoes))?'checked':'checked')?> value="<?=$d->codigo?>">
                       <?php
                       }else{
                       ?>
