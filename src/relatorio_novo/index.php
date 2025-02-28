@@ -410,7 +410,15 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                 <tbody>
                   <?php
                     // $query = "select a.*, (SELECT count(*) FROM relatorio_modelos WHERE JSON_SEARCH(registros, 'one', a.codigo) IS NOT NULL) as vinculado from relatorio a where 1 {$where} order by a.dataCriacao asc";
-                    $query = "select a.* from relatorio a where 1 {$where} order by a.dataCriacao asc";
+                    $query = "select 
+                                    a.*,
+                                    sum(a.ValorPedidoXquantidade) as totalValorPedidoXquantidade,
+                                    sum(a.CustoEnvio) as totalCustoEnvio,
+                                    sum(a.PrecoCusto) as totalPrecoCusto,
+                                    sum(a.CustoEnvioSeller) as totalCustoEnvioSeller,
+                                    sum(a.TarifaGatwayPagamento + TarifaMarketplace) as totalComissao,
+                                    sum(a.ValorPedidoXquantidade - a.PrecoCusto - a.CustoEnvioSeller - a.TarifaGatwayPagamento - a.TarifaMarketplace) as totalLucro 
+                                from relatorio a where 1 {$where} order by a.dataCriacao asc";
                     $result = mysqli_query($con,$query);
                     
                     while($d = mysqli_fetch_object($result)){
