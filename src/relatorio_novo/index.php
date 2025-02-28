@@ -174,12 +174,12 @@ R$ <?=number_format($d['valor'],2,',',false)?>
       $q = "select * from relatorio_modelos where codigo = '{$_SESSION['modelo_relatorio']}'";
       $rel = mysqli_fetch_object(mysqli_query($con, $q));
 
-      if($modelo_campo and $rel->$modelo_campo){
-        $registros = json_decode($rel->$modelo_campo);
+      if($modelo_campo and $rel->registros){
+        $registros = json_decode($rel->registros);
         $opcoes = $registros;
         $registros = implode(", ", $registros); 
       }
-      if($registros) $where = " and codigo in ({$registros})";
+      if($registros) $where_registros = " and codigo in ({$registros})";
 
       // if($rel->registros){
       //   $registros = json_decode($rel->registros);
@@ -205,7 +205,9 @@ R$ <?=number_format($d['valor'],2,',',false)?>
     }
 
     if($modelo_campo == 'devolucoes'){
-      $where .= " and a.devolucao = '1' and a.origem = '{$rel->origem}' and a.devolucao_data like '".substr($rel->data,0, -3)."%'";
+      $where = " and a.devolucao = '1' and a.origem = '{$rel->origem}' and a.devolucao_data like '".substr($rel->data,0, -3)."%'";
+    }else if($modelo_campo == 'registros'){
+      $where = $where_registros; 
     }
 
 ?>
@@ -421,7 +423,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                                     sum(a.CustoEnvioSeller) as totalCustoEnvioSeller,
                                     sum(a.TarifaGatwayPagamento + TarifaMarketplace) as totalComissao,
                                     sum(a.ValorPedidoXquantidade - a.PrecoCusto - a.CustoEnvioSeller - a.TarifaGatwayPagamento - a.TarifaMarketplace) as totalLucro
-                                from relatorio a where 1 {$where}";
+                                from relatorio a where 1 {$where_registros}";
                     $result = mysqli_query($con, $query);
                     $t = mysqli_fetch_object($result);
                     
