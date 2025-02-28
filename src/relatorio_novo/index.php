@@ -265,7 +265,9 @@ R$ <?=number_format($d['valor'],2,',',false)?>
     padding:5px;
     margin:0;
   }
-
+  .vermelho{
+    color:red;
+  }
 </style>
 <div class="col">
   <div class="m-3">
@@ -713,16 +715,17 @@ R$ <?=number_format($d['valor'],2,',',false)?>
 <tbody>
 </tbody>
   <tr class="calculaTitulos">
+
     <td class="col-1 text-nowrap"></td>
-    <td class="col-1 text-nowrap"><span class="rodapeValorPedidoXquantidade"></span></td>
-    <td class="col-1 text-nowrap"><span class="rodapeCustoEnvio"></span></td>
-    <td class="col-1 text-nowrap"><span class="rodapePrecoCusto"></span></td>
-    <td class="col-1 text-nowrap"><span class="rodapeCustoEnvioSeller"></span></td>
-    <td class="col-1 text-nowrap"><span class="rodapeComissao"></td> 
-    <td class="col-1 text-nowrap"><span class="rodapeLucro"></td>
-    <td class="col-1 text-nowrap"><span class="rodapeLucroPct"></td>
-    <td class="col-1 text-nowrap"><span class="rodapeDevolucoes"></td>
-    <td class="col-1 text-nowrap"><span class="rodapeDevolucoesPct"></td>
+    <td class="col-1 text-nowrap"><span class="rodapeValorPedidoXquantidade"></span><br><span class="vermelho"><?=$t->totalValorPedidoXquantidade?></span></td>
+    <td class="col-1 text-nowrap"><span class="rodapeCustoEnvio"></span><br><span class="vermelho"><?=$t->totalCustoEnvio?></span></td>
+    <td class="col-1 text-nowrap"><span class="rodapePrecoCusto"></span><br><span class="vermelho"><?=$t->totalPrecoCusto?></span></td>
+    <td class="col-1 text-nowrap"><span class="rodapeCustoEnvioSeller"></span><br><span class="vermelho"><?=$t->totalCustoEnvioSeller?></span></td>
+    <td class="col-1 text-nowrap"><span class="rodapeComissao"><br><span class="vermelho"><?=$t->totalComissao?></span></td> 
+    <td class="col-1 text-nowrap"><span class="rodapeLucro"><br><span class="vermelho"><?=$t->totalLucro?></span></td>
+    <td class="col-1 text-nowrap"><span class="rodapeLucroPct"><br><span class="vermelho"><?=$t->totalLucroPct?></span></td>
+    <td class="col-1 text-nowrap"><span class="rodapeDevolucoes"><br><span class="vermelho"><?=$t->totalDevolucoes?></span></td>
+    <td class="col-1 text-nowrap"><span class="rodapeDevolucoesPct"><br><span class="vermelho"><?=$t->totalDevolucoesPct?></span></td>
     <td class="col-3 text-nowrap"></td>
   </tr>
 </table>
