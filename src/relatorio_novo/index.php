@@ -445,6 +445,9 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     <td class="text-nowrap"><?=number_format((($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace)/(($d->PrecoCusto + $d->CustoEnvioSeller + ($d->TarifaGatwayPagamento + $d->TarifaMarketplace))?:1))*100,2,',','.')?>%</td>
                     <td class="text-nowrap"><?=$d->codigoPedido?></td>
                     <td class="text-nowrap">
+                    <?php 
+                      if($modelo_campo != 'devolucoes'){
+                    ?>
                       <i 
                           editar="<?=$d->codigo?>" 
                           style="cursor:pointer;" 
@@ -459,9 +462,10 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                           style="cursor:pointer;" 
                           class="fa-solid fa-trash text-danger ms-3"
                       ></i>
-                      <?php
+                    <?php
+                      }
                       if($modelo_campo == 'devolucoes'){
-                      ?>
+                    ?>
                       <i 
                           class="fa-solid fa-rotate-left text-danger ms-3"
                           devolucaoDesfazer="<?=$d->codigo?>"
