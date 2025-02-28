@@ -387,7 +387,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     </th>
                   </tr>
                   <tr>
-                    <th scope="col"><input type="checkbox" class="marcar_todos"></th>
+                    <th scope="col"><input <?=(($modelo_campo == 'devolucoes')?'disabled':false)?> type="checkbox" class="marcar_todos"></th>
                     <th scope="col">Data</th>
                     <th scope="col">Anúncios</th>
                     <th scope="col">Pagamento Produto</th>
