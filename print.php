@@ -261,7 +261,7 @@
                         <th>Bruto:</th><td>R$ <?=(number_format($totalValorPedidoXquantidade, 2,',','.'))?></td>
                       </tr>
                       <tr>
-                        <th>Deconto Devolução:</th><td>R$ <?=(number_format($devolucaoValorPedidoXquantidade, 2,',','.'))?></td>
+                        <th>Deconto Devolução:</th><td>R$ <?=(number_format($devolucaoValorPedidoXquantidade, 2,',','.'))?>  (<?=(number_format($devolucaoValorPedidoXquantidade/$totalValorPedidoXquantidade*100, 0,false,false))?>%) </td>
                       </tr>
                       <tr>
                         <th>Valor Final:</th><td>R$ <?=(number_format($totalValorPedidoXquantidade-$devolucaoValorPedidoXquantidade, 2,',','.'))?></td>
@@ -292,7 +292,7 @@
                   <div class="card m-2">
                     <table class="table table-hover">
                       <tr>
-                        <th>Lucro:</th><td>R$ <?=(number_format($totalLucro, 2,',','.'))?></td>
+                        <th>Lucro:</th><td>R$ <?=(number_format($totalLucro, 2,',','.'))?> (<?=(number_format($totalLucro/$totalValorPedidoXquantidade*100, 0,false,false))?>%)</td>
                       </tr>
                       <tr>
                         <th>Deconto:</th><td>R$ <?=(number_format($devolucaoLucro, 2,',','.'))?></td>
