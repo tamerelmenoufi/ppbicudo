@@ -734,9 +734,9 @@ R$ <?=number_format($d['valor'],2,',',false)?>
     <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=$t->totalCustoEnvioSeller?></span></td>
     <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=$t->totalComissao?></span></td> 
     <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=$t->totalLucro?></span></td>
-    <td class="col-1 text-nowrap"><span class="vermelho"><?=$t->totalLucroPct?>%</span></td>
-    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=$t->totalDevolucoes?></span></td>
-    <td class="col-1 text-nowrap"><span class="vermelho"><?=$t->totalDevolucoesPct?>%</span></td>
+    <td class="col-1 text-nowrap"><span class="vermelho"><?=number_format($t->totalLucro/$t->totalValorPedidoXquantidade*100,0,false,false)?>%</span></td>
+    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=$totalValorPedidoXquantidade?></span></td>
+    <td class="col-1 text-nowrap"><span class="vermelho"><?=number_format($totalValorPedidoXquantidade/$t->totalValorPedidoXquantidade*100,0,false,false)?>%</span></td>
     <?php
     }else{
     ?>
