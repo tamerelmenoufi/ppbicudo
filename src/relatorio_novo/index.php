@@ -728,14 +728,14 @@ R$ <?=number_format($d['valor'],2,',',false)?>
     <?php
     if($modelo_campo == 'devolucoes'){
     ?>
-    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=umber_format($t->totalValorPedidoXquantidade,2,',',false)?></span></td>
-    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=umber_format($t->totalCustoEnvio,2,',',false)?></span></td>
-    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=umber_format($t->totalPrecoCusto,2,',',false)?></span></td>
-    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=umber_format($t->totalCustoEnvioSeller,2,',',false)?></span></td>
-    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=umber_format($t->totalComissao,2,',',false)?></span></td> 
-    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=umber_format($t->totalLucro,2,',',false)?></span></td>
+    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=number_format($t->totalValorPedidoXquantidade,2,',',false)?></span></td>
+    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=number_format($t->totalCustoEnvio,2,',',false)?></span></td>
+    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=number_format($t->totalPrecoCusto,2,',',false)?></span></td>
+    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=number_format($t->totalCustoEnvioSeller,2,',',false)?></span></td>
+    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=number_format($t->totalComissao,2,',',false)?></span></td> 
+    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=number_format($t->totalLucro,2,',',false)?></span></td>
     <td class="col-1 text-nowrap"><span class="vermelho"><?=number_format($t->totalLucro/$t->totalValorPedidoXquantidade*100,0,false,false)?>%</span></td>
-    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=umber_format($totalValorPedidoXquantidade,2,',',false)?></span></td>
+    <td class="col-1 text-nowrap"><span class="vermelho">R$ <?=number_format($totalValorPedidoXquantidade,2,',',false)?></span></td>
     <td class="col-1 text-nowrap"><span class="vermelho"><?=number_format($totalValorPedidoXquantidade/$t->totalValorPedidoXquantidade*100,0,false,false)?>%</span></td>
     <?php
     }else{
