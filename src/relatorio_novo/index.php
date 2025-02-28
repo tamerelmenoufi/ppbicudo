@@ -319,7 +319,13 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     <input type="text" id="nome_relatorio" class="form-control" value="<?=$rel->nome?>" >
                     <label class="input-group-text" for="data_relatorio">Data</label>
                     <input type="date" id="data_relatorio" class="form-control" value="<?=(($rel->data)?:date("Y-m-d"))?>" >
+                    <?php
+                    if($modelo_campo == 'registros'){
+                    ?>
                     <button id="salvar_relatorio" class="btn btn-outline-success" type="button"><i class="fa-regular fa-floppy-disk"></i></button>
+                    <?php
+                    }
+                    ?>
                     <button 
                           id="abrir_relatorio" 
                           class="btn btn-outline-primary" 
