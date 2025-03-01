@@ -55,10 +55,10 @@
       </div>
     </div>
 
-    <div class="row mb-1" style="opacity:0.2">
+    <div class="row mb-1">
       <div class="col">
         <a url="src/relatorio_novo/index.php" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
-          <i class="fa-solid fa-chart-line col-1"></i> <span class="col-11">Consultas</span>
+          <i class="fa-solid fa-chart-line col-1"></i> <span class="col-11">Consultas <span class="text-danger" style="font-size:10px;"> (Novo)</span></span>
         </a>
       </div>
     </div>
