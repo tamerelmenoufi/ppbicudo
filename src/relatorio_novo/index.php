@@ -205,7 +205,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
     }
 
     if($modelo_campo == 'devolucoes'){
-      $where = " and a.devolucao = '1' and a.origem = '{$rel->origem}' and a.devolucao_data like '".substr($rel->data,0, -3)."%'";
+      $where = " and a.devolucao = '1' and a.devolucao_relatorio = '{$rel->codigo}' and a.origem = '{$rel->origem}' and a.devolucao_data like '".substr($rel->data,0, -3)."%'";
     }else if($modelo_campo == 'registros'){
       $where = $where_registros; 
     }
@@ -440,7 +440,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     $t = mysqli_fetch_object($result);
                     
                     
-                    echo $query = "select 
+                    $query = "select 
                                     a.* 
                                 from relatorio a where 1 {$where} order by a.dataCriacao asc";
                     $result = mysqli_query($con,$query);
