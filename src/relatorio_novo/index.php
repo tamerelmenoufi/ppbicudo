@@ -440,7 +440,7 @@ R$ <?=number_format($d['valor'],2,',',false)?>
                     $t = mysqli_fetch_object($result);
                     
                     
-                    $query = "select 
+                    echo $query = "select 
                                     a.* 
                                 from relatorio a where 1 {$where} order by a.dataCriacao asc";
                     $result = mysqli_query($con,$query);
