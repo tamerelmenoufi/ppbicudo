@@ -62,6 +62,10 @@
         tfoot {
             display: table-footer-group !important;
         }
+        .page-break {
+              page-break-before: always;
+              break-before: page;
+          }
     }
 </style>
 
@@ -182,6 +186,8 @@
     </table>
 
 
+
+
     <?php
               if($_SESSION['modelo_relatorio']){
 
@@ -189,7 +195,7 @@
                 $result = mysqli_query($con,$query);
                 if(mysqli_num_rows($result)){
               ?>
-
+              <div class="page-break"></div>
               <h5>Devoluções</h5>
               <table class="table table-striped table-hover">
                 <thead>
