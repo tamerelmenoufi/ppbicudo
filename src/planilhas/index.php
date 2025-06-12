@@ -127,6 +127,9 @@
                   // $query = "select * from planilhas order by data desc limit 100";
                   $result = mysqli_query($con, $query);
                   while($d = mysqli_fetch_object($result)){
+                    $q = "select count(*) from relatorio where planilha = '{$d->codigo}'";
+                    $r = mysqli_query($con, $q);
+                    $d1 = mysqli_fetch_object($r);
                 ?>
                 <tr>
                   <td style="white-space: nowrap;"><?=strtoupper($d->lote)?></td>
@@ -138,15 +141,15 @@
                       situacao="<?=$d->codigo?>" 
                       planilha="<?=$d->planilha?>" 
                       origem="<?=$d->origem?>" 
-                      class="fa-solid fa-file-arrow-up text-<?=(($d->situacao == '1' and $d->registros)?'success':'secondary situacao')?>" 
-                      style="font-size:30px; <?=(($d->situacao == '1' and $d->registros)?false:'cursor:pointer')?>"
-                    ></i> <?=(($d->registros)?:false)?>
+                      class="fa-solid fa-file-arrow-up text-<?=(($d->situacao == '1' and $d1->registros)?'success':'secondary situacao')?>" 
+                      style="font-size:30px; <?=(($d->situacao == '1' and $d1->registros)?false:'cursor:pointer')?>"
+                    ></i> <?=(($d1->registros)?:false)?>
                   </td>
                   <td acoes style="white-space: nowrap;">
                   <?php
-                  // if(!$d->registros){
+                  // if(!$d1->registros){
                   ?>
-                    <button class="btn btn-danger btn-sm" deletar="<?=$d->codigo?>" planilha="<?=$d->planilha?>" registros="<?=$d->registros?>">
+                    <button class="btn btn-danger btn-sm" deletar="<?=$d->codigo?>" planilha="<?=$d->planilha?>" registros="<?=$d1->registros?>">
                     <i class="fa-solid fa-trash-can"></i> Excluir
                     </button>
                   <?php
