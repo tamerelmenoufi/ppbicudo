@@ -77,6 +77,10 @@
         url,
         success:function(dados){
           $("#paginaHome").html(dados);
+        },
+        error:function(){
+          Carregando('none');
+          alert('Erro')
         }
       });
     });
