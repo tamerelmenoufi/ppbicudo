@@ -127,7 +127,7 @@
                   // $query = "select * from planilhas order by data desc limit 100";
                   $result = mysqli_query($con, $query);
                   while($d = mysqli_fetch_object($result)){
-                    $q = "select count(*) from relatorio where planilha = '{$d->codigo}'";
+                    $q = "select count(*) as registros from relatorio where planilha = '{$d->codigo}'";
                     $r = mysqli_query($con, $q);
                     $d1 = mysqli_fetch_object($r);
                 ?>
