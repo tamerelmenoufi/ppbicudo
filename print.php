@@ -301,10 +301,10 @@
                         <th>Lucro:</th><td>R$ <?=(number_format($totalLucro, 2,',','.'))?> (<?=(number_format($totalLucro/$totalValorPedidoXquantidade*100, 0,false,false))?>%)</td>
                       </tr>
                       <tr>
-                        <th>Deconto:</th><td>R$ <?=(number_format($devolucaoLucro, 2,',','.'))?></td>
+                        <th>Deconto:</th><td>R$ <?=(number_format($devolucaoLucro, 2,',','.'))?> (<?=(number_format($devolucaoLucro/$totalValorPedidoXquantidade*100, 0,false,false))?>%)</td>
                       </tr>
                       <tr>
-                        <th>Valor Final:</th><td>R$ <?=(number_format($totalLucro-$devolucaoLucro, 2,',','.'))?></td>
+                        <th>Valor Final:</th><td>R$ <?=(number_format($totalLucro-$devolucaoLucro, 2,',','.'))?> (<?=(number_format(($totalLucro-$devolucaoLucro)/$totalValorPedidoXquantidade*100, 0,false,false))?>%)</td>
                       </tr>
                     </table>
                   </div>
