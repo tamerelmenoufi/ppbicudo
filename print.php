@@ -145,6 +145,7 @@
 
             $query = "select * from relatorio where deletado = '1' {$where}";
             $result = mysqli_query($con,$query);
+            $nDel = mysqli_num_rows($result);
             while($d = mysqli_fetch_object($result)){
               // $totalValorPedidoXquantidade_ = ($totalValorPedidoXquantidade_ + $d->ValorPedidoXquantidade);
               // $totalCustoEnvio_ = ($totalCustoEnvio_ + $d->CustoEnvio);
@@ -320,7 +321,7 @@
                         <th>Valor Final:</th><td>R$ <?=(number_format($totalLucro-$devolucaoLucro, 2,',','.'))?> (<?=(number_format(($totalLucro-$devolucaoLucro)/$totalValorPedidoXquantidade*100, 2,',',false))?>%)</td>
                       </tr>
                       <tr>
-                        <th class='text-danger'>Total Exclusões:</th><td class='text-danger'>R$ <?=(number_format($totalLucroDel, 2,',','.'))?> (<?=(number_format($totalLucroDel/$totalValorPedidoXquantidade*100, 2,',',false))?>%)</td>
+                        <th class='text-danger'>Total Exclusões: <?=$nDel?> registro(s)</th><td class='text-danger'>R$ <?=(number_format($totalLucroDel, 2,',','.'))?> (<?=(number_format($totalLucroDel/$totalValorPedidoXquantidade*100, 2,',',false))?>%)</td>
                       </tr>
                     </table>
                   </div>
