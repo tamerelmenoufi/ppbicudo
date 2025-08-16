@@ -142,6 +142,19 @@
         </thead>
         <tbody>
             <?php
+
+            $query = "select * from relatorio where deletado = '1' {$where}";
+            $result = mysqli_query($con,$query);
+            while($d = mysqli_fetch_object($result)){
+              // $totalValorPedidoXquantidade_ = ($totalValorPedidoXquantidade_ + $d->ValorPedidoXquantidade);
+              // $totalCustoEnvio_ = ($totalCustoEnvio_ + $d->CustoEnvio);
+              // $totalPrecoCusto_ = ($totalPrecoCusto_ + $d->PrecoCusto);
+              // $totalCustoEnvioSeller_ = ($totalCustoEnvioSeller_ + $d->CustoEnvioSeller);
+              // $totalComissao_ = ($totalComissao_ + ($d->TarifaGatwayPagamento + $d->TarifaMarketplace));
+              $totalLucroDel = ($totalLucroDel + ($d->ValorPedidoXquantidade - $d->PrecoCusto - $d->CustoEnvioSeller - $d->TarifaGatwayPagamento - $d->TarifaMarketplace));
+            }         
+
+
             $query = "select * from relatorio where deletado != '1' {$where} order by dataCriacao asc";
             $result = mysqli_query($con,$query);
             
@@ -305,6 +318,9 @@
                       </tr>
                       <tr>
                         <th>Valor Final:</th><td>R$ <?=(number_format($totalLucro-$devolucaoLucro, 2,',','.'))?> (<?=(number_format(($totalLucro-$devolucaoLucro)/$totalValorPedidoXquantidade*100, 2,',',false))?>%)</td>
+                      </tr>
+                      <tr>
+                        <th class='text-danger'>Total Exclusões:</th><td class='text-danger'>R$ <?=(number_format($totalLucroDel, 2,',','.'))?> (<?=(number_format($totalLucroDel/$totalValorPedidoXquantidade*100, 2,',',false))?>%)</td>
                       </tr>
                     </table>
                   </div>
