@@ -207,7 +207,7 @@
 
                 $query = "select * from relatorio where devolucao = '1' and devolucao_relatorio = '{$_SESSION['modelo_relatorio']}'";
                 $result = mysqli_query($con,$query);
-                // if(mysqli_num_rows($result)){
+                if(mysqli_num_rows($result)){
               ?>
               <div class="page-break"></div>
               <h5>Devoluções</h5>
@@ -271,7 +271,9 @@
                   </tr>  
                 </tbody>
               </table>
-
+              <?php
+                }
+              ?>
 
               <div class="row g-0">
                 <div class="col">
@@ -330,7 +332,6 @@
               </div>
 
               <?php
-                // }
               } // final da condição de exibir apenas em homologação
               ?>
 
