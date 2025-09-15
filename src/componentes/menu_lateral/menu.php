@@ -64,6 +64,15 @@
     </div>
 
 
+    <div class="row mb-1" style="opacity:0">
+      <div class="col">
+        <a url="src/relatorio/metas.php" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
+          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Relatório de Metas</span>
+        </a>
+      </div>
+    </div>
+
+
 
   </div>
 </div>
