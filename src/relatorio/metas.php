@@ -8,6 +8,33 @@
 </style>
 <div class="m-3">
     <h4 atualiza>Relatório de Metas</h4>
+    <table class="table table-hover">
+        <tr>
+            <td>Loja</td>
+            <td>Valor Bruto</td>
+            <td>Valor Líquido</td>
+        </tr>
+    <?php
+    $query = "select 
+                    a.*,
+                    b.nome as origem_nome,
+                    sum(a.ValorPedidoXquantidade) as bruto, 
+                    (sum(a.ValorPedidoXquantidade) - sum(a.PrecoCusto)) as lucro 
+                from relatorio a
+                    left join origens b on a.origem = b.codigo 
+                where date(a.dataCriacao) = '".date("Y-m-d")."' group by a.origem order by b.nome asc ";
+    $result = mysqli_query($con, $query);
+    while($d = mysqli_fetch_object($result)){
+    ?>
+        <tr>
+            <td><?=$d->origem_nome?></td>
+            <td><?=$d->bruto?></td>
+            <td><?=$d->lucro?></td>
+        </tr>
+    <?php
+    }
+    ?>
+    </table>
 
 </div>
 <script>
