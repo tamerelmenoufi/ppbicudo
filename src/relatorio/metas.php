@@ -27,9 +27,8 @@
                 where date(a.dataCriacao) like '".date("Y-m")."%' group by day(a.dataCriacao), a.origem order by b.nome asc ";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
-        $r[$d->dia] = [
-            'origem_nome' => $d->origem_nome,
-            'dia' => $d->dia,
+        $empresas[$d->origem] = $d->origem_nome;
+        $r[$d->origem][$d->dia] = [
             'bruto' => $d->bruto,
             'lucro' => $d->lucro,
         ];
@@ -60,14 +59,14 @@
         </thead>
     <?php
     // Linhas com os registros
-    foreach ($r as $v) {
+    foreach ($empresas as $i => $v) {
     ?>
         <tr>
-            <td><?=$v['origem_nome']?></td>
+            <td><?=$v?></td>
     <?php
         for ($dia = 1; $dia <= $diasNoMes; $dia++) {
     ?>
-            <td><?=$v['bruto']?></td>
+            <td><?=$r[$i][$dia]['bruto']?></td>
     <?php
         }
     ?>    
