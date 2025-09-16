@@ -24,7 +24,7 @@
                     (sum(a.ValorPedidoXquantidade) - sum(a.PrecoCusto)) as lucro 
                 from relatorio a
                     left join origens b on a.origem = b.codigo 
-                where date(a.dataCriacao) = '".date("Y-m-d")."' group by a.origem order by b.nome asc ";
+                where date(a.dataCriacao) LIK '".date("Y-m")."%' group by a.origem order by b.nome asc ";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
     ?>
