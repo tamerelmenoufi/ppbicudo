@@ -63,7 +63,7 @@
         <?php
             for ($dia = 1; $dia <= $diasNoMes; $dia++) {
         ?>
-                <td>R$ <?=number_format($r[$i][$dia]['bruto'],2,',','.')?></td>
+                <td><?=(($r[$i][$dia]['bruto'])?"R$ ".number_format($r[$i][$dia]['bruto'],2,',','.'):false)?></td>
         <?php
             }
         ?>    
