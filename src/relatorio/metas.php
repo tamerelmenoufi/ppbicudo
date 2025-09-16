@@ -45,7 +45,8 @@ ini_set('display_startup_errors', 1); // exibe erros que acontecem no startup
     $ano = 2025;
 
     // Número de dias do mês
-    $diasNoMes = cal_days_in_month(CAL_GREGORIAN, $mes, $ano);
+    // $diasNoMes = cal_days_in_month(CAL_GREGORIAN, $mes, $ano);
+    $diasNoMes = 30;
 
 ?>
     <table class="table table-hover">
