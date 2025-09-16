@@ -8,6 +8,80 @@
 </style>
 <div class="m-3">
     <h4 atualiza>Relatório de Metas</h4>
+
+
+
+
+<?php
+
+
+    echo $query = "select 
+                    a.*,
+                    count(*) as qt,
+                    b.nome as origem_nome,
+                    day(a.dataCriacao) as dia,
+                    sum(a.ValorPedidoXquantidade) as bruto, 
+                    (sum(a.ValorPedidoXquantidade) - sum(a.PrecoCusto)) as lucro 
+                from relatorio a
+                    left join origens b on a.origem = b.codigo 
+                where date(a.dataCriacao) like '".date("Y-m")."%' group by day(a.dataCriacao), a.origem order by b.nome asc ";
+    $result = mysqli_query($con, $query);
+    while($d = mysqli_fetch_object($result)){
+        $r[$d->dia] = [
+            'origem_nome' => $d->origem_nome,
+            'dia' => $d->dia,
+            'bruto' => $d->bruto,
+            'lucro' => $d->lucro,
+        ];
+    }
+
+
+
+    // Definir o mês e ano desejado
+    $mes = 9; // Setembro
+    $ano = 2025;
+
+    // Número de dias do mês
+    $diasNoMes = cal_days_in_month(CAL_GREGORIAN, $mes, $ano);
+
+?>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Lojas</th>
+                <?php
+                for ($dia = 1; $dia <= $diasNoMes; $dia++) {
+                ?>
+                <th><?=$dia?></th>
+                <?php
+                }
+                ?>
+            </tr>
+        </thead>
+    <?php
+    // Linhas com os registros
+    foreach ($r as $v) {
+    ?>
+        <tr>
+            <td><?=$v['origem_nome']?></td>
+    <?php
+        for ($dia = 1; $dia <= $diasNoMes; $dia++) {
+    ?>
+            <td><?=$v['bruto']?></td>
+    <?php
+        }
+    ?>    
+        </tr>
+    <?php
+    }
+    ?>
+    </table>
+
+<br><br><br><br><br>
+
+
+
+
     <table class="table table-hover">
         <tr>
             <td>Loja</td>
