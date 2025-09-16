@@ -1,7 +1,4 @@
 <?php
-error_reporting(E_ALL);         // reporta todos os erros e avisos
-ini_set('display_errors', 1);   // exibe os erros na tela
-ini_set('display_startup_errors', 1); // exibe erros que acontecem no startup
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
 
 
