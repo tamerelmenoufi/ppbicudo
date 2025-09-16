@@ -48,7 +48,7 @@
                     <?php
                     for ($dia = 1; $dia <= $diasNoMes; $dia++) {
                     ?>
-                    <th><?=$dia?></th>
+                    <th class="text-center"><?=$dia?></th>
                     <?php
                     }
                     ?>
