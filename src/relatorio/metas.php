@@ -16,7 +16,7 @@
             <td>Valor Líquido</td>
         </tr>
     <?php
-    $query = "select 
+    echo $query = "select 
                     a.*,
                     count(*) as qt,
                     b.nome as origem_nome,
