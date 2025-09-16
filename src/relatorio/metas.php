@@ -6,6 +6,7 @@
 <style>
     td{
         white-space: nowrap;
+        min-width: 150px;
     }
 </style>
 <div class="m-3">
