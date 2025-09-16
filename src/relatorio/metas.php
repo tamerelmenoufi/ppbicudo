@@ -55,7 +55,6 @@
                 </tr>
             </thead>
         <?php
-        // Linhas com os registros
         foreach ($empresas as $i => $v) {
         ?>
             <tr>
@@ -63,7 +62,7 @@
         <?php
             for ($dia = 1; $dia <= $diasNoMes; $dia++) {
         ?>
-                <td><?=(($r[$i][$dia]['bruto'])?"R$ ".number_format($r[$i][$dia]['bruto'],2,',','.'):false)?></td>
+                <td class="text-center"><?=(($r[$i][$dia]['bruto'])?"R$ ".number_format($r[$i][$dia]['bruto'],2,',','.'):'-')?></td>
         <?php
             }
         ?>    
