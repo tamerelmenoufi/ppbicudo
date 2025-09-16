@@ -11,12 +11,14 @@
     <table class="table table-hover">
         <tr>
             <td>Loja</td>
+            <td>Quantidade</td>
             <td>Valor Bruto</td>
             <td>Valor Líquido</td>
         </tr>
     <?php
     $query = "select 
                     a.*,
+                    count(*) as qt,
                     b.nome as origem_nome,
                     sum(a.ValorPedidoXquantidade) as bruto, 
                     (sum(a.ValorPedidoXquantidade) - sum(a.PrecoCusto)) as lucro 
@@ -28,6 +30,7 @@
     ?>
         <tr>
             <td><?=$d->origem_nome?></td>
+            <td><?=$d->qt?></td>
             <td><?=$d->bruto?></td>
             <td><?=$d->lucro?></td>
         </tr>
