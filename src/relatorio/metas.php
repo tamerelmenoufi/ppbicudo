@@ -15,7 +15,7 @@
 <?php
 
 
-    echo $query = "select 
+    $query = "select 
                     a.*,
                     count(*) as qt,
                     b.nome as origem_nome,
@@ -42,8 +42,7 @@
     $ano = 2025;
 
     // Número de dias do mês
-    // $diasNoMes = cal_days_in_month(CAL_GREGORIAN, $mes, $ano);
-    $diasNoMes = 30;
+    $diasNoMes = date("t", mktime(0, 0, 0, $mes, 1, $ano));
 
 ?>
     <table class="table table-hover">
