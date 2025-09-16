@@ -4,7 +4,9 @@
 
 ?>
 <style>
-
+    td{
+        white-space: nowrap;
+    }
 </style>
 <div class="m-3">
     <h4 atualiza>Relatório de Metas</h4>
