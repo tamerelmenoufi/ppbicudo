@@ -20,11 +20,12 @@
                     a.*,
                     count(*) as qt,
                     b.nome as origem_nome,
+                    day(a.dataCriacao) as dia,
                     sum(a.ValorPedidoXquantidade) as bruto, 
                     (sum(a.ValorPedidoXquantidade) - sum(a.PrecoCusto)) as lucro 
                 from relatorio a
                     left join origens b on a.origem = b.codigo 
-                where date(a.dataCriacao) like '".date("Y-m")."%' group by a.origem order by b.nome asc ";
+                where date(a.dataCriacao) like '".date("Y-m")."%' group by day(a.dataCriacao), a.origem order by b.nome asc ";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
     ?>
