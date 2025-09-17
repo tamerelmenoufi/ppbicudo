@@ -17,7 +17,7 @@
 
     $query = "select 
                     a.*,
-                    count(*) as qt,
+                    count(*) as quantidade,
                     b.nome as origem_nome,
                     day(a.dataCriacao) as dia,
                     sum(a.ValorPedidoXquantidade) as bruto, 
@@ -31,6 +31,7 @@
         $r[$d->origem][$d->dia] = [
             'bruto' => $d->bruto,
             'lucro' => $d->lucro,
+            'quantidade' => $d->quantidade,
         ];
     }
 
@@ -48,7 +49,7 @@
                     <?php
                     for ($dia = 1; $dia <= $diasNoMes; $dia++) {
                     ?>
-                    <th class="text-center"><?=str_pad($dia, 2, "0", STR_PAD_LEFT)."/".str_pad($mes, 2, "0", STR_PAD_LEFT)?></th>
+                    <th class="text-center" colspan="3"><?=str_pad($dia, 2, "0", STR_PAD_LEFT)."/".str_pad($mes, 2, "0", STR_PAD_LEFT)?></th>
                     <?php
                     }
                     ?>
@@ -63,6 +64,8 @@
             for ($dia = 1; $dia <= $diasNoMes; $dia++) {
         ?>
                 <td class="text-center"><?=(($r[$i][$dia]['bruto'])?"R$ ".number_format($r[$i][$dia]['bruto'],2,',','.'):'-')?></td>
+                <td class="text-center"><?=(($r[$i][$dia]['lucro'])?"R$ ".number_format($r[$i][$dia]['lucro'],2,',','.'):'-')?></td>
+                <td class="text-center"><?=(($r[$i][$dia]['quantidade'])?:'-')?></td>
         <?php
             }
         ?>    
