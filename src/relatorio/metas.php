@@ -48,7 +48,7 @@
                     <?php
                     for ($dia = 1; $dia <= $diasNoMes; $dia++) {
                     ?>
-                    <th class="text-center"><?=$dia?></th>
+                    <th class="text-center"><?=str_pad($dia, 2, "0", STR_PAD_LEFT)."/{$mes}"?></th>
                     <?php
                     }
                     ?>
