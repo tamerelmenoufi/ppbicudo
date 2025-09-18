@@ -179,6 +179,10 @@
             config = $(this).attr("config");
             $.ajax({
                 url:"src/relatorio/config.php",
+                type:"POST",
+                data:{
+                    config
+                },
                 success:function(dados){
                     $(".LateralDireita").html(dados);
                 },
