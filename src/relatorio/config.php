@@ -3,14 +3,14 @@
 
     if($_POST['acao'] == 'salvar'){
 
-      $query = "update metas set 
+      echo $query = "update metas set 
                                 meta = '{$_POST['meta']}', 
                                 p1 = '{$_POST['p1']}', 
                                 p2 = '{$_POST['p2']}', 
                                 p3 = '{$_POST['p3']}' 
                         where codigo = '{$_POST['codigo']}'";
-      mysqli_query($con, $query);
-
+        mysqli_query($con, $query);
+        exit();
     }
 
     
@@ -85,8 +85,6 @@
         Carregando();
         event.preventDefault();
         data = $( this ).serialize();
-        console.log(data);
-        return
         $.ajax({
           url:"src/relatorio/config.php",
           type:"POST",
