@@ -11,7 +11,6 @@
 </style>
 <div class="m-3">
     <h4 atualiza>Relatório de Metas</h4>
-
 <?php
 
 
@@ -41,6 +40,55 @@
     $diasNoMes = date("t", mktime(0, 0, 0, $mes, 1, $ano));
 
 ?>
+
+
+<div class="card">
+  <div class="card-header">
+    Resumo das metas para o mês <?="{$mes}/{$ano}"?>
+  </div>
+  <div class="card-body">
+    <table class="table">
+        <tr>
+            <th>Meta Bruto</th>
+            <td colspan="3">Meta Lucro</td>
+        </tr>
+        <tr>
+            <th>Meta Lucro</th>
+            <td>23%</td>
+            <td>23,5%</td>
+            <td>25%</td>
+        </tr>
+        <tr>
+            <th>Vendas Realizadas</th>
+            <td colspan="3">R$ 318.891,02</td>
+        </tr>
+        <tr>
+            <th>Lucratividade</th>
+            <td colspan="3">R$ 65.191,94</td>
+        </tr>
+        <tr>
+            <th>Lucro Atualizado</th>
+            <td colspan="3">20,44%</td>
+        </tr>
+        <tr>
+            <th>Faturamento Pendente</th>
+            <td colspan="3">R$ 981.108,98</td>
+        </tr>
+        <tr>
+            <th>Quantidade de Vendas</th>
+            <td colspan="3">532</td>
+        </tr>
+
+
+    </table>
+    <!-- <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a> -->
+  </div>
+</div>
+
+
+
     <div class="table-responsive">
         <table class="table table-hover">
             <thead>
