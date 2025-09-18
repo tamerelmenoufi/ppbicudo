@@ -3,7 +3,7 @@
 
     if($_POST['acao'] == 'salvar'){
 
-      echo $query = "update metas set 
+      $query = "update metas set 
                                 meta = '".str_replace(",",".",$_POST['meta'])."', 
                                 p1 = '".str_replace(",",".",$_POST['p1'])."', 
                                 p2 = '".str_replace(",",".",$_POST['p2'])."', 
@@ -90,7 +90,6 @@
           type:"POST",
           data,
           success:function(dados){
-            console.log(dados)
             $.ajax({
                 url:"src/relatorio/metas.php",
                 success:function(dados){

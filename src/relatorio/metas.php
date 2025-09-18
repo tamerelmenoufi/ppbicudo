@@ -13,6 +13,15 @@
     <h4 atualiza>Relatório de Metas</h4>
 <?php
 
+    $periodo = date("Y-m-")."01";
+
+
+    $m = mysql_fetch_object(mysqli_query($con, "select * from metas where periodo = '{$periodo}'"));
+
+    $meta_bruto = $m->meta;
+    $meta_p1 = $m->p1;
+    $meta_p2 = $m->p2;
+    $meta_p3 = $m->p3;
 
     $query = "select 
                     a.*,
@@ -23,7 +32,7 @@
                     (sum(a.ValorPedidoXquantidade) - sum(a.PrecoCusto)) as lucro 
                 from relatorio a
                     left join origens b on a.origem = b.codigo 
-                where date(a.dataCriacao) like '".date("Y-m")."%' group by day(a.dataCriacao), a.origem order by b.nome asc ";
+                where date(a.dataCriacao) like '".$periodo."%' group by day(a.dataCriacao), a.origem order by b.nome asc ";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 
@@ -33,11 +42,6 @@
             'lucro' => $d->lucro,
             'quantidade' => $d->quantidade,
         ];
-
-        $meta_bruto = $d->meta_bruto;
-        $meta_p1 = $d->p1;
-        $meta_p2 = $d->p2;
-        $meta_p3 = $d->p3;
 
         $vendas += $d->bruto;
         $lucratividade += $d->lucro;
