@@ -16,7 +16,7 @@
     $periodo = date("Y-m-")."01";
 
 
-    $m = mysql_fetch_object(mysqli_query($con, "select * from metas where periodo = '{$periodo}'"));
+    $m = mysqli_fetch_object(mysqli_query($con, "select * from metas where periodo = '{$periodo}'"));
 
     $meta_bruto = $m->meta;
     $meta_p1 = $m->p1;
