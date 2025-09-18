@@ -1,7 +1,7 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
 
-
+    if($_POST['periodo']) $_SESSION['periodo'] = $_POST['periodo'];
 ?>
 <style>
     td{
@@ -17,7 +17,7 @@
     
 <?php
 
-    $periodo = '2025-09';
+    $periodo = $_SESSION['periodo'];
 
 
     $m = mysqli_fetch_object(mysqli_query($con, "select * from metas where periodo = '{$periodo}-01'"));
