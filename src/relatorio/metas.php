@@ -180,7 +180,7 @@
             $.ajax({
                 url:"src/relatorio/config.php",
                 success:function(dados){
-                    $("#paginaHome").html(dados);
+                    $(".LateralDireita").html(dados);
                 },
                 error:function(){
                     Carregando('none');
