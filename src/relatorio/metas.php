@@ -2,6 +2,11 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
 
     if($_POST['periodo']) $_SESSION['periodo'] = $_POST['periodo'];
+
+    if(!$_SESSION['periodo']){
+        $_SESSION['periodo'] = date("Y-d");
+    }
+
 ?>
 <style>
     td{
