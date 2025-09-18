@@ -181,7 +181,7 @@
                 url:"src/relatorio/config.php",
                 type:"POST",
                 data:{
-                    config
+                    periodo:config
                 },
                 success:function(dados){
                     $(".LateralDireita").html(dados);
