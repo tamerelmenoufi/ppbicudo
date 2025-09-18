@@ -10,7 +10,7 @@
     }
 </style>
 <div class="m-3">
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between mb-3">
         <h4 atualiza>Relatório de Metas</h4>
         <input type="month" style="width:150px;" value="<?=$_SESSION['periodo']?>" class="form-control  form-control-sm" periodo />
     </div>
