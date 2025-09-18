@@ -32,7 +32,30 @@
             'lucro' => $d->lucro,
             'quantidade' => $d->quantidade,
         ];
+
+        $meta_bruto = $d->meta_bruto;
+        $meta_p1 = $d->p1;
+        $meta_p2 = $d->p2;
+        $meta_p3 = $d->p3;
+
+        $vendas += $d->bruto;
+        $lucratividade += $d->lucro;
+        
+        
+        $quantidade = $d->quantidade;
+
     }
+
+        $pendente = "R$ ".number_format(($meta_bruto - $vendas),2,',','.');
+        $meta_bruto = "R$ ".number_format($meta_bruto,2,',','.');
+        $meta_p1 = number_format($meta_p1,2,',',false)."%";
+        $meta_p2 = number_format($meta_p2,2,',',false)."%";
+        $meta_p3 = number_format($meta_p3,2,',',false)."%";
+        $lucro = number_format((($lucratividade/$vendas)*100),2,',',false)."%";
+        $vendas = "R$ ".number_format($vendas,2,',','.');
+        $lucratividade = "R$ ".number_format($lucratividade,2,',','.');
+        
+
 
     $mes = 9;
     $ano = 2025;
@@ -50,33 +73,33 @@
     <table class="table">
         <tr>
             <th>Meta Bruto</th>
-            <td colspan="3">Meta Lucro</td>
+            <td colspan="3"><?=$meta_bruto?></td>
         </tr>
         <tr>
             <th>Meta Lucro</th>
-            <td>23%</td>
-            <td>23,5%</td>
-            <td>25%</td>
+            <td><?=$meta_p1?></td>
+            <td><?=$meta_p2?></td>
+            <td><?=$meta_p3?></td>
         </tr>
         <tr>
             <th>Vendas Realizadas</th>
-            <td colspan="3">R$ 318.891,02</td>
+            <td colspan="3"><?=$vendas?></td>
         </tr>
         <tr>
             <th>Lucratividade</th>
-            <td colspan="3">R$ 65.191,94</td>
+            <td colspan="3"><?=$lucratividade?></td>
         </tr>
         <tr>
             <th>Lucro Atualizado</th>
-            <td colspan="3">20,44%</td>
+            <td colspan="3"><?=$lucro?></td>
         </tr>
         <tr>
             <th>Faturamento Pendente</th>
-            <td colspan="3">R$ 981.108,98</td>
+            <td colspan="3"><?=$pendente?></td>
         </tr>
         <tr>
             <th>Quantidade de Vendas</th>
-            <td colspan="3">532</td>
+            <td colspan="3"><?=$quantidade?></td>
         </tr>
 
 
