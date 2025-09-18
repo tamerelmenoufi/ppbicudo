@@ -53,9 +53,9 @@
                         <?=str_pad($dia, 2, "0", STR_PAD_LEFT)."/".str_pad($mes, 2, "0", STR_PAD_LEFT)?>
                         <table style="width:100%">
                             <tr>
-                                <td>Bruto</td>
-                                <td>Lucro</td>
-                                <td>Quantidade</td>
+                                <td class="text-center">Bruto</td>
+                                <td class="text-center">Lucro</td>
+                                <td class="text-center">Quantidade</td>
                             </tr>
                         </table>
                     </th>
