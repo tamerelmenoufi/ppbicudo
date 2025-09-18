@@ -26,6 +26,7 @@
                 where date(a.dataCriacao) like '".date("Y-m")."%' group by day(a.dataCriacao), a.origem order by b.nome asc ";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
+        
         $empresas[$d->origem] = $d->origem_nome;
         $r[$d->origem][$d->dia] = [
             'bruto' => $d->bruto,
