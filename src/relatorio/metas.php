@@ -66,8 +66,8 @@
         
 
 
-    $mes = explode("-", $_SESSION['periodo'])[0];
-    $ano = explode("-", $_SESSION['periodo'])[1];
+    $mes = explode("-", $_SESSION['periodo'])[1];
+    $ano = explode("-", $_SESSION['periodo'])[0];
 
     $diasNoMes = date("t", mktime(0, 0, 0, $mes, 1, $ano));
 
