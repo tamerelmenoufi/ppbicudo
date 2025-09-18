@@ -13,10 +13,10 @@
     <h4 atualiza>Relatório de Metas</h4>
 <?php
 
-    $periodo = date("Y-m-")."01";
+    $periodo = date("Y-m-");
 
 
-    $m = mysqli_fetch_object(mysqli_query($con, "select * from metas where periodo = '{$periodo}'"));
+    $m = mysqli_fetch_object(mysqli_query($con, "select * from metas where periodo = '{$periodo}-01'"));
 
     $meta_bruto = $m->meta;
     $meta_p1 = $m->p1;
