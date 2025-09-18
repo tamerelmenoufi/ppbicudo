@@ -9,11 +9,12 @@
     }
 
     
-    $query = "select *, concat(month(periodo),'/',year(periodo)) as periodo from metas where periodo = '{$_POST['periodo']}'";
+    echo $query = "select *, concat(month(periodo),'/',year(periodo)) as periodo from metas where periodo = '{$_POST['periodo']}'";
     $result = mysqli_query($con, $query);
 
     if(!mysqli_num_rows($result)){
-        mysqli_query($con, "INSERT INTO metas set periodo = '{$_POST['periodo']}'");
+        $q = "INSERT INTO metas set periodo = '{$_POST['periodo']}'";
+        mysqli_query($con, $q);
         $result = mysqli_query($con, $query);
     }
 
