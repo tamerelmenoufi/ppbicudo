@@ -69,7 +69,7 @@
 <div class="card">
   <div class="card-header">
     <i class="fa-solid fa-gear" 
-        config="<?="{$mes}/{$ano}"?>" 
+        config="<?="{$ano}-{$mes}-1"?>" 
         style="margin-right:20px; cursor:pointer;"
         data-bs-toggle="offcanvas"
         href="#offcanvasDireita"
