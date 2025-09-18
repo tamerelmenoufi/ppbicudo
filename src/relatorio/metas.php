@@ -10,7 +10,11 @@
     }
 </style>
 <div class="m-3">
-    <h4 atualiza>Relatório de Metas</h4>
+    <div class="d-flex justify-content-between">
+        <h4 atualiza>Relatório de Metas</h4>
+        <input type="month" class="form-control" periodo />
+    </div>
+    
 <?php
 
     $periodo = '2025-09';
@@ -201,6 +205,25 @@
             Carregando();
             $.ajax({
                 url:"src/relatorio/metas.php",
+                success:function(dados){
+                    $("#paginaHome").html(dados);
+                },
+                error:function(){
+                    Carregando('none');
+                    alert('Erro')
+                }
+            });
+        })
+
+        $("input[periodo]").click(function(){
+            Carregando();
+            periodo = $(this).val();
+            $.ajax({
+                url:"src/relatorio/metas.php",
+                type:"POST",
+                data:{
+                    periodo
+                },
                 success:function(dados){
                     $("#paginaHome").html(dados);
                 },
