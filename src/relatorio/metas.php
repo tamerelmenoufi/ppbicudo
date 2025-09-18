@@ -61,11 +61,18 @@
             <tr>
                 <td><?=$v?></td>
         <?php
+            $c = 0;
             for ($dia = 1; $dia <= $diasNoMes; $dia++) {
+                if($c%2 == 0){
+                    $cor = '#ffffff';
+                }else{
+                    $cor = '#a1a1a1';
+                }
+                $c++;
         ?>
-                <td class="text-center"><?=(($r[$i][$dia]['bruto'])?"R$ ".number_format($r[$i][$dia]['bruto'],2,',','.'):'-')?></td>
-                <td class="text-center"><?=(($r[$i][$dia]['lucro'])?"R$ ".number_format($r[$i][$dia]['lucro'],2,',','.'):'-')?></td>
-                <td class="text-center"><?=(($r[$i][$dia]['quantidade'])?:'-')?></td>
+                <td class="text-center" style="background-color:<?=$cor?>"><?=(($r[$i][$dia]['bruto'])?"R$ ".number_format($r[$i][$dia]['bruto'],2,',','.'):'-')?></td>
+                <td class="text-center" style="background-color:<?=$cor?>"><?=(($r[$i][$dia]['lucro'])?"R$ ".number_format($r[$i][$dia]['lucro'],2,',','.'):'-')?></td>
+                <td class="text-center" style="background-color:<?=$cor?>"><?=(($r[$i][$dia]['quantidade'])?:'-')?></td>
         <?php
             }
         ?>    
