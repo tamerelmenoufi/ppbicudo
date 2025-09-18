@@ -26,7 +26,7 @@
                 where date(a.dataCriacao) like '".date("Y-m")."%' group by day(a.dataCriacao), a.origem order by b.nome asc ";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
-        
+
         $empresas[$d->origem] = $d->origem_nome;
         $r[$d->origem][$d->dia] = [
             'bruto' => $d->bruto,
@@ -68,7 +68,14 @@
 
 <div class="card">
   <div class="card-header">
-    Resumo das metas para o mês <?="{$mes}/{$ano}"?>
+    <i class="fa-solid fa-gear" 
+        config="<?="{$mes}/{$ano}"?>" 
+        style="margin-right:20px; cursor:pointer;"
+        data-bs-toggle="offcanvas"
+        href="#offcanvasDireita"
+        role="button"
+        aria-controls="offcanvasDireita"
+    ></i> Resumo das metas para o mês <?="{$mes}/{$ano}"?>
   </div>
   <div class="card-body">
     <table class="table">
@@ -167,6 +174,20 @@
 <script>
     $(function(){
         Carregando('none');
+
+        $("i[config]").click(function(){
+            config = $(this).attr("config");
+            $.ajax({
+                url:"src/relatorio/config.php",
+                success:function(dados){
+                    $("#paginaHome").html(dados);
+                },
+                error:function(){
+                    Carregando('none');
+                    alert('Erro')
+                }
+            });            
+        })
         
         $("h4[atualiza]").click(function(){
             Carregando();
