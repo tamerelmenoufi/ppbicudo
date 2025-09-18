@@ -64,9 +64,9 @@
             $c = 0;
             for ($dia = 1; $dia <= $diasNoMes; $dia++) {
                 if($c%2 == 0){
-                    $cor = '#ffffff';
+                    $cor = '#eeeeee';
                 }else{
-                    $cor = '#a1a1a1';
+                    $cor = '#ffffff';
                 }
                 $c++;
         ?>
