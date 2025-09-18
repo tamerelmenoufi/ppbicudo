@@ -215,7 +215,7 @@
             });
         })
 
-        $("input[periodo]").click(function(){
+        $("input[periodo]").change(function(){
             Carregando();
             periodo = $(this).val();
             $.ajax({
