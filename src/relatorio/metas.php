@@ -42,7 +42,7 @@
         $lucratividade += $d->lucro;
         
         
-        $quantidade = $d->quantidade;
+        $quantidade += $d->quantidade;
 
     }
 
