@@ -13,7 +13,7 @@
     $result = mysqli_query($con, $query);
 
     if(!mysqli_num_rows($result)){
-        mysqli_query($con, "INSERT INTO periodo set periodo = '{$_POST['periodo']}'");
+        mysqli_query($con, "INSERT INTO metas set periodo = '{$_POST['periodo']}'");
         $result = mysqli_query($con, $query);
     }
 
