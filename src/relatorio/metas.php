@@ -45,7 +45,7 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Lojas</th>
+                    <th>Lojas/Dias</th>
                     <?php
                     for ($dia = 1; $dia <= $diasNoMes; $dia++) {
                     ?>
