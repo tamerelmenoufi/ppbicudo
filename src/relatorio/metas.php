@@ -49,7 +49,16 @@
                     <?php
                     for ($dia = 1; $dia <= $diasNoMes; $dia++) {
                     ?>
-                    <th class="text-center" colspan="3"><?=str_pad($dia, 2, "0", STR_PAD_LEFT)."/".str_pad($mes, 2, "0", STR_PAD_LEFT)?></th>
+                    <th class="text-center" colspan="3">
+                        <?=str_pad($dia, 2, "0", STR_PAD_LEFT)."/".str_pad($mes, 2, "0", STR_PAD_LEFT)?>
+                        <table style="width:100%">
+                            <tr>
+                                <td>Bruto</td>
+                                <td>Lucro</td>
+                                <td>Quantidade</td>
+                            </tr>
+                        </table>
+                    </th>
                     <?php
                     }
                     ?>
