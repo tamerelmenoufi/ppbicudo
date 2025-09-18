@@ -3,18 +3,22 @@
 
     if($_POST['acao'] == 'salvar'){
 
-      $query = "update metas set meta = '{$_POST['meta']}', p1 = '{$_POST['p1']}', p2 = '{$_POST['p2']}', p3 = '{$_POST['p3']}' where codigo = '{$_POST['codigo']}'";
+      $query = "update metas set 
+                                meta = '{$_POST['meta']}', 
+                                p1 = '{$_POST['p1']}', 
+                                p2 = '{$_POST['p2']}', 
+                                p3 = '{$_POST['p3']}' 
+                        where codigo = '{$_POST['codigo']}'";
       mysqli_query($con, $query);
 
     }
 
     
-    echo $query = "select *, concat(month(periodo),'/',year(periodo)) as periodo from metas where periodo = '{$_POST['periodo']}'";
+    $query = "select *, concat(month(periodo),'/',year(periodo)) as periodo from metas where periodo = '{$_POST['periodo']}'";
     $result = mysqli_query($con, $query);
 
     if(!mysqli_num_rows($result)){
-        echo "<br>";
-        echo $q = "INSERT INTO metas set periodo = '{$_POST['periodo']}'";
+        $q = "INSERT INTO metas set periodo = '{$_POST['periodo']}'";
         mysqli_query($con, $q);
         $result = mysqli_query($con, $query);
     }
