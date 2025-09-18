@@ -85,7 +85,8 @@
         Carregando();
         event.preventDefault();
         data = $( this ).serialize();
-
+        console.log(data);
+        return
         $.ajax({
           url:"src/relatorio/config.php",
           type:"POST",
