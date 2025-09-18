@@ -46,7 +46,7 @@
 
     }
 
-        $pendente = "R$ ".number_format(($meta_bruto - $vendas),2,',','.');
+        $pendente = (($meta_bruto - $vendas) < 0)?"<span class='text-danger'>R$ ".number_format(($meta_bruto - $vendas)*(-1),2,',','.')."</span>":"<span class='text-success'>R$ ".number_format(($meta_bruto - $vendas)*(-1),2,',','.')."</span>";
         $meta_bruto = "R$ ".number_format($meta_bruto,2,',','.');
         $meta_p1 = number_format($meta_p1,2,',',false)."%";
         $meta_p2 = number_format($meta_p2,2,',',false)."%";
