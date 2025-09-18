@@ -5,9 +5,9 @@
 
       echo $query = "update metas set 
                                 meta = '{$_POST['meta']}', 
-                                p1 = '{$_POST['p1']}', 
-                                p2 = '{$_POST['p2']}', 
-                                p3 = '{$_POST['p3']}' 
+                                p1 = '".str_replace(",",".",$_POST['p1'])."', 
+                                p2 = '".str_replace(",",".",$_POST['p2'])."', 
+                                p3 = '".str_replace(",",".",$_POST['p3'])."' 
                         where codigo = '{$_POST['codigo']}'";
         mysqli_query($con, $query);
         exit();
