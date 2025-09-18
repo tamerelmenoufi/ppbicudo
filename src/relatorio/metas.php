@@ -68,7 +68,7 @@
         foreach ($empresas as $i => $v) {
         ?>
             <tr>
-                <td><?=(($v)?:"<span class='text-danger'>Não Identificado</span>")?></td>
+                <td><?=(($v)?:"<span class='text-danger'>Não Identificada</span>")?></td>
         <?php
             $c = 0;
             for ($dia = 1; $dia <= $diasNoMes; $dia++) {
