@@ -4,7 +4,7 @@
     if($_POST['acao'] == 'salvar'){
 
       echo $query = "update metas set 
-                                meta = '{$_POST['meta']}', 
+                                meta = '".str_replace(",",".",$_POST['meta'])."', 
                                 p1 = '".str_replace(",",".",$_POST['p1'])."', 
                                 p2 = '".str_replace(",",".",$_POST['p2'])."', 
                                 p3 = '".str_replace(",",".",$_POST['p3'])."' 
