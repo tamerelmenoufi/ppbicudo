@@ -13,7 +13,7 @@
     <h4 atualiza>Relatório de Metas</h4>
 <?php
 
-    $periodo = '2025-9';
+    $periodo = '2025-09';
 
 
     $m = mysqli_fetch_object(mysqli_query($con, "select * from metas where periodo = '{$periodo}-01'"));
