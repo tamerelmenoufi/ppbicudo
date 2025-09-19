@@ -13,7 +13,7 @@
             url:u,
             success:function(dados){
                 $(`#${l}`).html(dados);
-                Carregando('none');
+                //Carregando('none');
             }
         });
     }
