@@ -4,7 +4,7 @@
     if($_POST['periodo']) $_SESSION['periodo'] = $_POST['periodo'];
 
     if(!$_SESSION['periodo']){
-        $_SESSION['periodo'] = date("Y-d");
+        $_SESSION['periodo'] = date("Y-m");
     }
 
 ?>
