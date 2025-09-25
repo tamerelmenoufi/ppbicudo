@@ -92,7 +92,7 @@
     // $mes = explode("-", $_SESSION['periodo'])[1];
     // $ano = explode("-", $_SESSION['periodo'])[0];
 
-    // $diasNoMes = date("t", mktime(0, 0, 0, $mes, 1, $ano));
+    $diasNoMes = date("t", mktime(0, 0, 0, $mes, 1, $ano));
 
 ?>
 
