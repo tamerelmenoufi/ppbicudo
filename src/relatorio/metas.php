@@ -23,7 +23,7 @@
     
 <?php
 
-    $periodo = $_SESSION['periodo'];
+    echo $periodo = $_SESSION['periodo'];
 
 
     $m = mysqli_fetch_object(mysqli_query($con, "select * from metas where periodo = '{$periodo}-01'"));
