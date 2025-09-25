@@ -45,7 +45,7 @@
     //                 left join origens b on a.origem = b.codigo 
     //             where date(a.dataCriacao) like '".$periodo."%' group by day(a.dataCriacao), a.origem order by b.nome asc ";
     
-    echo $query = "select *, day(data) as dia from relatorio_modelos where data = '{$periodo}'";
+    $query = "select *, day(data) as dia from relatorio_modelos where data = '{$periodo}'";
     $result = mysqli_query($con, $query);
     while($d1 = mysqli_fetch_object($result)){
 
@@ -61,8 +61,8 @@
                         (sum(ValorPedidoXquantidade) - sum(PrecoCusto)) as lucro 
                     from relatorio 
                     where codigo in ({$registros}) ";
-            $r = mysqli_query($con, $q);
-            while($d = mysqli_fetch_object($r)){
+            $qr = mysqli_query($con, $q);
+            while($d = mysqli_fetch_object($qr)){
                 $empresas[$d->codigo] = $d1->nome;
                 $r[$d->codigo][$d1->dia] = [
                     'bruto' => $d->bruto,
