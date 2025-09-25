@@ -34,18 +34,18 @@
 
     // $query = "select * from relatorio_modelos where data = '{$periodo}'"
 
-    $query = "select 
-                    a.*,
-                    count(*) as quantidade,
-                    b.nome as origem_nome,
-                    day(a.dataCriacao) as dia,
-                    sum(a.ValorPedidoXquantidade) as bruto, 
-                    (sum(a.ValorPedidoXquantidade) - sum(a.PrecoCusto)) as lucro 
-                from relatorio a
-                    left join origens b on a.origem = b.codigo 
-                where date(a.dataCriacao) like '".$periodo."%' group by day(a.dataCriacao), a.origem order by b.nome asc ";
+    // $query = "select 
+    //                 a.*,
+    //                 count(*) as quantidade,
+    //                 b.nome as origem_nome,
+    //                 day(a.dataCriacao) as dia,
+    //                 sum(a.ValorPedidoXquantidade) as bruto, 
+    //                 (sum(a.ValorPedidoXquantidade) - sum(a.PrecoCusto)) as lucro 
+    //             from relatorio a
+    //                 left join origens b on a.origem = b.codigo 
+    //             where date(a.dataCriacao) like '".$periodo."%' group by day(a.dataCriacao), a.origem order by b.nome asc ";
     
-    $query = "select *, day(a.data) as dia, relatorio_modelos where data = '{$periodo}'";
+    echo $query = "select *, day(a.data) as dia, relatorio_modelos where data = '{$periodo}'";
     $result = mysqli_query($con, $query);
     while($d1 = mysqli_fetch_object($result)){
 
