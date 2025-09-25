@@ -1,4 +1,5 @@
 <?php
+    error_reporting(E_ALL);
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
 
     if($_POST['periodo']) $_SESSION['periodo'] = $_POST['periodo'];
