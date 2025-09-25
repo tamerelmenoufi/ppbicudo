@@ -32,6 +32,8 @@
     $meta_p2 = $m->p2;
     $meta_p3 = $m->p3;
 
+    // $query = "select * from relatorio_modelos where data = '{$periodo}'"
+
     $query = "select 
                     a.*,
                     count(*) as quantidade,
@@ -42,21 +44,36 @@
                 from relatorio a
                     left join origens b on a.origem = b.codigo 
                 where date(a.dataCriacao) like '".$periodo."%' group by day(a.dataCriacao), a.origem order by b.nome asc ";
+    
+    $query = "select *, day(a.data) as dia, relatorio_modelos where data = '{$periodo}'";
     $result = mysqli_query($con, $query);
-    while($d = mysqli_fetch_object($result)){
+    while($d1 = mysqli_fetch_object($result)){
 
-        $empresas[$d->origem] = $d->origem_nome;
-        $r[$d->origem][$d->dia] = [
-            'bruto' => $d->bruto,
-            'lucro' => $d->lucro,
-            'quantidade' => $d->quantidade,
-        ];
+        $registros = json_decode($d1->registros, true);
+        $registros = (($registros)?implode(",",$registros):false);
 
-        $vendas += $d->bruto;
-        $lucratividade += $d->lucro;
-        
-        
-        $quantidade += $d->quantidade;
+        if($registros){
+
+            $q = "select 
+                        a.*,
+                        count(*) as quantidade,
+                        sum(ValorPedidoXquantidade) as bruto, 
+                        (sum(ValorPedidoXquantidade) - sum(PrecoCusto)) as lucro 
+                    from relatorio 
+                    where codigo in ({$registros}) ";
+            $r = mysqli_query($con, $q);
+            while($d = mysqli_fetch_object($r)){
+                $empresas[$d->codigo] = $d1->nome;
+                $r[$d->codigo][$d1->dia] = [
+                    'bruto' => $d->bruto,
+                    'lucro' => $d->lucro,
+                    'quantidade' => $d->quantidade,
+                ];
+                $vendas += $d->bruto;
+                $lucratividade += $d->lucro;
+                $quantidade += $d->quantidade;
+            }
+        }
 
     }
 
