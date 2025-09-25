@@ -56,7 +56,7 @@
          if($registros){
 
             $q = "select 
-                        day(data) as dia
+                        day(data) as dia,
                         count(*) as quantidade,
                         sum(ValorPedidoXquantidade) as bruto, 
                         (sum(ValorPedidoXquantidade) - sum(PrecoCusto)) as lucro 
