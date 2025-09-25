@@ -55,7 +55,7 @@
 
          if($registros){
 
-            $q = "select 
+            echo $q = "select 
                         day(dataCriacao) as dia,
                         count(*) as quantidade,
                         sum(ValorPedidoXquantidade) as bruto, 
