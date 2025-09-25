@@ -64,8 +64,8 @@
                     where codigo in ({$registros}) group by day(dataCriacao)";
             $qr = mysqli_query($con, $q);
             while($d = mysqli_fetch_object($qr)){
-                $empresas[$d->codigo] = $d1->nome;
-                $r[$d->codigo][$d->dia] = [
+                $empresas[$d1->codigo] = $d1->nome;
+                $r[$d1->codigo][$d->dia] = [
                     'bruto' => $d->bruto,
                     'lucro' => $d->lucro,
                     'quantidade' => $d->quantidade,
