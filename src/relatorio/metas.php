@@ -46,7 +46,7 @@
     //                 left join origens b on a.origem = b.codigo 
     //             where date(a.dataCriacao) like '".$periodo."%' group by day(a.dataCriacao), a.origem order by b.nome asc ";
     
-    echo $query = "select *, day(data) as dia from relatorio_modelos where data = '{$periodo}'";
+    $query = "select *, day(data) as dia from relatorio_modelos where data = '{$periodo}'";
     $result = mysqli_query($con, $query);
     while($d1 = mysqli_fetch_object($result)){
 
