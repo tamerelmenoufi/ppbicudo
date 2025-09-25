@@ -55,13 +55,13 @@
 
          if($registros){
 
-            $q = "select 
+            echo $q = "select 
                         day(dataCriacao) as dia,
                         count(*) as quantidade,
                         sum(ValorPedidoXquantidade) as bruto, 
                         (sum(ValorPedidoXquantidade) - sum(PrecoCusto)) as lucro 
                     from relatorio 
-                    where codigo in ({$registros})";
+                    where codigo in ({$registros}) group by dataCriacao";
             $qr = mysqli_query($con, $q);
             while($d = mysqli_fetch_object($qr)){
                 $empresas[$d->codigo] = $d1->nome;
