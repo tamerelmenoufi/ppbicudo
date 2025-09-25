@@ -46,13 +46,12 @@
     //                 left join origens b on a.origem = b.codigo 
     //             where date(a.dataCriacao) like '".$periodo."%' group by day(a.dataCriacao), a.origem order by b.nome asc ";
     
-    echo $query = "select *, day(data) as dia from relatorio_modelos where data like '{$periodo}%'";
+    $query = "select *, day(data) as dia from relatorio_modelos where data like '{$periodo}%'";
     $result = mysqli_query($con, $query);
     while($d1 = mysqli_fetch_object($result)){
 
         $registros = json_decode($d1->registros, true);
-        print_r($registros);
-        // $registros = (($registros)?implode(",",$registros):false);
+        echo $registros = (($registros)?implode(",",$registros):false);
 
         // if($registros){
 
