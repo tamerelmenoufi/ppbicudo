@@ -51,6 +51,7 @@
     while($d1 = mysqli_fetch_object($result)){
 
         $registros = json_decode($d1->registros, true);
+        print_r($registros);
         // $registros = (($registros)?implode(",",$registros):false);
 
         // if($registros){
