@@ -51,30 +51,30 @@
     while($d1 = mysqli_fetch_object($result)){
 
         $registros = json_decode($d1->registros, true);
-        echo $registros = (($registros)?implode(",",$registros):false);
+        $registros = (($registros)?implode(",",$registros):false);
 
-        // if($registros){
+         if($registros){
 
-        //     $q = "select 
-        //                 a.*,
-        //                 count(*) as quantidade,
-        //                 sum(ValorPedidoXquantidade) as bruto, 
-        //                 (sum(ValorPedidoXquantidade) - sum(PrecoCusto)) as lucro 
-        //             from relatorio 
-        //             where codigo in ({$registros}) ";
-        //     $qr = mysqli_query($con, $q);
-        //     while($d = mysqli_fetch_object($qr)){
-        //         $empresas[$d->codigo] = $d1->nome;
-        //         $r[$d->codigo][$d1->dia] = [
-        //             'bruto' => $d->bruto,
-        //             'lucro' => $d->lucro,
-        //             'quantidade' => $d->quantidade,
-        //         ];
-        //         $vendas += $d->bruto;
-        //         $lucratividade += $d->lucro;
-        //         $quantidade += $d->quantidade;
-        //     }
-        // }
+            $q = "select 
+                        a.*,
+                        count(*) as quantidade,
+                        sum(ValorPedidoXquantidade) as bruto, 
+                        (sum(ValorPedidoXquantidade) - sum(PrecoCusto)) as lucro 
+                    from relatorio 
+                    where codigo in ({$registros}) ";
+            $qr = mysqli_query($con, $q);
+            while($d = mysqli_fetch_object($qr)){
+                $empresas[$d->codigo] = $d1->nome;
+                $r[$d->codigo][$d1->dia] = [
+                    'bruto' => $d->bruto,
+                    'lucro' => $d->lucro,
+                    'quantidade' => $d->quantidade,
+                ];
+                $vendas += $d->bruto;
+                $lucratividade += $d->lucro;
+                $quantidade += $d->quantidade;
+            }
+        }
 
     }
 
