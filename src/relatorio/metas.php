@@ -55,25 +55,25 @@
 
          if($registros){
 
-            echo $q = "select 
-                        a.*,
+            $q = "select 
+                        *,
                         count(*) as quantidade,
                         sum(ValorPedidoXquantidade) as bruto, 
                         (sum(ValorPedidoXquantidade) - sum(PrecoCusto)) as lucro 
                     from relatorio 
                     where codigo in ({$registros}) ";
-            // $qr = mysqli_query($con, $q);
-            // while($d = mysqli_fetch_object($qr)){
-            //     $empresas[$d->codigo] = $d1->nome;
-            //     $r[$d->codigo][$d1->dia] = [
-            //         'bruto' => $d->bruto,
-            //         'lucro' => $d->lucro,
-            //         'quantidade' => $d->quantidade,
-            //     ];
-            //     $vendas += $d->bruto;
-            //     $lucratividade += $d->lucro;
-            //     $quantidade += $d->quantidade;
-            // }
+            $qr = mysqli_query($con, $q);
+            while($d = mysqli_fetch_object($qr)){
+                $empresas[$d->codigo] = $d1->nome;
+                $r[$d->codigo][$d1->dia] = [
+                    'bruto' => $d->bruto,
+                    'lucro' => $d->lucro,
+                    'quantidade' => $d->quantidade,
+                ];
+                $vendas += $d->bruto;
+                $lucratividade += $d->lucro;
+                $quantidade += $d->quantidade;
+            }
         }
 
     }
