@@ -61,7 +61,7 @@
                         sum(ValorPedidoXquantidade) as bruto, 
                         (sum(ValorPedidoXquantidade) - sum(PrecoCusto)) as lucro 
                     from relatorio 
-                    where codigo in ({$registros}) and devolucao != '1' group by day(dataCriacao)";
+                    where codigo in ({$registros}) and devolucao != '1' and deletado != '1' group by day(dataCriacao)";
             $qr = mysqli_query($con, $q);
             while($d = mysqli_fetch_object($qr)){
                 $empresas[$d1->codigo] = $d1->nome;
