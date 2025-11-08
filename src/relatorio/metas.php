@@ -15,6 +15,7 @@
     }else{
         $periodo = " and periodo like '".date("Y-m")."%'";
         $where = " and data like '".date("Y-m")."%'";
+        $_SESSION['metaDataInicial'] = date("Y-m-d");
     }
 
 ?>
@@ -105,14 +106,14 @@
         $meta_p1 = number_format($meta_p1,2,',',false)."%";
         $meta_p2 = number_format($meta_p2,2,',',false)."%";
         $meta_p3 = number_format($meta_p3,2,',',false)."%";
-        //$lucro = number_format((($lucratividade/($vendas)?:1)*100),2,',',false)."%";
+        $lucro = number_format((($lucratividade/($vendas)?:1)*100),2,',',false)."%";
         $vendas = "R$ ".number_format($vendas,2,',','.');
         $lucratividade = "R$ ".number_format($lucratividade,2,',','.');
         
 
 
-    $mes = explode("-", $_SESSION['periodo'])[1];
-    $ano = explode("-", $_SESSION['periodo'])[0];
+    $mes = explode("-", $_SESSION['metaDataInicial'])[1];
+    $ano = explode("-", $_SESSION['metaDataInicial'])[0];
 
     $diasNoMes = date("t", mktime(0, 0, 0, $mes, 1, $ano));
 
