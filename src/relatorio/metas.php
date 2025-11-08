@@ -3,8 +3,8 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
 
     if($_POST['periodo']) $_SESSION['periodo'] = $_POST['periodo'];
-    if($_POST['data_inicial']) $_SESSION['metaDataInicial'] = $_POST['periodo'];
-    if($_POST['data_final']) $_SESSION['metaDataFinal'] = $_POST['periodo'];
+    if($_POST['data_inicial']) $_SESSION['metaDataInicial'] = $_POST['data_inicial'];
+    if($_POST['data_final']) $_SESSION['metaDataFinal'] = $_POST['data_final'];
 
     if($_SESSION['metaDataInicial'] and !$_SESSION['metaDataFinal']){
         $periodo = " and periodo = '{$_SESSION['metaDataInicial']}'";
