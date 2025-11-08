@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <input type="month" max="<?= date('Y-m') ?>" style="width:150px;" value="<?=$_SESSION['periodo']?>" class="form-control  form-control-sm" periodo />
+        <!--<input type="month" max="<?= date('Y-m') ?>" style="width:150px;" value="<?=$_SESSION['periodo']?>" class="form-control  form-control-sm" periodo />-->
     </div>
     
 <?php
@@ -277,7 +277,7 @@
             });
         })
 
-        $("input[filtrar]").click(function(){
+        $("input[filtro]").click(function(){
             Carregando();
             data_inicial = $("#data_inicial").val();
             data_final = $("#data_final").val();
