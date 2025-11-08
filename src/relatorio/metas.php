@@ -8,10 +8,13 @@
 
     if($_SESSION['metaDataInicial'] and !$_SESSION['metaDataFinal']){
         $periodo = " and periodo = '{$_SESSION['metaDataInicial']}'";
+        $where = " and data = '{$_SESSION['metaDataInicial']}'";
     }else if($_SESSION['metaDataInicial'] and $_SESSION['metaDataFinal']){
         $periodo = " and periodo between '{$_SESSION['metaDataInicial']}' and '{$_SESSION['metaDataFinal']}'";
+        $where = " and data between '{$_SESSION['metaDataInicial']}' and '{$_SESSION['metaDataFinal']}'";
     }else{
         $periodo = " and periodo like '".date("Y-m")."%'";
+        $where = " and data like '".date("Y-m")."%'";
     }
 
 ?>
@@ -62,9 +65,7 @@
     //                 left join origens b on a.origem = b.codigo 
     //             where date(a.dataCriacao) like '".$periodo."%' group by day(a.dataCriacao), a.origem order by b.nome asc ";
     
-    echo $query = "select * from relatorio_modelos where 1 {$periodo}";
-    
-    exit();
+    $query = "select * from relatorio_modelos where 1 {$where}";
 
     $result = mysqli_query($con, $query);
     while($d1 = mysqli_fetch_object($result)){
