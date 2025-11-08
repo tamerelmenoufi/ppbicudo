@@ -70,9 +70,8 @@
     
     echo "<br>";
     
-    echo $query = "select * from relatorio_modelos where 1 {$where}";
+    $query = "select * from relatorio_modelos where 1 {$where}";
 
-    /*
     $result = mysqli_query($con, $query);
     while($d1 = mysqli_fetch_object($result)){
 
@@ -81,7 +80,7 @@
 
          if($registros){
 
-            $q = "select 
+            echo $q = "select 
                         day(dataCriacao) as dia,
                         count(*) as quantidade,
                         sum(ValorPedidoXquantidade) as bruto, 
@@ -103,6 +102,8 @@
         }
 
     }
+
+    /*
 
         $pendente = (($meta_bruto - $vendas) < 0)?"<span class='text-success'>R$ ".number_format(($meta_bruto - $vendas)*(-1),2,',','.')."</span>":"<span class='text-danger'>R$ ".number_format(($meta_bruto - $vendas)*(-1),2,',','.')."</span>";
         $meta_bruto = "R$ ".number_format($meta_bruto,2,',','.');
