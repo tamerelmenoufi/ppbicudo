@@ -1,5 +1,8 @@
 <?php
     error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
 
     if($_POST['periodo']) $_SESSION['periodo'] = $_POST['periodo'];
@@ -106,7 +109,7 @@
     $meta_p1 = number_format($meta_p1,2,',',false)."%";
     $meta_p2 = number_format($meta_p2,2,',',false)."%";
     $meta_p3 = number_format($meta_p3,2,',',false)."%";
-    //$lucro = number_format((($lucratividade/(($vendas*1) > 0)?:1)*100),2,',',false)."%";
+    $lucro = number_format((($lucratividade/(($vendas*1) > 0)?:1)*100),2,',',false)."%";
     $vendas = "R$ ".number_format($vendas,2,',','.');
     $lucratividade = "R$ ".number_format($lucratividade,2,',','.');
     
