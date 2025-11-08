@@ -102,7 +102,7 @@
 
 
     $pendente = (($meta_bruto - $vendas) < 0)?"<span class='text-success'>R$ ".number_format(($meta_bruto - $vendas)*(-1),2,',','.')."</span>":"<span class='text-danger'>R$ ".number_format(($meta_bruto - $vendas)*(-1),2,',','.')."</span>";
-    //$meta_bruto = "R$ ".number_format($meta_bruto,2,',','.');
+    $meta_bruto = "R$ ".number_format($meta_bruto,2,',','.');
     //$meta_p1 = number_format($meta_p1,2,',',false)."%";
     //$meta_p2 = number_format($meta_p2,2,',',false)."%";
     //$meta_p3 = number_format($meta_p3,2,',',false)."%";
@@ -110,8 +110,6 @@
     //$vendas = "R$ ".number_format($vendas,2,',','.');
     //$lucratividade = "R$ ".number_format($lucratividade,2,',','.');
     
-
-
     $mes = explode("-", $_SESSION['metaDataInicial'])[1];
     $ano = explode("-", $_SESSION['metaDataInicial'])[0];
 
