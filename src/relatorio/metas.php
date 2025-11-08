@@ -24,13 +24,15 @@
 <div class="m-3">
     <div class="d-flex justify-content-between mb-3">
         <h4 atualiza>Relatório de Metas</h4>
-        <div class="input-group">
-            <label class="input-group-text">Filtro por Período </label>
-            <label class="input-group-text" for="data_inicial"> De </label>
-            <input type="date" id="data_inicial" class="form-control" value="<?=$_SESSION['metaDataInicial']?>" >
-            <label class="input-group-text" for="data_final"> A </label>
-            <input type="date" id="data_final" class="form-control" value="<?=$_SESSION['metaDataFinal']?>" >
-            <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
+        <div class="w-50">
+            <div class="input-group">
+                <label class="input-group-text">Filtro por Período </label>
+                <label class="input-group-text" for="data_inicial"> De </label>
+                <input type="date" id="data_inicial" class="form-control" value="<?=$_SESSION['metaDataInicial']?>" >
+                <label class="input-group-text" for="data_final"> A </label>
+                <input type="date" id="data_final" class="form-control" value="<?=$_SESSION['metaDataFinal']?>" >
+                <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
+                </div>
             </div>
         </div>
         <input type="month" max="<?= date('Y-m') ?>" style="width:150px;" value="<?=$_SESSION['periodo']?>" class="form-control  form-control-sm" periodo />
