@@ -45,9 +45,6 @@
 
     //$periodo = " and periodo = '{$_SESSION['periodo']}-01'"; //formato mensal
 
-    echo "select * from metas where 1 {$periodo}";
-    
-    
     $m = mysqli_fetch_object(mysqli_query($con, "select * from metas where 1 {$periodo}"));
 
     $meta_bruto = $m->meta;
@@ -68,7 +65,6 @@
     //                 left join origens b on a.origem = b.codigo 
     //             where date(a.dataCriacao) like '".$periodo."%' group by day(a.dataCriacao), a.origem order by b.nome asc ";
     
-    echo "<br>";
     
     $query = "select * from relatorio_modelos where 1 {$where}";
 
@@ -80,7 +76,7 @@
 
          if($registros){
 
-            echo $q = "select 
+            $q = "select 
                         day(dataCriacao) as dia,
                         count(*) as quantidade,
                         sum(ValorPedidoXquantidade) as bruto, 
@@ -103,7 +99,6 @@
 
     }
 
-    /*
 
         $pendente = (($meta_bruto - $vendas) < 0)?"<span class='text-success'>R$ ".number_format(($meta_bruto - $vendas)*(-1),2,',','.')."</span>":"<span class='text-danger'>R$ ".number_format(($meta_bruto - $vendas)*(-1),2,',','.')."</span>";
         $meta_bruto = "R$ ".number_format($meta_bruto,2,',','.');
@@ -120,6 +115,8 @@
     $ano = explode("-", $_SESSION['periodo'])[0];
 
     $diasNoMes = date("t", mktime(0, 0, 0, $mes, 1, $ano));
+
+    /*
 
 ?>
 
