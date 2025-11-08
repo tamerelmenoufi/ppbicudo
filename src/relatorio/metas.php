@@ -45,6 +45,10 @@
 
     //$periodo = " and periodo = '{$_SESSION['periodo']}-01'"; //formato mensal
 
+    echo "select * from metas where 1 {$periodo}";
+    
+    exit();
+
     $m = mysqli_fetch_object(mysqli_query($con, "select * from metas where 1 {$periodo}"));
 
     $meta_bruto = $m->meta;
