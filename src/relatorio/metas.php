@@ -42,7 +42,6 @@
 
     //$periodo = " and periodo = '{$_SESSION['periodo']}-01'"; //formato mensal
 
-
     $m = mysqli_fetch_object(mysqli_query($con, "select * from metas where 1 {$periodo}"));
 
     $meta_bruto = $m->meta;
@@ -64,6 +63,9 @@
     //             where date(a.dataCriacao) like '".$periodo."%' group by day(a.dataCriacao), a.origem order by b.nome asc ";
     
     echo $query = "select * from relatorio_modelos where 1 {$periodo}";
+    
+    exit();
+
     $result = mysqli_query($con, $query);
     while($d1 = mysqli_fetch_object($result)){
 
@@ -283,8 +285,7 @@
                 type:"POST",
                 data:{
                     data_inicial,
-                    data_final,
-                    acao:'filtro'
+                    data_final
                 },
                 success:function(dados){
                     $("#paginaHome").html(dados);
