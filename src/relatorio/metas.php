@@ -47,8 +47,7 @@
 
     echo "select * from metas where 1 {$periodo}";
     
-    /*
-
+    
     $m = mysqli_fetch_object(mysqli_query($con, "select * from metas where 1 {$periodo}"));
 
     $meta_bruto = $m->meta;
@@ -71,6 +70,7 @@
     
     $query = "select * from relatorio_modelos where 1 {$where}";
 
+    /*
     $result = mysqli_query($con, $query);
     while($d1 = mysqli_fetch_object($result)){
 
