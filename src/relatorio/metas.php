@@ -3,9 +3,15 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
 
     if($_POST['periodo']) $_SESSION['periodo'] = $_POST['periodo'];
+    if($_POST['data_inicial']) $_SESSION['metaDataInicial'] = $_POST['periodo'];
+    if($_POST['data_final']) $_SESSION['metaDataFinal'] = $_POST['periodo'];
 
-    if(!$_SESSION['periodo']){
-        $_SESSION['periodo'] = date("Y-m");
+    if($_SESSION['metaDataInicial'] and !$_SESSION['metaDataFinal']){
+        $periodo = " and periodo = '{$_SESSION['metaDataInicial']}'";
+    }else if($_SESSION['metaDataInicial'] and $_SESSION['metaDataFinal']){
+        $periodo = " and periodo between '{$_SESSION['metaDataInicial']}' and '{$_SESSION['metaDataFinal']}'";
+    }else{
+        $periodo = " and periodo like '".date("Y-m")."%'";
     }
 
 ?>
@@ -18,15 +24,24 @@
 <div class="m-3">
     <div class="d-flex justify-content-between mb-3">
         <h4 atualiza>Relatório de Metas</h4>
+        <div class="input-group">
+            <label class="input-group-text">Filtro por Período </label>
+            <label class="input-group-text" for="data_inicial"> De </label>
+            <input type="date" id="data_inicial" class="form-control" value="<?=$_SESSION['metaDataInicial']?>" >
+            <label class="input-group-text" for="data_final"> A </label>
+            <input type="date" id="data_final" class="form-control" value="<?=$_SESSION['metaDataFinal']?>" >
+            <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
+            </div>
+        </div>
         <input type="month" max="<?= date('Y-m') ?>" style="width:150px;" value="<?=$_SESSION['periodo']?>" class="form-control  form-control-sm" periodo />
     </div>
     
 <?php
 
-    $periodo = $_SESSION['periodo'];
+    //$periodo = " and periodo = '{$_SESSION['periodo']}-01'"; //formato mensal
 
 
-    $m = mysqli_fetch_object(mysqli_query($con, "select * from metas where periodo = '{$periodo}-01'"));
+    $m = mysqli_fetch_object(mysqli_query($con, "select * from metas where 1 {$periodo}"));
 
     $meta_bruto = $m->meta;
     $meta_p1 = $m->p1;
@@ -46,7 +61,7 @@
     //                 left join origens b on a.origem = b.codigo 
     //             where date(a.dataCriacao) like '".$periodo."%' group by day(a.dataCriacao), a.origem order by b.nome asc ";
     
-    $query = "select * from relatorio_modelos where data like '{$periodo}%'";
+    $query = "select * from relatorio_modelos where 1 {$periodo}";
     $result = mysqli_query($con, $query);
     while($d1 = mysqli_fetch_object($result)){
 
@@ -256,6 +271,30 @@
                 }
             });
         })
+
+        $("input[filtrar]").click(function(){
+            Carregando();
+            data_inicial = $("#data_inicial").val();
+            data_final = $("#data_final").val();
+            $.ajax({
+                url:"src/relatorio/metas.php",
+                type:"POST",
+                data:{
+                    data_inicial,
+                    data_final,
+                    acao:'filtro'
+                },
+                success:function(dados){
+                    $("#paginaHome").html(dados);
+                },
+                error:function(){
+                    Carregando('none');
+                    alert('Erro')
+                }
+            });
+        })
+
+
 
     })
 </script>
