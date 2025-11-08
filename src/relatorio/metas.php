@@ -277,7 +277,7 @@
             });
         })
 
-        $("input[filtro]").click(function(){
+        $("button[filtro]").click(function(){
             Carregando();
             data_inicial = $("#data_inicial").val();
             data_final = $("#data_final").val();
