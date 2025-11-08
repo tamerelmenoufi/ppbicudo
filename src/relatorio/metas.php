@@ -47,7 +47,7 @@
 
     echo "select * from metas where 1 {$periodo}";
     
-    exit();
+    /*
 
     $m = mysqli_fetch_object(mysqli_query($con, "select * from metas where 1 {$periodo}"));
 
@@ -226,6 +226,12 @@
         </table>
     </div>
 </div>
+
+<?php
+    //*/
+?>
+
+
 <script>
     $(function(){
         Carregando('none');
