@@ -111,7 +111,7 @@
     $meta_p3 = number_format($meta_p3,2,',',false)."%";
     $lucro = number_format((($lucratividade/(($vendas*1) > 0)?($vendas*1):1)*100),2,',',false)."%";
     $vendas = "R$ ".number_format($vendas,2,',','.');
-    //$lucratividade = "R$ ".number_format($lucratividade,2,',','.');
+    $lucratividade = "R$ ".number_format($lucratividade,2,',','.');
     
     if($_SESSION['metaDataInicial']){
         $mes = explode("-", $_SESSION['metaDataInicial'])[1];
