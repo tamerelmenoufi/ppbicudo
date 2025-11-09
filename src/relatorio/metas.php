@@ -110,7 +110,7 @@
     $meta_p2 = number_format($meta_p2,2,',',false)."%";
     $meta_p3 = number_format($meta_p3,2,',',false)."%";
     $lucro = number_format((($lucratividade/(($vendas*1) > 0)?($vendas*1):1)*100),2,',',false)."%";
-    //$vendas = "R$ ".number_format($vendas,2,',','.');
+    $vendas = "R$ ".number_format($vendas,2,',','.');
     //$lucratividade = "R$ ".number_format($lucratividade,2,',','.');
     
     if($_SESSION['metaDataInicial']){
