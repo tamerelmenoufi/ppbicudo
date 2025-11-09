@@ -118,7 +118,7 @@
         $ano = explode("-", $_SESSION['metaDataInicial'])[0];
         $diasNoMes = date("t", mktime(0, 0, 0, $mes, 1, $ano));
     }
-    /*
+    //*
 
 ?>
 
