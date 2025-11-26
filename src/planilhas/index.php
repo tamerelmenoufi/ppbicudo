@@ -39,20 +39,20 @@
 
       //mudança para incluir apenas os campos necessários
       $campos = [
-        'dataCriacao',
-        'codigoPedido',
-        'pedidoOrigem',
-        'tituloItem',
-        'frete',
-        'ValorPedidoXquantidade',
-        'CustoEnvio',
-        'CustoEnvioSeller',
-        'TarifaGatwayPagamento',
-        'TarifaMarketplace',
-        'Estorno Campanha',
-        'PrecoCusto',
-        'Porcentagem'
-      ];
+                  'dataCriacao',
+                  'codigoPedido',
+                  'pedidoOrigem',
+                  'tituloItem',
+                  'frete',
+                  'ValorPedidoXquantidade',
+                  'CustoEnvio',
+                  'CustoEnvioSeller',
+                  'TarifaGatwayPagamento',
+                  'TarifaMarketplace',
+                  'Estorno Campanha',
+                  'PrecoCusto',
+                  'Porcentagem'
+                ];
 
 
 
