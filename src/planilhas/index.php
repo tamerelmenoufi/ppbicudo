@@ -39,6 +39,7 @@
 
       $quantidade = 0;
       $comandos = [];
+      unlink("log.txt");
       foreach($result as $l => $dados){
         $query = "INSERT INTO relatorio SET ";
         $valores = [];
