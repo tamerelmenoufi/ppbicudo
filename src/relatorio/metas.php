@@ -1,11 +1,24 @@
 <?php
     error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+
     include("{$_SERVER['DOCUMENT_ROOT']}/lib/includes.php");
 
     if($_POST['periodo']) $_SESSION['periodo'] = $_POST['periodo'];
+    if($_POST['data_inicial']) $_SESSION['metaDataInicial'] = $_POST['data_inicial'];
+    if($_POST['data_final']) $_SESSION['metaDataFinal'] = $_POST['data_final'];
 
-    if(!$_SESSION['periodo']){
-        $_SESSION['periodo'] = date("Y-m");
+    if($_SESSION['metaDataInicial'] and !$_SESSION['metaDataFinal']){
+        $periodo = " and periodo = '{$_SESSION['metaDataInicial']}'";
+        $where = " and data = '{$_SESSION['metaDataInicial']}'";
+    }else if($_SESSION['metaDataInicial'] and $_SESSION['metaDataFinal']){
+        $periodo = " and periodo between '{$_SESSION['metaDataInicial']}' and '{$_SESSION['metaDataFinal']}'";
+        $where = " and data between '{$_SESSION['metaDataInicial']}' and '{$_SESSION['metaDataFinal']}'";
+    }else{
+        $periodo = " and periodo like '".date("Y-m")."%'";
+        $where = " and data like '".date("Y-m")."%'";
+        $_SESSION['metaDataInicial'] = date("Y-m-d");
     }
 
 ?>
@@ -18,15 +31,25 @@
 <div class="m-3">
     <div class="d-flex justify-content-between mb-3">
         <h4 atualiza>Relatório de Metas</h4>
-        <input type="month" max="<?= date('Y-m') ?>" style="width:150px;" value="<?=$_SESSION['periodo']?>" class="form-control  form-control-sm" periodo />
+        <div class="w-50">
+            <div class="input-group">
+                <label class="input-group-text">Filtro por Período </label>
+                <label class="input-group-text" for="data_inicial"> De </label>
+                <input type="date" id="data_inicial" class="form-control" value="<?=$_SESSION['metaDataInicial']?>" >
+                <label class="input-group-text" for="data_final"> A </label>
+                <input type="date" id="data_final" class="form-control" value="<?=$_SESSION['metaDataFinal']?>" >
+                <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
+                </div>
+            </div>
+        </div>
+        <!--<input type="month" max="<?= date('Y-m') ?>" style="width:150px;" value="<?=$_SESSION['periodo']?>" class="form-control  form-control-sm" periodo />-->
     </div>
     
 <?php
 
-    $periodo = $_SESSION['periodo'];
+    //$periodo = " and periodo = '{$_SESSION['periodo']}-01'"; //formato mensal
 
-
-    $m = mysqli_fetch_object(mysqli_query($con, "select * from metas where periodo = '{$periodo}-01'"));
+    $m = mysqli_fetch_object(mysqli_query($con, "select * from metas where 1 {$periodo}"));
 
     $meta_bruto = $m->meta;
     $meta_p1 = $m->p1;
@@ -46,7 +69,9 @@
     //                 left join origens b on a.origem = b.codigo 
     //             where date(a.dataCriacao) like '".$periodo."%' group by day(a.dataCriacao), a.origem order by b.nome asc ";
     
-    $query = "select * from relatorio_modelos where data like '{$periodo}%'";
+    
+    $query = "select * from relatorio_modelos where 1 {$where}";
+
     $result = mysqli_query($con, $query);
     while($d1 = mysqli_fetch_object($result)){
 
@@ -78,21 +103,22 @@
 
     }
 
-        $pendente = (($meta_bruto - $vendas) < 0)?"<span class='text-success'>R$ ".number_format(($meta_bruto - $vendas)*(-1),2,',','.')."</span>":"<span class='text-danger'>R$ ".number_format(($meta_bruto - $vendas)*(-1),2,',','.')."</span>";
-        $meta_bruto = "R$ ".number_format($meta_bruto,2,',','.');
-        $meta_p1 = number_format($meta_p1,2,',',false)."%";
-        $meta_p2 = number_format($meta_p2,2,',',false)."%";
-        $meta_p3 = number_format($meta_p3,2,',',false)."%";
-        $lucro = number_format((($lucratividade/($vendas)?:1)*100),2,',',false)."%";
-        $vendas = "R$ ".number_format($vendas,2,',','.');
-        $lucratividade = "R$ ".number_format($lucratividade,2,',','.');
-        
 
-
-    $mes = explode("-", $_SESSION['periodo'])[1];
-    $ano = explode("-", $_SESSION['periodo'])[0];
-
-    $diasNoMes = date("t", mktime(0, 0, 0, $mes, 1, $ano));
+    $pendente = (($meta_bruto - $vendas) < 0)?"<span class='text-success'>R$ ".number_format(($meta_bruto - $vendas)*(-1),2,',','.')."</span>":"<span class='text-danger'>R$ ".number_format(($meta_bruto - $vendas)*(-1),2,',','.')."</span>";
+    $meta_bruto = "R$ ".number_format($meta_bruto,2,',','.');
+    $meta_p1 = number_format($meta_p1,2,',',false)."%";
+    $meta_p2 = number_format($meta_p2,2,',',false)."%";
+    $meta_p3 = number_format($meta_p3,2,',',false)."%";
+    $lucro = number_format((($lucratividade/(($vendas*1) > 0)?($vendas*1):1)*100),2,',',false)."%";
+    $vendas = "R$ ".number_format($vendas,2,',','.');
+    $lucratividade = "R$ ".number_format($lucratividade,2,',','.');
+    
+    if($_SESSION['metaDataInicial']){
+        $mes = explode("-", $_SESSION['metaDataInicial'])[1];
+        $ano = explode("-", $_SESSION['metaDataInicial'])[0];
+        $diasNoMes = date("t", mktime(0, 0, 0, $mes, 1, $ano));
+    }
+    //*
 
 ?>
 
@@ -202,6 +228,12 @@
         </table>
     </div>
 </div>
+
+<?php
+    //*/
+?>
+
+
 <script>
     $(function(){
         Carregando('none');
@@ -256,6 +288,29 @@
                 }
             });
         })
+
+        $("button[filtro]").click(function(){
+            Carregando();
+            data_inicial = $("#data_inicial").val();
+            data_final = $("#data_final").val();
+            $.ajax({
+                url:"src/relatorio/metas.php",
+                type:"POST",
+                data:{
+                    data_inicial,
+                    data_final
+                },
+                success:function(dados){
+                    $("#paginaHome").html(dados);
+                },
+                error:function(){
+                    Carregando('none');
+                    alert('Erro')
+                }
+            });
+        })
+
+
 
     })
 </script>
