@@ -33,7 +33,7 @@
         'TarifaEnvio',
         'Sobrou',
         'PrecoBase',
-        'Estorno Campanha',
+        // 'Estorno Campanha',
         'TotalLiquido'
       ];
 
