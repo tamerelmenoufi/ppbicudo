@@ -55,9 +55,11 @@
         $query .= implode(", ",$valores);
         // echo $query."<hr>";
         $comandos[] = $query;
+        file_put_contents("log.txt", $query."\n", FILE_APPEND);
         if(mysqli_query($con, $query)){
           $quantidade++;
         }
+
       }
 
       mysqli_query($con, "update planilhas set situacao = '1' where codigo = '{$_POST['situacao']}'");
