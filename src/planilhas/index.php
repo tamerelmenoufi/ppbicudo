@@ -37,6 +37,25 @@
         'TotalLiquido'
       ];
 
+      //mudança para incluir apenas os campos necessários
+      $campos = [
+        'dataCriacao',
+        'codigoPedido',
+        'pedidoOrigem',
+        'tituloItem',
+        'frete',
+        'ValorPedidoXquantidade',
+        'CustoEnvio',
+        'CustoEnvioSeller',
+        'TarifaGatwayPagamento',
+        'TarifaMarketplace',
+        'Estorno Campanha',
+        'PrecoCusto',
+        'Porcentagem'
+      ];
+
+
+
       $quantidade = 0;
       $comandos = [];
       unlink("log.txt");
@@ -46,7 +65,7 @@
         $valores[] = "`planilha` = '{$_POST['situacao']}'";
         $valores[] = "`origem` = '{$_POST['origem']}'";
         foreach($dados as $i => $val){
-          if(!in_array($i,$remove)){
+          if(in_array($i,$campos)){
             if($i == 'Porcentagem'){
               $valores[] = "`{$i}` = '".substr($val,0,-1)."'";
             }else{
