@@ -33,7 +33,7 @@
         'TarifaEnvio',
         'Sobrou',
         'PrecoBase',
-        // 'Estorno Campanha',
+        // 'Estorno Campanha', // O campo foi adicionado recentemente, mas não pertece a estrutira original. dia detectado (26/11/2025) Incluí mas não foi ativado na importação  
         'TotalLiquido'
       ];
 
