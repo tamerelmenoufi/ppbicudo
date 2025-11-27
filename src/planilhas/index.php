@@ -49,7 +49,6 @@
                   'CustoEnvioSeller',
                   'TarifaGatwayPagamento',
                   'TarifaMarketplace',
-                  'Estorno Campanha',
                   'PrecoCusto',
                   'Porcentagem'
                 ];
