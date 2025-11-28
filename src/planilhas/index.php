@@ -50,7 +50,8 @@
                   'TarifaGatwayPagamento',
                   'TarifaMarketplace',
                   'PrecoCusto',
-                  'Porcentagem'
+                  'Porcentagem',
+                  'Conta'
                 ];
 
 
