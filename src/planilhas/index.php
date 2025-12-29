@@ -38,20 +38,39 @@
       ];
 
       //mudança para incluir apenas os campos necessários
+      // Estrutura IDERES
+      // $campos = [
+      //             'dataCriacao',
+      //             'codigoPedido',
+      //             'pedidoOrigem',
+      //             'tituloItem',
+      //             'frete',
+      //             'ValorPedidoXquantidade',
+      //             'CustoEnvio',
+      //             'CustoEnvioSeller',
+      //             'TarifaGatwayPagamento',
+      //             'TarifaMarketplace',
+      //             'PrecoCusto',
+      //             'Porcentagem',
+      //             'Conta'
+      //           ];
+
+
+      // Estrutura Nova MKTP
       $campos = [
-                  'dataCriacao',
-                  'codigoPedido',
-                  'pedidoOrigem',
-                  'tituloItem',
-                  'frete',
-                  'ValorPedidoXquantidade',
-                  'CustoEnvio',
-                  'CustoEnvioSeller',
-                  'TarifaGatwayPagamento',
-                  'TarifaMarketplace',
-                  'PrecoCusto',
-                  'Porcentagem',
-                  'Conta'
+                  'Data de criação', //dataCriacao
+                  'Número Pedido MKTP', //codigoPedido
+                  'Origem do pedido', //pedidoOrigem
+                  'Nome produto', //tituloItem
+                  'Tipo de frete', //frete
+                  'Total do pedido', //ValorPedidoXquantidade
+                  'Custo de Envio Comprador', //CustoEnvio
+                  'Custo de Envio Seller', //CustoEnvioSeller
+                  // '', //TarifaGatwayPagamento
+                  'Taxas do marketplace', //TarifaMarketplace
+                  'Preço de custo',  //PrecoCusto
+                  'Porcentagem', //Porcentagem
+                  'Conta' //Conta
                 ];
 
 
