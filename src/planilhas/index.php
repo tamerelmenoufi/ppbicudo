@@ -176,7 +176,7 @@
 
       $convertCampos = [
         'Data de criação' => 'dataCriacao',
-        'Número Pedido' => 'codigoPedido',
+        'Número Pedido MKTP' => 'codigoPedido',
         'Origem do pedido' => 'pedidoOrigem',
         'Nome produto' => 'tituloItem',
         'Tipo de frete' => 'frete',
