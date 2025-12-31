@@ -37,7 +37,7 @@
         $json = $resultRaw;
         $result = json_decode($resultRaw, true);
       }else{
-        $arquivoLocal = "../volume/planilhas/".$arquivoNome;
+        $arquivoLocal = "../src/volume/planilhas/".$arquivoNome;
         if(!is_file($arquivoLocal)){
           echo json_encode([
             'mensagem' => 'Arquivo não encontrado para importação.',
