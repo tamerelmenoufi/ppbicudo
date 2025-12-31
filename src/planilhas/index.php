@@ -3,25 +3,134 @@
 
     if($_POST['situacao']){
 
-      $postdata = http_build_query(
-          array(
-              'arquivo' => "../src/volume/planilhas/".$_POST['planilha']
-          )
-      );
-      $opts = array('http' =>
-          array(
-              'method'  => 'POST',
-              'header'  => 'Content-Type: application/x-www-form-urlencoded',
-              'content' => $postdata
-          )
-      );
-      $context  = stream_context_create($opts);
-      $result = file_get_contents("{$urlPainel}planilhas/ler.php", false, $context);
-      $json = $result;
-      $result = json_decode($result);
-      if(is_object($result) && isset($result->erro)){
+      $arquivoNome = basename((string)$_POST['planilha']);
+      $extensao = strtolower(pathinfo($arquivoNome, PATHINFO_EXTENSION));
+
+      if(!in_array($extensao, ['xlsx', 'csv'])){
         echo json_encode([
-          'mensagem' => (string)$result->erro,
+          'mensagem' => 'Arquivo inválido! Envie uma planilha .xlsx ou .csv',
+          'quantidade' => 0,
+          'comandos' => [],
+          'json' => null
+        ]);
+        exit();
+      }
+
+      $json = null;
+      $result = null;
+
+      if($extensao === 'xlsx'){
+        $postdata = http_build_query(
+            array(
+                'arquivo' => "../src/volume/planilhas/".$arquivoNome
+            )
+        );
+        $opts = array('http' =>
+            array(
+                'method'  => 'POST',
+                'header'  => 'Content-Type: application/x-www-form-urlencoded',
+                'content' => $postdata
+            )
+        );
+        $context  = stream_context_create($opts);
+        $resultRaw = file_get_contents("{$urlPainel}planilhas/ler.php", false, $context);
+        $json = $resultRaw;
+        $result = json_decode($resultRaw, true);
+      }else{
+        $arquivoLocal = "../volume/planilhas/".$arquivoNome;
+        if(!is_file($arquivoLocal)){
+          echo json_encode([
+            'mensagem' => 'Arquivo não encontrado para importação.',
+            'quantidade' => 0,
+            'comandos' => [],
+            'json' => null
+          ]);
+          exit();
+        }
+
+        $detectarDelimitadorCsv = function(string $linha): string {
+          $candidatos = [',', ';', "\t", '|'];
+          $melhor = ',';
+          $maior = -1;
+          foreach ($candidatos as $delimitador) {
+            $contagem = substr_count($linha, $delimitador);
+            if ($contagem > $maior) {
+              $maior = $contagem;
+              $melhor = $delimitador;
+            }
+          }
+          return $melhor;
+        };
+
+        $removerBom = function(string $texto): string {
+          if(substr($texto, 0, 3) === "\xEF\xBB\xBF"){
+            return substr($texto, 3);
+          }
+          return $texto;
+        };
+
+        $handle = fopen($arquivoLocal, 'r');
+        if(!$handle){
+          echo json_encode([
+            'mensagem' => 'Falha ao abrir o arquivo CSV.',
+            'quantidade' => 0,
+            'comandos' => [],
+            'json' => null
+          ]);
+          exit();
+        }
+
+        $primeiraLinha = fgets($handle);
+        if($primeiraLinha === false){
+          fclose($handle);
+          echo json_encode([
+            'mensagem' => 'CSV vazio ou inválido.',
+            'quantidade' => 0,
+            'comandos' => [],
+            'json' => null
+          ]);
+          exit();
+        }
+
+        $delimitador = $detectarDelimitadorCsv($primeiraLinha);
+        rewind($handle);
+
+        $cabecalho = fgetcsv($handle, 0, $delimitador);
+        if(!$cabecalho || count($cabecalho) === 0){
+          fclose($handle);
+          echo json_encode([
+            'mensagem' => 'CSV sem cabeçalho.',
+            'quantidade' => 0,
+            'comandos' => [],
+            'json' => null
+          ]);
+          exit();
+        }
+
+        $cabecalho[0] = $removerBom((string)$cabecalho[0]);
+        $camposCabecalho = array_map(static function($v){
+          return trim((string)$v);
+        }, $cabecalho);
+
+        $result = [];
+        while(($linha = fgetcsv($handle, 0, $delimitador)) !== false){
+          if($linha === [null] || count($linha) === 0) continue;
+
+          $registro = [];
+          foreach($camposCabecalho as $idx => $campo){
+            if($campo === '') continue;
+            $registro[$campo] = isset($linha[$idx]) ? (string)$linha[$idx] : '';
+          }
+          if(count($registro) > 0) $result[] = $registro;
+        }
+        fclose($handle);
+
+        $json = json_encode($result);
+      }
+
+      if(!is_array($result)){
+        echo json_encode([
+          'mensagem' => 'Falha ao ler o arquivo enviado.',
           'quantidade' => 0,
           'comandos' => [],
           'json' => $json

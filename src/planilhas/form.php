@@ -14,17 +14,11 @@
 
       if($_POST['base64'] and $_POST['imagem_tipo'] and $_POST['imagem_nome']){
 
-        $extPermitidas = ['.xlsx', '.csv'];
-        $ext = strtolower(substr($_POST['imagem_nome'], strripos($_POST['imagem_nome'],'.'), strlen($_POST['imagem_nome'])));
-        if(!in_array($ext, $extPermitidas)){
-          echo "Arquivo inválido! Envie uma planilha .xlsx ou .csv";
-          exit();
-        }
-
         if($_POST['planilha']) unlink("../volume/planilhas/{$_POST['planilha']}");
 
         $base64 = explode('base64,', $_POST['base64']);
         $img = base64_decode($base64[1]);
+        $ext = substr($_POST['imagem_nome'], strripos($_POST['imagem_nome'],'.'), strlen($_POST['imagem_nome']));
         $nome = md5($_POST['base64'].$_POST['imagem_tipo'].$_POST['imagem_nome'].date("YmdHis")).$ext;
 
         if(!is_dir("../volume")) mkdir("../volume");
@@ -90,7 +84,7 @@
             <label for="titulo">Título da Planilha*</label>
         </div>
 
-        <input type="file" class="form-control" placeholder="Banner" accept=".xlsx,.csv">
+        <input type="file" class="form-control" placeholder="Banner">
         <input type="hidden" id="base64" name="base64" value="" />
         <input type="hidden" id="imagem_tipo" name="imagem_tipo" value="" />
         <input type="hidden" id="imagem_nome" name="imagem_nome" value="" />
@@ -165,19 +159,6 @@
                 var files = $(this).prop("files");
                 for (var i = 0; i < files.length; i++) {
                     (function (file) {
-                        var ext = (file.name || '').split('.').pop().toLowerCase();
-                        if(ext !== 'xlsx' && ext !== 'csv'){
-                          $.alert({
-                            content:'Arquivo inválido! Selecione uma planilha .xlsx ou .csv',
-                            type:"red",
-                            title:false
-                          });
-                          $('input[type="file"]').val('');
-                          $("#base64").val('');
-                          $("#imagem_tipo").val('');
-                          $("#imagem_nome").val('');
-                          return;
-                        }
                         var fileReader = new FileReader();
                         fileReader.onload = function (f) {
 
