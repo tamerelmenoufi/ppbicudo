@@ -19,6 +19,15 @@
       $result = file_get_contents("{$urlPainel}planilhas/ler.php", false, $context);
       $json = $result;
       $result = json_decode($result);
+      if(is_object($result) && isset($result->erro)){
+        echo json_encode([
+          'mensagem' => (string)$result->erro,
+          'quantidade' => 0,
+          'comandos' => [],
+          'json' => $json
+        ]);
+        exit();
+      }
 
       $remove = [
         'dataAprovacao',
