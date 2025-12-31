@@ -193,19 +193,19 @@
 
       // Estrutura Nova MKTP
       $campos = [
-                  $convertCampos['Data de criação'], //dataCriacao
-                  $convertCampos['Número Pedido'], //codigoPedido
-                  $convertCampos['Origem do pedido'], //pedidoOrigem
-                  $convertCampos['Nome produto'], //tituloItem
-                  $convertCampos['Tipo de frete'], //frete
-                  $convertCampos['Total do pedido'], //ValorPedidoXquantidade
-                  $convertCampos['Custo de Envio Comprador'], //CustoEnvio
-                  $convertCampos['Custo de Envio Seller'], //CustoEnvioSeller
+                  'Data de criação', //dataCriacao
+                  'Número Pedido MKTP', //codigoPedido
+                  'Origem do pedido', //pedidoOrigem
+                  'Nome produto', //tituloItem
+                  'Tipo de frete', //frete
+                  'Total do pedido', //ValorPedidoXquantidade
+                  'Custo de Envio Comprador', //CustoEnvio
+                  'Custo de Envio Seller', //CustoEnvioSeller
                   // '', //TarifaGatwayPagamento
-                  $convertCampos['Taxas do marketplace'], //TarifaMarketplace
-                  $convertCampos['Preço de custo'],  //PrecoCusto
-                  $convertCampos['Porcentagem'], //Porcentagem
-                  $convertCampos['Conta'] //Conta
+                  'Taxas do marketplace', //TarifaMarketplace
+                  'Preço de custo',  //PrecoCusto
+                  'Porcentagem', //Porcentagem
+                  'Conta' //Conta
                 ];
 
 
@@ -221,9 +221,9 @@
         foreach($dados as $i => $val){
           if(in_array($i,$campos)){
             if($i == 'Porcentagem'){
-              $valores[] = "`{$i}` = '".substr($val,0,-1)."'";
+              $valores[] = "`{$convertCampos[$i]}` = '".substr($val,0,-1)."'";
             }else{
-              $valores[] = "`{$i}` = '".addslashes($val)."'";
+              $valores[] = "`{$convertCampos[$i]}` = '".addslashes($val)."'";
             }
           }
         }
