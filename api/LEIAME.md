@@ -13,7 +13,8 @@ Base URL (exemplo):
 
 - Defina a variável de ambiente do PHP `PPBICUDO_API_CREDENCIAL` (é ela que valida a `credencial` enviada nas requisições).
 - Garanta que o projeto esteja publicado no `DOCUMENT_ROOT` do PHP, pois os endpoints incluem `$_SERVER['DOCUMENT_ROOT']/lib/includes.php` para conectar ao banco.
-- Em desenvolvimento, se `PPBICUDO_API_CREDENCIAL` não estiver definida, a API usa a chave de teste `123456` (ver `api/config.php`).
+- Produção: configure também `APP_ENV=production` para desabilitar fallback de chave de teste.
+- Desenvolvimento: se `PPBICUDO_API_CREDENCIAL` não estiver definida, a API usa a chave de teste `123456` (ver `api/config.php`).
 
 ## Autenticação (obrigatória)
 
@@ -70,14 +71,14 @@ Lista registros da tabela `origens` com `status = '1'` e `deletado <> '1'`.
 ```bash
 curl -sS -X POST 'https://seu-dominio.com/api/origens/' \
   -H 'Content-Type: application/json' \
-  -d '{"credencial":"123456"}'
+  -d '{"credencial":"SUA_CREDENCIAL"}'
 ```
 
 ### Exemplo (cURL — form)
 
 ```bash
 curl -sS -X POST 'https://seu-dominio.com/api/origens/' \
-  -d 'credencial=123456'
+  -d 'credencial=SUA_CREDENCIAL'
 ```
 
 ### Exemplo (Postman export — compatível)
@@ -88,7 +89,7 @@ curl -sS -X POST 'https://seu-dominio.com/api/origens/' \
 ```bash
 postman request POST 'https://ppbicudo.mohatron.com/api/origens/' \
   --header 'Cookie: PHPSESSID=SEU_SESSION_ID' \
-  --form 'credencial=123456'
+  --form 'credencial=SUA_CREDENCIAL'
 ```
 
 ### Exemplo de resposta (200)
@@ -121,7 +122,7 @@ Lista registros da tabela `relatorio_modelos` para o período informado, filtran
 ```bash
 curl -sS -X POST 'https://seu-dominio.com/api/modelos/' \
   -H 'Content-Type: application/json' \
-  -d '{"credencial":"123456","mes":2,"ano":2026}'
+  -d '{"credencial":"SUA_CREDENCIAL","mes":2,"ano":2026}'
 ```
 
 ### Exemplo de resposta (200)
@@ -153,7 +154,7 @@ Retorna registros da tabela `relatorio` filtrando por `codigo IN (...)`.
 ```bash
 curl -sS -X POST 'https://seu-dominio.com/api/relatorio/' \
   -H 'Content-Type: application/json' \
-  -d '{"credencial":"123456","registros":[10,11,12]}'
+  -d '{"credencial":"SUA_CREDENCIAL","registros":[10,11,12]}'
 ```
 
 ### Exemplo de resposta (200)
