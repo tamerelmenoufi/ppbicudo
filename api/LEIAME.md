@@ -7,11 +7,13 @@ A API fica na pasta `api/` e expõe **3 endpoints** via **HTTP POST**, com respo
 Base URL (exemplo):
 
 - `https://seu-dominio.com/api`
+- Produção (este projeto): `https://ppbicudo.mohatron.com/api`
 
 ## Configuração (servidor)
 
 - Defina a variável de ambiente do PHP `PPBICUDO_API_CREDENCIAL` (é ela que valida a `credencial` enviada nas requisições).
 - Garanta que o projeto esteja publicado no `DOCUMENT_ROOT` do PHP, pois os endpoints incluem `$_SERVER['DOCUMENT_ROOT']/lib/includes.php` para conectar ao banco.
+- Em desenvolvimento, se `PPBICUDO_API_CREDENCIAL` não estiver definida, a API usa a chave de teste `123456` (ver `api/config.php`).
 
 ## Autenticação (obrigatória)
 
@@ -78,6 +80,17 @@ curl -sS -X POST 'https://seu-dominio.com/api/origens/' \
   -d 'credencial=123456'
 ```
 
+### Exemplo (Postman export — compatível)
+
+> Recomendado: ao usar `--form` (form-data), **não** forçar manualmente `Content-Type: application/json`.
+> A API aceita mesmo quando o export vem “misturado” (header JSON + form-data).
+
+```bash
+postman request POST 'https://ppbicudo.mohatron.com/api/origens/' \
+  --header 'Cookie: PHPSESSID=SEU_SESSION_ID' \
+  --form 'credencial=123456'
+```
+
 ### Exemplo de resposta (200)
 
 ```json
@@ -108,7 +121,7 @@ Lista registros da tabela `relatorio_modelos` para o período informado, filtran
 ```bash
 curl -sS -X POST 'https://seu-dominio.com/api/modelos/' \
   -H 'Content-Type: application/json' \
-  -d '{"credencial":"SUA_CREDENCIAL","mes":2,"ano":2026}'
+  -d '{"credencial":"123456","mes":2,"ano":2026}'
 ```
 
 ### Exemplo de resposta (200)
@@ -140,7 +153,7 @@ Retorna registros da tabela `relatorio` filtrando por `codigo IN (...)`.
 ```bash
 curl -sS -X POST 'https://seu-dominio.com/api/relatorio/' \
   -H 'Content-Type: application/json' \
-  -d '{"credencial":"SUA_CREDENCIAL","registros":[10,11,12]}'
+  -d '{"credencial":"123456","registros":[10,11,12]}'
 ```
 
 ### Exemplo de resposta (200)
