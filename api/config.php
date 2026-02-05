@@ -1,8 +1,9 @@
 <?php
 
-// Prefer setting the credential via environment variable:
-// putenv('PPBICUDO_API_CREDENCIAL=123456');
-// If not set, you can hardcode below (not recommended for shared repos).
+// Produção (recomendado): defina via variável de ambiente do PHP:
+//   PPBICUDO_API_CREDENCIAL=...
+//
+// Desenvolvimento: se não houver variável configurada, a API usa a chave de teste abaixo.
+// Troque/remoça antes de publicar em produção.
 
-define('PPBICUDO_API_CREDENCIAL', 123456);
-
+define('PPBICUDO_API_CREDENCIAL', getenv('PPBICUDO_API_CREDENCIAL') ?: '123456');

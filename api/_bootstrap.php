@@ -23,8 +23,12 @@ function api_read_input(): array {
     $data = [];
 
     $raw = file_get_contents('php://input');
-    $contentType = $_SERVER['CONTENT_TYPE'] ?: $_SERVER['HTTP_CONTENT_TYPE'] ?: '';
-    if ($raw && stripos($contentType, 'application/json') !== false) {
+    $contentType = $_SERVER['CONTENT_TYPE'] ?? ($_SERVER['HTTP_CONTENT_TYPE'] ?? '');
+
+    // 1) JSON body (by header or by sniffing).
+    $rawTrim = is_string($raw) ? ltrim($raw) : '';
+    $looksJson = $rawTrim !== '' && ($rawTrim[0] === '{' || $rawTrim[0] === '[');
+    if ($raw && (stripos($contentType, 'application/json') !== false || $looksJson)) {
         $decoded = json_decode($raw, true);
         if (is_array($decoded)) {
             $data = $decoded;
@@ -34,6 +38,45 @@ function api_read_input(): array {
     // POST should override JSON body if both are present (common with form posts).
     if (!empty($_POST)) {
         $data = array_merge($data, $_POST);
+    }
+
+    // 2) Tolerate clients that send form bodies with a wrong/missing Content-Type.
+    // This helps with some Postman/cURL exports where `--form` is used but headers are edited manually.
+    if (!$data && $raw) {
+        $tmp = [];
+        parse_str($raw, $tmp);
+        if (is_array($tmp) && $tmp) {
+            $data = $tmp;
+        }
+    }
+
+    // 3) Minimal multipart/form-data parsing fallback (fields only; no files).
+    if (!$data && $raw && stripos($raw, 'Content-Disposition: form-data;') !== false) {
+        $firstLine = strtok($raw, "\r\n");
+        if (is_string($firstLine) && str_starts_with($firstLine, '--')) {
+            $boundary = substr($firstLine, 2);
+            if ($boundary !== '') {
+                $parts = preg_split('/\R--' . preg_quote($boundary, '/') . '(?:--)?\R/', $raw);
+                if (is_array($parts)) {
+                    foreach ($parts as $part) {
+                        if (!is_string($part) || trim($part) === '' || stripos($part, 'Content-Disposition:') === false) {
+                            continue;
+                        }
+                        [$headers, $body] = array_pad(preg_split("/\R\R/", $part, 2), 2, '');
+                        if (!is_string($headers) || !is_string($body)) {
+                            continue;
+                        }
+                        if (preg_match('/name="([^"]+)"/', $headers, $m)) {
+                            $name = $m[1];
+                            $value = rtrim($body, "\r\n");
+                            if ($name !== '') {
+                                $data[$name] = $value;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     return $data;
@@ -64,4 +107,3 @@ function api_stmt_bind(mysqli_stmt $stmt, string $types, array $params): void {
     }
     mysqli_stmt_bind_param($stmt, $types, ...$refs);
 }
-

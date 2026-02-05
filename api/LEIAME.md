@@ -26,6 +26,12 @@ O backend aceita:
 
 - `Content-Type: application/json` (recomendado) com corpo JSON
 - `application/x-www-form-urlencoded` (form) com parâmetros em `-d "chave=valor"`
+- `multipart/form-data` (form-data do Postman)
+
+### Nota sobre Postman
+
+Se você usar **Body → form-data** no Postman, não force manualmente o header `Content-Type: application/json`.
+Mesmo assim, a API tenta ser tolerante e ler campos enviados como form-data/urlencoded, ainda que o header esteja incorreto.
 
 ## Formato de resposta e erros
 
@@ -62,7 +68,14 @@ Lista registros da tabela `origens` com `status = '1'` e `deletado <> '1'`.
 ```bash
 curl -sS -X POST 'https://seu-dominio.com/api/origens/' \
   -H 'Content-Type: application/json' \
-  -d '{"credencial":"SUA_CREDENCIAL"}'
+  -d '{"credencial":"123456"}'
+```
+
+### Exemplo (cURL — form)
+
+```bash
+curl -sS -X POST 'https://seu-dominio.com/api/origens/' \
+  -d 'credencial=123456'
 ```
 
 ### Exemplo de resposta (200)
