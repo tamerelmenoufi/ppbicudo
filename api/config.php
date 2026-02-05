@@ -4,13 +4,13 @@
 //   PPBICUDO_API_CREDENCIAL=...
 //
 // Ambiente:
-// - Se `APP_ENV=production`, NÃO usamos fallback (a variável deve existir).
-// - Caso contrário, usamos a chave de teste `123456` para facilitar desenvolvimento local.
+// - Por padrão, consideramos `APP_ENV=production` (não usamos fallback; a variável deve existir).
+// - Para desenvolvimento local, defina `APP_ENV=development` para habilitar fallback `123456`.
 
-$appEnv = strtolower((string)(getenv('APP_ENV') ?: ''));
+$appEnv = strtolower((string)(getenv('APP_ENV') ?: 'production'));
 $credencial = (string)(getenv('PPBICUDO_API_CREDENCIAL') ?: '');
 
-if ($credencial === '' && $appEnv !== 'production') {
+if ($credencial === '' && $appEnv === 'development') {
     $credencial = '123456';
 }
 

@@ -13,8 +13,8 @@ Base URL (exemplo):
 
 - Defina a variável de ambiente do PHP `PPBICUDO_API_CREDENCIAL` (é ela que valida a `credencial` enviada nas requisições).
 - Garanta que o projeto esteja publicado no `DOCUMENT_ROOT` do PHP, pois os endpoints incluem `$_SERVER['DOCUMENT_ROOT']/lib/includes.php` para conectar ao banco.
-- Produção: configure também `APP_ENV=production` para desabilitar fallback de chave de teste.
-- Desenvolvimento: se `PPBICUDO_API_CREDENCIAL` não estiver definida, a API usa a chave de teste `123456` (ver `api/config.php`).
+- Produção (padrão): se `PPBICUDO_API_CREDENCIAL` não estiver definida, a API falha com erro (sem fallback).
+- Desenvolvimento: defina `APP_ENV=development` e, se `PPBICUDO_API_CREDENCIAL` não estiver definida, a API usa a chave de teste `123456` (ver `api/config.php`).
 
 ## Autenticação (obrigatória)
 
